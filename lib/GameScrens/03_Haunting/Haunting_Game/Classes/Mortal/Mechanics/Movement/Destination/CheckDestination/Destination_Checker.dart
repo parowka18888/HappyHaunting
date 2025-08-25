@@ -19,7 +19,9 @@ class Destination_Checker{
 
     if(mortalCenter_X > xLeft && mortalCenter_X < xRight){
       if(mortalCenter_Y > yTop && mortalCenter_Y < yBottom){
-        Mortal_Setter.setFinalData(mortal, null, null);
+        if(mortal.isDefeated == false){
+          Mortal_Setter.setFinalData(mortal, null, null);
+        }
       }
     }
   }

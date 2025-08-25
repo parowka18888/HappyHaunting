@@ -118,7 +118,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
                             );
                           } else {
                             return Container(
-                              height: screenHeight * 0.25, color: Colors.green,
+                              height: screenHeight * 0.25,
+                              color: haunting_game.level.mortals[index].isDefeated ? Colors.red : Colors.green,
                               child: Row(mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset('assets/images/Mortals/${haunting_game.mortals[index].icon}.png', width: screenWidth * 0.07,),

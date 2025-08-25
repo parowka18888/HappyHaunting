@@ -9,6 +9,9 @@
     "assets/data/powers/EP0_Spider_01.json",
     "assets/data/powers/EP0_Spider_02.json",
     "assets/data/powers/EP0_Spider_03.json",
+    "assets/data/powers/EP0_Fly_01.json",
+    "assets/data/powers/EP0_Fly_02.json",
+    "assets/data/powers/EP0_Fly_03.json",
     "assets/data/powers/EP0_Moth_01.json",
     "assets/data/powers/EP0_Moth_02.json",
     "assets/data/powers/EP0_Moth_03.json"
@@ -34,6 +37,7 @@
     "assets/data/auras/Electricity.json",
     "assets/data/auras/Water.json",
     "assets/data/auras/Fire.json",
+    "assets/data/auras/Outside.json",
     "assets/data/auras/Earth.json"
   ]
 }

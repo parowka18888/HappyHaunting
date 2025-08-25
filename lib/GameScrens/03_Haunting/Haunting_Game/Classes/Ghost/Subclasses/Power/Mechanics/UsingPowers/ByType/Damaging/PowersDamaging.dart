@@ -18,8 +18,10 @@ class PowersDamaging{
       List<Haunting_Mortal> listOfTargets = TargetsGetter.getPowerTargets(targets, room, game);
       if(listOfTargets.isNotEmpty){
         for(var mortal in listOfTargets){
-          DealingDamage.dealInstantDamageToMortal(power, mortal);
-          PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot!);
+          if(mortal.isDefeated == false){
+            DealingDamage.dealInstantDamageToMortal(power, mortal, game);
+            PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot!);
+          }
         }
         PowerMechanics.setPowerCooldown(power, game);
         Haunting_Entry.addEntry_GhostUsesPower_Targets(game.viewModel, ghost, listOfTargets, power);

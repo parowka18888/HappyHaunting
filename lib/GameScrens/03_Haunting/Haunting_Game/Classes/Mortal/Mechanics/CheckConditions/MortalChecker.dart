@@ -1,26 +1,68 @@
+import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Setter/RoomSetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 class MortalChecker{
-  // static void checkIfMortalIsInCorrectRoom(Haunting_Mortal mortal, Haunting_Game game) {
-  //
-  //   if(mortal.room != null){
-  //     if(mortal.room!.containsPoint(mortal.position)){
-  //       //STILL IN THE ROOM
-  //       if(mortal.name == "Haunting_Ogórki")
-  //         print("👻 Mortal ${mortal.name} JEST DALEJ W POKOJU ${mortal.room!.id} at ${DateTime.now()}");
-  //       return;
-  //     } else {
-  //       //OUT OF THE ROOM
-  //       RoomSetter.removeMortalFromMortalsInRoom(mortal.room!, mortal);
-  //       Mortal_Setter.setRoom(mortal, null);
-  //     }
-  //   }
-  //   RoomMortal.assignMortalToRoom(mortal, game);
-  //   // Mortal_Setter.setCurrentRoom(mortal, game);
-  // }
+
+  static void checkIfMortalIsDefeated(Haunting_Mortal mortal, Haunting_Game game) {
+
+    checkForMortalState(mortal, game);
+
+    if(mortal.stat_Current_Fear > mortal.stat_Fear){
+      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Fear;
+    } else if (mortal.stat_Current_Madness > mortal.stat_Madness){
+      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Madness;
+    } else if (mortal.stat_Current_Faith > mortal.stat_Faith){
+      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Faith;
+    } else if (mortal.stat_Current_Health > mortal.stat_Health){
+      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Health;
+    }
+
+    if(mortal.isDefeated == true){
+      List<Haunting_Exit> exitPoints = game.level.exitPoints;
+      if(exitPoints.isNotEmpty){
+        exitPoints.shuffle();
+        Haunting_Exit exitPoint = exitPoints[0];
+        Mortal_Setter.setFinalData(mortal, exitPoint.position, exitPoint.floor);
+        print(exitPoint.position);
+        Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+        print("MORTAL ${mortal.name} UCIEKA!");
+      }
+    }
+    return;
+  }
+
+  static void checkForMortalState(Haunting_Mortal mortal, Haunting_Game game) {
+
+    //PERCENTAGES OF CHANGE OF STATE
+    var percentageChange_Scared = 0.35;
+    var percentageChange_Terrified = 0.75;
+    var percentageChange_Hurt = 0.75;
+    var percentageChange_Dead = 1;
+
+    if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Scared){
+      Mortal_Setter.setState(mortal, Mortal_State.scared);
+      if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Terrified){
+        Mortal_Setter.setState(mortal, Mortal_State.terrified);
+      }
+    } else {
+      Mortal_Setter.setState(mortal, Mortal_State.calm);
+    }
+    if(mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Hurt){
+      Mortal_Setter.setState(mortal, Mortal_State.hurt);
+      if(mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Dead){
+        Mortal_Setter.setState(mortal, Mortal_State.dead);
+      }
+    }
+
+
+
+  }
 
 }
