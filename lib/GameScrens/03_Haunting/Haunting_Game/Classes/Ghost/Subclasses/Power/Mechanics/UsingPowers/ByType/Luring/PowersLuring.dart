@@ -3,6 +3,7 @@ import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
@@ -26,6 +27,25 @@ class PowersLuring{
           for(final mortal in roomAtFloor.mortalsInRoom){
             Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
           }
+        }
+        PowerMechanics.setPowerCooldown(power, game);
+        Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);
+        PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
+      }
+    }
+  }
+
+  static void usePower_LureMap(Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, Haunting_Game game, Power_Targets targets) {
+    List<Haunting_Mortal> listOfTargets = TargetsGetter.getPowerTargets(targets, room, game);
+    Haunting_Floor? floor = room.floor;
+    if(listOfTargets.isNotEmpty && floor != null){
+      List<Vector2> listOfMortalActionPointsInRoom = MortalDestinationPointsGetter.getDestinationPointsByRoom(room, floor.mortalActionPoints);
+      if(listOfMortalActionPointsInRoom.isNotEmpty){
+        for(Haunting_Mortal mortal in listOfTargets){
+          listOfMortalActionPointsInRoom.shuffle();
+          Mortal_Setter.setFinalData(mortal, listOfMortalActionPointsInRoom[0], floor);
+          Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+
         }
         PowerMechanics.setPowerCooldown(power, game);
         Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);

@@ -28,7 +28,7 @@ class Haunting_Stairs extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Haunting_Mortal){
       if(other.canChangeFloor == true) StairsMechanics.changeFloorForMortal(other, floorModifier, game);
-      Future.delayed(Duration(seconds: 1), (){
+      Future.delayed(Duration(seconds: 2), (){
         Mortal_Setter.setCanChangeFloors(other, true);
       });
     }
