@@ -2,8 +2,8 @@
   "id": "EP0_Fly",
   "name": "Muchhhha",
   "icon" : "TestGhost_4",
-  "powersIDs": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03"],
-  "aurasIDs": ["Aura_Earth", "Aura_Electricity"],
+  "powersIDs": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03"],
+  "aurasIDs": ["Aura_Earth", "Aura_Outside"],
 
   "powers": [],
   "auras": []

@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Getter/MortalGetter.dart';
@@ -27,8 +29,17 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
   });
 
+  //STATIC DATA
   String icon = "";
   String name = "";
+
+
+  //SCARING MORTAL
+  bool isDefeated = false;
+  Mortal_DefeatType? defeatType;
+  Mortal_State state = Mortal_State.calm;
+  bool canMove = true;
+
   double stat_Fear = 0;
   double stat_Health = 0;
   double stat_Madness = 0;
@@ -92,13 +103,11 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   @override
   void update(double dt) {
     super.update(dt);
-      // Mortal_Movement.navigateMortal(this, game);
-      Mortal_Movement.moveInPath(this, game, dt);
-
+      if(canMove == true) Mortal_Movement.moveInPath(this, game, dt);
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
         RoomMortal.assignMortalToRoom(this, game);
-        // MortalChecker.checkIfMortalIsInCorrectRoom(this, game);
+
         timeSinceLastReload = 0.0;
       }
   }

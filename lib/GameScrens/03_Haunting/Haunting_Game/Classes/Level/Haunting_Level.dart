@@ -6,6 +6,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/LoadingGameElements.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Astar/AStar_Grid.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
@@ -26,6 +27,7 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   List<Haunting_Ghost> ghosts = [];
   List<Haunting_GhostSpot> ghostSpots = [];
   List<Haunting_Floor> floors = [];
+  List<Haunting_Exit> exitPoints = [];
 
   HauntingGame_ViewModel viewModel = HauntingGame_ViewModel();
 

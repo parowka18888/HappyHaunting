@@ -5,6 +5,7 @@ import 'package:happyhaunting/Data/Database/Enums/Getter/EnumGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
@@ -114,20 +115,6 @@ class LoadingGameElements{
   }
 
 
-  // static void loadLevelMortalActionPoints(Haunting_Level level) {
-  //     final actionPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('MortalActionPoints');
-  //     if(actionPointsLayer != null){
-  //       for (final point in actionPointsLayer.objects) {
-  //         switch(point.class_){
-  //           case 'MortalActionPoint' : {
-  //             print("dodawanie miejsca akcji");
-  //             level.mortalActionPoints.add(Vector2(point.x, point.y));
-  //           }
-  //         }
-  //       }
-  //     }
-  // }
-
   static void loadLevelMortalActionPoints(Haunting_Level level, Haunting_Game game) {
     final actionPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('MortalDestinationPoints');
     
@@ -153,7 +140,6 @@ class LoadingGameElements{
     final actionPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('MortalSpecialPoints');
     if(actionPointsLayer != null){
       for (final point in actionPointsLayer.objects) {
-        // MortalSpecialPoint_Stairs
         switch(point.class_){
           case 'MortalSpecialPoint_Stairs' : {
             int floorID = point.properties.getValue('floor');
@@ -164,11 +150,23 @@ class LoadingGameElements{
                 size: point.size,
                 floorModifier: floorChangingValue
             );
-
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
             if(floor != null){
               floor.listStairs.add(stairs);
               game.add(stairs);
+            }
+          }
+          case 'MortalSpecialPoint_Exit' : {
+            int floorID = point.properties.getValue('floor');
+            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
+            if(floor != null){
+              Haunting_Exit exit = Haunting_Exit(
+                  position: point.position,
+                  size: point.size,
+                  floor: floor
+              );
+              level.exitPoints.add(exit);
+              game.add(exit);
             }
           }
         }
@@ -224,13 +222,6 @@ class LoadingGameElements{
     }
   }
 
-
-  // static void loadFloorsByActionPoints(Haunting_Level haunting_level) {
-  //   List<Vector2> actionPoints = haunting_level.mortalActionPoints;
-  //   for(Vector2 actionPoint in actionPoints){
-  //
-  //   }
-  // }
 
 
 }

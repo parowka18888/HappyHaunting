@@ -1,8 +1,10 @@
 import 'dart:math';
 
 import 'package:flame/src/game/notifying_vector2.dart';
+import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 
 import '../../../../Haunting_Game.dart';
@@ -39,6 +41,16 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
   static void setDestinationAndPath(Haunting_Mortal mortal, Vector2? destination, List<Vector2> path) {
     mortal.currentDestination = destination;
     mortal.path = path;
+  }
+
+  static void setState(Haunting_Mortal mortal, Mortal_State state) {
+    mortal.state = state;
+    double speed = Mortal_StaticData.getMortalSpeedByState(state);
+    setSpeed(mortal, speed);
+  }
+
+  static void setSpeed(Haunting_Mortal mortal, double speed) {
+    mortal.speed = speed;
   }
 
 

@@ -25,7 +25,9 @@ class PowersLuring{
       if(listOfMortalActionPointsInRoom.isNotEmpty){
         for(final roomAtFloor in floor.listRooms){
           for(final mortal in roomAtFloor.mortalsInRoom){
-            Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
+            if(mortal.isDefeated == false){
+              Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
+            }
           }
         }
         PowerMechanics.setPowerCooldown(power, game);
@@ -42,10 +44,11 @@ class PowersLuring{
       List<Vector2> listOfMortalActionPointsInRoom = MortalDestinationPointsGetter.getDestinationPointsByRoom(room, floor.mortalActionPoints);
       if(listOfMortalActionPointsInRoom.isNotEmpty){
         for(Haunting_Mortal mortal in listOfTargets){
-          listOfMortalActionPointsInRoom.shuffle();
-          Mortal_Setter.setFinalData(mortal, listOfMortalActionPointsInRoom[0], floor);
-          Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
-
+          if(mortal.isDefeated == false){
+            listOfMortalActionPointsInRoom.shuffle();
+            Mortal_Setter.setFinalData(mortal, listOfMortalActionPointsInRoom[0], floor);
+            Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+          }
         }
         PowerMechanics.setPowerCooldown(power, game);
         Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);

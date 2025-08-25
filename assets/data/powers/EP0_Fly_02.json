@@ -1,18 +1,18 @@
 {
-  "id": "EP0_Spider_01",
+  "id": "EP0_Fly_02",
   "name": "1",
   "description": "Desc",
 
   "cost" : 20,
   "cooldown" : 3,
 
-  "stat_Fear": 40,
-  "stat_Health": 20,
-  "stat_Madness": 15,
-  "stat_Faith": 4,
+  "stat_Fear": 0,
+  "stat_Health": 25,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
 
   "powerType" : "mortalSingle",
   "powerChances" : 100,
 
-  "icon": "TestPower_1"
+  "icon": "TestPower_8"
 }
