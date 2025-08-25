@@ -1,0 +1,18 @@
+{
+  "id": "EP0_Spider_02",
+  "name": "2",
+  "description": "Desc",
+
+  "cost" : 25,
+  "cooldown" : 25,
+
+  "stat_Fear": 25,
+  "stat_Health": 12,
+  "stat_Madness": 6,
+  "stat_Faith": 5,
+
+  "powerType" : "mortalRoom",
+  "powerChances" : 100,
+
+  "icon": "TestPower_2"
+}

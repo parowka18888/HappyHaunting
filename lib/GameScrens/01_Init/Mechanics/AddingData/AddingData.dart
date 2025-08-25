@@ -1,0 +1,58 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/GameScrens/01_Init/Mechanics/Getter/BoxType_Getter.dart';
+import 'package:hive/hive.dart';
+
+import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
+import '../../../../Data/Database/DatabaseStructure/01_Power.dart';
+import '../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
+import '../../../../Data/Database/DatabaseStructure/03_Level.dart';
+
+class AddingData{
+
+
+  static Future<void> loadData() async {
+    Box box_Ghosts = Hive.box<Ghost>('ghosts');
+    Box box_Powers = Hive.box<Power>('powers');
+    Box box_Mortals = Hive.box<Mortal>('mortals');
+    Box box_Levels = Hive.box<Level>('levels');
+    Box box_Auras = Hive.box<Aura>('auras');
+
+    bool dataIsLoaded = true;
+    int number_Ghosts = 2;
+    int number_Powers = 1;
+
+    await AddingData.addDataToDatabase_FromJSON(box_Powers, 'powers');
+    await AddingData.addDataToDatabase_FromJSON(box_Auras, 'auras');
+    await AddingData.addDataToDatabase_FromJSON(box_Ghosts, 'ghosts');
+    await AddingData.addDataToDatabase_FromJSON(box_Mortals, 'mortals');
+    await AddingData.addDataToDatabase_FromJSON(box_Levels, 'levels');
+
+  }
+
+  static Future<void> addDataToDatabase_FromJSON(Box box, String jsonName) async {
+
+    final indexStr = await rootBundle.loadString('assets/data/Index.json');
+    final indexJson = json.decode(indexStr);
+    final objectsPaths = List<String>.from(indexJson['$jsonName']);
+
+    for (final path in objectsPaths) {
+      final data = await rootBundle.loadString(path);
+      final objectJson = json.decode(data);
+      final object = BoxType_Getter.getObjectData_ByBoxType(box, objectJson);
+      if (!box.containsKey(object.id)) {
+        await box.put(object.id, object);
+        print("✅ Dodano nowy rekord: ${object.id}");
+        print("⏩ Uzupełnianie Danych: ${object.id}");
+        BoxType_Getter.getDetailedInformation_ByBoxType(box, object.id);
+
+      } else {
+        print("⏩ Rekord już istnieje: ${object.id}");
+      }
+    }
+    print("Liczba elementów w boxie ${box.length}");
+  }
+
+}

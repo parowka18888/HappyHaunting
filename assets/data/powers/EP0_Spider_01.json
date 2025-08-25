@@ -1,0 +1,18 @@
+{
+  "id": "EP0_Spider_01",
+  "name": "1",
+  "description": "Desc",
+
+  "cost" : 20,
+  "cooldown" : 20,
+
+  "stat_Fear": 10,
+  "stat_Health": 20,
+  "stat_Madness": 15,
+  "stat_Faith": 4,
+
+  "powerType" : "mortalSingle",
+  "powerChances" : 100,
+
+  "icon": "TestPower_1"
+}

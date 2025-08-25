@@ -1,0 +1,19 @@
+{
+  "id": "EP0_Level0_Test_Mortal3",
+  "name": "Ogórki",
+  "icon" : "TestMortal3",
+
+  "stat_Fear": 200,
+  "stat_Health": 193,
+  "stat_Madness": 150,
+  "stat_Faith": 230,
+
+  "stat_Multiplier_Fear": 0.5,
+  "stat_Multiplier_Health": 0.75,
+  "stat_Multiplier_Madness": 0.9,
+  "stat_Multiplier_Faith": 1.3,
+
+  "type": null
+
+
+}

@@ -1,0 +1,3 @@
+enum GameCategory{
+  ghosts, mortals
+}

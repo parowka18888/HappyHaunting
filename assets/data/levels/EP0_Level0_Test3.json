@@ -1,0 +1,16 @@
+{
+  "id": "EP0_Level0_Test3",
+  "name": "Level 1",
+
+  "fileName": "Level_Test3",
+  "levelWidth": 1920,
+  "levelHeight": 1080,
+
+  "numberOfFloors": 2,
+  "numberOfFloorsBasement": 2,
+
+  "mortalsIDs": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4", "EP0_Level0_Test_Mortal5", "EP0_Level0_Test_Mortal6"],
+  "mortals": []
+
+
+}

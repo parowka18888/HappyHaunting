@@ -1,0 +1,18 @@
+{
+  "id": "EP0_Moth_03",
+  "name": "XYZ",
+  "description": "Desc",
+
+  "cost" : 20,
+  "cooldown" : 20,
+
+  "stat_Fear": 0,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+
+  "powerType" : "lureFloor",
+  "powerChances" : 25,
+
+  "icon": "TestPower_6"
+}

@@ -1,0 +1,88 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Level_Test3.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "BgTest.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Level_Test.tmx": {
+            "expandedObjectLayers": [
+                4,
+                5,
+                3
+            ],
+            "scale": 1,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 768,
+                "y": 440
+            }
+        },
+        "Level_Test2.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3
+            ],
+            "scale": 1,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 768,
+                "y": 440
+            }
+        },
+        "Level_Test3.tmx": {
+            "expandedObjectLayers": [
+                4,
+                6,
+                5
+            ],
+            "scale": 1,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 678,
+                "y": 605.5
+            }
+        },
+        "Terrain (16x16).tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Terrain",
+    "map.fixedSize": true,
+    "map.height": 135,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 240,
+    "openFiles": [
+        "Terrain (16x16).tsx",
+        "BgTest.tsx",
+        "Level_Test2.tmx",
+        "Level_Test.tmx",
+        "Level_Test3.tmx"
+    ],
+    "project": "HappyHaunting_TileProject.tiled-project",
+    "property.type": "int",
+    "recentFiles": [
+        "Terrain (16x16).tsx",
+        "BgTest.tsx",
+        "Level_Test2.tmx",
+        "Level_Test.tmx",
+        "Level_Test3.tmx"
+    ],
+    "resizeMap.removeObjects": true,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.useTransparentColor": true
+}

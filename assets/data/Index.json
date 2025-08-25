@@ -1,0 +1,39 @@
+{
+  "ghosts": [
+    "assets/data/ghosts/EP0_Spider.json",
+    "assets/data/ghosts/EP0_Moth.json",
+    "assets/data/ghosts/EP0_Fly.json"
+    ],
+
+  "powers": [
+    "assets/data/powers/EP0_Spider_01.json",
+    "assets/data/powers/EP0_Spider_02.json",
+    "assets/data/powers/EP0_Spider_03.json",
+    "assets/data/powers/EP0_Moth_01.json",
+    "assets/data/powers/EP0_Moth_02.json",
+    "assets/data/powers/EP0_Moth_03.json"
+  ],
+
+  "mortals": [
+    "assets/data/mortals/EP0_Level0_Test_Mortal1.json",
+    "assets/data/mortals/EP0_Level0_Test_Mortal2.json",
+    "assets/data/mortals/EP0_Level0_Test_Mortal3.json",
+    "assets/data/mortals/EP0_Level0_Test_Mortal4.json",
+    "assets/data/mortals/EP0_Level0_Test_Mortal5.json",
+    "assets/data/mortals/EP0_Level0_Test_Mortal6.json"
+  ],
+
+  "levels": [
+    "assets/data/levels/EP0_Level0_Test.json",
+    "assets/data/levels/EP0_Level0_Test2.json",
+    "assets/data/levels/EP0_Level0_Test3.json"
+  ],
+
+  "auras": [
+    "assets/data/auras/Inside.json",
+    "assets/data/auras/Electricity.json",
+    "assets/data/auras/Water.json",
+    "assets/data/auras/Fire.json",
+    "assets/data/auras/Earth.json"
+  ]
+}

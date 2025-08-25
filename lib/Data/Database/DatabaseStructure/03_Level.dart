@@ -1,0 +1,37 @@
+
+import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+import '02_Mortal.dart';
+
+
+part '03_Level.g.dart';
+
+@HiveType(typeId: 3)
+@JsonSerializable()
+class Level extends HiveObject {
+
+  @HiveField(0)  final String id;
+  @HiveField(1)  final String name;
+  @HiveField(2)  final String fileName;
+  @HiveField(3)  final List<String> mortalsIDs;
+  @HiveField(4)  List<Mortal> mortals;
+  @HiveField(5)  final double levelWidth;
+  @HiveField(6)  final double levelHeight;
+
+  Level({
+    required this.id,
+    required this.name,
+    required this.fileName,
+    required this.mortalsIDs,
+    required this.mortals,
+    required this.levelWidth,
+    required this.levelHeight,
+  });
+
+  factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);
+  Map<String, dynamic> toJson() => _$LevelToJson(this);
+}
+
+//Adapters were generated with build_runner command:
+//flutter packages pub run build_runner build

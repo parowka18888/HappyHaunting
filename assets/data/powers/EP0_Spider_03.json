@@ -1,0 +1,18 @@
+{
+  "id": "EP0_Spider_03",
+  "name": "3",
+  "description": "Desc",
+
+  "cost" : 30,
+  "cooldown" : 32,
+
+  "stat_Fear": 14,
+  "stat_Health": 16,
+  "stat_Madness": 28,
+  "stat_Faith": 4,
+
+  "powerType" : "mortalGlobal",
+  "powerChances" : 100,
+
+  "icon": "TestPower_3"
+}

@@ -1,0 +1,3 @@
+class Haunting_InteractiveObject{
+
+}
