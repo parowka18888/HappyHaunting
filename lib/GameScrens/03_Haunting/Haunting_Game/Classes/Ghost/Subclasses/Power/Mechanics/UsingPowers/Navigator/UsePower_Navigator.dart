@@ -26,6 +26,7 @@ class UsePower_Navigator{
         PowersLuring.usePower_Lure(power, ghost, room, game, Power_Targets.MortalFloor);
         break;
       case PowerType.lureMap:
+        PowersLuring.usePower_LureMap(power, ghost, room, game, Power_Targets.MortalMap);
         break;
     }
   }

@@ -7,7 +7,6 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 
 import '../../../../Haunting_Game.dart';
 import '../../../Astar/AStar.dart';
-import '../Movement/Destination/Mortal_Destination.dart';
 import 'package:flame/components.dart';
 
 class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>{
@@ -28,13 +27,18 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.room = room;
   }
 
-  static void setCurrentDestination(Haunting_Mortal mortal, Vector2 nextDestination) {
+  static void setCurrentDestination(Haunting_Mortal mortal, Vector2? nextDestination) {
     mortal.currentDestination = nextDestination;
   }
 
-  static void setFinalData(Haunting_Mortal mortal, Vector2 nextDestination, Haunting_Floor floor) {
+  static void setFinalData(Haunting_Mortal mortal, Vector2? nextDestination, Haunting_Floor? floor) {
     mortal.finalDestination = nextDestination;
     mortal.finalFloor = floor;
+  }
+
+  static void setDestinationAndPath(Haunting_Mortal mortal, Vector2? destination, List<Vector2> path) {
+    mortal.currentDestination = destination;
+    mortal.path = path;
   }
 
 

@@ -14,4 +14,14 @@ class StairsGetter{
     return null;
   }
 
+  static Haunting_Stairs? getStairsAtFloor_SearchByModifier(Haunting_Floor floor, int floorModifier) {
+    List<Haunting_Stairs> availableStairs = floor.listStairs;
+    for(final object in availableStairs){
+      if(object.floorModifier == floorModifier){
+        return object;
+      }
+    }
+    return null;
+  }
+
 }

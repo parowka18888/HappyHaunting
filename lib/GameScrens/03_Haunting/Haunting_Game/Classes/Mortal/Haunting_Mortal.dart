@@ -6,7 +6,7 @@ import 'package:flame/events.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Getter/MortalGetter.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/Mortal_Destination.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Movement/Mortal_Movement.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
@@ -61,7 +61,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
 
 
-  Vector2 currentDestination = Vector2(0, 0);
+  Vector2? currentDestination;
   List<Vector2> path = [];
 
   double speed = 50;
@@ -79,7 +79,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         size: Vector2(this.width * 0.5, this.height * 0.5)
     ));
 
-    Mortal_Destination_Setter.setNextDestination(this, game);
+    Mortal_Destination_Navigator.setMortalNextDestination_Navigator(this, game);
 
     // final baseSprite = SpriteComponent(      sprite: await game.loadSprite('mortals/base.png'),      size: Vector2(64, 64),    );
     // // Nakładka (np. kapelusz, aura, itp.)
@@ -92,6 +92,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   @override
   void update(double dt) {
     super.update(dt);
+      // Mortal_Movement.navigateMortal(this, game);
       Mortal_Movement.moveInPath(this, game, dt);
 
       timeSinceLastReload += dt;

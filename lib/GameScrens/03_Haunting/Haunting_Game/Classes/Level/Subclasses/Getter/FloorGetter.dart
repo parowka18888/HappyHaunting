@@ -3,9 +3,12 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 
 class FloorGetter{
   static Haunting_Floor? getFloorById(int id, Haunting_Game game) {
-    Haunting_Floor? floor = game.level.floors.firstWhere((floor) => floor.id == id, orElse: null);
-    return floor;
+    for(final floor in game.level.floors){
+      if(floor.id == id){
+        return floor;
+      }
+    }
+    return null;
   }
-
 
 }
