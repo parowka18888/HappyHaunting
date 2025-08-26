@@ -63,7 +63,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(width: screenWidth, height: screenHeight * 0.9, color: Colors.red,
-                        child: ListView.builder(itemCount: viewModel.gameCategory == GameCategory.ghosts ? haunting_game.ghosts.length : haunting_game.mortals.length,
+                        child: ListView.builder(itemCount: viewModel.gameCategory == GameCategory.ghosts ? haunting_game.ghosts.length : (viewModel.gameCategory == GameCategory.mortals ? haunting_game.mortals.length : haunting_game.trappedGhosts.length),
                             itemBuilder: (context, index){
                           if(viewModel.gameCategory == GameCategory.ghosts){
                             return Container(
@@ -116,7 +116,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
                                   ),
                                 ],),
                             );
-                          } else {
+                          }
+                          else if (viewModel.gameCategory == GameCategory.mortals) {
                             return Container(
                               height: screenHeight * 0.25,
                               color: haunting_game.level.mortals[index].isDefeated ? Colors.red : Colors.green,
@@ -133,6 +134,57 @@ class _HauntingScreenState extends State<HauntingScreen> {
                                   ],)
                                 ],),
                             );
+                          } else if (viewModel.gameCategory == GameCategory.trapped){
+                            return Container(
+                              height: screenHeight * 0.3, color: Colors.green,
+                              child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: (){
+                                          // if(haunting_game.level.ghosts[index] == viewModel.chosenGhost){
+                                          //   viewModel.setChosenGhost(null);
+                                          // } else {
+                                          //   viewModel.setChosenGhost(haunting_game.level.ghosts[index]);
+                                          // }
+                                        },
+                                        child: Image.asset('assets/images/Ghosts/${haunting_game.level.trappedGhosts[index].icon}.png', width: screenWidth * 0.05,),
+                                      ),
+                                      Container(height: screenHeight * 0.3 * 0.2, width: screenWidth * 0.1, color: Colors.blue,
+                                        child: ListView.builder(
+                                            itemCount: haunting_game.level.trappedGhosts[index].auras.length,
+                                            scrollDirection: Axis.horizontal,
+                                            itemBuilder: (context, indexAura) {
+                                              return Image.asset('assets/images/Auras/${haunting_game.level.trappedGhosts[index].auras[indexAura].icon}.png');
+                                            }),
+
+                                      )
+                                    ],),
+                                  if(viewModel.chosenGhost == haunting_game.level.ghosts[index])
+                                    Text("Wybrany"),
+                                  Container(height: screenHeight * 0.1, width: screenWidth * 0.2, color: Colors.yellow,
+                                    child: ListView.builder(
+                                        itemCount: haunting_game.trappedGhosts[index].powers.length,
+                                        scrollDirection: Axis.horizontal,
+                                        itemBuilder: (context, indexPower){
+                                          return GestureDetector(
+                                              onTap: (){
+                                                PowerSetter.togglePowerActivation(haunting_game.level.trappedGhosts[index].powers[indexPower]);
+                                                // haunting_game.level.ghosts[index].powers[indexPower].use();
+                                                viewModel.refresh();
+                                              },
+                                              child: Opacity(opacity: haunting_game.level.trappedGhosts[index].powers[indexPower].isActivated ? 1.0 : 0.5, child: Stack(
+                                                children: [
+                                                  Image.asset('assets/images/Powers/${haunting_game.level.trappedGhosts[index].powers[indexPower].icon}.png', width: screenWidth * 0.04,),
+                                                  // Text(haunting_game.level.ghosts[index].powers[indexPower].currentCooldown.toString())
+                                                ],
+                                              ),)
+                                          );
+                                        }),
+                                  ),
+                                ],),
+                            );
                           }
 
                         })
@@ -141,8 +193,16 @@ class _HauntingScreenState extends State<HauntingScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Expanded(child:
                           ElevatedButton(onPressed: (){viewModel.setGameCategory(GameCategory.ghosts) ;print(viewModel.gameCategory);}, child: Text("D")),
+                          ),
+                          Expanded(child:
                           ElevatedButton(onPressed: (){viewModel.setGameCategory(GameCategory.mortals);print(viewModel.gameCategory);}, child: Text("M")),
+                          ),
+                          Expanded(child:
+                          ElevatedButton(onPressed: (){viewModel.setGameCategory(GameCategory.trapped);print(viewModel.gameCategory);}, child: Text("T")),
+                          ),
+
                         ],
                       ),),
                     ],
@@ -195,7 +255,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
       ..width = widget.chosenLevel.levelWidth
       ..height = widget.chosenLevel.levelHeight
       ..viewModel = viewModel
-      ..ghosts = [box_Ghosts.getAt(0), box_Ghosts.getAt(1), box_Ghosts.getAt(2)]
+      ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3)]
+      ..trappedGhosts = widget.chosenLevel.trappedGhosts
 
     ;
 

@@ -4,8 +4,16 @@ import 'package:vector_math/vector_math.dart';
 
 class PowerParticleGetter{
   static Vector2 getDestination(Haunting_GhostSpot? ghostSpot, Haunting_Mortal mortal) {
-    double x = mortal.absoluteCenter.x - ghostSpot!.position.x;
-    double y = mortal.absoluteCenter.y - ghostSpot.position.y;
+    double ghostSpotX = 0;
+    double ghostSpotY = 0;
+    if(ghostSpot == null){
+
+    } else {
+      ghostSpotX = ghostSpot.position.x;
+      ghostSpotY = ghostSpot.position.y;
+    }
+    double x = mortal.absoluteCenter.x - ghostSpotX;
+    double y = mortal.absoluteCenter.y - ghostSpotY;
     return Vector2(x, y);
   }
 

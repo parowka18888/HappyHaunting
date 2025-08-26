@@ -19,6 +19,7 @@ class Haunting_Game extends FlameGame with HasCollisionDetection {
   String levelName = "Level_Test";
   List<Mortal> mortals = [];
   List<Ghost> ghosts = [];
+  List<Ghost> trappedGhosts = [];
   double width = 1920;
   double height = 1080;
   HauntingGame_ViewModel viewModel = HauntingGame_ViewModel();

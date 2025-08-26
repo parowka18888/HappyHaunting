@@ -1,4 +1,5 @@
 
+import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -18,6 +19,8 @@ class Level extends HiveObject {
   @HiveField(4)  List<Mortal> mortals;
   @HiveField(5)  final double levelWidth;
   @HiveField(6)  final double levelHeight;
+  @HiveField(7)  final List<String> trappedGhostsIDs;
+  @HiveField(8)  List<Ghost> trappedGhosts;
 
   Level({
     required this.id,
@@ -27,6 +30,8 @@ class Level extends HiveObject {
     required this.mortals,
     required this.levelWidth,
     required this.levelHeight,
+    required this.trappedGhostsIDs,
+    required this.trappedGhosts,
   });
 
   factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);
