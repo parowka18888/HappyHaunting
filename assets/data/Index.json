@@ -2,6 +2,7 @@
   "ghosts": [
     "assets/data/ghosts/EP0_Spider.json",
     "assets/data/ghosts/EP0_Moth.json",
+    "assets/data/ghosts/EP0_ClothesEater.json",
     "assets/data/ghosts/EP0_Fly.json"
     ],
 
@@ -12,6 +13,9 @@
     "assets/data/powers/EP0_Fly_01.json",
     "assets/data/powers/EP0_Fly_02.json",
     "assets/data/powers/EP0_Fly_03.json",
+    "assets/data/powers/EP0_ClothesEater_01.json",
+    "assets/data/powers/EP0_ClothesEater_02.json",
+    "assets/data/powers/EP0_ClothesEater_03.json",
     "assets/data/powers/EP0_Moth_01.json",
     "assets/data/powers/EP0_Moth_02.json",
     "assets/data/powers/EP0_Moth_03.json"
