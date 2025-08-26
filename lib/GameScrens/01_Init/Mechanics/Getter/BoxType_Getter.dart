@@ -28,18 +28,20 @@ class BoxType_Getter{
         return Mortal.fromJson(objectJson);
       }
       case (Box<Level> _) : {
-        Level level = Level.fromJson(objectJson);
+        // Level level = Level.fromJson(objectJson);
 
-        //GET MORTAL IDS
-        List<String> mortalsIDs = level.mortalsIDs;
-        List<Mortal> mortals = [];
+        // //GET MORTAL IDS
+        // List<String> mortalsIDs = level.mortalsIDs;
+        // List<Mortal> mortals = [];
+        // List<String> mortalsIDs = level.mortalsIDs;
+        // List<Mortal> mortals = [];
+        //
+        // for(String id in mortalsIDs){
+        //   Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
+        //   mortals.add(mortal);
+        // }
 
-        for(String id in mortalsIDs){
-          Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
-          mortals.add(mortal);
-        }
-
-        level.mortals = mortals;
+        // level.mortals = mortals;
         return Level.fromJson(objectJson);
       }
       case (Box<Aura> _) : {
@@ -82,12 +84,21 @@ class BoxType_Getter{
         if(level != null){
           List<String> mortalsIDs = level.mortalsIDs;
           List<Mortal> mortals = [];
+          List<String> trappedGhostsIDs = level.trappedGhostsIDs;
+          List<Ghost> trappedGhosts = [];
 
           for(String id in mortalsIDs){
             Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
             mortals.add(mortal);
           }
+
+          for(String id in trappedGhostsIDs){
+            Ghost ghost = DatabaseObject_Getter.getObjectById(id, box_Ghosts);
+            trappedGhosts.add(ghost);
+          }
           level.mortals = mortals;
+          level.trappedGhosts = trappedGhosts;
+
           level.save();
         }
       }

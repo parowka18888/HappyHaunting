@@ -20,7 +20,7 @@ class PowersDamaging{
         for(var mortal in listOfTargets){
           if(mortal.isDefeated == false){
             DealingDamage.dealInstantDamageToMortal(power, mortal, game);
-            PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot!);
+            PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot);
           }
         }
         PowerMechanics.setPowerCooldown(power, game);

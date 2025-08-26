@@ -25,6 +25,7 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   //DATA SET FROM PREVIOUS SCREEN
   List<Haunting_Mortal> mortals = [];
   List<Haunting_Ghost> ghosts = [];
+  List<Haunting_Ghost> trappedGhosts = [];
   List<Haunting_GhostSpot> ghostSpots = [];
   List<Haunting_Floor> floors = [];
   List<Haunting_Exit> exitPoints = [];

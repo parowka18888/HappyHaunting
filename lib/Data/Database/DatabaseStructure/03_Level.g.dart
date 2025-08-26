@@ -24,13 +24,15 @@ class LevelAdapter extends TypeAdapter<Level> {
       mortals: (fields[4] as List).cast<Mortal>(),
       levelWidth: fields[5] as double,
       levelHeight: fields[6] as double,
+      trappedGhostsIDs: (fields[7] as List).cast<String>(),
+      trappedGhosts: (fields[8] as List).cast<Ghost>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +46,11 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(5)
       ..write(obj.levelWidth)
       ..writeByte(6)
-      ..write(obj.levelHeight);
+      ..write(obj.levelHeight)
+      ..writeByte(7)
+      ..write(obj.trappedGhostsIDs)
+      ..writeByte(8)
+      ..write(obj.trappedGhosts);
   }
 
   @override
@@ -74,6 +80,12 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
           .toList(),
       levelWidth: (json['levelWidth'] as num).toDouble(),
       levelHeight: (json['levelHeight'] as num).toDouble(),
+      trappedGhostsIDs: (json['trappedGhostsIDs'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      trappedGhosts: (json['trappedGhosts'] as List<dynamic>)
+          .map((e) => Ghost.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
@@ -84,4 +96,6 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'mortals': instance.mortals,
       'levelWidth': instance.levelWidth,
       'levelHeight': instance.levelHeight,
+      'trappedGhostsIDs': instance.trappedGhostsIDs,
+      'trappedGhosts': instance.trappedGhosts,
     };

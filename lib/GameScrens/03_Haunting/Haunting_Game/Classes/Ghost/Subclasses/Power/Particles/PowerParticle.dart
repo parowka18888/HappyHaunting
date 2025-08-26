@@ -58,7 +58,7 @@ class PowerParticle{
     ghostSpot.add(effect);
   }
 
-  static void travelParticles(Vector2 from, Vector2 to, Haunting_GhostSpot ghostSpot) {
+  static void travelParticles(Vector2 from, Vector2 to, Haunting_GhostSpot? ghostSpot) {
     final rand = Random();
 
     final effect = ParticleSystemComponent(
@@ -111,6 +111,11 @@ class PowerParticle{
       ),
     );
 
-    ghostSpot.add(effect);
+    if(ghostSpot != null){
+      ghostSpot.add(effect);
+    } else {
+
+    }
+
   }
 }

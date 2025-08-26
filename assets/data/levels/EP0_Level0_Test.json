@@ -10,7 +10,10 @@
   "numberOfFloorsBasement": 0,
 
   "mortalsIDs": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3"],
-  "mortals": []
+  "mortals": [],
+
+  "trappedGhostsIDs": [],
+  "trappedGhosts": []
 
 
 }

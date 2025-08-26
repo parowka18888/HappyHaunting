@@ -32,6 +32,7 @@ class RoomGhost{
           chosenGhost.room = room;
           chosenGhost.isPlaced = true;
           game.viewModel.setChosenGhost(null);
+          print("TUTAJ");
           break;
         }
       }

@@ -4,7 +4,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 
 class GhostGetter{
   static Haunting_Ghost? getGhostByPower(Haunting_Power power, Haunting_Game game) {
-    for(final ghost in game.level.ghosts){
+    for(final ghost in game.level.ghosts + game.level.trappedGhosts){
       for(final ghostPower in ghost.powers){
         if(ghostPower == power){
           return ghost;

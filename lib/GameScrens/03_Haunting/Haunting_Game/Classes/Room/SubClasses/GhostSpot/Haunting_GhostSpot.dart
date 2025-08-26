@@ -17,12 +17,12 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
 
     String id = "";
     Haunting_Ghost? ghost;
+    bool isTrap = false;
 
     @override
     Future<void> onLoad() async {
       // debugMode = true;
       //IMAGE
-
       sprite = ghost == null ? await game.loadSprite('Ghosts/Unknown_Ghost.png') : await game.loadSprite('Ghosts/${ghost!.icon}.png');
       return super.onLoad();
     }
@@ -36,7 +36,10 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
     @override
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
-    RoomGhost.clearSpotFromGhost(game, this, event.localPosition);
+    if(isTrap == false){
+      RoomGhost.clearSpotFromGhost(game, this, event.localPosition);
+    }
+
   }
 
 

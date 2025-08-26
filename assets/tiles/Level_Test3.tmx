@@ -852,6 +852,7 @@
   <object id="215" name="TrappedGhost_0" type="TrappedGhost" x="560" y="416" width="32" height="32">
    <properties>
     <property name="ghostID" value="EP0_ClothesEater"/>
+    <property name="roomName" value="Room_0_3"/>
    </properties>
   </object>
  </objectgroup>

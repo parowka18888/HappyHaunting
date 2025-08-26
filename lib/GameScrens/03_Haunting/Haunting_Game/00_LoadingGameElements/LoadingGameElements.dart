@@ -2,9 +2,14 @@ import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Getter/EnumGetter.dart';
+import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Ghost/LoadingGhost.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/TrappedGhost/Getter/TrappedGhost_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
@@ -15,12 +20,16 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Hauning_Stairs.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:hive/hive.dart';
 
+import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../../Data/Database/DatabaseStructure/03_Level.dart';
 import '../../../../Data/Database/Enums/PowerType.dart';
 import '../Classes/Level/Haunting_Level.dart';
 
 class LoadingGameElements{
+
+
 
   static Haunting_Level loadLevel(Haunting_Game game) {
     var world = Haunting_Level(levelName: game.levelName)
@@ -67,17 +76,7 @@ class LoadingGameElements{
             break;
           }
           case 'Ghost': {
-            final ghostSpot = Haunting_GhostSpot(
-                position: spawnPoint.position,
-                size: spawnPoint.size,
-                id: spawnPoint.name);
-            level.ghostSpots.add(ghostSpot);
-
-            final roomName = spawnPoint.properties.getValue('roomName');
-            final room = RoomGetter.getRoomByName(roomName, game);
-            if(room!=null) room.ghostSpots.add(ghostSpot);
-            level.level.add(ghostSpot);
-
+            LoadingGhostSpot.loadGhostSpot(spawnPoint, game);
             break;
           }
           case "Aura" : {
@@ -93,24 +92,43 @@ class LoadingGameElements{
             }
             break;
           }
+          case "TrappedGhost" : {
+            Haunting_GhostSpot? ghostSpot = LoadingGhostSpot.loadGhostSpot(spawnPoint, game);
+            if(ghostSpot != null){
+              final ghostID = spawnPoint.properties.getValue('ghostID');
+              final roomName = spawnPoint.properties.getValue('roomName');
+              final room = RoomGetter.getRoomByName(roomName, game);
+              final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+              if(room!=null && trappedGhost != null){
+                Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot);
+                ghostSpot.isTrap = true;
+                ghostSpot.ghost = ghost;
+              // level.level.add(trapped);
+              }
+            }
+
+
+            // final room = RoomGetter.getRoomByName(roomName, game);
+            // final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+
+
+            // if(room!=null && trappedGhost != null){
+            //   Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room);
+            //   Haunting_TrappedGhost trapped = Haunting_TrappedGhost(
+            //       position: spawnPoint.position,
+            //       size: spawnPoint.size,
+            //       ghost: ghost
+            //   );
+              // level.level.add(trapped);
+            // }
+            break;
+          }
         }
       }
     }
 
     for(final ghost in game.ghosts){
-      List<Haunting_Power> powers = [];
-      for(var ghostPower in ghost.powers){
-        PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
-        Haunting_Power power = Haunting_Power(id: ghostPower.id, name: ghostPower.name, description: ghostPower.description,
-            icon: ghostPower.icon, cost: ghostPower.cost, cooldown: ghostPower.cooldown,
-            stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith,
-            isActivated: false, isDeactivatingForbidden: false, powerType:  type
-        );
-        level.level.add(power);
-        powers.add(power);
-      }
-      var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras);
-      level.ghosts.add(hauntingGhost);
+      LoadingGhost.loadGhost(ghost, game, level.ghosts);
     }
   }
 
