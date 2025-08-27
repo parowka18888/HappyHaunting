@@ -13,6 +13,8 @@
 
   "powerType" : "lureFloor",
   "powerChances" : 25,
+  "powerTime" : 0,
+
 
   "icon": "TestPower_6"
 }

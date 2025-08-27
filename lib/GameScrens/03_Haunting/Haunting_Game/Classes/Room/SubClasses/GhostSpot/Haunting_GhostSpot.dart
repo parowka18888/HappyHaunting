@@ -23,7 +23,7 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
     Future<void> onLoad() async {
       // debugMode = true;
       //IMAGE
-      sprite = ghost == null ? await game.loadSprite('Ghosts/Unknown_Ghost.png') : await game.loadSprite('Ghosts/${ghost!.icon}.png');
+      sprite = ghost == null ? await game.loadSprite('UI/EmptySlot.png') : await game.loadSprite('Ghosts/${ghost!.icon}.png');
       return super.onLoad();
     }
 

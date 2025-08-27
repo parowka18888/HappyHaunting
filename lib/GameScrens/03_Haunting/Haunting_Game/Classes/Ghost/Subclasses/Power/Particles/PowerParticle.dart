@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/particles.dart';
 import 'package:flutter/material.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 
 import '../../../../Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart'; // dla Curves i Paint
 
@@ -56,6 +57,27 @@ class PowerParticle{
     );
 
     ghostSpot.add(effect);
+  }
+
+  static void damagePower(Vector2 position, Haunting_Mortal mortal, Color color) {
+    final effect = ParticleSystemComponent(
+      particle: Particle.generate(
+        count: 10, // ile cząsteczek
+        lifespan: 0.6, // jak długo trwają
+        generator: (i) => AcceleratedParticle(
+          // losowy kierunek i prędkość
+          acceleration: (Vector2.random() - Vector2.random()) * 200,
+          speed: (Vector2.random() - Vector2.random()) * 100,
+          child: CircleParticle(
+            radius: 2 + (i % 3).toDouble(), // różne wielkości
+            paint: Paint()..color = color,
+          ),
+        ),
+      ),
+      position: position,
+    );
+
+    mortal.add(effect);
   }
 
   static void travelParticles(Vector2 from, Vector2 to, Haunting_GhostSpot? ghostSpot) {

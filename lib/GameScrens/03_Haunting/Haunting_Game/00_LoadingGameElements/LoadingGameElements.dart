@@ -6,6 +6,7 @@ import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Ghost/LoadingGhost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Effect/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
@@ -75,6 +76,17 @@ class LoadingGameElements{
             level.level.add(mortal);
             break;
           }
+          case 'Effect': {
+            int effectIndex = spawnPoint.properties.getValue('effectIndex');
+            String roomName = spawnPoint.properties.getValue('roomName');
+            final room = RoomGetter.getRoomByName(roomName, game);
+            if(room!=null){
+              final effect = Haunting_Effect(index: effectIndex, position: spawnPoint.position, size: spawnPoint.size)..room = room;
+              level.level.add(effect);
+              room.effects.add(effect);
+            }
+            break;
+          }
           case 'Ghost': {
             LoadingGhostSpot.loadGhostSpot(spawnPoint, game);
             break;
@@ -88,7 +100,6 @@ class LoadingGameElements{
                 final aura = Haunting_Aura(aura: room.auras[auraIndex], size: spawnPoint.size, position: spawnPoint.position);
                 level.level.add(aura);
               }
-
             }
             break;
           }

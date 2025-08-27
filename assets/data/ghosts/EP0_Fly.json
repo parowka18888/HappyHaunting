@@ -3,7 +3,7 @@
   "name": "Muchhhha",
   "icon" : "TestGhost_4",
   "powersIDs": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03"],
-  "aurasIDs": ["Aura_Earth", "Aura_Outside"],
+  "aurasIDs": ["Aura_Earth", "Aura_Outside", "Aura_Inside"],
 
   "powers": [],
   "auras": []

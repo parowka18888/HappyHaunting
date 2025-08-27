@@ -13,6 +13,8 @@
 
   "powerType" : "mortalRoom",
   "powerChances" : 100,
+  "powerTime" : 0,
+
 
   "icon": "TestPower_2"
 }

@@ -39,15 +39,15 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                4,
+                6,
                 5,
-                6
+                4
             ],
-            "scale": 1,
-            "selectedLayer": 3,
+            "scale": 2,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1068,
-                "y": 540.5
+                "x": 550.5,
+                "y": 400.75
             }
         },
         "Terrain (16x16).tsx": {
@@ -70,7 +70,7 @@
         "Level_Test3.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
-    "property.type": "string",
+    "property.type": "int",
     "recentFiles": [
         "Terrain (16x16).tsx",
         "BgTest.tsx",
