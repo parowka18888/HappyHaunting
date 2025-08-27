@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="192" height="165" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="216">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="192" height="165" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="232">
  <tileset firstgid="1" source="Terrain (16x16).tsx"/>
  <layer id="2" name="Background" width="192" height="165">
   <data encoding="csv">
@@ -585,7 +585,7 @@
   </object>
   <object id="131" name="Level0_4_1" type="Mortal" x="1152" y="1092" width="32" height="32"/>
   <object id="132" name="Level0_4_-1" type="Mortal" x="2384" y="1452" width="32" height="32"/>
-  <object id="140" name="RoomAura_0_2" type="Aura" x="228" y="292" width="16" height="16">
+  <object id="140" name="RoomAura_0_2" type="Aura" x="248" y="312" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="1"/>
     <property name="roomName" value="Room_0_2"/>
@@ -597,13 +597,13 @@
     <property name="roomName" value="Room_0_2"/>
    </properties>
   </object>
-  <object id="142" name="RoomAura_0_2" type="Aura" x="228" y="272" width="16" height="16">
+  <object id="142" name="RoomAura_0_2" type="Aura" x="268" y="312" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="2"/>
     <property name="roomName" value="Room_0_2"/>
    </properties>
   </object>
-  <object id="143" name="RoomAura_0_2" type="Aura" x="228" y="252" width="16" height="16">
+  <object id="143" name="RoomAura_0_2" type="Aura" x="288" y="312" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="3"/>
     <property name="roomName" value="Room_0_2"/>
@@ -853,6 +853,102 @@
    <properties>
     <property name="ghostID" value="EP0_ClothesEater"/>
     <property name="roomName" value="Room_0_3"/>
+   </properties>
+  </object>
+  <object id="216" name="Effect_0" type="Effect" x="228" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="0"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="217" name="Effect_0" type="Effect" x="248" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="1"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="218" name="Effect_0" type="Effect" x="268" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="2"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="219" name="Effect_0" type="Effect" x="288" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="3"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="220" name="Effect_0" type="Effect" x="308" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="4"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="221" name="Effect_0" type="Effect" x="328" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="5"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="222" name="Effect_0" type="Effect" x="348" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="6"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="223" name="Effect_0" type="Effect" x="368" y="288" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="7"/>
+    <property name="roomName" value="Room_0_2"/>
+   </properties>
+  </object>
+  <object id="224" name="Effect_0" type="Effect" x="356" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="0"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="225" name="Effect_0" type="Effect" x="376" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="1"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="226" name="Effect_0" type="Effect" x="396" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="2"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="227" name="Effect_0" type="Effect" x="416" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="3"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="228" name="Effect_0" type="Effect" x="436" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="4"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="229" name="Effect_0" type="Effect" x="456" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="5"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="230" name="Effect_0" type="Effect" x="476" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="6"/>
+    <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="231" name="Effect_0" type="Effect" x="496" y="560" width="16" height="16">
+   <properties>
+    <property name="effectIndex" type="int" value="7"/>
+    <property name="roomName" value="Room_0_1"/>
    </properties>
   </object>
  </objectgroup>

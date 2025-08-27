@@ -8,6 +8,7 @@ import 'package:flame/particles.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Effect/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Getter/MortalGetter.dart';
@@ -37,6 +38,7 @@ class Haunting_Room extends PolygonComponent
   final List<Aura> auras;
   final List<Haunting_GhostSpot> ghostSpots = [];
   final List<Vector2> polygon;
+  List<Haunting_Effect> effects = [];
   List<Haunting_Mortal> mortalsInRoom = [];
   Haunting_Floor? floor;
 

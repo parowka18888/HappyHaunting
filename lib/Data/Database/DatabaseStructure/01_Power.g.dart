@@ -29,13 +29,14 @@ class PowerAdapter extends TypeAdapter<Power> {
       icon: fields[9] as String,
       powerType: fields[10] as String,
       powerChances: fields[11] as int,
+      powerTime: fields[12] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, Power obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,7 +60,9 @@ class PowerAdapter extends TypeAdapter<Power> {
       ..writeByte(10)
       ..write(obj.powerType)
       ..writeByte(11)
-      ..write(obj.powerChances);
+      ..write(obj.powerChances)
+      ..writeByte(12)
+      ..write(obj.powerTime);
   }
 
   @override
@@ -90,6 +93,7 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       icon: json['icon'] as String,
       powerType: json['powerType'] as String,
       powerChances: (json['powerChances'] as num).toInt(),
+      powerTime: (json['powerTime'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
@@ -105,4 +109,5 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
       'icon': instance.icon,
       'powerType': instance.powerType,
       'powerChances': instance.powerChances,
+      'powerTime': instance.powerTime,
     };
