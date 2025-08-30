@@ -1,3 +1,4 @@
+import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -26,6 +27,9 @@ class Power extends HiveObject {
 
   @HiveField(12)  final double powerTime;
 
+  @HiveField(13)  final List<String> powerTagsIDs;
+  @HiveField(14)  List<PowerTag> powerTags;
+
 
 
 
@@ -43,6 +47,8 @@ class Power extends HiveObject {
   required this.powerType,
   required this.powerChances,
   required this.powerTime,
+  required this.powerTagsIDs,
+  required this.powerTags,
   });
 
   factory Power.fromJson(Map<String, dynamic> json) => _$PowerFromJson(json);

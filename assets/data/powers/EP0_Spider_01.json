@@ -16,5 +16,10 @@
   "powerTime" : 0,
 
 
-  "icon": "TestPower_1"
+  "powerTagsIDs": ["Loud"],
+
+  "icon": "TestPower_1",
+
+
+  "powerTags": []
 }

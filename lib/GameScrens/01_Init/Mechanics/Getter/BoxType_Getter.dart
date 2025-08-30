@@ -1,6 +1,7 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:hive/hive.dart';
 
 import '../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
@@ -28,20 +29,6 @@ class BoxType_Getter{
         return Mortal.fromJson(objectJson);
       }
       case (Box<Level> _) : {
-        // Level level = Level.fromJson(objectJson);
-
-        // //GET MORTAL IDS
-        // List<String> mortalsIDs = level.mortalsIDs;
-        // List<Mortal> mortals = [];
-        // List<String> mortalsIDs = level.mortalsIDs;
-        // List<Mortal> mortals = [];
-        //
-        // for(String id in mortalsIDs){
-        //   Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
-        //   mortals.add(mortal);
-        // }
-
-        // level.mortals = mortals;
         return Level.fromJson(objectJson);
       }
       case (Box<Aura> _) : {
@@ -74,6 +61,14 @@ class BoxType_Getter{
         break;
       }
       case (Box<Power> _) : {
+        Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
+        if(power != null){
+          for(var powerTag in power.powerTagsIDs){
+            PowerTag tag = PowerTag.values.byName(powerTag);
+            power.powerTags.add(tag);
+          }
+          power.save();
+        }
         break;
       }
       case (Box<Mortal> _) : {

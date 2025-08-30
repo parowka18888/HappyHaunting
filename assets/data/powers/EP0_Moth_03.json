@@ -15,6 +15,9 @@
   "powerChances" : 25,
   "powerTime" : 0,
 
+  "powerTagsIDs": [],
+  "icon": "TestPower_6",
 
-  "icon": "TestPower_6"
+
+  "powerTags": []
 }
