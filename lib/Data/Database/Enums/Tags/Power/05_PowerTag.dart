@@ -1,0 +1,3 @@
+enum PowerTag{
+  Null, Loud
+}

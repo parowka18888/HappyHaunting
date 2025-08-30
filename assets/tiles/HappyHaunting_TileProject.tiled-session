@@ -43,11 +43,11 @@
                 5,
                 4
             ],
-            "scale": 2,
+            "scale": 3,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 550.5,
-                "y": 400.75
+                "x": 375,
+                "y": 468.5
             }
         },
         "Terrain (16x16).tsx": {
