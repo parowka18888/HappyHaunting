@@ -6,6 +6,9 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 class Scripts_TestLevel_Mortal{
   static void executeScript_testScript_SpawnWhenOneMortalIsDefeated(Haunting_Mortal mortal, Haunting_Game game) {
     print("SJRYPT ${mortal.script} dla mortala ${mortal.name}");
+
+    String text = "New mortal Appeared - Marej";
+
     List<int> conditionsToMeet = [0];
     //  0 ->  ONE OF MORTALS HAS ESCAPED
     for(var checkingMortal in game.level.mortals){
@@ -13,6 +16,7 @@ class Scripts_TestLevel_Mortal{
       if(condition){
         Mortal_Setter.setIsActive(mortal, true);
         Mortal_Setter.setIsScriptExecuted(mortal, true);
+        game.viewModel.setDialogData(text, true);
         break;
       }
     }

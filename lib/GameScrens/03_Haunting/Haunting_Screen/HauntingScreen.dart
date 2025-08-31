@@ -7,6 +7,7 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Setter/PowerSetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -44,11 +45,15 @@ class _HauntingScreenState extends State<HauntingScreen> {
     double sidePanel_Height = screenHeight;
     double sidePanel_Width = screenWidth * 0.2;
 
+    double dialogWindow_Height = screenHeight * 0.7;
+    double dialogWindow_Width = screenWidth * 0.8;
+
     return Scaffold(
       body: Center(
         child: Stack(
           alignment: Alignment(0, 0),
           children: [
+            //GAME
             InteractiveViewer(
               minScale: 1,
               maxScale: 5.0,
@@ -60,7 +65,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
                   child: GameWidget(game: haunting_game)
               ),
             ),
+            //SIDE PANEL
             SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game),
+            //BUTTONS
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -81,6 +88,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
                 // ElevatedButton(onPressed: (){}, child: Text("Liczba śmiertelników: ${haunting_game.level.mortals.length}. imię pierwszego to ${haunting_game.level.mortals[0].name}"))
               ],
             ),
+            //DIALOG WINDOW
+            if(viewModel.isDialogWindowVisible == true)
+            DialogWindow_GUI.getDialogWindow(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
 
 
@@ -101,6 +111,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
 
     final viewModel = context.read<HauntingGame_ViewModel>();
+    viewModel.setDialogData(widget.chosenLevel.startingText, true);
+
     haunting_game = Haunting_Game()
       ..levelName = widget.chosenLevel.fileName
       ..mortals = widget.chosenLevel.mortals

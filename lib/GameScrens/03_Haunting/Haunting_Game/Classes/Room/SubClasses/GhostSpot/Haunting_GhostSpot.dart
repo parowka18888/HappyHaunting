@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomGhost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Particle/GhostSpot_Particle.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/GhostBased/Scripts_GhostBased.dart';
 
 import '../../../../Haunting_Game.dart';
 
@@ -31,6 +32,12 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
     Future<void> update(double dt) async {
       super.update(dt);
       sprite = ghost == null ? await game.loadSprite('Ghosts/Unknown_Ghost.png') : await game.loadSprite('Ghosts/${ghost!.icon}.png');
+
+      if(isTrap == true && ghost != null && ghost!.script != null){
+        if(ghost!.isScriptExecuted == false){
+          Scripts_GhostBased.getScript_Navigator(ghost!, game);
+        }
+      }
     }
 
     @override
@@ -38,6 +45,8 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
     super.onTapDown(event);
     if(isTrap == false){
       RoomGhost.clearSpotFromGhost(game, this, event.localPosition);
+    } else {
+      game.viewModel.setDialogData(ghost?.hintText, true);
     }
 
   }

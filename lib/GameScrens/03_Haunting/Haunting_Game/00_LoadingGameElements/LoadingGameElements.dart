@@ -3,6 +3,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/02_Mortal.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Getter/EnumGetter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Ghost/LoadingGhost.dart';
@@ -127,10 +128,16 @@ class LoadingGameElements{
             if(ghostSpot != null){
               final ghostID = spawnPoint.properties.getValue('ghostID');
               final roomName = spawnPoint.properties.getValue('roomName');
+
+              final hintText = spawnPoint.properties.getValue('hintText');
+              final freeingGhostText = spawnPoint.properties.getValue('freeingGhostText');
+              final scriptID = spawnPoint.properties.getValue('scriptID');
+              final GhostScript script = GhostScript.values.byName(scriptID);
+
               final room = RoomGetter.getRoomByName(roomName, game);
               final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
               if(room!=null && trappedGhost != null){
-                Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot);
+                Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script);
                 ghostSpot.isTrap = true;
                 ghostSpot.ghost = ghost;
               // level.level.add(trapped);

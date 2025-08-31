@@ -424,7 +424,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Collisions" visible="0">
+ <objectgroup id="3" name="Collisions">
   <object id="1" x="224" y="140" width="252" height="40"/>
   <object id="2" x="200" y="176" width="48" height="192"/>
   <object id="3" x="240" y="344" width="200" height="24"/>
@@ -893,8 +893,11 @@
   </object>
   <object id="215" name="TrappedGhost_0" type="TrappedGhost" x="560" y="416" width="32" height="32">
    <properties>
+    <property name="freeingGhostText" value="this is text for freeing ghost"/>
     <property name="ghostID" value="EP0_ClothesEater"/>
+    <property name="hintText" value="this is hint text"/>
     <property name="roomName" value="Room_0_3"/>
+    <property name="scriptID" value="testScript_FreeingGhost"/>
    </properties>
   </object>
   <object id="216" name="Effect_0" type="Effect" x="228" y="288" width="16" height="16">

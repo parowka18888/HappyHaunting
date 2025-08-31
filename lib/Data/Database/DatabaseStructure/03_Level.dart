@@ -22,6 +22,8 @@ class Level extends HiveObject {
   @HiveField(7)  final List<String> trappedGhostsIDs;
   @HiveField(8)  List<Ghost> trappedGhosts;
 
+  @HiveField(9)  final String startingText;
+
   Level({
     required this.id,
     required this.name,
@@ -32,6 +34,7 @@ class Level extends HiveObject {
     required this.levelHeight,
     required this.trappedGhostsIDs,
     required this.trappedGhosts,
+    required this.startingText,
   });
 
   factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);

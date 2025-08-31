@@ -26,13 +26,14 @@ class LevelAdapter extends TypeAdapter<Level> {
       levelHeight: fields[6] as double,
       trappedGhostsIDs: (fields[7] as List).cast<String>(),
       trappedGhosts: (fields[8] as List).cast<Ghost>(),
+      startingText: fields[9] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(7)
       ..write(obj.trappedGhostsIDs)
       ..writeByte(8)
-      ..write(obj.trappedGhosts);
+      ..write(obj.trappedGhosts)
+      ..writeByte(9)
+      ..write(obj.startingText);
   }
 
   @override
@@ -86,6 +89,7 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
       trappedGhosts: (json['trappedGhosts'] as List<dynamic>)
           .map((e) => Ghost.fromJson(e as Map<String, dynamic>))
           .toList(),
+      startingText: json['startingText'] as String,
     );
 
 Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
@@ -98,4 +102,5 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'levelHeight': instance.levelHeight,
       'trappedGhostsIDs': instance.trappedGhostsIDs,
       'trappedGhosts': instance.trappedGhosts,
+      'startingText': instance.startingText,
     };
