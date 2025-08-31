@@ -46,23 +46,21 @@ class MortalChecker{
     var percentageChange_Hurt = 0.75;
     var percentageChange_Dead = 1;
 
-    if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Scared){
+    if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Scared || mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Hurt){
       Mortal_Setter.setState(mortal, Mortal_State.scared);
-      if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Terrified){
+      if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Terrified || mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Dead){
         Mortal_Setter.setState(mortal, Mortal_State.terrified);
       }
     } else {
       Mortal_Setter.setState(mortal, Mortal_State.calm);
     }
-    if(mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Hurt){
-      Mortal_Setter.setState(mortal, Mortal_State.hurt);
-      if(mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Dead){
-        Mortal_Setter.setState(mortal, Mortal_State.dead);
-      }
+  }
+
+  static bool checkIfMortalEscaped(Haunting_Mortal mortal) {
+    if(mortal.isDefeated == true && mortal.canMove == false){
+      return true;
     }
-
-
-
+    return false;
   }
 
 }

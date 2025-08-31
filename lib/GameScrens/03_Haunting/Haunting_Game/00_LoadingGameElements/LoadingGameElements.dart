@@ -3,6 +3,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/02_Mortal.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Getter/EnumGetter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Ghost/LoadingGhost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
@@ -53,9 +54,15 @@ class LoadingGameElements{
             String mortalID = spawnPoint.properties.getValue('mortalID');
             int floorID = spawnPoint.properties.getValue('floor');
             bool isTriggeredByScript = spawnPoint.properties.getValue('isTriggeredByScript');
+            String scriptID = spawnPoint.properties.getValue('scriptID');
 
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
             Mortal? mortal = MortalGetter.getMortalById_TypeMortal(mortalID, game);
+            LevelScript? levelScript = null;
+
+            if(scriptID != null && scriptID.length > 0){
+              levelScript = LevelScript.values.byName(scriptID);
+            }
 
             if(mortal != null && floor != null){
               final haunting_Mortal = Haunting_Mortal(
@@ -77,6 +84,7 @@ class LoadingGameElements{
                   stat_Current_Madness: 0,
                   stat_Current_Faith: 0,
                   isActive: !isTriggeredByScript,
+                  script: levelScript,
                   floor: floor
 
               );

@@ -65,6 +65,10 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.isActive = value;
   }
 
+  static void setIsScriptExecuted(Haunting_Mortal mortal, bool bool) {
+    mortal.isScriptExecuted = bool;
+  }
+
 
 
 }
