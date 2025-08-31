@@ -53,6 +53,18 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.speed = speed;
   }
 
+  static Future<void> setIsActiveData(Haunting_Mortal mortal, Haunting_Game game) async {
+    if(mortal.isActive == true){
+      mortal.sprite = await game.loadSprite('Mortals/${mortal.icon}.png');
+    } else {
+      mortal.sprite = await game.loadSprite('UI/EmptySlot.png');
+    }
+  }
+
+  static void setIsActive(Haunting_Mortal mortal, bool value) {
+    mortal.isActive = value;
+  }
+
 
 
 }

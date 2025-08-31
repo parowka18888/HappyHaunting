@@ -70,7 +70,7 @@
         "Level_Test3.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
         "Terrain (16x16).tsx",
         "BgTest.tsx",

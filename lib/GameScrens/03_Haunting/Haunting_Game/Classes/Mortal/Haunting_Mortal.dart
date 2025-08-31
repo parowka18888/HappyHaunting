@@ -25,7 +25,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
     required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
-    required this.floor, required this.id
+    required this.floor, required this.id, required this.isActive
 
   });
 
@@ -34,6 +34,11 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   String name = "";
   String id = "";
 
+  //MORTAL VISIBILITY
+  bool isActive = true;
+  bool isActive_Helper = true; //WHEN VALUE isActive changes, SOME ACTIONS CAN BE HOLD
+
+  //MORTAL SCRIPTS
 
   //SCARING MORTAL
   bool isDefeated = false;
@@ -82,8 +87,10 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   Future<void> onLoad() async {
     // debugMode = true;
 
+    isActive_Helper = isActive;
+
     //IMAGE
-    sprite = await game.loadSprite('Mortals/$icon.png');
+    sprite = isActive == true ? await game.loadSprite('Mortals/$icon.png') : await game.loadSprite('UI/EmptySlot.png');
 
     //CHANGING BOX
     add(RectangleHitbox(
@@ -102,15 +109,35 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   }
 
   @override
+  void onTapDown(TapDownEvent event) {
+    Mortal_Setter.setIsActive(this, !isActive);
+    super.onTapDown(event);
+  }
+
+  @override
   void update(double dt) {
     super.update(dt);
+    //IF MORTAL IS ACTIVE (IN REACH OF PLAYER)
+    if(isActive == true){
+      //IF PLAYER CAN MOVE, LET THEM MOVE
       if(canMove == true) Mortal_Movement.moveInPath(this, game, dt);
+      //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
+        //REFRESH TIME IS THE TIME OF EXECUTING CODE
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
+        //CHECK WHERE ON THE MAP IS MORTAL, AND ASSIGN THEM TO CERTAIN ROOM
         RoomMortal.assignMortalToRoom(this, game);
-
         timeSinceLastReload = 0.0;
       }
+    }
+
+    //EXECUTE CODE WHEN isActive VALUE CHANGES
+    if(isActive != isActive_Helper){
+      isActive_Helper = isActive;
+      Mortal_Setter.setIsActiveData(this, game);
+      game.viewModel.refresh();
+    }
+
   }
 
 

@@ -52,6 +52,7 @@ class LoadingGameElements{
           case 'Mortal': {
             String mortalID = spawnPoint.properties.getValue('mortalID');
             int floorID = spawnPoint.properties.getValue('floor');
+            bool isTriggeredByScript = spawnPoint.properties.getValue('isTriggeredByScript');
 
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
             Mortal? mortal = MortalGetter.getMortalById_TypeMortal(mortalID, game);
@@ -75,6 +76,7 @@ class LoadingGameElements{
                   stat_Current_Health: 0,
                   stat_Current_Madness: 0,
                   stat_Current_Faith: 0,
+                  isActive: !isTriggeredByScript,
                   floor: floor
 
               );
