@@ -5,8 +5,9 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
-import '../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
-import '../../../../../Haunting_Game/Classes/Ghost/Subclasses/Power/Setter/PowerSetter.dart';
+import '../../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
+import '../../../../../../Haunting_Game/Classes/Ghost/Subclasses/Power/Setter/PowerSetter.dart';
+
 
 class GhostPanel_GUI{
   static getGhostPanel(BuildContext context, double width, double height, HauntingGame_ViewModel viewModel, Haunting_Ghost ghost) {

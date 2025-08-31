@@ -49,6 +49,7 @@ class LoadingGameElements{
         switch(spawnPoint.class_){
           case 'Mortal': {
             String pointName = spawnPoint.name;
+            String mortalID = spawnPoint.properties.getValue('mortalID');
             List<String> pointName_Parts = pointName.split('_');
             int floorID = int.parse(pointName_Parts[2]);
             final mortal = Haunting_Mortal(

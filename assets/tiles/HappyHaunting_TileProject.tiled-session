@@ -14,9 +14,9 @@
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                3,
                 5,
-                4
+                4,
+                3
             ],
             "scale": 1,
             "selectedLayer": 4,
@@ -27,8 +27,8 @@
         },
         "Level_Test2.tmx": {
             "expandedObjectLayers": [
-                3,
-                4
+                4,
+                3
             ],
             "scale": 1,
             "selectedLayer": 3,
@@ -70,7 +70,7 @@
         "Level_Test3.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
-    "property.type": "int",
+    "property.type": "string",
     "recentFiles": [
         "Terrain (16x16).tsx",
         "BgTest.tsx",
