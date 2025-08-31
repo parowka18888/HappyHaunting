@@ -25,13 +25,14 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
     required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
-    required this.floor
+    required this.floor, required this.id
 
   });
 
   //STATIC DATA
   String icon = "";
   String name = "";
+  String id = "";
 
 
   //SCARING MORTAL
