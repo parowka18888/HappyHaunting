@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
@@ -15,6 +16,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/MortalBased/Scripts_MortalBased.dart';
 
 // class Haunting_Mortal extends SpriteComponent {
 class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Game>, TapCallbacks {
@@ -25,14 +27,23 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
     required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
-    required this.floor
+    required this.floor, required this.id, required this.isActive, required this.script
 
   });
 
   //STATIC DATA
   String icon = "";
   String name = "";
+  String id = "";
 
+  //MORTAL VISIBILITY
+  bool isActive = true;
+  bool isActive_Helper = true; //WHEN VALUE isActive changes, SOME ACTIONS CAN BE HOLD
+
+  //MORTAL SCRIPTS
+  LevelScript? script;
+  List<int> script_ConditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
+  bool isScriptExecuted = false;
 
   //SCARING MORTAL
   bool isDefeated = false;
@@ -81,8 +92,10 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   Future<void> onLoad() async {
     // debugMode = true;
 
+    isActive_Helper = isActive;
+
     //IMAGE
-    sprite = await game.loadSprite('Mortals/$icon.png');
+    sprite = isActive == true ? await game.loadSprite('Mortals/$icon.png') : await game.loadSprite('UI/EmptySlot.png');
 
     //CHANGING BOX
     add(RectangleHitbox(
@@ -101,15 +114,40 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   }
 
   @override
+  void onTapDown(TapDownEvent event) {
+    Mortal_Setter.setIsActive(this, !isActive);
+    super.onTapDown(event);
+  }
+
+  @override
   void update(double dt) {
     super.update(dt);
+    //IF MORTAL IS ACTIVE (IN REACH OF PLAYER)
+    if(isActive == true){
+      //IF PLAYER CAN MOVE, LET THEM MOVE
       if(canMove == true) Mortal_Movement.moveInPath(this, game, dt);
+      //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
+        //REFRESH TIME IS THE TIME OF EXECUTING CODE
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
+        //CHECK WHERE ON THE MAP IS MORTAL, AND ASSIGN THEM TO CERTAIN ROOM
         RoomMortal.assignMortalToRoom(this, game);
-
         timeSinceLastReload = 0.0;
       }
+    }
+
+    if(script != null && isScriptExecuted == false){
+      Scripts_MortalBased.getScript_Navigator(this, game);
+    }
+
+
+    //EXECUTE CODE WHEN isActive VALUE CHANGES
+    if(isActive != isActive_Helper){
+      isActive_Helper = isActive;
+      Mortal_Setter.setIsActiveData(this, game);
+      game.viewModel.refresh();
+    }
+
   }
 
 

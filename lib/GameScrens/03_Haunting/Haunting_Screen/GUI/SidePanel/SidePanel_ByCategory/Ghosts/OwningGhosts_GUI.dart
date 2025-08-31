@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostList/OwningGhosts/GhostPanel/GhostPanel_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+
+import 'Panel/GhostPanel_GUI.dart';
 
 class OwningGhosts_GUI{
   static getOwningGhostList(BuildContext context, HauntingGame_ViewModel viewModel, double height, double width, Haunting_Game game) {

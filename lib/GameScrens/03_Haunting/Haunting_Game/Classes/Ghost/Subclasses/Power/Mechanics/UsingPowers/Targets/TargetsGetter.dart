@@ -13,20 +13,23 @@ class TargetsGetter{
     Haunting_Floor? floor = room.floor;
     switch(targets){
       case Power_Targets.MortalSingle:
-        listOfAvailableMortals = room.mortalsInRoom;
+        listOfAvailableMortals = room.mortalsInRoom.where((mortal) => mortal.isActive)
+            .toList();
         if(listOfAvailableMortals.isNotEmpty){
           listOfAvailableMortals.shuffle();
           listOfTargets.add(listOfAvailableMortals[0]);
         }
         break;
       case Power_Targets.MortalRoom:
-        listOfAvailableMortals = room.mortalsInRoom;
+        listOfAvailableMortals = room.mortalsInRoom.where((mortal) => mortal.isActive)
+            .toList();
         if(listOfAvailableMortals.isNotEmpty){
           listOfTargets = listOfAvailableMortals;
         }
         break;
       case Power_Targets.MortalMap:
-        listOfAvailableMortals = game.level.mortals;
+        listOfAvailableMortals = game.level.mortals.where((mortal) => mortal.isActive)
+            .toList();
         if(listOfAvailableMortals.isNotEmpty){
           listOfTargets = listOfAvailableMortals;
         }
@@ -34,7 +37,7 @@ class TargetsGetter{
       case Power_Targets.MortalFloor:
         if(floor != null){
           for(final mortal in game.level.mortals){
-            if(game.level.mortals.isNotEmpty && mortal.floor!.id == floor.id){
+            if(game.level.mortals.isNotEmpty && mortal.floor!.id == floor.id && mortal.isActive == true){
               listOfTargets.add(mortal);
             }
           }

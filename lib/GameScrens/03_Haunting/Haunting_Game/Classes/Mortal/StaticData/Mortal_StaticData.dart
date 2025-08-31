@@ -13,10 +13,10 @@ class Mortal_StaticData{
         return 100;
         break;
       case Mortal_State.hurt:
-        return 25;
+        return 50;
         break;
       case Mortal_State.dead:
-        return 0;
+        return 25;
         break;
     }
     return 50;

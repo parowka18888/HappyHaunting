@@ -13,7 +13,9 @@
   "stat_Multiplier_Madness": 1.0,
   "stat_Multiplier_Faith": 1.0,
 
-  "type": null
+  "mortalTagsIDs": ["regular"],
+
+  "mortalTags": []
 
 
 }
