@@ -1,6 +1,7 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:hive/hive.dart';
 
@@ -72,6 +73,14 @@ class BoxType_Getter{
         break;
       }
       case (Box<Mortal> _) : {
+        Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
+        if(mortal != null){
+          List<String> mortalTagsIDs = mortal.mortalTagsIDs;
+          for(String name in mortalTagsIDs){
+            MortalTag tag = MortalTag.values.byName(name);
+            mortal.mortalTags.add(tag);
+          }
+        }
         break;
       }
       case (Box<Level> _) : {

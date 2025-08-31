@@ -29,13 +29,15 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       stat_Multiplier_Faith: fields[9] as double,
       type: fields[10] as String?,
       icon: fields[11] as String,
+      mortalTagsIDs: (fields[12] as List).cast<String>(),
+      mortalTags: (fields[13] as List).cast<MortalTag>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Mortal obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(14)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,7 +61,11 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       ..writeByte(10)
       ..write(obj.type)
       ..writeByte(11)
-      ..write(obj.icon);
+      ..write(obj.icon)
+      ..writeByte(12)
+      ..write(obj.mortalTagsIDs)
+      ..writeByte(13)
+      ..write(obj.mortalTags);
   }
 
   @override
@@ -92,6 +98,12 @@ Mortal _$MortalFromJson(Map<String, dynamic> json) => Mortal(
       stat_Multiplier_Faith: (json['stat_Multiplier_Faith'] as num).toDouble(),
       type: json['type'] as String?,
       icon: json['icon'] as String,
+      mortalTagsIDs: (json['mortalTagsIDs'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      mortalTags: (json['mortalTags'] as List<dynamic>)
+          .map((e) => $enumDecode(_$MortalTagEnumMap, e))
+          .toList(),
     );
 
 Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
@@ -107,4 +119,12 @@ Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
       'stat_Multiplier_Faith': instance.stat_Multiplier_Faith,
       'type': instance.type,
       'icon': instance.icon,
+      'mortalTagsIDs': instance.mortalTagsIDs,
+      'mortalTags':
+          instance.mortalTags.map((e) => _$MortalTagEnumMap[e]!).toList(),
     };
+
+const _$MortalTagEnumMap = {
+  MortalTag.regular: 'regular',
+  MortalTag.exorcist: 'exorcist',
+};

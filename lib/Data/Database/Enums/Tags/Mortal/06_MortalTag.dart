@@ -1,0 +1,3 @@
+enum MortalTag{
+  regular, exorcist
+}

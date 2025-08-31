@@ -1,7 +1,7 @@
 {
-  "id": "EP0_Level0_Test_Mortal1",
-  "name": "Kulawianka",
-  "icon" : "TestMortal1",
+  "id": "EP0_Level0_Test_Mortal8",
+  "name": "BM",
+  "icon" : "TestMortal8",
 
   "stat_Fear": 200,
   "stat_Health": 193,
@@ -13,7 +13,7 @@
   "stat_Multiplier_Madness": 1.1,
   "stat_Multiplier_Faith": 0.5,
 
-  "mortalTagsIDs": ["regular"],
+  "mortalTagsIDs": ["exorcist"],
 
   "mortalTags": []
 

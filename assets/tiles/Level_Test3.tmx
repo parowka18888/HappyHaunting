@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="192" height="165" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="232">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="192" height="165" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="234">
  <tileset firstgid="1" source="Terrain (16x16).tsx"/>
  <layer id="2" name="Background" width="192" height="165">
   <data encoding="csv">
@@ -477,24 +477,28 @@
   <object id="18" name="Level0_1_0" type="Mortal" x="256" y="192" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal1"/>
    </properties>
   </object>
   <object id="19" name="Level0_2_0" type="Mortal" x="516" y="344" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal2"/>
    </properties>
   </object>
   <object id="20" name="Level0_3_0" type="Mortal" x="384" y="512" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal3"/>
    </properties>
   </object>
   <object id="21" name="Level0_4_0" type="Mortal" x="736" y="448" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal4"/>
    </properties>
   </object>
@@ -606,12 +610,14 @@
   <object id="131" name="Level0_4_1" type="Mortal" x="1152" y="1092" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="1"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal5"/>
    </properties>
   </object>
   <object id="132" name="Level0_4_-1" type="Mortal" x="2384" y="1452" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="-1"/>
+    <property name="isTriggeredByScript" type="bool" value="false"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal6"/>
    </properties>
   </object>
@@ -979,6 +985,20 @@
    <properties>
     <property name="effectIndex" type="int" value="7"/>
     <property name="roomName" value="Room_0_1"/>
+   </properties>
+  </object>
+  <object id="232" name="Level0_4_0" type="Mortal" x="1376" y="544" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="true"/>
+    <property name="mortalID" value="EP0_Level0_Test_Mortal7"/>
+   </properties>
+  </object>
+  <object id="233" name="Level0_4_0" type="Mortal" x="1376" y="480" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+    <property name="isTriggeredByScript" type="bool" value="true"/>
+    <property name="mortalID" value="EP0_Level0_Test_Mortal8"/>
    </properties>
   </object>
  </objectgroup>

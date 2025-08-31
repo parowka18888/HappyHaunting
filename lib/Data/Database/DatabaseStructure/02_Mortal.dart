@@ -1,3 +1,4 @@
+import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -21,6 +22,9 @@ class Mortal extends HiveObject {
   @HiveField(10) final String? type;
   @HiveField(11) final String icon;
 
+  @HiveField(12)  final List<String> mortalTagsIDs;
+  @HiveField(13)  List<MortalTag> mortalTags;
+
   Mortal({
     required this.id,
     required this.name,
@@ -34,6 +38,8 @@ class Mortal extends HiveObject {
     required this.stat_Multiplier_Faith,
     required this.type,
     required this.icon,
+    required this.mortalTagsIDs,
+    required this.mortalTags,
   });
 
   factory Mortal.fromJson(Map<String, dynamic> json) => _$MortalFromJson(json);

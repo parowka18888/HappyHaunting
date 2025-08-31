@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
 import 'package:happyhaunting/GameScrens/01_Init/InitScreen.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
@@ -20,6 +21,7 @@ Future<void> main() async {
   Hive.init(dir.path);
 
   Hive.registerAdapter(PowerTag_Adapter());
+  Hive.registerAdapter(MortalTag_Adapter());
 
   Hive.registerAdapter(GhostAdapter());
   Hive.registerAdapter(PowerAdapter());
