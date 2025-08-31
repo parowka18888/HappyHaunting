@@ -15,7 +15,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   //DIALOG WINDOW
   bool isDialogWindowVisible = false;
-  String dialogWindow_Text = "";
+  String? dialogWindow_Text = "";
 
 
   void refresh(){
@@ -62,7 +62,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setDialogData(String text, bool isVisible) {
+  void setDialogData(String? text, bool isVisible) {
     isDialogWindowVisible = isVisible;
     dialogWindow_Text = text;
     notifyListeners();

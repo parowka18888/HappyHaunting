@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -13,7 +14,10 @@ class LoadingGhost{
   static Haunting_Ghost loadGhost(Ghost ghost, Haunting_Game game, List<Haunting_Ghost> ghosts, {
     bool isPlaced = false,
     Haunting_Room? room,
-    Haunting_GhostSpot? ghostSpot
+    Haunting_GhostSpot? ghostSpot,
+    String? hintText,
+    String? freeingText,
+    GhostScript? script
   }) {
     List<Haunting_Power> powers = [];
     for(var ghostPower in ghost.powers){
@@ -23,6 +27,9 @@ class LoadingGhost{
       ..isPlaced = isPlaced
       ..room = room
     ..ghostSpot = ghostSpot
+    ..hintText = hintText
+    ..freeingText = freeingText
+    ..script = script
     ;
     ghosts.add(hauntingGhost);
     return hauntingGhost;

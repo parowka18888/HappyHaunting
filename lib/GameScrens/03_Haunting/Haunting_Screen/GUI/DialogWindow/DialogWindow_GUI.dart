@@ -18,7 +18,8 @@ class DialogWindow_GUI{
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(viewModel.dialogWindow_Text),
+                if(viewModel.dialogWindow_Text != null)
+                Text(viewModel.dialogWindow_Text!),
                 ElevatedButton(onPressed: (){viewModel.setIsDialogWindowVisible(false);}, child: Text("Zamknij"))
               ],
             ),
