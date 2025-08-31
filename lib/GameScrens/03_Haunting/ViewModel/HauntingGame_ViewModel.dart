@@ -13,6 +13,10 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   List<List<String>> entries = [];
 
+  //DIALOG WINDOW
+  bool isDialogWindowVisible = false;
+  String dialogWindow_Text = "";
+
 
   void refresh(){
     notifyListeners();
@@ -50,6 +54,17 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   void removeEntryAt(int i) {
     entries.removeAt(0);
+    notifyListeners();
+  }
+
+  void setIsDialogWindowVisible(bool bool) {
+    isDialogWindowVisible = bool;
+    notifyListeners();
+  }
+
+  void setDialogData(String text, bool isVisible) {
+    isDialogWindowVisible = isVisible;
+    dialogWindow_Text = text;
     notifyListeners();
   }
 

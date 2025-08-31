@@ -9,6 +9,8 @@
   "numberOfFloors": 2,
   "numberOfFloorsBasement": 2,
 
+  "startingText": "This is testing text for dialog window",
+
   "mortalsIDs": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4", "EP0_Level0_Test_Mortal5", "EP0_Level0_Test_Mortal6", "EP0_Level0_Test_Mortal7", "EP0_Level0_Test_Mortal8"],
   "mortals": [],
 
