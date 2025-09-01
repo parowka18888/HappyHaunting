@@ -5,7 +5,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 
 class Scripts_TestLevel_Mortal{
   static void executeScript_testScript_SpawnWhenOneMortalIsDefeated(Haunting_Mortal mortal, Haunting_Game game) {
-    print("SJRYPT ${mortal.script} dla mortala ${mortal.name}");
+    // print("SJRYPT ${mortal.script} dla mortala ${mortal.name}");
 
     String text = "New mortal Appeared - Marej";
 

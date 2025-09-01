@@ -5,8 +5,8 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
-import '../Particles/ParticleDamage.dart';
-import '../Particles/PowerParticle.dart';
+import '../../Particles/ParticleDamage.dart';
+import '../../Particles/PowerParticle.dart';
 
 class DealingDamage{
   static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game) {

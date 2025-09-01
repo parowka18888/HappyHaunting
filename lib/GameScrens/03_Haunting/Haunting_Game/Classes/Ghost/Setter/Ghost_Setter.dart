@@ -1,0 +1,8 @@
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
+
+class Ghost_Setter{
+  static void setIsScriptExecuted(Haunting_Ghost ghost, bool bool) {
+    ghost.isScriptExecuted = bool;
+  }
+
+}

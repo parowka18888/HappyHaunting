@@ -24,6 +24,7 @@ class Haunting_Ghost{
   String? hintText;
   String? freeingText;
   GhostScript? script;
+  List<int> conditionsMet = [];
   bool isScriptExecuted = false;
 
 

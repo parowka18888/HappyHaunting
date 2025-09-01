@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/PowerMechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
@@ -9,7 +10,7 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
     required this.id, required this.name, required this.description, required this.icon,
     required this.cost, required this.cooldown, required this.powerType,
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
-    required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime,
+    required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime, required this.powerTags
   });
 
   String id = "";
@@ -24,6 +25,7 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
   bool isActivated = false;
   bool isDeactivatingForbidden = false;
   PowerType powerType = PowerType.mortalSingle;
+  List<PowerTag> powerTags = [];
   double powerTime = 0;
 
   //COOLDOWN
