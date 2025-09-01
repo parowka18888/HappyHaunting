@@ -94,11 +94,11 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
 
 
-            ///
-            // Positioned(
-            //   bottom: 0, right: 0,
-            //     child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
-            // )
+
+            Positioned(
+              bottom: 0, right: 0,
+                child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
+            )
           ],
         )
       ),
@@ -111,7 +111,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
 
     final viewModel = context.read<HauntingGame_ViewModel>();
-    viewModel.setDialogData(widget.chosenLevel.startingText, true);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HauntingGame_ViewModel>().setDialogData(widget.chosenLevel.startingText, true);
+    });
 
     haunting_game = Haunting_Game()
       ..levelName = widget.chosenLevel.fileName

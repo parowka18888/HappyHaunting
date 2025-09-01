@@ -22,8 +22,7 @@ class PowersEffect{
     if(effect != null){
       effect.power = power;
       effect.timeLeft = power.powerTime;
-      PowerMechanics.setPowerCooldown(power, game);
-      Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);
+      PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
     }
   }
 

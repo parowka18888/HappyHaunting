@@ -5,12 +5,13 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/UsingPowers/Targets/TargetsGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/UsedPowers/Mechanics/UsedPowers_ManagingObjects.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../../../../../../Entry/Haunting_Entry.dart';
 import '../../../../Particles/PowerParticle.dart';
 import '../../../../Particles/PowerParticleGetter/PowerParticleGetter.dart';
-import '../../../DealingDamage.dart';
+import '../../../DealingDamage/DealingDamage.dart';
 import '../../../PowerMechanics.dart';
 
 class PowersDamaging{
@@ -23,8 +24,7 @@ class PowersDamaging{
             PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot);
           }
         }
-        PowerMechanics.setPowerCooldown(power, game);
-        Haunting_Entry.addEntry_GhostUsesPower_Targets(game.viewModel, ghost, listOfTargets, power);
+        PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
       }
   }
 }

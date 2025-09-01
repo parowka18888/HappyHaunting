@@ -30,8 +30,7 @@ class PowersLuring{
             }
           }
         }
-        PowerMechanics.setPowerCooldown(power, game);
-        Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);
+        PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
         PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
       }
     }
@@ -50,8 +49,7 @@ class PowersLuring{
             Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
           }
         }
-        PowerMechanics.setPowerCooldown(power, game);
-        Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);
+        PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
         PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
       }
     }

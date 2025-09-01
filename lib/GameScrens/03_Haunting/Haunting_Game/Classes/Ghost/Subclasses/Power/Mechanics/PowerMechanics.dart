@@ -10,7 +10,12 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Particle/GhostSpot_Particle.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
+import '../../../../Entry/Haunting_Entry.dart';
+import '../../../../Mortal/Haunting_Mortal.dart';
+import '../../../../UsedPowers/Mechanics/UsedPowers_ManagingObjects.dart';
+
 class PowerMechanics{
+
   static void usePower(Haunting_Power power, Haunting_Game game) {
     if(power.isActivated == true && power.currentCooldown <= 0){
       Haunting_Ghost? owningGhost = GhostGetter.getGhostByPower(power, game);
@@ -28,5 +33,19 @@ class PowerMechanics{
     print("użyto umiejętności ${power.name}!");
     game.viewModel.refresh();
   }
+
+  static void usePower_EndingProcess(Haunting_Game game, Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, {
+    List<Haunting_Mortal>? listOfTargets
+  }) {
+    PowerMechanics.setPowerCooldown(power, game);
+    UsedPowers_ManagingObjects.addUsedPower(game, power, ghost, room);
+
+    if(listOfTargets != null){
+      Haunting_Entry.addEntry_GhostUsesPower_Targets(game.viewModel, ghost, listOfTargets, power);
+    } else {
+      Haunting_Entry.addEntry_UsesPower(game.viewModel, ghost, power);
+    }
+  }
+
 
 }

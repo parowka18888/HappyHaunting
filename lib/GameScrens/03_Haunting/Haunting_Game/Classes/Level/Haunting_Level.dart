@@ -11,6 +11,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/UsedPowers/UsedPowers.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
@@ -29,6 +30,8 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   List<Haunting_GhostSpot> ghostSpots = [];
   List<Haunting_Floor> floors = [];
   List<Haunting_Exit> exitPoints = [];
+
+  List<UsedPower> usedPowers = [];
 
   HauntingGame_ViewModel viewModel = HauntingGame_ViewModel();
 

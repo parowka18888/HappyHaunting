@@ -18,7 +18,7 @@ class RoomGhost{
     var chosenGhost = game.viewModel.chosenGhost;
     if(chosenGhost != null && RoomCheckConditions.checkIf_GhostCanBePlaced_ByAura(chosenGhost, room)){
       for(var ghostSpot in room.ghostSpots){
-        if(ghostSpot.ghost == null){
+        if(ghostSpot.ghost == null && ghostSpot.isTrap == false){
           if(chosenGhost.isPlaced == true){
             Haunting_GhostSpot? previousGhostSpot = GhostSpotGetter.getGhostSpotByGhost(game, chosenGhost);
             if(previousGhostSpot == null){

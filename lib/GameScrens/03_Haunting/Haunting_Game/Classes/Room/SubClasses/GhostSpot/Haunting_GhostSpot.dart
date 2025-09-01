@@ -7,6 +7,7 @@ import 'package:flame/particles.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomGhost.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Mechanics/GhostSpot_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Particle/GhostSpot_Particle.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/GhostBased/Scripts_GhostBased.dart';
 
@@ -38,13 +39,14 @@ class Haunting_GhostSpot extends SpriteComponent with HasGameReference<Haunting_
           Scripts_GhostBased.getScript_Navigator(ghost!, game);
         }
       }
+
     }
 
     @override
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
     if(isTrap == false){
-      RoomGhost.clearSpotFromGhost(game, this, event.localPosition);
+      GhostSpot_Mechanics.removeGhostFromGhostSpot(game, this);
     } else {
       game.viewModel.setDialogData(ghost?.hintText, true);
     }
