@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
 import '../../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
@@ -68,7 +69,7 @@ class GhostPanel_GUI{
             Haunting_Power power = ghost.powers[index];
             return GestureDetector(
               onTap: (){
-                    PowerSetter.togglePowerActivation(power);
+                    PowerSetter.togglePowerActivation(power, game: viewModel.game);
                     viewModel.refresh();
               },
               child: Opacity(opacity: power.isActivated == true ? 1.0 : 0.5,

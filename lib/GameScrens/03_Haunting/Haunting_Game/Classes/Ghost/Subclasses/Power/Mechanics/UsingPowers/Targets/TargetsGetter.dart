@@ -13,31 +13,29 @@ class TargetsGetter{
     Haunting_Floor? floor = room.floor;
     switch(targets){
       case Power_Targets.MortalSingle:
-        listOfAvailableMortals = room.mortalsInRoom.where((mortal) => mortal.isActive)
-            .toList();
+        listOfAvailableMortals = getAvailableMortalsForList(room.mortalsInRoom);
         if(listOfAvailableMortals.isNotEmpty){
           listOfAvailableMortals.shuffle();
           listOfTargets.add(listOfAvailableMortals[0]);
         }
         break;
       case Power_Targets.MortalRoom:
-        listOfAvailableMortals = room.mortalsInRoom.where((mortal) => mortal.isActive)
-            .toList();
+        listOfAvailableMortals = getAvailableMortalsForList(room.mortalsInRoom);
         if(listOfAvailableMortals.isNotEmpty){
           listOfTargets = listOfAvailableMortals;
         }
         break;
       case Power_Targets.MortalMap:
-        listOfAvailableMortals = game.level.mortals.where((mortal) => mortal.isActive)
-            .toList();
+        listOfAvailableMortals = getAvailableMortalsForList(game.level.mortals);
         if(listOfAvailableMortals.isNotEmpty){
           listOfTargets = listOfAvailableMortals;
         }
         break;
       case Power_Targets.MortalFloor:
-        if(floor != null){
-          for(final mortal in game.level.mortals){
-            if(game.level.mortals.isNotEmpty && mortal.floor!.id == floor.id && mortal.isActive == true){
+        listOfAvailableMortals = getAvailableMortalsForList(game.level.mortals);
+        if(floor != null && listOfAvailableMortals.isNotEmpty){
+          for(final mortal in listOfAvailableMortals){
+            if(mortal.floor!.id == floor.id){
               listOfTargets.add(mortal);
             }
           }
@@ -45,6 +43,11 @@ class TargetsGetter{
         break;
     }
     return listOfTargets;
+  }
+
+  static List<Haunting_Mortal> getAvailableMortalsForList(List<Haunting_Mortal> list) {
+    return  list.where((mortal) => mortal.isActive && mortal.ghostSpot != null && mortal.ghostSpot!.ghost == null)
+        .toList();
   }
 
 }

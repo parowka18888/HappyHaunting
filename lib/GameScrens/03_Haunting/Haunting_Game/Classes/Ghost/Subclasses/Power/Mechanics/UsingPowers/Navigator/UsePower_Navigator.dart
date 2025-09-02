@@ -4,6 +4,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/UsingPowers/ByType/Damaging/PowersDamaging.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/UsingPowers/ByType/Effect/PowersEffect.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/UsingPowers/ByType/Luring/PowersLuring.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Mechanics/UsingPowers/ByType/Possessing/PowersPossess.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 
 import '../../../../../../../../../../Data/Database/Enums/Power_Targets.dart';
@@ -31,6 +32,9 @@ class UsePower_Navigator{
         break;
       case PowerType.effectRoom:
         PowersEffect.usePower_EffectRoom(power, ghost, room, game);
+        break;
+      case PowerType.posessionMortal:
+        PowersPossess.usePower_PossessMortal(power, ghost, room, game, Power_Targets.MortalRoom);
         break;
     }
   }

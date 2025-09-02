@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 class HauntingGame_ViewModel extends ChangeNotifier {
 
@@ -16,6 +17,8 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   //DIALOG WINDOW
   bool isDialogWindowVisible = false;
   String? dialogWindow_Text = "";
+
+  Haunting_Game? game;
 
 
   void refresh(){
