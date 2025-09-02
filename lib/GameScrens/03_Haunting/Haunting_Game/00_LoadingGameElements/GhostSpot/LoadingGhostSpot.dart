@@ -1,5 +1,7 @@
+import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -20,6 +22,26 @@ class LoadingGhostSpot{
     if(room!=null) room.ghostSpots.add(ghostSpot);
     game.level.level.add(ghostSpot);
     return ghostSpot;
+  }
+
+  static Haunting_GhostSpot loadGhostSpotForMortal(TiledObject spawnPoint, Haunting_Game game, Haunting_Mortal mortal) {
+    Vector2 size = spawnPoint.size;
+    Vector2 position = spawnPoint.position;
+
+    double sizeModifier = 0.6;
+    size.x = size.x * sizeModifier;
+    size.y = size.y * sizeModifier;
+
+    position.x = spawnPoint.size.x - size.x / 2;
+    position.y = spawnPoint.size.y - size.y / 2;
+
+    final ghostSpot = Haunting_GhostSpot(
+        position: position,
+        size: size,
+        id: spawnPoint.name)..type = GhostSpot_Type.mortal;
+    mortal.add(ghostSpot);
+    return ghostSpot;
+
   }
 
 }

@@ -1,4 +1,6 @@
 import 'package:flame_tiled/flame_tiled.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -48,8 +50,13 @@ class LoadingMortal{
           floor: floor
 
       );
+
+      Haunting_GhostSpot ghostSpot = LoadingGhostSpot.loadGhostSpotForMortal(spawnPoint, game, haunting_Mortal);
+      haunting_Mortal.ghostSpot = ghostSpot;
+
       game.level.mortals.add(haunting_Mortal);
       game.level.level.add(haunting_Mortal);
+
     }
   }
 
