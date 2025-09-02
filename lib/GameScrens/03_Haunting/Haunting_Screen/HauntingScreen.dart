@@ -123,8 +123,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
       ..viewModel = viewModel
       ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3)]
       ..trappedGhosts = widget.chosenLevel.trappedGhosts
-
     ;
+    viewModel.game = haunting_game;
 
     Future.delayed(Duration(seconds: 3), (){
       setState(() {});

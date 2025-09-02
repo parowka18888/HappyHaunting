@@ -7,6 +7,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Getter/GhostSpotGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Mechanics/GhostSpot_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Particle/GhostSpot_Particle.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Setter/GhostSpotSetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -28,11 +29,7 @@ class RoomGhost{
               clearSpotFromGhost(game, previousGhostSpot);
             }
           }
-          chosenGhost.ghostSpot = ghostSpot;
-          ghostSpot.ghost = chosenGhost;
-          chosenGhost.room = room;
-          chosenGhost.isPlaced = true;
-          game.viewModel.setChosenGhost(null);
+          GhostSpot_Mechanics.placeGhostAtGhostSpot(ghostSpot, chosenGhost, game, room);
           print("TUTAJ");
           break;
         }
@@ -40,10 +37,15 @@ class RoomGhost{
     }
   }
 
-  static void clearSpotFromGhost(Haunting_Game game, Haunting_GhostSpot spot, [Vector2? localPosition]) {
+  static void clearSpotFromGhost(Haunting_Game game, Haunting_GhostSpot spot, {
+    Vector2? localPosition,
+    bool powersDeactivation = true
+  }) {
     if(spot.ghost != null){
-      for(Haunting_Power power in spot.ghost!.powers){
-        PowerSetter.setPowerActivation(power, false);
+      if(powersDeactivation){
+        for(Haunting_Power power in spot.ghost!.powers){
+          PowerSetter.setPowerActivation(power, false);
+        }
       }
       spot.ghost!.ghostSpot = null;
       spot.ghost!.isPlaced = false;

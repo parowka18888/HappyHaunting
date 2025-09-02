@@ -31,6 +31,9 @@ class RoomMortal{
       final alreadyInside = room.mortalsInRoom.contains(mortal);
       if (isInside && !alreadyInside) {
         room.mortalsInRoom.add(mortal);
+        if(mortal.ghostSpot != null && mortal.ghostSpot!.ghost != null){
+          mortal.ghostSpot!.ghost!.room = room;
+        }
         print("👻 Mortal ${mortal.name} wchodzi do pokoju ${room.id} at ${DateTime.now()}");
       } else if (!isInside && alreadyInside) {
         room.mortalsInRoom.remove(mortal);

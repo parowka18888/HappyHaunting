@@ -34,7 +34,7 @@ class UsePower_Navigator{
         PowersEffect.usePower_EffectRoom(power, ghost, room, game);
         break;
       case PowerType.posessionMortal:
-        PowersPossess.usePower_PossessMortal(power, ghost, room, game);
+        PowersPossess.usePower_PossessMortal(power, ghost, room, game, Power_Targets.MortalRoom);
         break;
     }
   }

@@ -40,6 +40,7 @@ class LoadingGhostSpot{
         size: size,
         id: spawnPoint.name)..type = GhostSpot_Type.mortal;
     mortal.add(ghostSpot);
+    game.level.ghostSpots.add(ghostSpot);
     return ghostSpot;
 
   }
