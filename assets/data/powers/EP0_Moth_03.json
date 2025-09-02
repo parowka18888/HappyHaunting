@@ -11,7 +11,7 @@
   "stat_Madness": 0,
   "stat_Faith": 0,
 
-  "powerType" : "lureFloor",
+  "powerType" : "posessionMortal",
   "powerChances" : 25,
   "powerTime" : 0,
 
