@@ -10,7 +10,7 @@ import '../../Particles/PowerParticle.dart';
 
 class DealingDamage{
   static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game) {
-    if(mortal.isActive){
+    if(MortalChecker.checkIfMortalIsTargetable(mortal)){
       double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear).toStringAsFixed(2));
       double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health).toStringAsFixed(2));
       double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness).toStringAsFixed(2));
