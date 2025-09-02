@@ -7,8 +7,11 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_T
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Aura/LoadAura.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Effect/LoadEffect.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Ghost/LoadingGhost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Mortal/LoadingMortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Effect/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
@@ -46,66 +49,16 @@ class LoadingGameElements{
 
   static void loadLevelObjects(Haunting_Level level, Haunting_Game game) {
 
-    int mortalIndex = 0;
-
     final spawnPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('SpawnPoints');
     if(spawnPointsLayer != null){
       for(final spawnPoint in spawnPointsLayer.objects){
         switch(spawnPoint.class_){
           case 'Mortal': {
-            String mortalID = spawnPoint.properties.getValue('mortalID');
-            int floorID = spawnPoint.properties.getValue('floor');
-            bool isTriggeredByScript = spawnPoint.properties.getValue('isTriggeredByScript');
-            String scriptID = spawnPoint.properties.getValue('scriptID');
-
-            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
-            Mortal? mortal = MortalGetter.getMortalById_TypeMortal(mortalID, game);
-            LevelScript? levelScript = null;
-
-            if(scriptID != null && scriptID.length > 0){
-              levelScript = LevelScript.values.byName(scriptID);
-            }
-
-            if(mortal != null && floor != null){
-              final haunting_Mortal = Haunting_Mortal(
-                  position: spawnPoint.position,
-                  size: spawnPoint.size,
-                  id: mortal.id,
-                  icon: mortal.icon,
-                  name: "Haunting_${mortal.name}",
-                  stat_Fear: mortal.stat_Fear,
-                  stat_Health: mortal.stat_Health,
-                  stat_Madness: mortal.stat_Madness,
-                  stat_Faith: mortal.stat_Faith,
-                  stat_Multiplier_Fear: mortal.stat_Multiplier_Fear,
-                  stat_Multiplier_Health: mortal.stat_Multiplier_Health,
-                  stat_Multiplier_Madness: mortal.stat_Multiplier_Madness,
-                  stat_Multiplier_Faith: mortal.stat_Multiplier_Faith,
-                  stat_Current_Fear: 0,
-                  stat_Current_Health: 0,
-                  stat_Current_Madness: 0,
-                  stat_Current_Faith: 0,
-                  isActive: !isTriggeredByScript,
-                  script: levelScript,
-                  floor: floor
-
-              );
-              mortalIndex++;
-              level.mortals.add(haunting_Mortal);
-              level.level.add(haunting_Mortal);
-            }
-
+            LoadingMortal.loadMortal(spawnPoint, game);
             break;
           }
           case 'Effect': {
-            int effectIndex = spawnPoint.properties.getValue('effectIndex');
-            String roomName = spawnPoint.properties.getValue('roomName');
-            final room = RoomGetter.getRoomByName(roomName, game);
-            if(room!=null){
-              final effect = Haunting_Effect(index: effectIndex, position: spawnPoint.position, size: spawnPoint.size)..room = room;
-              level.level.add(effect);
-              room.effects.add(effect);
-            }
+            LoadEffect.loadEffect(spawnPoint, game);
             break;
           }
           case 'Ghost': {
@@ -113,52 +66,11 @@ class LoadingGameElements{
             break;
           }
           case "Aura" : {
-            final roomName = spawnPoint.properties.getValue('roomName');
-            final auraIndex = spawnPoint.properties.getValue('auraIndex');
-            final room = RoomGetter.getRoomByName(roomName, game);
-            if(room!=null){
-              if(room.auras.length > auraIndex){
-                final aura = Haunting_Aura(aura: room.auras[auraIndex], size: spawnPoint.size, position: spawnPoint.position);
-                level.level.add(aura);
-              }
-            }
+            LoadAura.loadAura(spawnPoint, game);
             break;
           }
           case "TrappedGhost" : {
-            Haunting_GhostSpot? ghostSpot = LoadingGhostSpot.loadGhostSpot(spawnPoint, game);
-            if(ghostSpot != null){
-              final ghostID = spawnPoint.properties.getValue('ghostID');
-              final roomName = spawnPoint.properties.getValue('roomName');
-
-              final hintText = spawnPoint.properties.getValue('hintText');
-              final freeingGhostText = spawnPoint.properties.getValue('freeingGhostText');
-              final scriptID = spawnPoint.properties.getValue('scriptID');
-              final GhostScript script = GhostScript.values.byName(scriptID);
-
-              final room = RoomGetter.getRoomByName(roomName, game);
-              final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
-              if(room!=null && trappedGhost != null){
-                Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script);
-                ghostSpot.type = GhostSpot_Type.trap;
-                ghostSpot.ghost = ghost;
-              // level.level.add(trapped);
-              }
-            }
-
-
-            // final room = RoomGetter.getRoomByName(roomName, game);
-            // final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
-
-
-            // if(room!=null && trappedGhost != null){
-            //   Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room);
-            //   Haunting_TrappedGhost trapped = Haunting_TrappedGhost(
-            //       position: spawnPoint.position,
-            //       size: spawnPoint.size,
-            //       ghost: ghost
-            //   );
-              // level.level.add(trapped);
-            // }
+            LoadingGhost.loadTrappedGhost(spawnPoint, game);
             break;
           }
         }
