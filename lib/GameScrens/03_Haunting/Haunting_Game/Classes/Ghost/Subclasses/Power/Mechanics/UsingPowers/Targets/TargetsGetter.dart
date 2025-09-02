@@ -4,6 +4,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 
 import '../../../../../../../../../../Data/Database/Enums/Power_Targets.dart';
 import '../../../../../../../Haunting_Game.dart';
+import '../../../../../../Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import '../../../../../../Room/Haunting_Room.dart';
 
 class TargetsGetter{
@@ -46,8 +47,18 @@ class TargetsGetter{
   }
 
   static List<Haunting_Mortal> getAvailableMortalsForList(List<Haunting_Mortal> list) {
-    return  list.where((mortal) => mortal.isActive && mortal.ghostSpot != null && mortal.ghostSpot!.ghost == null)
+    return  list.where((mortal) => MortalChecker.checkIfMortalIsTargetable(mortal))
         .toList();
+    // List<Haunting_Mortal> availableMortals = [];
+    // for(var mortal in list){
+    //   bool isTargetable = MortalChecker.checkIfMortalIsTargetable(mortal);
+    //   if(isTargetable == true){
+    //     availableMortals.add(mortal);
+    //   }
+    // }
+    // return availableMortals;
+    // return  list.where((mortal) => mortal.isActive && mortal.ghostSpot != null && mortal.ghostSpot!.ghost == null)
+    //     .toList();
   }
 
 }

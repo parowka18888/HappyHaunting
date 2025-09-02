@@ -63,4 +63,12 @@ class MortalChecker{
     return false;
   }
 
+  static bool checkIfMortalIsTargetable(Haunting_Mortal mortal) {
+    if(mortal.isActive == true && mortal.ghostSpot != null && mortal.ghostSpot!.ghost == null){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
