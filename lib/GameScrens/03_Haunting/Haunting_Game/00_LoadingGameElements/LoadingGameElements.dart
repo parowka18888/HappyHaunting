@@ -3,6 +3,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/02_Mortal.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Getter/EnumGetter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
@@ -138,7 +139,7 @@ class LoadingGameElements{
               final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
               if(room!=null && trappedGhost != null){
                 Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script);
-                ghostSpot.isTrap = true;
+                ghostSpot.type = GhostSpot_Type.trap;
                 ghostSpot.ghost = ghost;
               // level.level.add(trapped);
               }
