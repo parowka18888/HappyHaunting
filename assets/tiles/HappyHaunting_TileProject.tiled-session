@@ -14,8 +14,8 @@
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                4,
                 3,
+                4,
                 5
             ],
             "scale": 1,
@@ -27,8 +27,8 @@
         },
         "Level_Test2.tmx": {
             "expandedObjectLayers": [
-                4,
-                3
+                3,
+                4
             ],
             "scale": 1,
             "selectedLayer": 3,

@@ -31,6 +31,7 @@ class Haunting_Exit extends PositionComponent
       if(other.isDefeated == true){
         other.position.x = game.width * 2;
         other.canMove = false;
+        other.isEscaped = true;
       }
     }
     super.onCollisionStart(intersectionPoints, other);

@@ -15,4 +15,20 @@ class GhostGetter{
     return null;
   }
 
+  static Haunting_Ghost? getGhostByID(String id, Haunting_Game game, {
+    bool isFree = true,
+    bool isTrapped = true,
+  }) {
+    List<Haunting_Ghost> ghostList = [];
+    if(isFree) ghostList += game.level.ghosts;
+    if(isTrapped) ghostList += game.level.trappedGhosts;
+
+    for(final ghost in ghostList){
+      if(ghost.id == id){
+        return ghost;
+      }
+    }
+    return null;
+  }
+
 }

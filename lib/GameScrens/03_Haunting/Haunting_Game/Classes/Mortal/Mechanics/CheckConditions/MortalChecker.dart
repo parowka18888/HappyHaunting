@@ -57,7 +57,7 @@ class MortalChecker{
   }
 
   static bool checkIfMortalEscaped(Haunting_Mortal mortal) {
-    if(mortal.isDefeated == true && mortal.canMove == false){
+    if(mortal.isDefeated == true && mortal.isEscaped == true){
       return true;
     }
     return false;

@@ -69,6 +69,13 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.isScriptExecuted = bool;
   }
 
+  static void setTimeOfThinking(Haunting_Mortal mortal, double time, {
+    bool canMove = false
+  }) {
+    mortal.timeOfThinking = time;
+    mortal.canMove = canMove;
+  }
+
 
 
 }

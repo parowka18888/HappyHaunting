@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flame/components.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Hauning_Stairs.dart';
 import 'package:vector_math/vector_math.dart';
 
@@ -22,10 +23,10 @@ class Mortal_Destination_Getter{
     }
   }
 
-  static Vector2? getNextDestination_Stairs(List<Haunting_Stairs> listStairs) {
-    if(listStairs.isNotEmpty){
-      listStairs.shuffle();
-      return listStairs[0].position;
+  static Vector2? getNextDestination_ByList<T extends PositionComponent>(List<T> list) {
+    if(list.isNotEmpty){
+      list.shuffle();
+      return list[0].position;
     } else {
       return null;
     }

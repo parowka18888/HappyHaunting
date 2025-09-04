@@ -9,11 +9,12 @@ import '../Power/Haunting_Power.dart';
 class Haunting_Ghost{
 
   Haunting_Ghost({
-    required this.name, required this.icon,
+    required this.name, required this.icon, required this.id,
     required this.powers, required this.auras,
   });
   String icon = "";
   String name = "";
+  String id = "";
   List<Haunting_Power> powers = [];
   List<Aura> auras = [];
 
