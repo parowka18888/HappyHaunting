@@ -38,16 +38,17 @@ class GhostPanel_GUI{
   static getGhostImage(double width, double height, Haunting_Ghost ghost, HauntingGame_ViewModel viewModel) {
     return GestureDetector(
       onTap: (){
-        if(viewModel.chosenGhost != null){
-          if(viewModel.chosenGhost!.name == ghost.name){
-            viewModel.setChosenGhost(null);
+        if(ghost.isFree){
+          if(viewModel.chosenGhost != null){
+            if(viewModel.chosenGhost!.name == ghost.name){
+              viewModel.setChosenGhost(null);
+            } else {
+              viewModel.setChosenGhost(ghost);
+            }
           } else {
             viewModel.setChosenGhost(ghost);
           }
-        } else {
-          viewModel.setChosenGhost(ghost);
         }
-
 
       },
       child: Container(
@@ -69,8 +70,10 @@ class GhostPanel_GUI{
             Haunting_Power power = ghost.powers[index];
             return GestureDetector(
               onTap: (){
-                    PowerSetter.togglePowerActivation(power, game: viewModel.game);
-                    viewModel.refresh();
+                if(power.isDeactivatingForbidden == false){
+                  PowerSetter.togglePowerActivation(power, game: viewModel.game);
+                  viewModel.refresh();
+                }
               },
               child: Opacity(opacity: power.isActivated == true ? 1.0 : 0.5,
                 child: Image.asset('assets/images/Powers/${power.icon}.png',),

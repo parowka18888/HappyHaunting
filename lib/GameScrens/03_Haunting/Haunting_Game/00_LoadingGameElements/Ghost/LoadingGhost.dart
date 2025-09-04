@@ -18,6 +18,7 @@ import '../GhostSpot/LoadingGhostSpot.dart';
 class LoadingGhost{
   static Haunting_Ghost loadGhost(Ghost ghost, Haunting_Game game, List<Haunting_Ghost> ghosts, {
     bool isPlaced = false,
+    bool isFree = true,
     Haunting_Room? room,
     Haunting_GhostSpot? ghostSpot,
     String? hintText,
@@ -35,6 +36,7 @@ class LoadingGhost{
     ..hintText = hintText
     ..freeingText = freeingText
     ..script = script
+    ..isFree = isFree
     ;
     ghosts.add(hauntingGhost);
     return hauntingGhost;
@@ -65,7 +67,7 @@ class LoadingGhost{
       final room = RoomGetter.getRoomByName(roomName, game);
       final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
       if(room!=null && trappedGhost != null){
-        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script);
+        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script, isFree: false);
         ghostSpot.type = GhostSpot_Type.trap;
         ghostSpot.ghost = ghost;
       }

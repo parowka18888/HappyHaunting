@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/SidePanel/SidePanel_ByCategory/Ghosts/OwningGhosts_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/SidePanel/SidePanel_ByCategory/Mortals/MortalsList_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
 import '../../../../../Data/Database/Enums/GameCategory.dart';
+import 'SidePanel_ByCategory/Ghosts/Ghosts_GUI.dart';
 
 class SidePanel_GUI{
   static getSidePanel(BuildContext context, HauntingGame_ViewModel viewModel, double height, double width, Haunting_Game game) {
@@ -20,8 +20,8 @@ class SidePanel_GUI{
           height: height, width: width, color: Colors.blue,
           child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if(viewModel.gameCategory == GameCategory.ghosts)
-                OwningGhosts_GUI.getOwningGhostList(context, viewModel, panelHeight, width, game),
+              if(viewModel.gameCategory == GameCategory.ghosts || viewModel.gameCategory == GameCategory.trapped)
+                Ghosts_GUI.getGhostList(context, viewModel, panelHeight, width, game),
               if(viewModel.gameCategory == GameCategory.mortals)
                 MortalsList_GUI.getMortalsList(context, viewModel, panelHeight, width, game),
               getSidePanelButton(context, viewModel, buttonHeight, width)

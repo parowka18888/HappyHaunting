@@ -60,28 +60,6 @@ class Haunting_Room extends PolygonComponent
     super.update(dt);
     RoomSetter.setRoomColor(this, game.viewModel);
 
-    // for (final mortal in game.level.mortals) {
-    //   final isInside = containsPoint(mortal.position);
-    //   final alreadyInside = mortalsInRoom.contains(mortal);
-    //
-    //   if (isInside && !alreadyInside) {
-    //     mortalsInRoom.add(mortal);
-    //     // print("✅ Mortal ${mortal.name} wszedł do pokoju $id");
-    //   } else if (!isInside && alreadyInside) {
-    //     mortalsInRoom.remove(mortal);
-    //     // print("❌ Mortal ${mortal.name} wyszedł z pokoju $id");
-    //   }
-    // }
-    //
-    //
-    // Haunting_Mortal? mortal = MortalGetter.getMortalByName("Haunting_Ogórki", game);
-    // if(mortal != null){
-    //   if(mortalsInRoom.contains(mortal)){
-    //     print("👻 Mortal ${mortal.name} jest w pokoju $id at ${DateTime.now()}");
-    //     // print("👻 Mortal ${mortal.name} jest w pokoju $id");
-    //   }
-    // }
-
   }
 
 
@@ -89,22 +67,9 @@ class Haunting_Room extends PolygonComponent
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
     RoomGhost.placeGhost(game, this);
-    // spawnClickEffect(event.localPosition);
     print("Kliknięto pokój o id=$id");
   }
 
-
-  // @override
-  // void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
-  //   super.onCollisionStart(intersectionPoints, other);
-  //   if(other is Haunting_Mortal){
-  //       if(mortalsInRoom.contains(other)){
-  //         mortalsInRoom.remove(other);
-  //       } else {
-  //         mortalsInRoom.add(other);
-  //       }
-  //   }
-  // }
 
 
   void spawnClickEffect(Vector2 position) {

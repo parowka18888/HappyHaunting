@@ -27,6 +27,7 @@ class Haunting_Ghost{
   GhostScript? script;
   List<int> conditionsMet = [];
   bool isScriptExecuted = false;
+  bool isFree = true;
 
 
 }
