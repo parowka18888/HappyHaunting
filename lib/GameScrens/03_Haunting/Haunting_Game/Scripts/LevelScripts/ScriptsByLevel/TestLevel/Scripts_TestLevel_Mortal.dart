@@ -1,3 +1,5 @@
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
@@ -31,6 +33,7 @@ class Scripts_TestLevel_Mortal{
     ];
     String text = "New mortal Appeared - BM";
 
+    // print("SPRAWDZAM BM");
     //CHECK IF CONDITIONS ARE MET
     bool conditionsAreMet = Script_CheckConditions.checkIfConditionsAreMet(conditions, mortal.conditionsMet);
     if(conditionsAreMet){
@@ -39,7 +42,7 @@ class Scripts_TestLevel_Mortal{
       game.viewModel.setDialogData(text, true);
     }
 
-    //0
+    //ONE MORTAL IS DEFEATED AND ESCAPED [0]
     if(!mortal.conditionsMet.contains(0)){
       for(var checkingMortal in game.level.mortals){
         bool condition = MortalChecker.checkIfMortalEscaped(checkingMortal);
@@ -50,8 +53,16 @@ class Scripts_TestLevel_Mortal{
       }
     }
 
-    //1
-
+    //TRAPPED GHOST IS FREED [1]
+    if(!mortal.conditionsMet.contains(1)){
+      Haunting_Ghost? trappedGhost = GhostGetter.getGhostByID("EP0_ClothesEater", game, isTrapped: true);
+      if(trappedGhost != null){
+        if(trappedGhost.isScriptExecuted == true){
+          mortal.conditionsMet.add(1);
+        }
+      }
+    }
+    
 
   }
 

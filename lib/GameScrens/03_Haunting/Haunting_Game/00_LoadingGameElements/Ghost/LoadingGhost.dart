@@ -28,7 +28,7 @@ class LoadingGhost{
     for(var ghostPower in ghost.powers){
       loadPower(ghostPower, game, powers);
     }
-    var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras)
+    var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras, id: ghost.id)
       ..isPlaced = isPlaced
       ..room = room
     ..ghostSpot = ghostSpot
