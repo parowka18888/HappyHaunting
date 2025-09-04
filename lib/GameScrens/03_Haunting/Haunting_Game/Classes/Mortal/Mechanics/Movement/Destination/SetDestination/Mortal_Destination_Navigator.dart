@@ -16,13 +16,13 @@ class Mortal_Destination_Navigator{
     List<Vector2>? listOfAvailableDestinationPoints,
     Vector2? destinationPoint
   }){
-
     if(destinationPoint != null){
       Mortal_Destination_Setter.forceNextDestination(mortal, game, destinationPoint);
       return;
     }
 
     if(mortal.finalFloor != null && mortal.finalDestination != null){
+      print("WYKONUJE  dla ${mortal.name}");
       Mortal_Destination_Setter.setFinalDestination(mortal, game);
       return;
     }

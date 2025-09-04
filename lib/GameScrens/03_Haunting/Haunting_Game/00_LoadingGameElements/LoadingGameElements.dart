@@ -125,34 +125,34 @@ class LoadingGameElements{
             }
           }
 
-          // case 'MortalSpecialPoint_Interactive' : {
-          //   int floorID = point.properties.getValue('floor');
-          //   String roomName = point.properties.getValue('roomName');
-          //   String id = point.properties.getValue('id');
-          //   String sound_Start = point.properties.getValue('sound_Start');
-          //   String sound_End = point.properties.getValue('sound_End');
-          //   double time = point.properties.getValue('time');
-          //   bool isSeducing = point.properties.getValue('isSeducing');
-          //
-          //   Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
-          //   Haunting_Room? room = RoomGetter.getRoomByName(roomName, game);
-          //
-          //   if(floor != null && room != null){
-          //     Haunting_InteractiveObject interactiveObject = Haunting_InteractiveObject(
-          //         position: point.position,
-          //         size: point.size,
-          //         floor: floor,
-          //         room: room,
-          //         id: id,
-          //         sound_End: sound_End,
-          //         sound_Start: sound_Start,
-          //         time: time,
-          //         isSeducing: isSeducing
-          //     );
-          //     floor.listInteractiveObjects.add(interactiveObject);
-          //     game.add(interactiveObject);
-          //   }
-          // }
+          case 'MortalSpecialPoint_Interactive' : {
+            int floorID = point.properties.getValue('floor');
+            String roomName = point.properties.getValue('roomName');
+            String id = point.properties.getValue('id');
+            String sound_Start = point.properties.getValue('sound_Start');
+            String sound_End = point.properties.getValue('sound_End');
+            double time = point.properties.getValue('time');
+            bool isSeducing = point.properties.getValue('isSeducing');
+
+            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
+            Haunting_Room? room = RoomGetter.getRoomByName(roomName, game);
+
+            if(floor != null && room != null){
+              Haunting_InteractiveObject interactiveObject = Haunting_InteractiveObject(
+                  position: point.position,
+                  size: point.size,
+                  floor: floor,
+                  room: room,
+                  id: id,
+                  sound_End: sound_End,
+                  sound_Start: sound_Start,
+                  time: time,
+                  isSeducing: isSeducing
+              );
+              floor.listInteractiveObjects.add(interactiveObject);
+              game.add(interactiveObject);
+            }
+          }
         }
       }
     }

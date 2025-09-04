@@ -46,9 +46,10 @@ class Mortal_Destination_Setter{
       );
       if(path.isNotEmpty){
         mortal.path = path.map((p) => gridToWorld(p)).toList();
-      } else {
-        Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
       }
+      // else {
+      //   Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+      // }
 
     }
 
@@ -67,25 +68,29 @@ class Mortal_Destination_Setter{
   static void setFinalDestination(Haunting_Mortal mortal, Haunting_Game game){
     //IF THERE IS A NEED TO CHANGE FLOOR
     if(mortal.floor != mortal.finalFloor){
-       var mortalFloorID = mortal.floor!.id;
-       var mortalFinalFloorID = mortal.finalFloor!.id;
-       int modifier = 0;
+      print("FLOOR MORTALA JEST INNE NIŻ FINAL FLOOR!");
+
+       var mortalFloorID = mortal.floor!.id; print("mortalFloorID ${mortalFloorID}");
+       var mortalFinalFloorID = mortal.finalFloor!.id; print("mortalFinalFloorID ${mortalFinalFloorID}");
+       int modifier = 0; print("modifier ${modifier}");
 
        if(mortalFloorID > mortalFinalFloorID){
-         modifier = -1;
+         modifier = -1;print("modifier ${modifier}");
        } else {
-         modifier = 1;
+         modifier = 1;print("modifier ${modifier}");
        }
-
        Haunting_Stairs? stairs = StairsGetter.getStairsAtFloor_SearchByModifier(mortal.floor!, modifier);
        if(stairs != null){
+         print("ZNALEZIONO SCHODY");
          Vector2 stairsLocation = stairs.position;
          // Mortal_Destination_Setter.forceNextDestination(mortal, game, stairsLocation);
          Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game, destinationPoint: stairsLocation);
+       } else {
+         print(" NIEEEE ZNALEZIONO SCHODY");
        }
-
     } else { //MORTAL IS AT THE SAME FLOOR AS FINAL POINT
-      Vector2? destination = mortal.finalDestination;
+      print("FLOOR MORTALA JEST TO SAMO");
+      Vector2? destination = mortal.finalDestination;print("destination ${destination}");
       if(destination != null){
         forceNextDestination(mortal, game, destination);
       }
