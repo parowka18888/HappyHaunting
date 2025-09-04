@@ -34,10 +34,10 @@ class RoomMortal{
         if(mortal.ghostSpot != null && mortal.ghostSpot!.ghost != null){
           mortal.ghostSpot!.ghost!.room = room;
         }
-        print("👻 Mortal ${mortal.name} wchodzi do pokoju ${room.id} at ${DateTime.now()}");
+        // print("👻 Mortal ${mortal.name} wchodzi do pokoju ${room.id} at ${DateTime.now()}");
       } else if (!isInside && alreadyInside) {
         room.mortalsInRoom.remove(mortal);
-        print("❌ Mortal ${mortal.name} wychodzi z pokoju ${room.id} at ${DateTime.now()}");
+        // print("❌ Mortal ${mortal.name} wychodzi z pokoju ${room.id} at ${DateTime.now()}");
       }
     }
   }

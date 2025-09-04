@@ -127,6 +127,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
   @override
   void update(double dt) {
+
     super.update(dt);
     //IF MORTAL IS ACTIVE (IN REACH OF PLAYER)
     if(isActive == true){

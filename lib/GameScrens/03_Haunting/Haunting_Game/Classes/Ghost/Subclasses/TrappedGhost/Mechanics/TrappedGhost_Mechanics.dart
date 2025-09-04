@@ -15,6 +15,8 @@ class TrappedGhost_Mechanics{
       //IF GHOST IS LOCKED, UNLOCK IT
       //ghost.isUnlocked = true; ///TODO
 
+      print("UWOLNIONO DUCHA -> ${ghost.conditionsMet}");
+
       //ADDING FREED GHOST TO GHOST LIST
       game.level.ghosts.add(ghost);
 

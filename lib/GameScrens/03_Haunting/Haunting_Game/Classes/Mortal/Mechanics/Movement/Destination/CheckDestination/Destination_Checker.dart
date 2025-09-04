@@ -5,8 +5,8 @@ import '../../../Setter/Mortal_Setter.dart';
 
 class Destination_Checker{
   static void checkIfMortalReachedFinalDestination(Haunting_Mortal mortal){
-    print("WYWOŁANIE");
-    print("${mortal.position} VS ${mortal.finalDestination} CENTER -> ${mortal.absoluteCenter}");
+    // print("WYWOŁANIE");
+    // print("${mortal.position} VS ${mortal.finalDestination} CENTER -> ${mortal.absoluteCenter}");
     Vector2 mortalCenter = mortal.absoluteCenter;
 
     var mortalCenter_X = mortalCenter.x;
@@ -27,16 +27,16 @@ class Destination_Checker{
   }
 
   static bool checkIfMortalReachedDestination_ByVector(Haunting_Mortal mortal, Vector2 vector){
-    print("WYWOŁANIE");
-    print("${mortal.position} VS ${vector} CENTER -> ${mortal.absoluteCenter}");
+    // print("WYWOŁANIE");
+    // print("${mortal.position} VS ${vector} CENTER -> ${mortal.absoluteCenter}");
     Vector2 mortalCenter = mortal.absoluteCenter;
 
     var mortalCenter_X = mortalCenter.x;
     var mortalCenter_Y = mortalCenter.y;
 
-    var xLeft = vector.x - mortal.size.x;
-    var xRight = vector.x + mortal.size.x;
-    var yTop = vector.y - mortal.size.y;
+    var xLeft = vector.x -   mortal.size.x;
+    var xRight = vector.x +  mortal.size.x;
+    var yTop = vector.y -    mortal.size.y;
     var yBottom = vector.y + mortal.size.y;
 
     if(mortalCenter_X > xLeft && mortalCenter_X < xRight){

@@ -5,7 +5,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 
 class InteractiveObject_CheckConditions{
   static bool checkIfObjectCanBeUsed(Haunting_InteractiveObject object, Haunting_Game game) {
-    if(object.isInUse) return false;
+    if(object.isInUse || object.isActive == false) return false;
     Vector2 object_Position = object.position;
     for(final room in object.floor!.listRooms){
       for(final mortal in room.mortalsInRoom){

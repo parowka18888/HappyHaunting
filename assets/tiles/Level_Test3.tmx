@@ -357,7 +357,7 @@
   <object id="36" name="MortalActionPoint_0" type="MortalActionPoint" x="588" y="328" width="32" height="32"/>
   <object id="37" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="364" width="32" height="32"/>
   <object id="38" name="MortalActionPoint_0" type="MortalActionPoint" x="340" y="436" width="32" height="32"/>
-  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="468" y="416" width="32" height="32"/>
+  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="424" width="32" height="32"/>
   <object id="40" name="MortalActionPoint_0" type="MortalActionPoint" x="284" y="476" width="32" height="32"/>
   <object id="41" name="MortalActionPoint_0" type="MortalActionPoint" x="332" y="500" width="32" height="32"/>
   <object id="42" name="MortalActionPoint_0" type="MortalActionPoint" x="664" y="428" width="32" height="32"/>
@@ -393,7 +393,7 @@
   <object id="178" name="MortalActionPoint_0" type="MortalActionPoint" x="1288" y="84" width="32" height="32"/>
   <object id="179" name="MortalActionPoint_0" type="MortalActionPoint" x="764" y="96" width="32" height="32"/>
  </objectgroup>
- <objectgroup id="7" name="MortalSpecialPoints">
+ <objectgroup id="7" name="MortalSpecialPoints" visible="0">
   <object id="133" name="Stairs_0_-1" type="MortalSpecialPoint_Stairs" x="408" y="372" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>

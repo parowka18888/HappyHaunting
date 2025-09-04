@@ -54,7 +54,7 @@ class Mortal_Destination_Navigator{
     double changingFloorChance = Mortal_StaticData.getChanceForChangingFloor_ByState(mortal.state);
     var list = mortal.floor!.listStairs;
     if (r < changingFloorChance && list.isNotEmpty) {
-      print("MORTAL ${mortal.name} Podjął decyzję - schody, z szansą ${changingFloorChance}");
+      // print("MORTAL ${mortal.name} Podjął decyzję - schody, z szansą ${changingFloorChance}");
       Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);
       Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
       return true;
@@ -66,9 +66,9 @@ class Mortal_Destination_Navigator{
   static bool decideDestination_InteractiveObjects(Haunting_Mortal mortal, Haunting_Game game) {
     double r = random.nextDouble();
     double interactiveObjectChance = Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state);
-    var list = mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true).toList();
+    var list = mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true && object.isActive == true).toList();
     if (r < interactiveObjectChance && list.isNotEmpty) {
-      print("MORTAL ${mortal.name} Podjął decyzję - interaktywny obiekt, z szansą ${interactiveObjectChance}");
+      // print("MORTAL ${mortal.name} Podjął decyzję - interaktywny obiekt, z szansą ${interactiveObjectChance}");
       Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);
       Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
       return true;
