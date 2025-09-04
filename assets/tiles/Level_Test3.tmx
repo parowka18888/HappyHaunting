@@ -1009,7 +1009,7 @@
     <property name="floor" type="int" value="0"/>
     <property name="isTriggeredByScript" type="bool" value="true"/>
     <property name="mortalID" value="EP0_Level0_Test_Mortal8"/>
-    <property name="scriptID" value=""/>
+    <property name="scriptID" value="testScript_SpawnBM_TestLevel"/>
    </properties>
   </object>
   <object id="234" name="Effect_0" type="Effect" x="452" y="280" width="16" height="16">

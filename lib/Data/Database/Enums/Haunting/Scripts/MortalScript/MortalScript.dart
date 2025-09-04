@@ -1,0 +1,3 @@
+enum MortalScript{
+  testScript_SpawnWhenOneMortalIsDefeated, testScript_SpawnBM_TestLevel
+}

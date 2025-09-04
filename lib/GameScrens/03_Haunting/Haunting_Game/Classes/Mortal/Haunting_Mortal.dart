@@ -4,6 +4,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
@@ -45,8 +46,8 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   bool isActive_Helper = true; //WHEN VALUE isActive changes, SOME ACTIONS CAN BE HOLD
 
   //MORTAL SCRIPTS
-  LevelScript? script;
-  List<int> script_ConditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
+  MortalScript? script;
+  List<int> conditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
   bool isScriptExecuted = false;
 
   //SCARING MORTAL

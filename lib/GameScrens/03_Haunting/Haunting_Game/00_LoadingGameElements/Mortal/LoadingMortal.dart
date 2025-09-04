@@ -1,4 +1,5 @@
 import 'package:flame_tiled/flame_tiled.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
@@ -20,10 +21,10 @@ class LoadingMortal{
 
     Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
     Mortal? mortal = MortalGetter.getMortalById_TypeMortal(mortalID, game);
-    LevelScript? levelScript = null;
+    MortalScript? levelScript = null;
 
     if(scriptID != null && scriptID.length > 0){
-      levelScript = LevelScript.values.byName(scriptID);
+      levelScript = MortalScript.values.byName(scriptID);
     }
 
     if(mortal != null && floor != null){

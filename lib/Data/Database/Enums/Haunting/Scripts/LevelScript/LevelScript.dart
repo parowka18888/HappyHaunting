@@ -1,3 +1,3 @@
 enum LevelScript{
-  testScript_SpawnWhenOneMortalIsDefeated
+  test
 }
