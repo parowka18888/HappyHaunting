@@ -17,6 +17,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Hauning_Stairs.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import '../Classes/Level/Haunting_Level.dart';
@@ -120,6 +121,31 @@ class LoadingGameElements{
               );
               level.exitPoints.add(exit);
               game.add(exit);
+            }
+          }
+
+          case 'MortalSpecialPoint_Interactive' : {
+            int floorID = point.properties.getValue('floor');
+            String id = point.properties.getValue('id');
+            String sound_Start = point.properties.getValue('sound_Start');
+            String sound_End = point.properties.getValue('sound_End');
+            double time = point.properties.getValue('time');
+            bool isSeducing = point.properties.getValue('isSeducing');
+            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
+
+            if(floor != null){
+              Haunting_InteractiveObject interactiveObject = Haunting_InteractiveObject(
+                  position: point.position,
+                  size: point.size,
+                  floor: floor,
+                  id: id,
+                  sound_End: sound_End,
+                  sound_Start: sound_Start,
+                  time: time,
+                  isSeducing: isSeducing
+              );
+              floor.listInteractiveObjects.add(interactiveObject);
+              game.add(interactiveObject);
             }
           }
         }

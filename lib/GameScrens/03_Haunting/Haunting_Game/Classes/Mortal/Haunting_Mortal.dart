@@ -118,11 +118,11 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     return super.onLoad();
   }
 
-  @override
-  void onTapDown(TapDownEvent event) {
-    Mortal_Setter.setIsActive(this, !isActive);
-    super.onTapDown(event);
-  }
+  // @override
+  // void onTapDown(TapDownEvent event) {
+  //   Mortal_Setter.setIsActive(this, !isActive);
+  //   super.onTapDown(event);
+  // }
 
   @override
   void update(double dt) {

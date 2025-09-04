@@ -44,7 +44,12 @@ class Mortal_Destination_Setter{
         worldToGrid(mortal.position),
         worldToGrid(mortal.currentDestination!),
       );
-      mortal.path = path.map((p) => gridToWorld(p)).toList();
+      if(path.isNotEmpty){
+        mortal.path = path.map((p) => gridToWorld(p)).toList();
+      } else {
+        Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+      }
+
     }
 
   }
