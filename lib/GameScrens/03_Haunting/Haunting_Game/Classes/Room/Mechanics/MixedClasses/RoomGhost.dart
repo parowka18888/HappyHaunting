@@ -2,18 +2,17 @@ import 'package:flame/src/events/messages/tap_down_event.dart';
 import 'package:flame/src/game/notifying_vector2.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Setter/PowerSetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/CheckConditions/RoomCheckConditions.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Getter/GhostSpotGetter.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Mechanics/GhostSpot_Mechanics.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Particle/GhostSpot_Particle.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Setter/GhostSpotSetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:vector_math/vector_math.dart';
 
-import '../../../Ghost/Subclasses/Power/Haunting_Power.dart';
+import '../../../GhostSpot/Getter/GhostSpotGetter.dart';
+import '../../../GhostSpot/Haunting_GhostSpot.dart';
+import '../../../GhostSpot/Mechanics/GhostSpot_Mechanics.dart';
+import '../../../GhostSpot/Particle/GhostSpot_Particle.dart';
+import '../../../Power/Haunting_Power.dart';
+import '../../../Power/Setter/PowerSetter.dart';
 
 class RoomGhost{
   static void placeGhost(Haunting_Game game, Haunting_Room room) {

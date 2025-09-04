@@ -1,6 +1,7 @@
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+
+import '../../03_Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
 
 class IconGetter{
   static String getGhostIcon(Haunting_Ghost ghost) {
