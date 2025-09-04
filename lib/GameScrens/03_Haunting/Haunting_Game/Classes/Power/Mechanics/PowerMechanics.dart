@@ -28,7 +28,7 @@ class PowerMechanics{
   static void setPowerCooldown(Haunting_Power power, Haunting_Game game) {
     power.currentCooldown = power.cooldown;
     print("użyto umiejętności ${power.name}!");
-    // game.viewModel.refresh();
+    game.viewModel.refresh();
   }
 
   static void usePower_EndingProcess(Haunting_Game game, Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, {

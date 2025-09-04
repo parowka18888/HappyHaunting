@@ -160,7 +160,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     if(isActive != isActive_Helper){
       isActive_Helper = isActive;
       Mortal_Setter.setIsActiveData(this, game);
-      game.viewModel.refresh();
+      // game.viewModel.refresh();
     }
 
   }
