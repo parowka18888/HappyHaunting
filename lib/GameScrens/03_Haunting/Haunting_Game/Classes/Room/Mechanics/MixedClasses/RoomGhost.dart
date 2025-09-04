@@ -33,6 +33,8 @@ class RoomGhost{
           break;
         }
       }
+    } else {
+      game.viewModel.setChosenGhost(null);
     }
   }
 
