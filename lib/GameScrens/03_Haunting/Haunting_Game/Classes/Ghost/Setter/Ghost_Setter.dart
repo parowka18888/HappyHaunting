@@ -5,4 +5,8 @@ class Ghost_Setter{
     ghost.isScriptExecuted = bool;
   }
 
+  static void setIsFree(Haunting_Ghost ghost, bool bool) {
+    ghost.isFree = true;
+  }
+
 }
