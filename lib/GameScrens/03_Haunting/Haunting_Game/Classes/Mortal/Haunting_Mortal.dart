@@ -52,6 +52,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
   //SCARING MORTAL
   bool isDefeated = false;
+  bool isEscaped = false;
   Mortal_DefeatType? defeatType;
   Mortal_State state = Mortal_State.calm;
   bool canMove = true;
@@ -160,7 +161,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     if(isActive != isActive_Helper){
       isActive_Helper = isActive;
       Mortal_Setter.setIsActiveData(this, game);
-      // game.viewModel.refresh();
+      game.viewModel.refresh();
     }
 
   }
