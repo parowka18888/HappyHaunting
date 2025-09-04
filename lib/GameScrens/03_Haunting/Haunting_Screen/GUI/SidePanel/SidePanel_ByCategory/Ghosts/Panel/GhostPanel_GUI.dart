@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
 import '../../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
-import '../../../../../../Haunting_Game/Classes/Ghost/Subclasses/Power/Setter/PowerSetter.dart';
+import '../../../../../../Haunting_Game/Classes/Power/Haunting_Power.dart';
+import '../../../../../../Haunting_Game/Classes/Power/Setter/PowerSetter.dart';
 
 
 class GhostPanel_GUI{

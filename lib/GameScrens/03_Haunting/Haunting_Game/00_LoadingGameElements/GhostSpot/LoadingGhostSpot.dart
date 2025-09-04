@@ -5,8 +5,8 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
+import '../../Classes/GhostSpot/Haunting_GhostSpot.dart';
 import '../../Classes/Room/Getter/RoomGetter.dart';
-import '../../Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 
 class LoadingGhostSpot{
   static Haunting_GhostSpot? loadGhostSpot(TiledObject spawnPoint, Haunting_Game game,{

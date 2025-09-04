@@ -1,11 +1,11 @@
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
 import '../../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
 import '../../../../../Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
+import '../../Classes/GhostSpot/Haunting_GhostSpot.dart';
 import '../../Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import '../../Classes/Level/Subclasses/Haunting_Floor.dart';
 import '../../Classes/Mortal/Haunting_Mortal.dart';

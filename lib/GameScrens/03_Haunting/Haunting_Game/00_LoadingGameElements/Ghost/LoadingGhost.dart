@@ -2,7 +2,6 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -10,8 +9,9 @@ import '../../../../../Data/Database/Enums/Getter/EnumGetter.dart';
 import '../../../../../Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
 import '../../../../../Data/Database/Enums/PowerType.dart';
 import '../../Classes/Ghost/Haunting_Ghost.dart';
-import '../../Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import '../../Classes/Ghost/Subclasses/TrappedGhost/Getter/TrappedGhost_Getter.dart';
+import '../../Classes/GhostSpot/Haunting_GhostSpot.dart';
+import '../../Classes/Power/Haunting_Power.dart';
 import '../../Classes/Room/Getter/RoomGetter.dart';
 import '../GhostSpot/LoadingGhostSpot.dart';
 

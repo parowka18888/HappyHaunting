@@ -1,9 +1,10 @@
 import 'package:happyhaunting/Data/Database/Enums/Entry.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/Getter/IconGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+
+import '../Power/Haunting_Power.dart';
 
 class Haunting_Entry{
   static List<String> addEntry(HauntingGame_ViewModel viewModel) {
