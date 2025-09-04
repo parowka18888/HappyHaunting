@@ -16,6 +16,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGam
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Getter/RoomGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Hauning_Stairs.dart';
@@ -126,18 +127,22 @@ class LoadingGameElements{
 
           case 'MortalSpecialPoint_Interactive' : {
             int floorID = point.properties.getValue('floor');
+            String roomName = point.properties.getValue('roomName');
             String id = point.properties.getValue('id');
             String sound_Start = point.properties.getValue('sound_Start');
             String sound_End = point.properties.getValue('sound_End');
             double time = point.properties.getValue('time');
             bool isSeducing = point.properties.getValue('isSeducing');
-            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
 
-            if(floor != null){
+            Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
+            Haunting_Room? room = RoomGetter.getRoomByName(roomName, game);
+
+            if(floor != null && room != null){
               Haunting_InteractiveObject interactiveObject = Haunting_InteractiveObject(
                   position: point.position,
                   size: point.size,
                   floor: floor,
+                  room: room,
                   id: id,
                   sound_End: sound_End,
                   sound_Start: sound_Start,

@@ -66,7 +66,7 @@ class Mortal_Destination_Navigator{
   static bool decideDestination_InteractiveObjects(Haunting_Mortal mortal, Haunting_Game game) {
     double r = random.nextDouble();
     double interactiveObjectChance = Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state);
-    var list = mortal.floor!.listInteractiveObjects;
+    var list = mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true).toList();
     if (r < interactiveObjectChance && list.isNotEmpty) {
       print("MORTAL ${mortal.name} Podjął decyzję - interaktywny obiekt, z szansą ${interactiveObjectChance}");
       Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);

@@ -1,6 +1,10 @@
 import 'dart:math';
 
+import 'package:flame/components.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/CheckDestination/Destination_Checker.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Setter/InteractiveObject_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../../../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
@@ -13,11 +17,21 @@ class MortalGetter{
     return null;
   }
 
-  static int getThinkingTime() {
+  static int getThinkingTime(Haunting_Mortal mortal, Haunting_Game game) {
+    for(final interactiveObject in mortal.floor!.listInteractiveObjects){
+      Vector2 interactiveObject_Position = interactiveObject.position;
+      bool isMortalAtObjectPosition = Destination_Checker.checkIfMortalReachedDestination_ByVector(mortal, interactiveObject_Position);
+      if(isMortalAtObjectPosition){
+        Mortal_Setter.setTimeOfThinking(mortal, interactiveObject.time);
+        return interactiveObject.time.toInt();
+      }
+    }
     int bottomNumberOfSeconds = 2;
     int topNumberOfSeconds = 2;
     Random random = Random();
-    return bottomNumberOfSeconds + random.nextInt(topNumberOfSeconds);
+    var time = bottomNumberOfSeconds + random.nextInt(topNumberOfSeconds);
+    Mortal_Setter.setTimeOfThinking(mortal, time.toDouble());
+    return time;
   }
 
   static Mortal? getMortalById_TypeMortal(String mortalID, Haunting_Game game) {

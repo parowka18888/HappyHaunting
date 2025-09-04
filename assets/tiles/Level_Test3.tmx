@@ -428,9 +428,10 @@
     <property name="floor" type="int" value="0"/>
     <property name="id" value="TrappedGhost_Jar"/>
     <property name="isSeducing" type="bool" value="false"/>
+    <property name="roomName" value="Room_0_3"/>
     <property name="sound_End" value=""/>
     <property name="sound_Start" value=""/>
-    <property name="time" type="float" value="3"/>
+    <property name="time" type="float" value="9"/>
    </properties>
   </object>
  </objectgroup>

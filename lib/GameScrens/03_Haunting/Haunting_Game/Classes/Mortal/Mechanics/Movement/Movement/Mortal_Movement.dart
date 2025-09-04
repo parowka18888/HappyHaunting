@@ -27,9 +27,11 @@ class Mortal_Movement{
           if(mortal.canChangeFloor == false){
             Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
           } else {
-            Future.delayed(Duration(seconds: MortalGetter.getThinkingTime()), (){
-              Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
-            });
+            MortalGetter.getThinkingTime(mortal, game);
+            Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+            // Future.delayed(Duration(seconds: MortalGetter.getThinkingTime(mortal, game)), (){
+            //   Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+            // });
           }
           return;
         }

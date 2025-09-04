@@ -55,6 +55,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   Mortal_DefeatType? defeatType;
   Mortal_State state = Mortal_State.calm;
   bool canMove = true;
+  double timeOfThinking = 0;
 
   double stat_Fear = 0;
   double stat_Health = 0;
@@ -129,10 +130,18 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     super.update(dt);
     //IF MORTAL IS ACTIVE (IN REACH OF PLAYER)
     if(isActive == true){
-      //IF PLAYER CAN MOVE, LET THEM MOVE
+      //DECREASING TIME OF THINKING (MORTAL FREEZE)
+      if(timeOfThinking > 0){
+        timeOfThinking -= dt;
+        if(timeOfThinking <= 0){
+          Mortal_Setter.setTimeOfThinking(this, 0, canMove: true);
+        }
+      }
+
+      //IF MORTAL CAN MOVE, LET THEM MOVE
       if(canMove == true) Mortal_Movement.moveInPath(this, game, dt);
       //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
-        //REFRESH TIME IS THE TIME OF EXECUTING CODE
+        //REFRESH TIME STAMP FOR EXECUTING CODE
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
         //CHECK WHERE ON THE MAP IS MORTAL, AND ASSIGN THEM TO CERTAIN ROOM
