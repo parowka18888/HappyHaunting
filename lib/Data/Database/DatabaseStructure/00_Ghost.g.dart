@@ -25,13 +25,15 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       auras: (fields[5] as List).cast<Aura>(),
       aurasIDs: (fields[6] as List).cast<String>(),
       health: fields[7] as double,
+      ghostImage: fields[8] as String,
+      color: fields[9] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -47,7 +49,11 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(6)
       ..write(obj.aurasIDs)
       ..writeByte(7)
-      ..write(obj.health);
+      ..write(obj.health)
+      ..writeByte(8)
+      ..write(obj.ghostImage)
+      ..writeByte(9)
+      ..write(obj.color);
   }
 
   @override
@@ -80,6 +86,8 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       aurasIDs:
           (json['aurasIDs'] as List<dynamic>).map((e) => e as String).toList(),
       health: (json['health'] as num).toDouble(),
+      ghostImage: json['ghostImage'] as String,
+      color: json['color'] as String,
     );
 
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
@@ -91,4 +99,6 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'auras': instance.auras,
       'aurasIDs': instance.aurasIDs,
       'health': instance.health,
+      'ghostImage': instance.ghostImage,
+      'color': instance.color,
     };

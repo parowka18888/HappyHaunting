@@ -83,6 +83,7 @@ flutter:
     - assets/images/Powers/
     - assets/images/Auras/
     - assets/images/UI/
+    - assets/images/UI/GhostBackground/
     - assets/tiles/
 
   # An image asset can refer to one or more resolution-specific "variants", see

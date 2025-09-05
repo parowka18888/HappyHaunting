@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
@@ -17,6 +18,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   //DIALOG WINDOW
   bool isDialogWindowVisible = false;
   String? dialogWindow_Text = "";
+
+  //POPUP WINDOW
+  GameWindow gameWindow = GameWindow.empty;
 
   Haunting_Game? game;
 
@@ -68,6 +72,21 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   void setDialogData(String? text, bool isVisible) {
     isDialogWindowVisible = isVisible;
     dialogWindow_Text = text;
+    notifyListeners();
+  }
+
+  void setGameWindow(GameWindow window) {
+    gameWindow = window;
+    notifyListeners();
+  }
+
+  void setGameWindow_GhostData(Haunting_Ghost? ghost){
+    setChosenGhost(ghost);
+    if(ghost == null){
+      setGameWindow(GameWindow.empty);
+    } else {
+      setGameWindow(GameWindow.ghostData);
+    }
     notifyListeners();
   }
 

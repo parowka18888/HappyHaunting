@@ -1,0 +1,3 @@
+enum GameWindow{
+  empty, ghostData
+}
