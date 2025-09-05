@@ -31,6 +31,7 @@ class RoomMortal{
       final alreadyInside = room.mortalsInRoom.contains(mortal);
       if (isInside && !alreadyInside) {
         room.mortalsInRoom.add(mortal);
+        mortal.room = room;
         if(mortal.ghostSpot != null && mortal.ghostSpot!.ghost != null){
           mortal.ghostSpot!.ghost!.room = room;
         }

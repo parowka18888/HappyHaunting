@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
@@ -69,6 +70,13 @@ class MortalChecker{
     } else {
       return false;
     }
+  }
+
+  static bool checkIfMortalIsExorcist(Haunting_Mortal mortal) {
+    if(mortal.tags.contains(MortalTag.exorcist)){
+      return true;
+    }
+    return false;
   }
 
 }

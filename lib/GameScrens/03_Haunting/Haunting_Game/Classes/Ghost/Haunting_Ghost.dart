@@ -47,6 +47,7 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
     super.update(dt);
     timeSinceLastReload += dt;
     if (timeSinceLastReload >= refreshTime) {
+      //HEALTH RESTORING SYSTEM
       if(health_Current < health_Maximum){
         if(isPlaced == false && isDefeatable == true){
           health_Current += healthRestoringValue;

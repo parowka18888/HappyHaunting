@@ -7,8 +7,10 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/L
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Exorcism/Exorcism_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Getter/MortalGetter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
@@ -30,7 +32,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
     required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
-    required this.floor, required this.id, required this.isActive, required this.script, required this.exorcismStrength
+    required this.floor, required this.id, required this.isActive, required this.script, required this.exorcismStrength, required this.tags
 
   });
 
@@ -39,6 +41,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   String name = "";
   String id = "";
   double exorcismStrength = 0;
+  List<MortalTag> tags = [];
 
   Haunting_GhostSpot? ghostSpot;
 
@@ -143,13 +146,22 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
       //IF MORTAL CAN MOVE, LET THEM MOVE
       if(canMove == true) Mortal_Movement.moveInPath(this, game, dt);
+
       //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
         //REFRESH TIME STAMP FOR EXECUTING CODE
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
         //CHECK WHERE ON THE MAP IS MORTAL, AND ASSIGN THEM TO CERTAIN ROOM
         RoomMortal.assignMortalToRoom(this, game);
+
+        //EXORCISM SYSTEM - DEALING DAMAGE
+        if(MortalChecker.checkIfMortalIsExorcist(this)){
+          Exorcism_Mechanics.exorcismNavigator(this, game, 0.5);
+        }
+
+
         timeSinceLastReload = 0.0;
+
       }
     }
 

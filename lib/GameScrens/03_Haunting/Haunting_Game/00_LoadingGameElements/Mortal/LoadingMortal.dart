@@ -49,6 +49,7 @@ class LoadingMortal{
           stat_Current_Faith: 0,
           isActive: !isTriggeredByScript,
           script: levelScript,
+          tags: mortal.mortalTags,
           floor: floor
 
       );

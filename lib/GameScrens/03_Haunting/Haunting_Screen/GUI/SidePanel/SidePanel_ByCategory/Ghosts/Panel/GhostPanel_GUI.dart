@@ -30,7 +30,7 @@ class GhostPanel_GUI{
           //AURAS
           Positioned(top: 0, right: 0, child: getGhostAuras(powersWidth, powersHeight, ghost, context, viewModel)),
           //HEALTH BAR
-          Positioned(bottom: 0,
+          Positioned(bottom: 30,
               child: getGhostHealth(context, ghost)
           )
         ],
