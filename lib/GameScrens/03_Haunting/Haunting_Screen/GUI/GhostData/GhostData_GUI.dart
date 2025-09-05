@@ -14,7 +14,8 @@ class GhostData_GUI{
             height: ghostData_Height, width: ghostData_Width, color: Colors.amber,
             child: Stack(alignment: Alignment(0, 0),
               children: [
-                getBackground(context)
+                getBackground(context),
+                getGhostImage(context, ghostData_Height),
               ],
             ),
           ),
@@ -28,6 +29,14 @@ class GhostData_GUI{
 
   static getBackground(BuildContext context) {
     return Image.asset('assets/images/UI/GhostBackground/GhostBackground_Blue.png', fit: BoxFit.fitHeight,);
+  }
+
+  static getGhostImage(BuildContext context, double height) {
+    double ghostHeight = height * 0.6;
+    return Container(
+      height: height, color: Colors.amber,
+
+    );
   }
 
 }

@@ -2,6 +2,7 @@
   "id": "EP0_Moth",
   "name": "Moth",
   "icon" : "TestGhost_2",
+  "ghostImage" : "Moth",
   "powersIDs": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03"],
   "aurasIDs": ["Aura_Fire", "Aura_Inside"],
   "health" : 75,

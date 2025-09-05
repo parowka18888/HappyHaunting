@@ -2,6 +2,7 @@
   "id": "EP0_ClothesEater",
   "name": "ClothesEater",
   "icon" : "TestGhost_1",
+  "ghostImage" : "ClothesEater",
   "powersIDs": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03"],
   "aurasIDs": ["Aura_Inside"],
   "health" : 65,
