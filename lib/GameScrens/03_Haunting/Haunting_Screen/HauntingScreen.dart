@@ -5,8 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GhostData_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -46,6 +48,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
     double dialogWindow_Height = screenHeight * 0.7;
     double dialogWindow_Width = screenWidth * 0.8;
+
+    double ghostData_Height = screenHeight * 0.9;
+    double ghostData_Width = (3 / 2) * ghostData_Height;
 
     return Scaffold(
       body: Center(
@@ -87,17 +92,22 @@ class _HauntingScreenState extends State<HauntingScreen> {
                 // ElevatedButton(onPressed: (){}, child: Text("Liczba śmiertelników: ${haunting_game.level.mortals.length}. imię pierwszego to ${haunting_game.level.mortals[0].name}"))
               ],
             ),
+
+            Positioned(
+                bottom: 0, right: 0,
+                child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
+            ),
+
+
             //DIALOG WINDOW
             if(viewModel.isDialogWindowVisible == true)
             DialogWindow_GUI.getDialogWindow(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
+            if(viewModel.gameWindow == GameWindow.ghostData)
+            GhostData_GUI.getGhostDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
 
 
 
-            Positioned(
-              bottom: 0, right: 0,
-                child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
-            )
           ],
         )
       ),

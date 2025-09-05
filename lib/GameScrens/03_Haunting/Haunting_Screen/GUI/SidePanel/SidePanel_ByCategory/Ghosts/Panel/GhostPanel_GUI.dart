@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -53,7 +54,9 @@ class GhostPanel_GUI{
             viewModel.setChosenGhost(ghost);
           }
         }
-
+      },
+      onLongPress: (){
+        viewModel.setGameWindow_GhostData(ghost);
       },
       child: Container(
         height: height,
