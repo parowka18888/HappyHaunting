@@ -28,6 +28,7 @@ class GhostPanel_GUI{
           if(ghost.isPlaced == true)
           Positioned(bottom: 0, right: 0, child: getGhostPowers(powersWidth, powersHeight, ghost, context, viewModel)),
           //AURAS
+          if(ghost.isDefeated == false)
           Positioned(top: 0, right: 0, child: getGhostAuras(powersWidth, powersHeight, ghost, context, viewModel)),
           //HEALTH BAR
           Positioned(bottom: 30,
@@ -41,7 +42,7 @@ class GhostPanel_GUI{
   static getGhostImage(double width, double height, Haunting_Ghost ghost, HauntingGame_ViewModel viewModel) {
     return GestureDetector(
       onTap: (){
-        if(ghost.isFree){
+        if(ghost.isFree && ghost.isDefeated == false){
           if(viewModel.chosenGhost != null){
             if(viewModel.chosenGhost!.name == ghost.name){
               viewModel.setChosenGhost(null);

@@ -22,8 +22,8 @@ class Exorcism_Mechanics{
       //DEALING DAMAGE TO GHOSTS IN POSSESSION
       for(var mortalInRoom in listOfMortals){
         if(mortalInRoom.ghostSpot != null && mortalInRoom.ghostSpot!.ghost != null){
-          if(mortal.ghostSpot != null && mortal.ghostSpot!.ghost != null && mortal.ghostSpot!.ghost!.id !=  mortalInRoom.ghostSpot!.ghost!.id){
-            mortalInRoom.ghostSpot!.ghost!.health_Current -= mortal.exorcismStrength * modifier;
+          if(mortal.id != mortalInRoom.id){
+            mortalInRoom.ghostSpot!.ghost!.health_Current -= mortal.exorcismStrength * modifier ;
             isDamageDealt = true;
           }
         }
