@@ -16,7 +16,7 @@ class Scripts_TestLevel_Ghost{
 
     //CONDITION TO MEET
     List<List<int>> conditions = [
-      [0], [1] // THERE ARE TWO WAYS OF FREEING THIS GHOST, BOTH NEED ONLY ONE CONDITION
+      [0],  // THERE ARE TWO WAYS OF FREEING THIS GHOST, BOTH NEED ONLY ONE CONDITION
     ];
 
     //CHECK IF CONDITIONS ARE MET

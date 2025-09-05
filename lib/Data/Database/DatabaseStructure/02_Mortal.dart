@@ -25,6 +25,8 @@ class Mortal extends HiveObject {
   @HiveField(12)  final List<String> mortalTagsIDs;
   @HiveField(13)  List<MortalTag> mortalTags;
 
+  @HiveField(14)  final double exorcismStrength;
+
   Mortal({
     required this.id,
     required this.name,
@@ -40,6 +42,7 @@ class Mortal extends HiveObject {
     required this.icon,
     required this.mortalTagsIDs,
     required this.mortalTags,
+    required this.exorcismStrength,
   });
 
   factory Mortal.fromJson(Map<String, dynamic> json) => _$MortalFromJson(json);

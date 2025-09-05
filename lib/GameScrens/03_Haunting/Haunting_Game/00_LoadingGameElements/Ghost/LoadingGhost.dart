@@ -29,7 +29,7 @@ class LoadingGhost{
     for(var ghostPower in ghost.powers){
       loadPower(ghostPower, game, powers);
     }
-    var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras, id: ghost.id)
+    var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras, id: ghost.id, health_Current: ghost.health, health_Maximum: ghost.health)
       ..isPlaced = isPlaced
       ..room = room
     ..ghostSpot = ghostSpot
@@ -39,6 +39,7 @@ class LoadingGhost{
     ..isFree = isFree
     ;
     ghosts.add(hauntingGhost);
+    game.add(hauntingGhost);
     return hauntingGhost;
   }
 
@@ -70,6 +71,7 @@ class LoadingGhost{
         Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script, isFree: false);
         ghostSpot.type = GhostSpot_Type.trap;
         ghostSpot.ghost = ghost;
+        ghostSpot.ghost!.isDefeatable = false;
       }
     }
   }

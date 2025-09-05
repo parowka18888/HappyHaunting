@@ -38,6 +38,7 @@ class LoadingMortal{
           stat_Health: mortal.stat_Health,
           stat_Madness: mortal.stat_Madness,
           stat_Faith: mortal.stat_Faith,
+          exorcismStrength: mortal.exorcismStrength,
           stat_Multiplier_Fear: mortal.stat_Multiplier_Fear,
           stat_Multiplier_Health: mortal.stat_Multiplier_Health,
           stat_Multiplier_Madness: mortal.stat_Multiplier_Madness,
@@ -48,6 +49,7 @@ class LoadingMortal{
           stat_Current_Faith: 0,
           isActive: !isTriggeredByScript,
           script: levelScript,
+          tags: mortal.mortalTags,
           floor: floor
 
       );
