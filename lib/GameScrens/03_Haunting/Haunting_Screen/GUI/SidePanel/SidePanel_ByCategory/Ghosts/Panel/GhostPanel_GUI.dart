@@ -30,6 +30,9 @@ class GhostPanel_GUI{
           //AURAS
           Positioned(top: 0, right: 0, child: getGhostAuras(powersWidth, powersHeight, ghost, context, viewModel)),
           //HEALTH BAR
+          Positioned(bottom: 0,
+              child: getGhostHealth(context, ghost)
+          )
         ],
       ),
     );
@@ -94,6 +97,10 @@ class GhostPanel_GUI{
             return Image.asset('assets/images/Auras/${aura.icon}.png',);
           }),
     );
+  }
+
+  static getGhostHealth(BuildContext context, Haunting_Ghost ghost) {
+    return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
   }
 
 }
