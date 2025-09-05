@@ -3,6 +3,7 @@
   "name": "Muchhhha",
   "icon" : "TestGhost_4",
   "ghostImage" : "Fly",
+  "color" : "Green",
   "powersIDs": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03"],
   "aurasIDs": ["Aura_Earth", "Aura_Outside", "Aura_Inside"],
   "health" : 100,

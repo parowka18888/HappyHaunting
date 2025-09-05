@@ -24,6 +24,7 @@ class Ghost extends HiveObject {
 
   @HiveField(7)  final double health;
   @HiveField(8)  final String ghostImage;
+  @HiveField(9)  final String color;
 
   Ghost({
     required this.id,
@@ -35,6 +36,7 @@ class Ghost extends HiveObject {
     required this.aurasIDs,
     required this.health,
     required this.ghostImage,
+    required this.color,
   });
 
   factory Ghost.fromJson(Map<String, dynamic> json) => _$GhostFromJson(json);
