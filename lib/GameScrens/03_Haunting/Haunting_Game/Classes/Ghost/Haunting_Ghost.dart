@@ -23,6 +23,8 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
 
   double health_Current = 0;
   double health_Maximum = 0;
+  double healthRestoringValue = 0.5;
+  bool isDefeatable = true;
 
   bool isPlaced = false;
   Haunting_Room? room;
@@ -37,14 +39,22 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
 
   //TIME FOR SLOWING DOWN SOME METHODS
   double timeSinceLastReload = 0.0;
-  double refreshTime = 0.5;
+  double refreshTime = 1;
+
 
   @override
   Future<void> update(double dt) async {
     super.update(dt);
     timeSinceLastReload += dt;
     if (timeSinceLastReload >= refreshTime) {
-      print(id);
+      if(health_Current < health_Maximum){
+        if(isPlaced == false && isDefeatable == true){
+          health_Current += healthRestoringValue;
+          if(health_Current > health_Maximum){
+            health_Current = health_Maximum;
+          }
+        }
+      }
       timeSinceLastReload = 0.0;
     }
 
