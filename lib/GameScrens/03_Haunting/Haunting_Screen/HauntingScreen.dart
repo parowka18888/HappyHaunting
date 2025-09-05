@@ -103,7 +103,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
             if(viewModel.isDialogWindowVisible == true)
             DialogWindow_GUI.getDialogWindow(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
-            if(viewModel.gameWindow == GameWindow.ghostData)
+            if(viewModel.gameWindow == GameWindow.ghostData && viewModel.chosenGhost != null)
             GhostData_GUI.getGhostDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
 
 
