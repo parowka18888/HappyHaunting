@@ -71,6 +71,7 @@ class LoadingGhost{
         Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script, isFree: false);
         ghostSpot.type = GhostSpot_Type.trap;
         ghostSpot.ghost = ghost;
+        ghostSpot.ghost!.isDefeatable = false;
       }
     }
   }

@@ -56,6 +56,7 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
           }
         }
       }
+      //DEFEAT GHOST
       timeSinceLastReload = 0.0;
     }
 
