@@ -15,10 +15,12 @@ class MortalsList_GUI{
         if (a.isDefeated) return 1;
         return -1;
       });
+
       int itemCount = mortals.length;
-      double itemHeight = height / 5;
+      double itemHeight = height / 7;
+
       return Container(
-        height: height, width: width, color: Colors.amber,
+        height: height, width: width,
         child: ListView.builder(
             itemCount: itemCount,
             itemBuilder: (context, index){
