@@ -45,7 +45,12 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   }
 
   void setGameCategory(GameCategory category){
-    gameCategory = category;
+    if(gameCategory == category){
+      gameCategory = GameCategory.empty;
+    } else {
+      gameCategory = category;
+    }
+
     notifyListeners();
   }
 

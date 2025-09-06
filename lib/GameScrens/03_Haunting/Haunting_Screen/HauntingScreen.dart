@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GhostData_GUI.dart';
@@ -17,6 +18,7 @@ import 'package:provider/provider.dart';
 import '../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
 import '../Haunting_Game/Classes/Level/Haunting_Level.dart';
+import 'GUI/Buttons/HauntingScreen_Buttons_GUI.dart';
 import 'GUI/SidePanel/SidePanel_GUI.dart';
 
 class HauntingScreen extends StatefulWidget {
@@ -43,8 +45,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
     final viewModel = context.watch<HauntingGame_ViewModel>();
 
-    double sidePanel_Height = screenHeight;
     double sidePanel_Width = screenWidth * 0.2;
+    double sidePanel_Height = screenHeight * 0.9;
+    double sidePanel_Buttons_Height = screenHeight - sidePanel_Height;
 
     double dialogWindow_Height = screenHeight * 0.7;
     double dialogWindow_Width = screenWidth * 0.8;
@@ -71,6 +74,12 @@ class _HauntingScreenState extends State<HauntingScreen> {
             ),
             //SIDE PANEL
             SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game),
+
+
+            //BUTTONS
+            HauntingScreen_Buttons_GUI.getPanelButton(context, sidePanel_Width, sidePanel_Buttons_Height),
+
+
             //BUTTONS
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
