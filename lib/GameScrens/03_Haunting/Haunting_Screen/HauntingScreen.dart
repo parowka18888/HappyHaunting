@@ -73,11 +73,15 @@ class _HauntingScreenState extends State<HauntingScreen> {
               ),
             ),
             //SIDE PANEL
-            SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game),
+            Positioned(
+                top: 0, left: 0,
+                child: SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game)),
 
 
-            //BUTTONS
-            HauntingScreen_Buttons_GUI.getPanelButton(context, sidePanel_Width, sidePanel_Buttons_Height),
+            // SIDE PANEL BUTTONS
+            Positioned(
+              bottom: 0, left: 0,
+              child: HauntingScreen_Buttons_GUI.getPanelButton(context, sidePanel_Width, sidePanel_Buttons_Height),),
 
 
             //BUTTONS

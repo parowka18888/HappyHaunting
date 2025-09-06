@@ -17,7 +17,7 @@ class Button_GUI{
         }
       },
       child: Container(
-        height: size, width: size, color: Colors.deepPurple,
+        height: size, width: size,
         child: Stack(alignment: Alignment(0, 0),
           children: [
             Image.asset('assets/images/UI/Buttons/CircleButton.png', fit: BoxFit.fitHeight,),

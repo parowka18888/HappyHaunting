@@ -10,7 +10,7 @@ class HauntingScreen_Buttons_GUI{
   static getPanelButton(BuildContext context, double width, double height) {
     HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
     return Container(
-      width: width, height: height, color: Colors.amber,
+      width: width, height: height,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
