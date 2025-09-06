@@ -44,8 +44,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
     final viewModel = context.watch<HauntingGame_ViewModel>();
 
     double sidePanel_Width = screenWidth * 0.2;
-    double sidePanel_Height = screenHeight * 0.9;
-    double sidePanel_Buttons_Height = screenHeight - sidePanel_Height;
+    double sidePanel_Height = screenHeight * 0.85;
+
+    double sidePanel_Buttons_Height = screenHeight * 0.1;
 
     double dialogWindow_Height = screenHeight * 0.7;
     double dialogWindow_Width = screenWidth * 0.8;
@@ -56,6 +57,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
     double floorButtons_Height = sidePanel_Buttons_Height * 2;
     double floorButtons_Width = floorButtons_Height;
 
+
+    double sidePanel_Padding_Top = (screenHeight - sidePanel_Height - sidePanel_Buttons_Height) / 2;
+    double sidePanel_Padding_Left = sidePanel_Width * 0.1;
 
     return Scaffold(
       body: Center(
@@ -76,7 +80,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
             ),
             //SIDE PANEL
             Positioned(
-                top: 0, left: 0,
+                top: sidePanel_Padding_Top, left: sidePanel_Padding_Left,
                 child: SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game)),
             // LOG ENTRIES
             if(viewModel.isLogEntriesWindowVisible)
