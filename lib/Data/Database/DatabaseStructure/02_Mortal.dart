@@ -28,8 +28,7 @@ class Mortal extends HiveObject {
 
   @HiveField(14)  final double exorcismStrength;
 
-  @HiveField(15)  final String fearID;
-  @HiveField(16)  PowerTag fear;
+  @HiveField(15)  PowerTag fear;
 
   Mortal({
     required this.id,
@@ -48,7 +47,6 @@ class Mortal extends HiveObject {
     required this.mortalTags,
     required this.exorcismStrength,
     required this.fear,
-    required this.fearID,
   });
 
   factory Mortal.fromJson(Map<String, dynamic> json) => _$MortalFromJson(json);

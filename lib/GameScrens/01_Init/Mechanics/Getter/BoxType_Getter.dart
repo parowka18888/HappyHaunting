@@ -75,9 +75,6 @@ class BoxType_Getter{
       case (Box<Mortal> _) : {
         Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
         if(mortal != null){
-          String mortalFearID = mortal.fearID;
-          PowerTag fear = PowerTag.values.byName(mortalFearID);
-          mortal.fear = fear;
           List<String> mortalTagsIDs = mortal.mortalTagsIDs;
           for(String name in mortalTagsIDs){
             MortalTag tag = MortalTag.values.byName(name);

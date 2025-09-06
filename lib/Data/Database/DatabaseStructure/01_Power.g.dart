@@ -130,4 +130,7 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
 const _$PowerTagEnumMap = {
   PowerTag.Null: 'Null',
   PowerTag.Noise: 'Noise',
+  PowerTag.Blood: 'Blood',
+  PowerTag.Insects: 'Insects',
+  PowerTag.Water: 'Water',
 };
