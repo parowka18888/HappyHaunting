@@ -47,9 +47,10 @@ class Mortal_Destination_Setter{
       if(path.isNotEmpty){
         mortal.path = path.map((p) => gridToWorld(p)).toList();
       }
-      // else {
-      //   Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
-      // }
+      else {
+        Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
+        // Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+      }
 
     }
 
@@ -95,6 +96,18 @@ class Mortal_Destination_Setter{
         forceNextDestination(mortal, game, destination);
       }
     }
+  }
+
+  static void clearDestinationPoints(Haunting_Mortal mortal, Haunting_Game game) {
+    for(final exitPoint in game.level.exitPoints){
+      if(mortal.finalDestination == exitPoint.position){
+        Mortal_Setter.setPosition(mortal, exitPoint.position);
+        return;
+      }
+    }
+    Mortal_Setter.setFinalDestination(mortal, null, null);
+    Mortal_Setter.setCurrentDestination(mortal, null);
+    Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
   }
 
 }

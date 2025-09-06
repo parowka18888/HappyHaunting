@@ -15,7 +15,7 @@ class DealingDamage{
       double modifier = 1;
       if(power.powerTags.contains(mortal.fear)){
         Mortal_Setter.setIsFearUnlocked(mortal, true);
-        modifier = 2;
+        modifier = 1.25;
       }
       double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear * modifier).toStringAsFixed(2));
       double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier).toStringAsFixed(2));
