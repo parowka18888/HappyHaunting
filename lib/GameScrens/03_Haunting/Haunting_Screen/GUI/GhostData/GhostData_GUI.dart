@@ -41,7 +41,7 @@ class GhostData_GUI{
 
   static getBackground(BuildContext context) {
     HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
-    return Image.asset('assets/images/UI/GhostBackground/GhostBackground_Green.png', fit: BoxFit.fitHeight,);
+    return Image.asset('assets/images/UI/GhostBackground/GhostBackground_Neutral.png', fit: BoxFit.fitHeight,);
     // return Image.asset('assets/images/UI/GhostBackground/GhostBackground_${viewModel.chosenGhost!.color}.png', fit: BoxFit.fitHeight,);
   }
 

@@ -16,7 +16,7 @@ import 'Data/Database/DatabaseStructure/03_Level.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   final dir = await getApplicationDocumentsDirectory();
   Hive.init(dir.path);
 

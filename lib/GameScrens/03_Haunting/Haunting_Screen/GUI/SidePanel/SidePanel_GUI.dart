@@ -10,24 +10,19 @@ import 'SidePanel_ByCategory/Ghosts/Ghosts_GUI.dart';
 
 class SidePanel_GUI{
   static getSidePanel(BuildContext context, HauntingGame_ViewModel viewModel, double height, double width, Haunting_Game game) {
-
-    double buttonHeight = height * 0.1;
-    double panelHeight = height - buttonHeight;
-
-    return Positioned(
-        top: 0, left: 0,
-        child: Container(
-          height: height, width: width, color: Colors.blue,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if(viewModel.gameCategory == GameCategory.ghosts || viewModel.gameCategory == GameCategory.trapped)
-                Ghosts_GUI.getGhostList(context, viewModel, panelHeight, width, game),
-              if(viewModel.gameCategory == GameCategory.mortals)
-                MortalsList_GUI.getMortalsList(context, viewModel, panelHeight, width, game),
-              getSidePanelButton(context, viewModel, buttonHeight, width)
-            ],
-          ),
-        )
+    if(viewModel.gameCategory == GameCategory.empty){
+      return Container();
+    }
+    return Container(
+      height: height, width: width, color: Colors.blue,
+      child: Column(mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if(viewModel.gameCategory == GameCategory.ghosts || viewModel.gameCategory == GameCategory.trapped)
+            Ghosts_GUI.getGhostList(context, viewModel, height, width, game),
+          if(viewModel.gameCategory == GameCategory.mortals)
+            MortalsList_GUI.getMortalsList(context, viewModel, height, width, game),
+        ],
+      ),
     );
   }
 

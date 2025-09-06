@@ -4,6 +4,8 @@ import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
+import '../Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
+
 class HauntingGame_ViewModel extends ChangeNotifier {
 
   bool isGameLoaded = false;
@@ -13,6 +15,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   //FIELD FOR SELECTED GHOST FROM LIST
   Haunting_Ghost? chosenGhost;
 
+  //FIELD FOR CURRENT FLOOR
+  int currentFloor = 0;
+
   List<List<String>> entries = [];
 
   //DIALOG WINDOW
@@ -21,7 +26,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   //POPUP WINDOW
   GameWindow gameWindow = GameWindow.empty;
-
+  bool isLogEntriesWindowVisible = false;
   Haunting_Game? game;
 
 
@@ -45,7 +50,12 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   }
 
   void setGameCategory(GameCategory category){
-    gameCategory = category;
+    if(gameCategory == category){
+      gameCategory = GameCategory.empty;
+    } else {
+      gameCategory = category;
+    }
+
     notifyListeners();
   }
 
@@ -88,6 +98,20 @@ class HauntingGame_ViewModel extends ChangeNotifier {
       setGameWindow(GameWindow.ghostData);
     }
     notifyListeners();
+  }
+
+  void setIsLogEntriesWindowVisible(bool bool) {
+    isLogEntriesWindowVisible = bool;
+    notifyListeners();
+  }
+
+  void setCurrentFloor(int value) {
+    if(game != null){
+      currentFloor += value;
+      Haunting_Camera.updateCameraByFloor(game!, currentFloor);
+      notifyListeners();
+    }
+
   }
 
 

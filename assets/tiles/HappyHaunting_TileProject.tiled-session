@@ -39,15 +39,15 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
+                6,
                 4,
-                5,
-                6
+                5
             ],
-            "scale": 1,
-            "selectedLayer": 3,
+            "scale": 2,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 509,
-                "y": 503.5
+                "x": 495,
+                "y": 473.75
             }
         },
         "Terrain (16x16).tsx": {

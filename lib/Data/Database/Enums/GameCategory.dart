@@ -1,3 +1,3 @@
 enum GameCategory{
-  ghosts, mortals, trapped
+  ghosts, mortals, trapped, empty
 }
