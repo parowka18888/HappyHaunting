@@ -34,8 +34,6 @@ class HauntingScreen extends StatefulWidget {
 class _HauntingScreenState extends State<HauntingScreen> {
 
   late Haunting_Game haunting_game;
-  int chosenFloor = 0;
-  int chosenFloor_Up_Basement = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +52,10 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
     double ghostData_Height = screenHeight * 0.9;
     double ghostData_Width = (3 / 2) * ghostData_Height;
+
+    double floorButtons_Height = sidePanel_Buttons_Height * 2;
+    double floorButtons_Width = floorButtons_Height;
+
 
     return Scaffold(
       body: Center(
@@ -93,29 +95,10 @@ class _HauntingScreenState extends State<HauntingScreen> {
               bottom: 0, right: 0,
               child: HauntingScreen_Buttons_GUI.getLogButton(context, sidePanel_Buttons_Height)),
             // FLOOR BUTTONS
+            Positioned(
+                top: 0, right: 0,
+                child: HauntingScreen_Buttons_GUI.getFloorButton(context, floorButtons_Height)),
 
-
-            //BUTTONS
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ElevatedButton(onPressed: (){
-                  chosenFloor++;
-                  print("Zmiana piętra UP $chosenFloor");
-                  setState(() {
-
-                  });
-                  Haunting_Camera.updateCameraByFloor(haunting_game ,chosenFloor);
-                  }, child: Text("Piętro UP")),
-                ElevatedButton(onPressed: (){print("Zmiana piętra DOWN");
-                  chosenFloor--;
-                print("Zmiana piętra DOWN $chosenFloor");
-                Haunting_Camera.updateCameraByFloor(haunting_game ,chosenFloor);
-                }, child: Text("Piętro Down")),
-                // if(widget.viewModel.isGameLoaded == true)
-                // ElevatedButton(onPressed: (){}, child: Text("Liczba śmiertelników: ${haunting_game.level.mortals.length}. imię pierwszego to ${haunting_game.level.mortals[0].name}"))
-              ],
-            ),
 
 
 

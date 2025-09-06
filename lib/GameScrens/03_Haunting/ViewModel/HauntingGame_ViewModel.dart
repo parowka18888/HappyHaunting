@@ -4,6 +4,8 @@ import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
+import '../Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
+
 class HauntingGame_ViewModel extends ChangeNotifier {
 
   bool isGameLoaded = false;
@@ -12,6 +14,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   //FIELD FOR SELECTED GHOST FROM LIST
   Haunting_Ghost? chosenGhost;
+
+  //FIELD FOR CURRENT FLOOR
+  int currentFloor = 0;
 
   List<List<String>> entries = [];
 
@@ -98,6 +103,15 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   void setIsLogEntriesWindowVisible(bool bool) {
     isLogEntriesWindowVisible = bool;
     notifyListeners();
+  }
+
+  void setCurrentFloor(int value) {
+    if(game != null){
+      currentFloor += value;
+      Haunting_Camera.updateCameraByFloor(game!, currentFloor);
+      notifyListeners();
+    }
+
   }
 
 

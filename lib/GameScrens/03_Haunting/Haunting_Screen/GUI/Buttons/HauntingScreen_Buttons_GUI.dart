@@ -32,4 +32,22 @@ class HauntingScreen_Buttons_GUI{
     );
   }
 
+  static getFloorButton(BuildContext context, double size) {
+    HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
+    double buttonSize = size / 2;
+    return Container(
+      height: size, width: size,
+      child: Stack(alignment: Alignment(0, 0),
+        children: [
+          Positioned(
+            top: 0, right: 0,
+            child: Button_GUI.getButton(buttonSize, 'FloorUp', function: () => viewModel.setCurrentFloor(1)),),
+          Positioned(
+            bottom: 0, left: 0,
+            child: Button_GUI.getButton(buttonSize, 'FloorDown', function: () => viewModel.setCurrentFloor(-1)),)
+        ],
+      ),
+    );
+  }
+
 }
