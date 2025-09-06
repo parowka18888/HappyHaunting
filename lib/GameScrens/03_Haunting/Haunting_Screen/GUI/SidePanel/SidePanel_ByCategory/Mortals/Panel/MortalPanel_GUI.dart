@@ -110,8 +110,11 @@ class MortalPanel_GUI{
 
   static getMortalFear(Haunting_Mortal mortal, HauntingGame_ViewModel viewModel) {
     String fear = "?";
-    if(mortal.isFearUnlocked == true && mortal.fear != PowerTag.Null){
+    if(mortal.isFearUnlocked == true){
+      print("JEST ODBLOKOWANE");
       fear = mortal.fear.toString();
+    } else {
+      print("NIE JEST ODBLOKOWANE ${mortal.isFearUnlocked}");
     }
     return Text(fear);
   }

@@ -76,6 +76,10 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.canMove = canMove;
   }
 
+  static void setIsFearUnlocked(Haunting_Mortal mortal, bool bool) {
+    mortal.isFearUnlocked = bool;
+  }
+
 
 
 }
