@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Subclasses/TrappedGhost/CheckConditions/TrappedGhost_Checker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +17,7 @@ class HauntingScreen_Buttons_GUI{
         children: [
           Button_GUI.getButton(height, 'Ghost', function: () => viewModel.setGameCategory(GameCategory.ghosts)),
           Button_GUI.getButton(height, 'Mortal', function: () => viewModel.setGameCategory(GameCategory.mortals)),
+          if(viewModel.isGameLoaded && TrappedGhost_Checker.checkIfThereIsGhostToFree(viewModel.game))
           Button_GUI.getButton(height, 'TrappedGhost', function: () => viewModel.setGameCategory(GameCategory.trapped)),
         ],
       ),
