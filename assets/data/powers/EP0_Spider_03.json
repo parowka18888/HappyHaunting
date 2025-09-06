@@ -15,7 +15,7 @@
   "powerChances" : 100,
   "powerTime" : 0,
 
-  "powerTagsIDs": [],
+  "powerTagsIDs": ["Noise"],
   "icon": "TestPower_3",
 
 

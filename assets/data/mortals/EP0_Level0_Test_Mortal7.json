@@ -16,6 +16,8 @@
   "mortalTagsIDs": ["exorcist"],
   "exorcismStrength" : 15,
 
+
+  "fear": "Null",
   "mortalTags": []
 
 

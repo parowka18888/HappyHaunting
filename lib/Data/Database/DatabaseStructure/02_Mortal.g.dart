@@ -32,13 +32,14 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       mortalTagsIDs: (fields[12] as List).cast<String>(),
       mortalTags: (fields[13] as List).cast<MortalTag>(),
       exorcismStrength: fields[14] as double,
+      fear: fields[15] as PowerTag,
     );
   }
 
   @override
   void write(BinaryWriter writer, Mortal obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(16)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -68,7 +69,9 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       ..writeByte(13)
       ..write(obj.mortalTags)
       ..writeByte(14)
-      ..write(obj.exorcismStrength);
+      ..write(obj.exorcismStrength)
+      ..writeByte(15)
+      ..write(obj.fear);
   }
 
   @override
@@ -108,6 +111,7 @@ Mortal _$MortalFromJson(Map<String, dynamic> json) => Mortal(
           .map((e) => $enumDecode(_$MortalTagEnumMap, e))
           .toList(),
       exorcismStrength: (json['exorcismStrength'] as num).toDouble(),
+      fear: $enumDecode(_$PowerTagEnumMap, json['fear']),
     );
 
 Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
@@ -127,9 +131,18 @@ Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
       'mortalTags':
           instance.mortalTags.map((e) => _$MortalTagEnumMap[e]!).toList(),
       'exorcismStrength': instance.exorcismStrength,
+      'fear': _$PowerTagEnumMap[instance.fear]!,
     };
 
 const _$MortalTagEnumMap = {
   MortalTag.regular: 'regular',
   MortalTag.exorcist: 'exorcist',
+};
+
+const _$PowerTagEnumMap = {
+  PowerTag.Null: 'Null',
+  PowerTag.Noise: 'Noise',
+  PowerTag.Blood: 'Blood',
+  PowerTag.Insects: 'Insects',
+  PowerTag.Water: 'Water',
 };

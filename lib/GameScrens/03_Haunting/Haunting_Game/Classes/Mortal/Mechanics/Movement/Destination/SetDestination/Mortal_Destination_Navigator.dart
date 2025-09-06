@@ -22,7 +22,6 @@ class Mortal_Destination_Navigator{
     }
 
     if(mortal.finalFloor != null && mortal.finalDestination != null){
-      print("WYKONUJE  dla ${mortal.name}");
       Mortal_Destination_Setter.setFinalDestination(mortal, game);
       return;
     }

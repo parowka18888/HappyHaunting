@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../Haunting_Power.dart';
@@ -11,10 +12,15 @@ import '../../Particles/PowerParticle.dart';
 class DealingDamage{
   static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game) {
     if(MortalChecker.checkIfMortalIsTargetable(mortal)){
-      double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear).toStringAsFixed(2));
-      double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health).toStringAsFixed(2));
-      double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness).toStringAsFixed(2));
-      double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith).toStringAsFixed(2));
+      double modifier = 1;
+      if(power.powerTags.contains(mortal.fear)){
+        Mortal_Setter.setIsFearUnlocked(mortal, true);
+        modifier = 2;
+      }
+      double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear * modifier).toStringAsFixed(2));
+      double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier).toStringAsFixed(2));
+      double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness * modifier).toStringAsFixed(2));
+      double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith * modifier).toStringAsFixed(2));
 
       if(damageFear > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
       if(damageHealth > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
