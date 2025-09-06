@@ -42,9 +42,13 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   String icon = "";
   String name = "";
   String id = "";
-  PowerTag fear = PowerTag.Null;
+
   double exorcismStrength = 0;
   List<MortalTag> tags = [];
+
+  //FEAR
+  PowerTag fear = PowerTag.Null;
+  bool isFearUnlocked = false;
 
   Haunting_GhostSpot? ghostSpot;
 

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
@@ -19,7 +20,8 @@ class MortalPanel_GUI{
           Positioned(top: 0, left: 0, child: getMortalImage(width, height, mortal, viewModel)),
           //STATS
           Positioned(right: 0, child: getMortalBars(bars_Width, bars_Height, mortal, viewModel)),
-          // Positioned(right: 0, child: getMortalStats(bars_Width, bars_Height, mortal, viewModel)),
+          //FEAR
+          Positioned(left: 0, child: getMortalFear(mortal, viewModel)),
 
         ],
       ),
@@ -104,6 +106,14 @@ class MortalPanel_GUI{
         ],
       ),
     );
+  }
+
+  static getMortalFear(Haunting_Mortal mortal, HauntingGame_ViewModel viewModel) {
+    String fear = "?";
+    if(mortal.isFearUnlocked == true && mortal.fear != PowerTag.Null){
+      fear = mortal.fear.toString();
+    }
+    return Text(fear);
   }
 
 }
