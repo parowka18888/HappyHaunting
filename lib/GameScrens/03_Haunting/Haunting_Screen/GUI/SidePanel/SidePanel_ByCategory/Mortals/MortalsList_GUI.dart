@@ -16,7 +16,7 @@ class MortalsList_GUI{
         return -1;
       });
       int itemCount = mortals.length;
-      double itemHeight = height / 4;
+      double itemHeight = height / 5;
       return Container(
         height: height, width: width, color: Colors.amber,
         child: ListView.builder(

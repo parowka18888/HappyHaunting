@@ -17,6 +17,9 @@ class GhostPanel_GUI{
     double powersHeight = height * 0.3;
     double powersWidth = width * 0.8;
 
+    double healthBar_Width = width * 0.7;
+    double healthBar_Height = height * 0.15;
+
     return Container(
       height: height, width: width, color: viewModel.chosenGhost != null && viewModel.chosenGhost!.name == ghost.name ? Colors.green : Colors.red,
       child: Stack(
@@ -27,13 +30,13 @@ class GhostPanel_GUI{
           Positioned(top: 0, left: 0, child: getGhostImage(width, height, ghost, viewModel)),
           //POWERS
           if(ghost.isPlaced == true)
-          Positioned(bottom: 0, right: 0, child: getGhostPowers(powersWidth, powersHeight, ghost, context, viewModel)),
+          Positioned(bottom: 20, right: 0, child: getGhostPowers(powersWidth, powersHeight, ghost, context, viewModel)),
           //AURAS
           if(ghost.isDefeated == false)
           Positioned(top: 0, right: 0, child: getGhostAuras(powersWidth, powersHeight, ghost, context, viewModel)),
           //HEALTH BAR
-          Positioned(bottom: 30,
-              child: getGhostHealth(context, ghost)
+          Positioned(bottom: 0,
+              child: getGhostHealth(context, ghost, healthBar_Width, healthBar_Height)
           )
         ],
       ),
@@ -103,8 +106,38 @@ class GhostPanel_GUI{
     );
   }
 
-  static getGhostHealth(BuildContext context, Haunting_Ghost ghost) {
-    return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
+  static getGhostHealth(BuildContext context, Haunting_Ghost ghost, double width, double height) {
+    double factor = (ghost.health_Current / ghost.health_Maximum);
+    if(factor < 0) factor = 0;
+
+    return SizedBox(
+      height: height,
+      width: width,
+      child: Stack(
+        alignment: Alignment(-1, 0),
+        children: [
+          Image.asset(
+            'assets/images/UI/Bars/LongBar_Background.png',
+            fit: BoxFit.fill,
+            height: height,
+            width: width,
+          ),
+          ClipRect(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              widthFactor: factor,
+              child: Image.asset(
+                'assets/images/UI/Bars/LongBar_Red.png',
+                fit: BoxFit.fill,
+                height: height,
+                width: width,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+    // return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
   }
 
 }
