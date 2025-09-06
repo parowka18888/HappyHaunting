@@ -15,7 +15,7 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
     required this.name, required this.icon, required this.id,
     required this.powers, required this.auras,
     required this.health_Current, required this.health_Maximum,
-    required this.image, required this.panelImage, required this.color,
+    required this.image, required this.panelImage, required this.color, required this.banishText,
   });
   String icon = "";
   String name = "";
@@ -23,6 +23,7 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
   String image = "";
   String color = "";
   String panelImage = "";
+  String banishText = "";
   List<Haunting_Power> powers = [];
   List<Aura> auras = [];
 
@@ -63,9 +64,10 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
         }
       }
       //DEFEAT GHOST
-      if(health_Current <= 0){
+      if(health_Current <= 0 && isDefeated == false){
         if(isPlaced == true && ghostSpot != null) GhostSpot_Mechanics.removeGhostFromGhostSpot(game, ghostSpot!);
         isDefeated = true;
+        game.viewModel.setDialogData(banishText, true);
       }
       timeSinceLastReload = 0.0;
     }

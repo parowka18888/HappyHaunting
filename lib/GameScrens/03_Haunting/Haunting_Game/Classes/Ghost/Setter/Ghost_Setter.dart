@@ -9,4 +9,8 @@ class Ghost_Setter{
     ghost.isFree = true;
   }
 
+  static void setIsDefeatable(Haunting_Ghost ghost, bool bool) {
+    ghost.isDefeatable = bool;
+  }
+
 }
