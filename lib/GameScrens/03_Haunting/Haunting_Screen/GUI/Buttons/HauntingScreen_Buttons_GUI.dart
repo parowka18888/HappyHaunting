@@ -22,4 +22,12 @@ class HauntingScreen_Buttons_GUI{
     );
   }
 
+  static getLogButton(BuildContext context, double size) {
+    HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
+    return Container(
+      width: size, height: size,
+      child: Button_GUI.getButton(size, 'Ghost', function: () => viewModel.setIsLogEntriesWindowVisible(!viewModel.isLogEntriesWindowVisible)),
+    );
+  }
+
 }

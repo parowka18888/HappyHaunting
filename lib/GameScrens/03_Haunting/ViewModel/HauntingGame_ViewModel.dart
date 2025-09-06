@@ -21,7 +21,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   //POPUP WINDOW
   GameWindow gameWindow = GameWindow.empty;
-
+  bool isLogEntriesWindowVisible = false;
   Haunting_Game? game;
 
 
@@ -92,6 +92,11 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     } else {
       setGameWindow(GameWindow.ghostData);
     }
+    notifyListeners();
+  }
+
+  void setIsLogEntriesWindowVisible(bool bool) {
+    isLogEntriesWindowVisible = bool;
     notifyListeners();
   }
 

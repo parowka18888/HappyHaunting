@@ -76,12 +76,23 @@ class _HauntingScreenState extends State<HauntingScreen> {
             Positioned(
                 top: 0, left: 0,
                 child: SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game)),
+            // LOG ENTRIES
+            if(viewModel.isLogEntriesWindowVisible)
+            Positioned(
+                bottom: 0, right: 0,
+                child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
+            ),
 
-
+            ///BUTTONS
             // SIDE PANEL BUTTONS
             Positioned(
               bottom: 0, left: 0,
               child: HauntingScreen_Buttons_GUI.getPanelButton(context, sidePanel_Width, sidePanel_Buttons_Height),),
+            // LOG BUTTON
+            Positioned(
+              bottom: 0, right: 0,
+              child: HauntingScreen_Buttons_GUI.getLogButton(context, sidePanel_Buttons_Height)),
+            // FLOOR BUTTONS
 
 
             //BUTTONS
@@ -106,10 +117,6 @@ class _HauntingScreenState extends State<HauntingScreen> {
               ],
             ),
 
-            Positioned(
-                bottom: 0, right: 0,
-                child: Log_entry.getLogEntryWindow(screenWidth, screenHeight, viewModel)
-            ),
 
 
             //DIALOG WINDOW
