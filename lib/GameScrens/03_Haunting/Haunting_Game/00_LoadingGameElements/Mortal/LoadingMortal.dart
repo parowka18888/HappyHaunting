@@ -33,6 +33,7 @@ class LoadingMortal{
           size: spawnPoint.size,
           id: mortal.id,
           icon: mortal.icon,
+          fear: mortal.fear,
           name: "Haunting_${mortal.name}",
           stat_Fear: mortal.stat_Fear,
           stat_Health: mortal.stat_Health,

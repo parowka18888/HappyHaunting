@@ -7,7 +7,9 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/L
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
+import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Exorcism/Exorcism_Mechanics.dart';
@@ -28,7 +30,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
   Haunting_Mortal({
     super.position, super.size,
-    required this.icon, required this.name,
+    required this.icon, required this.name, required this.fear,
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
     required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
@@ -40,6 +42,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   String icon = "";
   String name = "";
   String id = "";
+  PowerTag fear = PowerTag.Null;
   double exorcismStrength = 0;
   List<MortalTag> tags = [];
 
