@@ -85,6 +85,8 @@ flutter:
     - assets/images/UI/
     - assets/images/UI/GhostBackground/
     - assets/images/UI/Bars/
+    - assets/images/UI/Buttons/
+    - assets/images/UI/Icons/
     - assets/tiles/
 
   # An image asset can refer to one or more resolution-specific "variants", see
