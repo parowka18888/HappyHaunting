@@ -5,7 +5,7 @@
   "ghostImage" : "ClothesEater",
   "color" : "Yellow",
   "banishingText" : "clothes iter",
-  "powersIDs": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03"],
+  "powersIDs": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
   "aurasIDs": ["Aura_Inside"],
   "health" : 65,
 

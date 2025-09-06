@@ -14,7 +14,7 @@ class SidePanel_GUI{
       return Container();
     }
     return Container(
-      height: height, width: width, color: Colors.blue,
+      height: height, width: width,
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if(viewModel.gameCategory == GameCategory.ghosts || viewModel.gameCategory == GameCategory.trapped)

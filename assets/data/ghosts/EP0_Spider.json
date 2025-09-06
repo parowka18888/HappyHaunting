@@ -5,7 +5,7 @@
   "ghostImage" : "Spider",
   "color" : "Blue",
   "banishingText" : "spajder",
-  "powersIDs": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03"],
+  "powersIDs": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],
   "aurasIDs": ["Aura_Inside"],
   "health" : 55,
 

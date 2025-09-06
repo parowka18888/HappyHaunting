@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -14,30 +15,43 @@ import '../../../../../../Haunting_Game/Classes/Power/Setter/PowerSetter.dart';
 class GhostPanel_GUI{
   static getGhostPanel(BuildContext context, double width, double height, HauntingGame_ViewModel viewModel, Haunting_Ghost ghost) {
 
-    double powersHeight = height * 0.3;
-    double powersWidth = width * 0.8;
-
-    double healthBar_Width = width * 0.7;
+    double healthBar_Width = width * 0.75;
     double healthBar_Height = height * 0.15;
 
+    double powersHeight = height * 0.5;
+    double powersWidth = powersHeight * 4;
+    double powersPadding_Right = (width - healthBar_Width) / 10;
+    double powersPadding_Bottom = healthBar_Height * 2;
+
+    double auras_Height = height;
+    double auras_Width = powersPadding_Right;
+
+    bool isGhostChosen = viewModel.chosenGhost != null && viewModel.chosenGhost!.name == ghost.name ? true : false;
     return Container(
-      height: height, width: width, color: viewModel.chosenGhost != null && viewModel.chosenGhost!.name == ghost.name ? Colors.green : Colors.red,
+      height: height, width: width,
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
+          getBackground(context, ghost.isDefeated, height),
+          //MOON
+          Positioned(top: 0, left: 0, child: getMoonImage(ghost.isPlaced, height, isGhostChosen)),
           //GHOST IMAGE
           Positioned(top: 0, left: 0, child: getGhostImage(width, height, ghost, viewModel)),
           //POWERS
           if(ghost.isPlaced == true)
-          Positioned(bottom: 20, right: 0, child: getGhostPowers(powersWidth, powersHeight, ghost, context, viewModel)),
+          Positioned(bottom: powersPadding_Bottom, right: powersPadding_Right, child: getGhostPowers(powersWidth, powersHeight, ghost, context, viewModel)),
+          
           //AURAS
-          if(ghost.isDefeated == false)
-          Positioned(top: 0, right: 0, child: getGhostAuras(powersWidth, powersHeight, ghost, context, viewModel)),
+          // if(ghost.isDefeated == false)
+          // Positioned(bottom: 0, right: 0, child: getGhostAuras(auras_Width, auras_Height, ghost, context, viewModel)),
+          
           //HEALTH BAR
           Positioned(bottom: 0,
               child: getGhostHealth(context, ghost, healthBar_Width, healthBar_Height)
-          )
+          ),
+          
+          getCrack(height, ghost.isDefeated)
         ],
       ),
     );
@@ -72,22 +86,17 @@ class GhostPanel_GUI{
 
   static getGhostPowers(double width, double height, Haunting_Ghost ghost, BuildContext context, HauntingGame_ViewModel viewModel) {
    return Container(
-      height: height, width: width, color: Colors.green,
+      height: height, width: width,
       child: ListView.builder(
           itemCount: ghost.powers.length,
+          padding: EdgeInsets.zero,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
             Haunting_Power power = ghost.powers[index];
-            return GestureDetector(
-              onTap: (){
-                if(power.isDeactivatingForbidden == false){
-                  PowerSetter.togglePowerActivation(power, game: viewModel.game);
-                  viewModel.refresh();
-                }
-              },
-              child: Opacity(opacity: power.isActivated == true ? 1.0 : 0.5,
-                child: Image.asset('assets/images/Powers/${power.icon}.png',),
-              )
+            return Button_GUI.getButton(height, power.icon,
+                pathIcon: "assets/images/Powers/${power.icon}.png",
+                function: () => PowerSetter.togglePowerActivation(power, game: viewModel.game),
+                isOpacityLowered: !power.isActivated
             );
       }),
     );
@@ -95,10 +104,10 @@ class GhostPanel_GUI{
 
   static getGhostAuras(double width, double height, Haunting_Ghost ghost, BuildContext context, HauntingGame_ViewModel viewModel) {
     return Container(
-      height: height, width: width,// color: Colors.green,
+      height: height, width: width,
       child: ListView.builder(
+          reverse: true,
           itemCount: ghost.auras.length,
-          scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
             Aura aura = ghost.auras[index];
             return Image.asset('assets/images/Auras/${aura.icon}.png',);
@@ -127,7 +136,7 @@ class GhostPanel_GUI{
               alignment: Alignment.centerLeft,
               widthFactor: factor,
               child: Image.asset(
-                'assets/images/UI/Bars/LongBar_Red.png',
+                'assets/images/UI/Bars/LongBar_Blue.png',
                 fit: BoxFit.fill,
                 height: height,
                 width: width,
@@ -138,6 +147,39 @@ class GhostPanel_GUI{
       ),
     );
     // return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
+  }
+
+  static getBackground(BuildContext context, bool isDefeated, double height) {
+    String background = "assets/images/UI/SidePanel/Panel_Background.png";
+    if(isDefeated){
+      background = "assets/images/UI/SidePanel/Panel_Background_Exorcist.png";
+    }
+    return Container(
+      height: height,
+      child: Image.asset(background, fit: BoxFit.fitHeight,),
+    );
+  }
+
+  static getMoonImage(bool isPlaced, double height, bool isGhostChosen) {
+    String background = "assets/images/UI/SidePanel/Moon_InActive.png";
+    if(isPlaced || isGhostChosen){
+      background = "assets/images/UI/SidePanel/Moon_Active.png";
+    }
+    return Container(
+      height: height,
+      child: Image.asset(background, fit: BoxFit.fitHeight,),
+    );
+  }
+
+  static getCrack(double height, bool isDefeated) {
+    if(isDefeated){
+      return Container(
+        height: height,
+        child: Image.asset('assets/images/UI/SidePanel/Panel_DefeatedGhost.png'),
+      );
+    }
+    return Container();
+
   }
 
 }

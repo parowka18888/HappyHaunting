@@ -18,10 +18,11 @@ class Ghosts_GUI{
         ghosts = game.level.trappedGhosts.where((ghost) => ghost.isFree == false).toList();
       }
       int itemCount = ghosts.length;
-      double itemHeight = height / 5;
+      double itemHeight = height / 6;
       return Container(
-        height: height, width: width, color: Colors.amber,
+        height: height, width: width,
         child: ListView.builder(
+          // reverse: true,
             itemCount: itemCount,
             itemBuilder: (context, index){
               Haunting_Ghost ghost = ghosts[index];

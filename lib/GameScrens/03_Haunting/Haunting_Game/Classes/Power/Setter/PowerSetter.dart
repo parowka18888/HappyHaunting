@@ -7,10 +7,14 @@ class PowerSetter{
   static void togglePowerActivation(Haunting_Power power, {
   Haunting_Game? game
   }) {
-    power.isActivated = !power.isActivated;
-    if(game != null){
-      Power_CheckConditions.checkPossessionState(power, game);
+    if(power.isDeactivatingForbidden == false){
+      power.isActivated = !power.isActivated;
+      if(game != null){
+        Power_CheckConditions.checkPossessionState(power, game);
+        game.viewModel.refresh();
+      }
     }
+
   }
 
   static void setPowerActivation(Haunting_Power power, bool value){

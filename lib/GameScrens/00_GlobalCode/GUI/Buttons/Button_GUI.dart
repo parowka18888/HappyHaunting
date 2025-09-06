@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class Button_GUI{
   static getButton(double size, String icon, {
     String? pathIcon,
-    VoidCallback? function
+    VoidCallback? function,
+    bool isOpacityLowered = false
   }) {
     String iconPath = 'assets/images/UI/Icons/$icon.png';
     if(pathIcon != null){
@@ -21,7 +22,15 @@ class Button_GUI{
         child: Stack(alignment: Alignment(0, 0),
           children: [
             Image.asset('assets/images/UI/Buttons/CircleButton.png', fit: BoxFit.fitHeight,),
-            Image.asset(iconPath, height: size * 0.8),
+            ClipOval(
+              child: Opacity(
+                opacity: isOpacityLowered ? 0.5 : 1.0,
+                child: Image.asset(
+                  iconPath,
+                  height: size * 0.8,
+                ),
+              ),
+            ),
             Image.asset('assets/images/UI/Buttons/CircleButton_Frame.png', fit: BoxFit.fitHeight,),
           ],
         ),
