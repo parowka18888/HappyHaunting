@@ -110,15 +110,19 @@ class GhostPanel_GUI{
     double factor = (ghost.health_Current / ghost.health_Maximum);
     if(factor < 0) factor = 0;
 
-    return Container(
-      height: height, width: width,
-      child:Stack(alignment: Alignment(-1, 0),
-      children: [
-        Container(height: height, width: width,
-          child: Image.asset('assets/images/UI/Bars/LongBar_Background.png', fit: BoxFit.fill),
-        ),
-        Container(height: height, width: width,
-          child: ClipRect(
+    return SizedBox(
+      height: height,
+      width: width,
+      child: Stack(
+        alignment: Alignment(-1, 0),
+        children: [
+          Image.asset(
+            'assets/images/UI/Bars/LongBar_Background.png',
+            fit: BoxFit.fill,
+            height: height,
+            width: width,
+          ),
+          ClipRect(
             child: Align(
               alignment: Alignment.centerLeft,
               widthFactor: factor,
@@ -130,8 +134,7 @@ class GhostPanel_GUI{
               ),
             ),
           ),
-        ),
-      ],
+        ],
       ),
     );
     // return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
