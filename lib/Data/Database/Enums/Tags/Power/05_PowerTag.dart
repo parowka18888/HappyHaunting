@@ -1,3 +1,3 @@
 enum PowerTag{
-  Null, Loud
+  Null, Noise, Blood, Insects, Water
 }

@@ -31,7 +31,7 @@ class Scripts_TestLevel_Ghost{
       for(var usedPower in game.level.usedPowers){
         if(ghost.room != null){
           if(usedPower.room.id == ghost.room!.id){
-            if(usedPower.power.powerTags.contains(PowerTag.Loud)){
+            if(usedPower.power.powerTags.contains(PowerTag.Noise)){
               //CONDITION MET
               ghost.conditionsMet.add(0);
               break;
