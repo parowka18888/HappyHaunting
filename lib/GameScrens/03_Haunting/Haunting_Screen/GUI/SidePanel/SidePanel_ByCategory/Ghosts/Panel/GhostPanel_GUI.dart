@@ -33,9 +33,9 @@ class GhostPanel_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
-          getBackground(context, ghost.isDefeated, height),
+          getBackground(context, ghost.isDefeated, height, width),
           //MOON
-          Positioned(top: 0, left: 0, child: getMoonImage(ghost.isPlaced, height, isGhostChosen)),
+          Positioned(top: 0, left: 0, child: getMoonImage(ghost.isPlaced, height, isGhostChosen: isGhostChosen)),
           //GHOST IMAGE
           Positioned(top: 0, left: 0, child: getGhostImage(width, height, ghost, viewModel)),
           //POWERS
@@ -149,18 +149,20 @@ class GhostPanel_GUI{
     // return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
   }
 
-  static getBackground(BuildContext context, bool isDefeated, double height) {
+  static getBackground(BuildContext context, bool isDefeated, double height, double width) {
     String background = "assets/images/UI/SidePanel/Panel_Background.png";
     if(isDefeated){
       background = "assets/images/UI/SidePanel/Panel_Background_Exorcist.png";
     }
     return Container(
-      height: height,
-      child: Image.asset(background, fit: BoxFit.fitHeight,),
+      height: height, width: width,
+      child: Image.asset(background, fit: BoxFit.fitWidth,),
     );
   }
 
-  static getMoonImage(bool isPlaced, double height, bool isGhostChosen) {
+  static getMoonImage(bool isPlaced, double height, {
+    bool isGhostChosen = false
+  }) {
     String background = "assets/images/UI/SidePanel/Moon_InActive.png";
     if(isPlaced || isGhostChosen){
       background = "assets/images/UI/SidePanel/Moon_Active.png";
