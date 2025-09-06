@@ -29,7 +29,12 @@ class LoadingGhost{
     for(var ghostPower in ghost.powers){
       loadPower(ghostPower, game, powers);
     }
-    var hauntingGhost = Haunting_Ghost(name: ghost.name, icon: ghost.icon, powers: powers, auras: ghost.auras, id: ghost.id, health_Current: ghost.health, health_Maximum: ghost.health, image: ghost.ghostImage, panelImage: "${ghost.ghostImage}_Panel", color: ghost.color)
+    var hauntingGhost = Haunting_Ghost(
+        name: ghost.name, icon: ghost.icon,powers: powers, auras: ghost.auras,
+        id: ghost.id, health_Current: ghost.health, health_Maximum: ghost.health,
+        image: ghost.ghostImage, panelImage: "${ghost.ghostImage}_Panel", color: ghost.color,
+        banishText: ghost.banishingText
+    )
       ..isPlaced = isPlaced
       ..room = room
     ..ghostSpot = ghostSpot

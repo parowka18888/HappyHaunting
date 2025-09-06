@@ -27,13 +27,14 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       health: fields[7] as double,
       ghostImage: fields[8] as String,
       color: fields[9] as String,
+      banishingText: fields[10] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -53,7 +54,9 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(8)
       ..write(obj.ghostImage)
       ..writeByte(9)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(10)
+      ..write(obj.banishingText);
   }
 
   @override
@@ -88,6 +91,7 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       health: (json['health'] as num).toDouble(),
       ghostImage: json['ghostImage'] as String,
       color: json['color'] as String,
+      banishingText: json['banishingText'] as String,
     );
 
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
@@ -101,4 +105,5 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'health': instance.health,
       'ghostImage': instance.ghostImage,
       'color': instance.color,
+      'banishingText': instance.banishingText,
     };

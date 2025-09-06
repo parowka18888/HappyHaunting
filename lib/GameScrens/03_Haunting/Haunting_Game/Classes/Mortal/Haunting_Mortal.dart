@@ -156,7 +156,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
         //EXORCISM SYSTEM - DEALING DAMAGE
         if(MortalChecker.checkIfMortalIsExorcist(this)){
-          Exorcism_Mechanics.exorcismNavigator(this, game, 0.5);
+          Exorcism_Mechanics.exorcismNavigator(this, game, 0.5, game.viewModel);
         }
 
 

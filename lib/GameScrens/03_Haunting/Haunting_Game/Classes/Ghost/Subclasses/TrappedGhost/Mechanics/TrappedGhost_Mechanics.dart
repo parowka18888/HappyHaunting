@@ -21,6 +21,9 @@ class TrappedGhost_Mechanics{
       //SETTING GHOST ISFREEVALUE
       Ghost_Setter.setIsFree(ghost, true);
 
+      //SETTING GHOST isDefeatable
+      Ghost_Setter.setIsDefeatable(ghost, true);
+
       //CLEARING GHOSTSPOT
       GhostSpot_Mechanics.removeGhostFromGhostSpot(game, ghostSpot);
 

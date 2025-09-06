@@ -1,10 +1,12 @@
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/GhostSpot/Haunting_GhostSpot.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
 class Exorcism_Mechanics{
-  static void exorcismNavigator(Haunting_Mortal mortal, Haunting_Game game, double modifier) {
+  static void exorcismNavigator(Haunting_Mortal mortal, Haunting_Game game, double modifier, HauntingGame_ViewModel viewModel) {
     Haunting_Room? room = mortal.room;
     bool isDamageDealt = false;
 
@@ -15,16 +17,14 @@ class Exorcism_Mechanics{
       //DEALING DAMAGE TO GHOSTS IN GHOST SPOTS
       for(var ghostSpot in listOfGhostSpots){
         if(ghostSpot.ghost!= null && ghostSpot.ghost!.isDefeatable == true){
-          ghostSpot.ghost!.health_Current -= mortal.exorcismStrength * modifier;
-          isDamageDealt = true;
+          isDamageDealt = banishGhost(mortal, modifier, viewModel, ghostSpot);
         }
       }
       //DEALING DAMAGE TO GHOSTS IN POSSESSION
       for(var mortalInRoom in listOfMortals){
         if(mortalInRoom.ghostSpot != null && mortalInRoom.ghostSpot!.ghost != null){
           if(mortal.id != mortalInRoom.id){
-            mortalInRoom.ghostSpot!.ghost!.health_Current -= mortal.exorcismStrength * modifier ;
-            isDamageDealt = true;
+            isDamageDealt = banishGhost(mortal, modifier, viewModel, mortalInRoom.ghostSpot!);
           }
         }
       }
@@ -32,6 +32,12 @@ class Exorcism_Mechanics{
         game.viewModel.refresh();
       }
     }
+  }
+
+  static bool banishGhost(Haunting_Mortal mortal, double modifier, HauntingGame_ViewModel viewModel, Haunting_GhostSpot ghostSpot) {
+    Haunting_Ghost ghost = ghostSpot.ghost!;
+    ghost.health_Current -= mortal.exorcismStrength * modifier;
+    return true;
   }
 
 }
