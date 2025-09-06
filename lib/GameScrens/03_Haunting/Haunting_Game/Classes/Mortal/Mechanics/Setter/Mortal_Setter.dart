@@ -80,6 +80,11 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
     mortal.isFearUnlocked = bool;
   }
 
+  static void setFinalDestination(Haunting_Mortal mortal, point, floor) {
+    mortal.finalFloor = floor;
+    mortal.finalDestination = point;
+  }
+
 
 
 }
