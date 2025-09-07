@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
@@ -33,7 +34,7 @@ class GhostPanel_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
-          getBackground(context, ghost.isDefeated, height, width),
+          getBackground(context, height, width, isDefeated: ghost.isDefeated),
           //MOON
           Positioned(top: 0, left: 0, child: getMoonImage(ghost.isPlaced, height, isGhostChosen: isGhostChosen)),
           //GHOST IMAGE
@@ -50,8 +51,11 @@ class GhostPanel_GUI{
           Positioned(bottom: 0,
               child: getGhostHealth(context, ghost, healthBar_Width, healthBar_Height)
           ),
-          
-          getCrack(height, ghost.isDefeated)
+
+          //EXORCISM CRACK
+          Positioned(bottom: 0, left: 0,
+              child: getCrack(height, ghost.isDefeated)
+          ),
         ],
       ),
     );
@@ -149,11 +153,31 @@ class GhostPanel_GUI{
     // return Text("${ghost.health_Current} / ${ghost.health_Maximum}");
   }
 
-  static getBackground(BuildContext context, bool isDefeated, double height, double width) {
+  static getBackground(BuildContext context, double height, double width, {
+    bool isDefeated = false,
+    Mortal_DefeatType? defeatType
+  }) {
     String background = "assets/images/UI/SidePanel/Panel_Background.png";
-    if(isDefeated){
-      background = "assets/images/UI/SidePanel/Panel_Background_Exorcist.png";
+    //GHOST / EXORCIST BACKGROUND
+    if(isDefeated){ background = "assets/images/UI/SidePanel/Panel_Background_Purple.png";}
+    //MORTAL BACKGROUND
+    if(defeatType != null){
+      switch (defeatType){
+        case Mortal_DefeatType.Fear:
+          background = "assets/images/UI/SidePanel/Panel_Background_Green.png";
+          break;
+        case Mortal_DefeatType.Faith:
+          background = "assets/images/UI/SidePanel/Panel_Background_Blue.png";
+          break;
+        case Mortal_DefeatType.Health:
+          background = "assets/images/UI/SidePanel/Panel_Background_Red.png";
+          break;
+        case Mortal_DefeatType.Madness:
+          background = "assets/images/UI/SidePanel/Panel_Background_Yellow.png";
+          break;
+      }
     }
+
     return Container(
       height: height, width: width,
       child: Image.asset(background, fit: BoxFit.fitWidth,),
@@ -161,7 +185,7 @@ class GhostPanel_GUI{
   }
 
   static getMoonImage(bool isPlaced, double height, {
-    bool isGhostChosen = false
+    bool isGhostChosen = false,
   }) {
     String background = "assets/images/UI/SidePanel/Moon_InActive.png";
     if(isPlaced || isGhostChosen){
@@ -177,7 +201,7 @@ class GhostPanel_GUI{
     if(isDefeated){
       return Container(
         height: height,
-        child: Image.asset('assets/images/UI/SidePanel/Panel_DefeatedGhost.png'),
+        child: Image.asset('assets/images/UI/SidePanel/Panel_DefeatedGhost.png', fit: BoxFit.fitHeight,),
       );
     }
     return Container();

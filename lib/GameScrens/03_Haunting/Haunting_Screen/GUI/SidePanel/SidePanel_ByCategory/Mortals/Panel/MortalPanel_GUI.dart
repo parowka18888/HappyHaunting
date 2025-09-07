@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/SidePanel/SidePanel_ByCategory/Ghosts/Panel/GhostPanel_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
@@ -18,7 +19,7 @@ class MortalPanel_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
-          GhostPanel_GUI.getBackground(context, mortal.isDefeated, height, width),
+          GhostPanel_GUI.getBackground(context, height, width, defeatType: mortal.defeatType, isDefeated: MortalChecker.checkIfMortalIsExorcist(mortal)),
           //MOON
           Positioned(top: 0, left: 0, child: GhostPanel_GUI.getMoonImage(!mortal.isDefeated, height)),
           //MORTAL IMAGE
