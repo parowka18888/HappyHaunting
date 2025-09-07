@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Behavior/Mortal_Behavior.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -25,6 +26,7 @@ class PowersLuring{
           for(final mortal in roomAtFloor.mortalsInRoom){
             if(mortal.isDefeated == false){
               Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
+              Mortal_Behavior.freeMortalOfCurrentAction(mortal);
             }
           }
         }
@@ -45,6 +47,7 @@ class PowersLuring{
             listOfMortalActionPointsInRoom.shuffle();
             Mortal_Setter.setFinalData(mortal, listOfMortalActionPointsInRoom[0], floor);
             Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+            Mortal_Behavior.freeMortalOfCurrentAction(mortal);
           }
         }
         PowerMechanics.usePower_EndingProcess(game, power, ghost, room);

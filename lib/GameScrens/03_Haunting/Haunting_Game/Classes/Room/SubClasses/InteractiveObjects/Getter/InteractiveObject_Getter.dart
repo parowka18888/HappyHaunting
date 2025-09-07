@@ -17,4 +17,13 @@ class InteractiveObject_Getter{
     return null;
   }
 
+  static Haunting_InteractiveObject? getRandomInteractiveObject_ByList(List<Haunting_InteractiveObject> list) {
+    if(list.isNotEmpty){
+      list.shuffle();
+      return list[0];
+    } else {
+      return null;
+    }
+  }
+
 }
