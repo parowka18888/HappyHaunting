@@ -14,27 +14,27 @@
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                3,
                 4,
+                3,
                 5
             ],
             "scale": 1,
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 768,
-                "y": 440
+                "y": 440.5
             }
         },
         "Level_Test2.tmx": {
             "expandedObjectLayers": [
-                3,
-                4
+                4,
+                3
             ],
             "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
                 "x": 816,
-                "y": 440
+                "y": 440.5
             }
         },
         "Level_Test3.tmx": {
@@ -55,7 +55,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Terrain",
+    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Test",
     "map.fixedSize": true,
     "map.height": 135,
     "map.lastUsedFormat": "tmx",

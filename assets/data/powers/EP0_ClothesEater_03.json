@@ -6,10 +6,10 @@
   "cost" : 20,
   "cooldown" : 3,
 
-  "stat_Fear": 40,
-  "stat_Health": 20,
-  "stat_Madness": 15,
-  "stat_Faith": 4,
+  "stat_Fear": 0,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 100,
 
   "powerType" : "mortalSingle",
   "powerChances" : 100,
