@@ -133,10 +133,17 @@ class LoadingGameElements{
             String sound_End = point.properties.getValue('sound_End');
             double time = point.properties.getValue('time');
             bool isSeducing = point.properties.getValue('isSeducing');
+            String image = point.properties.getValue('image');
 
+            String? imageValue;
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
             Haunting_Room? room = RoomGetter.getRoomByName(roomName, game);
 
+            if(image.isEmpty){
+              imageValue = null;
+            } else {
+              imageValue = image;
+            }
             if(floor != null && room != null){
               Haunting_InteractiveObject interactiveObject = Haunting_InteractiveObject(
                   position: point.position,
@@ -144,6 +151,7 @@ class LoadingGameElements{
                   floor: floor,
                   room: room,
                   id: id,
+                  image: imageValue,
                   sound_End: sound_End,
                   sound_Start: sound_Start,
                   time: time,
