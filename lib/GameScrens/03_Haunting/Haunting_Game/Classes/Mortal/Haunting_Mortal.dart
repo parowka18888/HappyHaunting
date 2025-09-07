@@ -108,7 +108,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
 
   @override
   Future<void> onLoad() async {
-    // debugMode = true;
+    debugMode = true;
 
     isActive_Helper = isActive;
 

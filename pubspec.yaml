@@ -82,6 +82,7 @@ flutter:
     - assets/images/Ghosts/
     - assets/images/Powers/
     - assets/images/Auras/
+    - assets/images/Levels/Test/
     - assets/images/UI/
     - assets/images/UI/GhostBackground/
     - assets/images/UI/Bars/
