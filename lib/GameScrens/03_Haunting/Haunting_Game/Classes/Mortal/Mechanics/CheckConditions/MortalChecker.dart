@@ -44,12 +44,10 @@ class MortalChecker{
     //PERCENTAGES OF CHANGE OF STATE
     var percentageChange_Scared = 0.35;
     var percentageChange_Terrified = 0.75;
-    var percentageChange_Hurt = 0.75;
-    var percentageChange_Dead = 1;
 
-    if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Scared || mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Hurt){
+    if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Scared){
       Mortal_Setter.setState(mortal, Mortal_State.scared);
-      if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Terrified || mortal.stat_Current_Health >= mortal.stat_Health * percentageChange_Dead){
+      if(mortal.stat_Current_Fear >= mortal.stat_Fear * percentageChange_Terrified){
         Mortal_Setter.setState(mortal, Mortal_State.terrified);
       }
     } else {
