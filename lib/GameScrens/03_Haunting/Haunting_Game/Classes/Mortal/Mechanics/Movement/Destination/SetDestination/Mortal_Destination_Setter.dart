@@ -52,7 +52,7 @@ class Mortal_Destination_Setter{
         mortal.path = path.map((p) => gridToWorld(p)).toList();
       }
       else {
-        Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
+        // Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
         // Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
       }
 

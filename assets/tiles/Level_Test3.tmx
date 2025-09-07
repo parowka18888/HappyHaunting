@@ -598,6 +598,7 @@
    <properties>
     <property name="floor" type="int" value="0"/>
     <property name="id" value="TrappedGhost_Jar"/>
+    <property name="image" value=""/>
     <property name="isSeducing" type="bool" value="false"/>
     <property name="roomName" value="Room_0_3"/>
     <property name="sound_End" value=""/>
@@ -607,8 +608,9 @@
   </object>
   <object id="321" name="InteractivePoint" type="MortalSpecialPoint_Interactive" x="2564" y="1448" width="32" height="32">
    <properties>
-    <property name="floor" type="int" value="0"/>
+    <property name="floor" type="int" value="-1"/>
     <property name="id" value="Chair"/>
+    <property name="image" value=""/>
     <property name="isSeducing" type="bool" value="false"/>
     <property name="roomName" value="Room_-1_1"/>
     <property name="sound_End" value=""/>
@@ -618,8 +620,9 @@
   </object>
   <object id="322" name="InteractivePoint" type="MortalSpecialPoint_Interactive" x="2644" y="1448" width="32" height="32">
    <properties>
-    <property name="floor" type="int" value="0"/>
+    <property name="floor" type="int" value="-1"/>
     <property name="id" value="Chair"/>
+    <property name="image" value=""/>
     <property name="isSeducing" type="bool" value="false"/>
     <property name="roomName" value="Room_-1_1"/>
     <property name="sound_End" value=""/>
@@ -629,8 +632,9 @@
   </object>
   <object id="323" name="InteractivePoint" type="MortalSpecialPoint_Interactive" x="2724" y="1448" width="32" height="32">
    <properties>
-    <property name="floor" type="int" value="0"/>
+    <property name="floor" type="int" value="-1"/>
     <property name="id" value="Chair"/>
+    <property name="image" value=""/>
     <property name="isSeducing" type="bool" value="false"/>
     <property name="roomName" value="Room_-1_1"/>
     <property name="sound_End" value=""/>
