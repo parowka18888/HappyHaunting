@@ -8,13 +8,13 @@ class Mortal_Behavior_Checker{
 
   static Random random = Random();
 
-  static void checkIfMortalShouldBeFreeFromAction(Haunting_Mortal mortal, Haunting_Power power) {
+  static bool checkIfMortalShouldBeFreeFromAction_ByState(Haunting_Mortal mortal) {
     bool shouldMortalBeFreedFromAction = false;
     switch (mortal.state){
       case Mortal_State.calm:
         break;
       case Mortal_State.scared:
-        double chanceForFreeing = 0.5;
+        double chanceForFreeing = 0.75;
         double r = random.nextDouble();
         if(r < chanceForFreeing){
           shouldMortalBeFreedFromAction = true;
@@ -24,6 +24,14 @@ class Mortal_Behavior_Checker{
         shouldMortalBeFreedFromAction = true;
         break;
     }
+    return shouldMortalBeFreedFromAction;
+  }
+
+  static bool checkIfMortalShouldBeFreeFromAction_ByPower(Haunting_Mortal mortal, Haunting_Power power) {
+    if(power.powerTags.contains(mortal.fear)){
+      return true;
+    }
+    return false;
   }
 
 }

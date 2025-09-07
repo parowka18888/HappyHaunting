@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
 
@@ -38,6 +39,7 @@ class Mortal_Destination_Setter{
   // }
 
   static void setNextDestinationPath(Haunting_Mortal mortal, Haunting_Game game) {
+    MortalChecker.checkForMortalState(mortal, game);
     if(mortal.currentDestination != null){
       double mortalSize = 32;
       double gridSize = 16;

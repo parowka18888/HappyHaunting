@@ -26,7 +26,7 @@ class PowersLuring{
           for(final mortal in roomAtFloor.mortalsInRoom){
             if(mortal.isDefeated == false){
               Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
-              Mortal_Behavior.freeMortalOfCurrentAction(mortal);
+              Mortal_Behavior.freeMortalOfThinkingTime(mortal);
             }
           }
         }
@@ -47,7 +47,7 @@ class PowersLuring{
             listOfMortalActionPointsInRoom.shuffle();
             Mortal_Setter.setFinalData(mortal, listOfMortalActionPointsInRoom[0], floor);
             Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
-            Mortal_Behavior.freeMortalOfCurrentAction(mortal);
+            Mortal_Behavior.freeMortalOfThinkingTime(mortal);
           }
         }
         PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
