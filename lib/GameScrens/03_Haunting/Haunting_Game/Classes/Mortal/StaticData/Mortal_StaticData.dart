@@ -27,9 +27,9 @@ class Mortal_StaticData{
   static double getChanceForInteractiveObject_ByState(Mortal_State state) {
     switch (state) {
       case Mortal_State.calm:
-        return 0.2;
+        return 0.8;
       case Mortal_State.scared:
-        return 0.1;
+        return 0.2;
       case Mortal_State.terrified:
         return 0.1;
     }

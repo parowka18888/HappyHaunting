@@ -17,7 +17,21 @@ class Node {
   int get hashCode => x.hashCode ^ y.hashCode;
 }
 
-List<Vector2> findPathAStar(List<List<bool>> grid, Vector2 start, Vector2 goal) {
+bool isWalkable(List<List<bool>> grid, int nx, int ny, int spriteWidth, int spriteHeight) {
+  for (int dx = 0; dx < spriteWidth; dx++) {
+    for (int dy = 0; dy < spriteHeight; dy++) {
+      int gx = nx + dx;
+      int gy = ny + dy;
+      if (gy < 0 || gx < 0 || gy >= grid.length || gx >= grid[0].length) {
+        return false;
+      }
+      if (!grid[gy][gx]) return false;
+    }
+  }
+  return true;
+}
+
+List<Vector2> findPathAStar(List<List<bool>> grid, Vector2 start, Vector2 goal, int mortalWidthInTiles, int mortalHeightInTiles) {
   final openList = <Node>[];
   final closedList = <Node>[];
 
@@ -49,7 +63,8 @@ List<Vector2> findPathAStar(List<List<bool>> grid, Vector2 start, Vector2 goal) 
       int ny = current.y + offset.y.toInt();
 
       if (nx < 0 || ny < 0 || ny >= grid.length || nx >= grid[0].length) continue;
-      if (!grid[ny][nx]) continue;
+      if (!isWalkable(grid, nx, ny, mortalWidthInTiles, mortalHeightInTiles)) continue;
+      // if (!grid[ny][nx]) continue;
 
       if (offset.x != 0 && offset.y != 0) {
         if (!grid[current.y][nx] || !grid[ny][current.x]) {

@@ -39,17 +39,21 @@ class Mortal_Destination_Setter{
 
   static void setNextDestinationPath(Haunting_Mortal mortal, Haunting_Game game) {
     if(mortal.currentDestination != null){
+      double mortalSize = 32;
+      double gridSize = 16;
+      int mortalSizeInTiles = (mortalSize / gridSize).toInt();
       List<Vector2> path = findPathAStar(
         game.level.walkableGrid,
         worldToGrid(mortal.position),
         worldToGrid(mortal.currentDestination!),
+          mortalSizeInTiles, mortalSizeInTiles
       );
       if(path.isNotEmpty){
         mortal.path = path.map((p) => gridToWorld(p)).toList();
       }
       else {
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
-        // Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+        Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
       }
 
     }

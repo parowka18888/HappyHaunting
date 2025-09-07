@@ -11,7 +11,7 @@ import '../../../../Haunting_Game.dart';
 
 class Haunting_InteractiveObject extends PositionComponent
 with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
-  Haunting_InteractiveObject({super.position, super.size, required this.floor, required this.room,
+  Haunting_InteractiveObject({super.position, super.size, required this.floor, required this.room, required this.image,
   required this.id, required this.sound_Start, required this.sound_End, required this.time, required this.isSeducing
   });
 
@@ -22,6 +22,7 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
   String? sound_End;
   double time = 0;
   bool isSeducing = false;
+  String? image;
 
   //USING OBJECT DATA
   bool isActive = true;
@@ -54,7 +55,7 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
         //CHECK USABILITY OF OBJECT
         isInUse = InteractiveObject_CheckConditions.checkIfObjectIsInUse(this, game);
         canBeUsed = InteractiveObject_CheckConditions.checkIfObjectCanBeUsed(this, game);
-        // print("isInYUSe -> ${isInUse} can be used -> ${canBeUsed}, time of use -> ${timeOfUse}");
+        // print("ITEM ${id} isInYUSe -> ${isInUse} can be used -> ${canBeUsed}, time of use -> ${timeOfUse}");
         //MEASURING USE TIME
         if(isInUse == true) {
           timeOfUse += refreshTime;
