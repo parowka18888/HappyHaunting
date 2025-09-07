@@ -54,7 +54,7 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
         //CHECK USABILITY OF OBJECT
         isInUse = InteractiveObject_CheckConditions.checkIfObjectIsInUse(this, game);
         canBeUsed = InteractiveObject_CheckConditions.checkIfObjectCanBeUsed(this, game);
-        // print("isInYUSe -> ${isInUse} can be used -> ${canBeUsed}, time of use -> ${timeOfUse}");
+        print("ITEM ${id} isInYUSe -> ${isInUse} can be used -> ${canBeUsed}, time of use -> ${timeOfUse}");
         //MEASURING USE TIME
         if(isInUse == true) {
           timeOfUse += refreshTime;
