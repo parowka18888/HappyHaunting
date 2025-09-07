@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Getter/InteractiveObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 
 import '../../../../../../Haunting_Game.dart';
 import '../../../../Haunting_Mortal.dart';
@@ -66,9 +68,13 @@ class Mortal_Destination_Navigator{
     double interactiveObjectChance = Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state);
     var list = mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true && object.isActive == true).toList();
     if (r < interactiveObjectChance && list.isNotEmpty) {
-      Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);
-      Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
-      return true;
+      Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
+      if(interactiveObject != null){
+        Vector2? destination = interactiveObject.position;
+        Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
+        interactiveObject.canBeUsed = false;
+        return true;
+      }
     }
     return false;
   }
