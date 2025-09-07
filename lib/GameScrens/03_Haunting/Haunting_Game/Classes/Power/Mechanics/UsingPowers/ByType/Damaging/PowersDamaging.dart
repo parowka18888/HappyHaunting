@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Behavior/Mortal_Behavior_Checker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/UsedPowers/Mechanics/UsedPowers_ManagingObjects.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -21,6 +22,7 @@ class PowersDamaging{
           if(mortal.isDefeated == false){
             DealingDamage.dealInstantDamageToMortal(power, mortal, game);
             PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot);
+            Mortal_Behavior_Checker.checkIfMortalShouldBeFreeFromAction(mortal, power);
           }
         }
         PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
