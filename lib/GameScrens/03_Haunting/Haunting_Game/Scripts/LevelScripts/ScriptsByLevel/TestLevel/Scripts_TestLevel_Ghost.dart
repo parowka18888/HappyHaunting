@@ -51,6 +51,7 @@ class Scripts_TestLevel_Ghost{
           //IF OBJECT IS FOUND, CHECK IF MORTAL USES IT FOR 3 SECONDS
           if(object.timeOfUse >= 4){
             ghost.conditionsMet.add(1);
+            object.isActive = false;
             object.canBeUsed = false;
           }
         }

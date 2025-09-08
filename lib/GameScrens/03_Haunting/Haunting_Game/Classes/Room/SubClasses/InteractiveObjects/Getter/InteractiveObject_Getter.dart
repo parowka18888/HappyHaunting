@@ -1,4 +1,5 @@
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -24,6 +25,13 @@ class InteractiveObject_Getter{
     } else {
       return null;
     }
+  }
+
+  static getInteractiveObjectsList_InRoom_ByMortal(Haunting_Mortal mortal, Haunting_Game game) {
+    if(mortal.room != null){
+      return mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true && object.isActive == true && object.room!.id == mortal.room!.id).toList();
+    }
+    return [];
   }
 
 }
