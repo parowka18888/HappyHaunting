@@ -1,0 +1,3 @@
+class PickUp_Setter {
+
+}

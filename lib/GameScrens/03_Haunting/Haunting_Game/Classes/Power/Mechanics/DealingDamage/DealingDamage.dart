@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/PickUp/Mechanics/PickUp_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../Haunting_Power.dart';
@@ -13,6 +14,9 @@ class DealingDamage{
   static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game) {
     if(MortalChecker.checkIfMortalIsTargetable(mortal)){
       double modifier = 1;
+
+      PickUp_Mechanics.leftPickUp(mortal, game);
+
       if(power.powerTags.contains(mortal.fear)){
         Mortal_Setter.setIsFearUnlocked(mortal, true);
         modifier = 1.25;

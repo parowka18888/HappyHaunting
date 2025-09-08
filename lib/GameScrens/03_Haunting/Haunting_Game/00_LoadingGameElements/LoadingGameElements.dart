@@ -133,6 +133,7 @@ class LoadingGameElements{
             String sound_End = point.properties.getValue('sound_End');
             double time = point.properties.getValue('time');
             bool isSeducing = point.properties.getValue('isSeducing');
+            bool isPickUpObject = point.properties.getValue('isPickUpObject');
             String image = point.properties.getValue('image');
 
             String? imageValue;
@@ -151,6 +152,7 @@ class LoadingGameElements{
                   floor: floor,
                   room: room,
                   id: id,
+                  isPickUpObject: isPickUpObject,
                   image: imageValue,
                   sound_End: sound_End,
                   sound_Start: sound_Start,
@@ -158,7 +160,7 @@ class LoadingGameElements{
                   isSeducing: isSeducing
               );
               floor.listInteractiveObjects.add(interactiveObject);
-              game.add(interactiveObject);
+              game.level.level.add(interactiveObject);
             }
           }
         }

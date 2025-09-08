@@ -4,7 +4,7 @@
   "description": "Desc",
 
   "cost" : 30,
-  "cooldown" : 32,
+  "cooldown" : 5,
 
   "stat_Fear": 14,
   "stat_Health": 16,
