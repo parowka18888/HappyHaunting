@@ -41,7 +41,7 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
 
   @override
   Future<void> onLoad() async {
-    debugMode = true;
+    // debugMode = true;
     add(RectangleHitbox(
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
