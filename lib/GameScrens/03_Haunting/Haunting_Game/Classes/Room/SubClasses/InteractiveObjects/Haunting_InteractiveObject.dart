@@ -9,10 +9,10 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 
 import '../../../../Haunting_Game.dart';
 
-class Haunting_InteractiveObject extends PositionComponent
+class Haunting_InteractiveObject extends SpriteComponent
 with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
   Haunting_InteractiveObject({super.position, super.size, required this.floor, required this.room, required this.image,
-  required this.id, required this.sound_Start, required this.sound_End, required this.time, required this.isSeducing
+  required this.id, required this.sound_Start, required this.sound_End, required this.time, required this.isSeducing, required this.isPickUpObject
   });
 
   Haunting_Floor? floor;
@@ -23,6 +23,10 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
   double time = 0;
   bool isSeducing = false;
   String? image;
+
+  //PICK UP SYSTEM
+  bool isPickUpObject = false;
+  bool isPickedUp = false;
 
   //USING OBJECT DATA
   bool isActive = true;
@@ -36,20 +40,23 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
   double refreshTime = 0.5;
 
   @override
-  FutureOr<void> onLoad() {
+  Future<void> onLoad() async {
     // debugMode = true;
     add(RectangleHitbox(
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
     ));
+    sprite = image != null ? await game.loadSprite('Levels/PickUpObjects/${image!}.png') : await game.loadSprite('UI/EmptySlot.png');
+
     return super.onLoad();
   }
 
   @override
   void update(double dt) {
-    if(isActive == true){
+    if(isActive == true && room != null && floor != null){
       //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
       //REFRESH TIME IS A STAMP FOR EXECUTING CODE
+
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
         //CHECK USABILITY OF OBJECT
@@ -57,11 +64,12 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
         canBeUsed = InteractiveObject_CheckConditions.checkIfObjectCanBeUsed(this, game);
         // print("ITEM ${id} isInYUSe -> ${isInUse} can be used -> ${canBeUsed}, time of use -> ${timeOfUse}");
         //MEASURING USE TIME
-        if(isInUse == true) {
+        if(isInUse == true && isPickedUp == false) {
           timeOfUse += refreshTime;
         } else {
           timeOfUse = 0;
         }
+        InteractiveObject_CheckConditions.checkIfItemCanBePickedUp(this, game);
         timeSinceLastReload = 0.0;
       }
     }

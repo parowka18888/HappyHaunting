@@ -77,4 +77,23 @@ class MortalChecker{
     return false;
   }
 
+  static bool checkIfMortalIsCloseToTheStairs(Haunting_Mortal mortal, Haunting_Game game) {
+    for(final floor in game.level.floors){
+      for(final stairsPoint in floor.listStairs){
+        var stairsCenter = stairsPoint.absoluteCenter;
+        var mortalCenter = mortal.absoluteCenter;
+        double distance = mortal.size.x * 1;
+        if(
+        (mortalCenter.x - stairsCenter.x).abs() < distance
+        ||  (mortalCenter.y - stairsCenter.y).abs() < distance
+        ){
+          print("JEST BLISKO SCHODÓW");
+          return true;
+        }
+      }
+    }
+    print("JEST DALEKO SCHODÓW");
+    return false;
+  }
+
 }

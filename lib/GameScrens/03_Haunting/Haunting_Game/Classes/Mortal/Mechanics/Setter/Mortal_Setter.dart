@@ -6,6 +6,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 
 import '../../../../Haunting_Game.dart';
 import '../../../Astar/AStar.dart';
@@ -83,6 +84,11 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
   static void setFinalDestination(Haunting_Mortal mortal, point, floor) {
     mortal.finalFloor = floor;
     mortal.finalDestination = point;
+  }
+
+  static void setPickUp(Haunting_Mortal mortal, Haunting_InteractiveObject? object) {
+    mortal.pickUp!.interactiveObject = object;
+    mortal.pickUp!.isObjectChanged = true;
   }
 
 

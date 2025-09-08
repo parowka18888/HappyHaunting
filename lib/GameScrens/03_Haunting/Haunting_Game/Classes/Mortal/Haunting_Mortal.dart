@@ -24,6 +24,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/MortalBased/Scripts_MortalBased.dart';
 
 import '../GhostSpot/Haunting_GhostSpot.dart';
+import '../PickUp/Haunting_PickUp.dart';
 
 // class Haunting_Mortal extends SpriteComponent {
 class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Game>, TapCallbacks {
@@ -50,7 +51,9 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   PowerTag fear = PowerTag.Null;
   bool isFearUnlocked = false;
 
+  // ATTACHED OBJECTS
   Haunting_GhostSpot? ghostSpot;
+  Haunting_PickUp? pickUp;
 
   //MORTAL VISIBILITY
   bool isActive = true;

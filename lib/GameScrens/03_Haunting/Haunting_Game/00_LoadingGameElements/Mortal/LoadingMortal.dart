@@ -1,6 +1,7 @@
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Mortal/LoadingPickUp.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -11,6 +12,7 @@ import '../../Classes/Level/Subclasses/Getter/FloorGetter.dart';
 import '../../Classes/Level/Subclasses/Haunting_Floor.dart';
 import '../../Classes/Mortal/Haunting_Mortal.dart';
 import '../../Classes/Mortal/Mechanics/Getter/MortalGetter.dart';
+import '../../Classes/PickUp/Haunting_PickUp.dart';
 
 class LoadingMortal{
   static void loadMortal(TiledObject spawnPoint, Haunting_Game game) {
@@ -57,6 +59,9 @@ class LoadingMortal{
 
       Haunting_GhostSpot ghostSpot = LoadingGhostSpot.loadGhostSpotForMortal(spawnPoint, game, haunting_Mortal);
       haunting_Mortal.ghostSpot = ghostSpot;
+
+      Haunting_PickUp pickUp = LoadingPickUp.loadPickUpObjectForMortal(spawnPoint, game, haunting_Mortal);
+      haunting_Mortal.pickUp = pickUp;
 
       game.level.mortals.add(haunting_Mortal);
       game.level.level.add(haunting_Mortal);
