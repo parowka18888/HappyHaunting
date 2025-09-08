@@ -17,6 +17,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import '../../Haunting_Game.dart';
 import '../GhostSpot/Haunting_GhostSpot.dart';
 import '../Mortal/Haunting_Mortal.dart';
+import 'SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 
 class Haunting_Room extends PolygonComponent
     with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks {
