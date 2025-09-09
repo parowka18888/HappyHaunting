@@ -85,14 +85,12 @@ class MortalChecker{
         double distance = mortal.size.x * 1;
         if(
         (mortalCenter.x - stairsCenter.x).abs() < distance
-        ||  (mortalCenter.y - stairsCenter.y).abs() < distance
+        &&  (mortalCenter.y - stairsCenter.y).abs() < distance
         ){
-          print("JEST BLISKO SCHODÓW");
           return true;
         }
       }
     }
-    print("JEST DALEKO SCHODÓW");
     return false;
   }
 
