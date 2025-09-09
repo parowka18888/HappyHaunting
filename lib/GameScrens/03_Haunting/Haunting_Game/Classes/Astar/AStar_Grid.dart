@@ -11,7 +11,16 @@ class AStar_Grid{
       final tileSize = 16;
 
       level.walkableGrid = List.generate(mapHeight, (y) => List.generate(mapWidth, (x) => true));
+
+
       for (final obj in collisions.objects) {
+        if(level.listOfIgnoredCollisions_ID.contains(obj.id)){
+          continue;
+        }
+        // if (obj.id == 5 || obj.id == 4 || obj.id == 6) {
+        //   continue;
+        // }
+
         final startX = (obj.x / tileSize).floor();
         final startY = (obj.y / tileSize).floor();
         final endX = ((obj.x + obj.width) / tileSize).ceil();

@@ -24,7 +24,7 @@ class PowersLuring{
       if(listOfMortalActionPointsInRoom.isNotEmpty){
         for(final roomAtFloor in floor.listRooms){
           for(final mortal in roomAtFloor.mortalsInRoom){
-            if(mortal.isDefeated == false){
+            if(mortal.isDefeated == false && mortal.isActive){
               Mortal_Destination_Setter_Power.setNextDestination_ByPower(mortal, game, listOfMortalActionPointsInRoom);
               Mortal_Behavior.freeMortalOfThinkingTime(mortal);
             }

@@ -46,7 +46,11 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
     ));
-    sprite = image != null ? await game.loadSprite('Levels/PickUpObjects/${image!}.png') : await game.loadSprite('UI/EmptySlot.png');
+    if(isPickUpObject == true){
+      sprite = image != null ? await game.loadSprite('Levels/PickUpObjects/${image!}.png') : await game.loadSprite('UI/EmptySlot.png');
+    } else {
+      sprite = image != null ? await game.loadSprite('Levels/InteractiveObjects/${image!}.png') : await game.loadSprite('UI/EmptySlot.png');
+    }
 
     return super.onLoad();
   }

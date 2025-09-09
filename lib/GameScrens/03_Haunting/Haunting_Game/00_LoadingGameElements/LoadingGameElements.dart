@@ -29,6 +29,7 @@ class LoadingGameElements{
 
   static Haunting_Level loadLevel(Haunting_Game game) {
     var world = Haunting_Level(levelName: game.levelName)
+      ..script = game.script
       ..viewModel = game.viewModel;
     game.add(world);
     return world;

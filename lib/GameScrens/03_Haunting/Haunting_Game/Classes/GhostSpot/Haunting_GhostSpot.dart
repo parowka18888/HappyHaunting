@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomGhost.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/GhostBased/Scripts_GhostBased.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/ScriptNavigator/Scripts_GhostBased.dart';
 
 import '../../Haunting_Game.dart';
 import 'Mechanics/GhostSpot_Mechanics.dart';
