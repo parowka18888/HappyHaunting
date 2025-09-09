@@ -139,6 +139,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
       ..viewModel = viewModel
       ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3)]
       ..trappedGhosts = widget.chosenLevel.trappedGhosts
+      ..script = widget.chosenLevel.script
     ;
     viewModel.game = haunting_game;
 

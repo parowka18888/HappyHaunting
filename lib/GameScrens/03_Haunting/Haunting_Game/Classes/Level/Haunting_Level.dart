@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/LoadingGameElements.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Astar/AStar_Grid.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
@@ -12,6 +13,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/UsedPowers/UsedPowers.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/ScriptNavigator/Scripts_LevelBased.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 
 import '../../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
@@ -30,6 +32,12 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   List<Haunting_GhostSpot> ghostSpots = [];
   List<Haunting_Floor> floors = [];
   List<Haunting_Exit> exitPoints = [];
+
+  //LEVEL SCRIPTS
+  LevelScript? script;
+  List<int> conditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
+  bool isScriptExecuted = false;
+
 
   List<UsedPower> usedPowers = [];
 
@@ -61,6 +69,24 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
     viewModel.setIsGameLoaded(true);
 
     return super.onLoad();
+  }
+
+
+  //TIME FOR SLOWING DOWN SOME METHODS
+  double timeSinceLastReload = 0.0;
+  double refreshTime = 0.5;
+  @override
+  void update(double dt) {
+    timeSinceLastReload += dt;
+    if (timeSinceLastReload >= refreshTime) {
+      //SCRIPT CHECKER
+      print("TUTAJ LEWEL ${script}");
+      Scripts_LevelBased.getScript_Navigator(game);
+
+      timeSinceLastReload = 0.0;
+    }
+
+    super.update(dt);
   }
 
 

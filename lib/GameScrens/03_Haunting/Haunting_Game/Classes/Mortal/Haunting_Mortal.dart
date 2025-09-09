@@ -22,7 +22,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/PickU
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/MortalBased/Scripts_MortalBased.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/ScriptNavigator/Scripts_MortalBased.dart';
 
 import '../GhostSpot/Haunting_GhostSpot.dart';
 import '../PickUp/Haunting_PickUp.dart';
