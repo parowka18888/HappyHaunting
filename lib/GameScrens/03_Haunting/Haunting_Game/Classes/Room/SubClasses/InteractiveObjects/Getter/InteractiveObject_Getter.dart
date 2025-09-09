@@ -27,10 +27,13 @@ class InteractiveObject_Getter{
     }
   }
 
-  static getInteractiveObjectsList_InRoom_ByMortal(Haunting_Mortal mortal, Haunting_Game game) {
+  static getInteractiveObjectsList_InRoom_ByMortal(Haunting_Mortal mortal, Haunting_Game game, {
+    bool isSeductive = false
+  }) {
     if(mortal.room != null){
       return mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true
           && object.isActive == true
+          && object.isSeducing == isSeductive
           && (object.room != null && object.room!.id == mortal.room!.id)
       ).toList();
     }

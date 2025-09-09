@@ -82,6 +82,18 @@ class Mortal_Destination_Navigator{
   }
 
   static bool decideDestination_InteractiveObjects_Seduction(Haunting_Mortal mortal, Haunting_Game game) {
-
+    double r = random.nextDouble();
+    double interactiveObjectChance = Mortal_StaticData.getChanceForSeducingObject_ByState(mortal.state);
+    var list = InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game, isSeductive: true);
+    if (r < interactiveObjectChance && list.isNotEmpty) {
+      Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
+      if(interactiveObject != null){
+        Vector2? destination = interactiveObject.position;
+        Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
+        interactiveObject.canBeUsed = false;
+        return true;
+      }
+    }
+    return false;
   }
 }
