@@ -18,6 +18,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Movement/Mortal_Movement.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/PickUp/Mechanics/PickUp_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -167,6 +168,19 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         //EXORCISM SYSTEM - DEALING DAMAGE
         if(MortalChecker.checkIfMortalIsExorcist(this)){
           Exorcism_Mechanics.exorcismNavigator(this, game, 0.5, game.viewModel);
+        }
+
+        //PUT PICKUP OBJECT WHEN MORTAL IS DEFEATED
+        if(isDefeated == true && isEscaped == false){
+          PickUp_Mechanics.leftPickUp(this, game);
+          if(name == "Haunting_Bojec"){
+            print("BOJEC");
+            print("${path}, ${currentDestination}, ${finalDestination}");
+          }
+          if(path.isEmpty){
+            position.x += 1;
+            Mortal_Destination_Navigator.setMortalNextDestination_Navigator(this, game);
+          }
         }
 
 

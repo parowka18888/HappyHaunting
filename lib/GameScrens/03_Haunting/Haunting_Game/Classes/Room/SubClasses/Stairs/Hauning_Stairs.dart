@@ -4,6 +4,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/CheckDestination/Destination_Checker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Mechanics/StaisMechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
@@ -27,10 +28,16 @@ class Haunting_Stairs extends PositionComponent
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Haunting_Mortal){
-      if(other.canChangeFloor == true) StairsMechanics.changeFloorForMortal(other, floorModifier, game);
-      Future.delayed(Duration(seconds: 2), (){
-        Mortal_Setter.setCanChangeFloors(other, true);
-      });
+      if(other.canChangeFloor == true){
+        StairsMechanics.changeFloorForMortal(other, floorModifier, game);
+      } else {
+        Future.delayed(Duration(seconds: 5), (){
+          Mortal_Setter.setCanChangeFloors(other, true);
+          if(Destination_Checker.checkIfMortalReachedDestination_ByVector(other, position)){
+            StairsMechanics.changeFloorForMortal(other, floorModifier, game);
+          }
+        });
+      }
     }
     super.onCollisionStart(intersectionPoints, other);
   }
