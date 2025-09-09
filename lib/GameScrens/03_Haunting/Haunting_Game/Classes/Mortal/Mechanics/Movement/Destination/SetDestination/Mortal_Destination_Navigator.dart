@@ -5,6 +5,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Getter/InteractiveObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Hauning_Stairs.dart';
 
 import '../../../../../../Haunting_Game.dart';
 import '../../../../Haunting_Mortal.dart';
@@ -33,66 +34,60 @@ class Mortal_Destination_Navigator{
 
   static void decideDestination_OnFloor(Haunting_Mortal mortal, Haunting_Game game) {
 
+    //CHOOSING DESTINATION
+      //STAIRS
     bool isDecisionMade = false;
-    isDecisionMade = decideDestination_Stairs(mortal, game);
+    isDecisionMade = decideDestination(
+        mortal, game,
+        Mortal_StaticData.getChanceForChangingFloor_ByState(mortal.state),
+        mortal.floor!.listStairs
+    );
     if(isDecisionMade == true) return;
-    isDecisionMade = decideDestination_InteractiveObjects_Seduction(mortal, game);
+
+    //SEDUCING OBJECTS
+    isDecisionMade = decideDestination(
+        mortal, game,
+        Mortal_StaticData.getChanceForSeducingObject_ByState(mortal.state),
+        InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game, isSeductive: true)
+    );
     if(isDecisionMade == true) return;
-    isDecisionMade = decideDestination_InteractiveObjects(mortal, game);
+
+    //INTERACTIVE OBJECTS
+    isDecisionMade = decideDestination(
+        mortal, game,
+        Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state),
+        InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game)
+    );
     if(isDecisionMade == true) return;
+
+
     Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
 
-
-    // double r = random.nextDouble();
-    // if (r < 0.15) {
-    //   Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(mortal.floor!.listStairs);
-    //   Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
-    // } else {
-    //   Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
-    // }
   }
 
-  static bool decideDestination_Stairs(Haunting_Mortal mortal, Haunting_Game game) {
+  static bool decideDestination<T>(Haunting_Mortal mortal, Haunting_Game game, double chanceOfChoosing, List<T> list) {
     double r = random.nextDouble();
-    double changingFloorChance = Mortal_StaticData.getChanceForChangingFloor_ByState(mortal.state);
-    var list = mortal.floor!.listStairs;
-    if (r < changingFloorChance && list.isNotEmpty) {
-      // print("MORTAL ${mortal.name} Podjął decyzję - schody, z szansą ${changingFloorChance}");
-      Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);
+    bool destinationIsSet = false;
+    if (r < chanceOfChoosing && list.isNotEmpty) {
+      if(list is List<Haunting_Stairs>) destinationIsSet = decideDestination_Stairs(mortal, game, list.cast<Haunting_Stairs>());
+      if(list is List<Haunting_InteractiveObject>) destinationIsSet = decideDestination_InteractiveObjects(mortal, game, list.cast<Haunting_InteractiveObject>());
+    }
+    return destinationIsSet;
+  }
+
+  static bool decideDestination_Stairs(Haunting_Mortal mortal, Haunting_Game game, List<Haunting_Stairs> list) {
+    Vector2? destination = Mortal_Destination_Getter.getNextDestination_ByList(list);
+    Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
+    return true;
+  }
+
+  static bool decideDestination_InteractiveObjects(Haunting_Mortal mortal, Haunting_Game game, List<Haunting_InteractiveObject> list) {
+    Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
+    if(interactiveObject != null) {
+      Vector2? destination = interactiveObject.position;
       Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
+      interactiveObject.canBeUsed = false;
       return true;
-    }
-    return false;
-  }
-
-  static bool decideDestination_InteractiveObjects(Haunting_Mortal mortal, Haunting_Game game) {
-    double r = random.nextDouble();
-    double interactiveObjectChance = Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state);
-    var list = InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game);
-    if (r < interactiveObjectChance && list.isNotEmpty) {
-      Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
-      if(interactiveObject != null){
-        Vector2? destination = interactiveObject.position;
-        Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
-        interactiveObject.canBeUsed = false;
-        return true;
-      }
-    }
-    return false;
-  }
-
-  static bool decideDestination_InteractiveObjects_Seduction(Haunting_Mortal mortal, Haunting_Game game) {
-    double r = random.nextDouble();
-    double interactiveObjectChance = Mortal_StaticData.getChanceForSeducingObject_ByState(mortal.state);
-    var list = InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game, isSeductive: true);
-    if (r < interactiveObjectChance && list.isNotEmpty) {
-      Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
-      if(interactiveObject != null){
-        Vector2? destination = interactiveObject.position;
-        Mortal_Destination_Setter.forceNextDestination(mortal, game, destination);
-        interactiveObject.canBeUsed = false;
-        return true;
-      }
     }
     return false;
   }
