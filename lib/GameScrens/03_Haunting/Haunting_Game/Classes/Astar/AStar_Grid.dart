@@ -14,6 +14,9 @@ class AStar_Grid{
 
 
       for (final obj in collisions.objects) {
+        if(level.listOfIgnoredCollisions_ID.contains(obj.id)){
+          continue;
+        }
         // if (obj.id == 5 || obj.id == 4 || obj.id == 6) {
         //   continue;
         // }

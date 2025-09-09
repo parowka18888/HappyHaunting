@@ -37,6 +37,7 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   LevelScript? script;
   List<int> conditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
   bool isScriptExecuted = false;
+  List<int> listOfIgnoredCollisions_ID = [];
 
 
   List<UsedPower> usedPowers = [];
@@ -80,7 +81,6 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
     timeSinceLastReload += dt;
     if (timeSinceLastReload >= refreshTime) {
       //SCRIPT CHECKER
-      print("TUTAJ LEWEL ${script}");
       Scripts_LevelBased.getScript_Navigator(game);
 
       timeSinceLastReload = 0.0;
