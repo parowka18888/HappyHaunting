@@ -54,9 +54,9 @@ with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
   @override
   void update(double dt) {
     if(isActive == true && room != null && floor != null){
+      print(id);
       //TIMER FOR SLOWING DOWN CERTAIN ACTIONS
       //REFRESH TIME IS A STAMP FOR EXECUTING CODE
-
       timeSinceLastReload += dt;
       if (timeSinceLastReload >= refreshTime) {
         //CHECK USABILITY OF OBJECT

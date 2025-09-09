@@ -7,6 +7,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Getter/InteractiveObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/InteractiveObjects/Setter/InteractiveObject_Setter.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/CheckConditions/Script_CheckConditions.dart';
 
@@ -51,8 +52,7 @@ class Scripts_TestLevel_Ghost{
           //IF OBJECT IS FOUND, CHECK IF MORTAL USES IT FOR 3 SECONDS
           if(object.timeOfUse >= 4){
             ghost.conditionsMet.add(1);
-            object.isActive = false;
-            object.canBeUsed = false;
+            InteractiveObject_Setter.setIsActive(object, false);
           }
         }
       }
