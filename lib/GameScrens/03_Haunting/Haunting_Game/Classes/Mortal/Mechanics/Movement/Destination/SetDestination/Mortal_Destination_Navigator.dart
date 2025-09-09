@@ -36,6 +36,8 @@ class Mortal_Destination_Navigator{
     bool isDecisionMade = false;
     isDecisionMade = decideDestination_Stairs(mortal, game);
     if(isDecisionMade == true) return;
+    isDecisionMade = decideDestination_InteractiveObjects_Seduction(mortal, game);
+    if(isDecisionMade == true) return;
     isDecisionMade = decideDestination_InteractiveObjects(mortal, game);
     if(isDecisionMade == true) return;
     Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
@@ -66,7 +68,6 @@ class Mortal_Destination_Navigator{
   static bool decideDestination_InteractiveObjects(Haunting_Mortal mortal, Haunting_Game game) {
     double r = random.nextDouble();
     double interactiveObjectChance = Mortal_StaticData.getChanceForInteractiveObject_ByState(mortal.state);
-    // var list = mortal.floor!.listInteractiveObjects.where((object) => object.canBeUsed == true && object.isActive == true).toList();
     var list = InteractiveObject_Getter.getInteractiveObjectsList_InRoom_ByMortal(mortal, game);
     if (r < interactiveObjectChance && list.isNotEmpty) {
       Haunting_InteractiveObject? interactiveObject = InteractiveObject_Getter.getRandomInteractiveObject_ByList(list);
@@ -78,5 +79,9 @@ class Mortal_Destination_Navigator{
       }
     }
     return false;
+  }
+
+  static bool decideDestination_InteractiveObjects_Seduction(Haunting_Mortal mortal, Haunting_Game game) {
+
   }
 }

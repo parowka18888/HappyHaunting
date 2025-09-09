@@ -9,6 +9,8 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Stairs/Mechanics/StaisMechanics.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
+import '../../../PickUp/Mechanics/PickUp_Mechanics.dart';
+
 class Haunting_Exit extends PositionComponent
     with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks{
 
@@ -29,6 +31,9 @@ class Haunting_Exit extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Haunting_Mortal){
       if(other.isDefeated == true){
+        if(other.pickUp?.interactiveObject != null){
+          PickUp_Mechanics.leftPickUp(other, game);
+        }
         other.position.x = game.width * 2;
         other.canMove = false;
         other.isEscaped = true;

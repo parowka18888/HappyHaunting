@@ -5,6 +5,10 @@ class InteractiveObject_Setter{
     interactiveObject.canBeUsed = bool;
   }
 
+  static void setIsActive(Haunting_InteractiveObject object, bool bool) {
+    object.isActive = bool;
+  }
+
 
 
 }

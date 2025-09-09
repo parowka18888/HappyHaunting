@@ -26,19 +26,13 @@ class PickUp_Mechanics{
       Haunting_InteractiveObject? object = InteractiveObject_Getter.getInteractiveObject_ById(mortal.pickUp!.interactiveObject!.id, game);
       if(object != null && object.floor != null && mortal.floor != null && mortal.room != null){
         if(!MortalChecker.checkIfMortalIsCloseToTheStairs(mortal, game)){
-          print("ZNALEZIONO!");
-          // print(mortal.position);
-          // print(object.position);
           object.floor!.listInteractiveObjects.remove(object);
           object.floor = mortal.floor;
           object.room = mortal.room;
           object.position.x = mortal.position.x;
           object.position.y = mortal.position.y;
           object.isPickedUp = false;
-          // object.sprite = mortal.pickUp!.interactiveObject!.sprite;
           object.floor!.listInteractiveObjects.add(object);
-          print("Piętro ${object.floor!.id}, pokój ${object.room!.id}");
-
           Mortal_Setter.setPickUp(mortal, null);
         }
       }
