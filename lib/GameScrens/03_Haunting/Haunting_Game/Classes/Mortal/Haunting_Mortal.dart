@@ -173,14 +173,6 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         //PUT PICKUP OBJECT WHEN MORTAL IS DEFEATED
         if(isDefeated == true && isEscaped == false){
           PickUp_Mechanics.leftPickUp(this, game);
-          if(name == "Haunting_Bojec"){
-            print("BOJEC");
-            print("${path}, ${currentDestination}, ${finalDestination}");
-          }
-          if(path.isEmpty){
-            position.x += 1;
-            Mortal_Destination_Navigator.setMortalNextDestination_Navigator(this, game);
-          }
         }
 
 
