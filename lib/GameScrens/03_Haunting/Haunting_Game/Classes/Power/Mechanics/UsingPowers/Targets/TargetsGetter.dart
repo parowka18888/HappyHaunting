@@ -35,9 +35,9 @@ class TargetsGetter{
         listOfAvailableMortals = getAvailableMortalsForList(game.level.mortals);
         if(floor != null && listOfAvailableMortals.isNotEmpty){
           for(final mortal in listOfAvailableMortals){
-            if(mortal.floor!.id == floor.id){
-              listOfTargets.add(mortal);
-            }
+              if(mortal.floor?.id == floor.id){
+                listOfTargets.add(mortal);
+              }
           }
         }
         break;
