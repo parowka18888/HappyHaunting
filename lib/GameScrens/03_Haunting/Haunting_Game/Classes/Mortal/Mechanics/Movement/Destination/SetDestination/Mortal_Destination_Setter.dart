@@ -54,8 +54,10 @@ class Mortal_Destination_Setter{
         mortal.path = path.map((p) => gridToWorld(p)).toList();
       }
       else {
+        print("NIE ZNALEZIONO SCIEZKI dla ${mortal.name} - ${DateTime.timestamp()}");
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
-        Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+        Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
+        // Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
       }
 
     }
@@ -113,7 +115,7 @@ class Mortal_Destination_Setter{
     }
     Mortal_Setter.setFinalDestination(mortal, null, null);
     Mortal_Setter.setCurrentDestination(mortal, null);
-    Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
+    // Mortal_Destination_Navigator.setMortalNextDestination_Navigator(mortal, game);
   }
 
 }
