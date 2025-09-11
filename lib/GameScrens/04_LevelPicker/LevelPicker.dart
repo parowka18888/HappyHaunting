@@ -37,7 +37,7 @@ class _LevelPickerState extends State<LevelPicker> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/images/Mortals/TestMortal3.png'),
+                // Image.asset('assets/images/Mortals/TestMortal3.png'),
                 ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(0)));}, child: Text("Level testowy 1")),
                 ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(1)));}, child: Text("Level testowy 2")),
                 ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(2)));}, child: Text("Level testowy 3 (piętra)")),
