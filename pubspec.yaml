@@ -91,6 +91,7 @@ flutter:
     - assets/images/UI/Buttons/
     - assets/images/UI/Icons/
     - assets/images/UI/SidePanel/
+    - assets/images/UI/Frame/
     - assets/tiles/
 
   # An image asset can refer to one or more resolution-specific "variants", see

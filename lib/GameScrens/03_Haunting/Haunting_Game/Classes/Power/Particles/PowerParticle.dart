@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -80,7 +81,6 @@ class PowerParticle{
 
     mortal.add(effect);
   }
-
   static void travelParticles(Vector2 from, Vector2 to, Haunting_GhostSpot? ghostSpot) {
     final rand = Random();
 

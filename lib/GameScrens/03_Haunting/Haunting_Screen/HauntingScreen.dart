@@ -7,6 +7,7 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GhostData_GUI.dart';
@@ -51,6 +52,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
     double dialogWindow_Height = screenHeight * 0.7;
     double dialogWindow_Width = screenWidth * 0.8;
 
+
     double ghostData_Height = screenHeight * 0.9;
     double ghostData_Width = (3 / 2) * ghostData_Height;
 
@@ -82,6 +84,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
             Positioned(
                 top: sidePanel_Padding_Top, left: sidePanel_Padding_Left,
                 child: SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game)),
+                // child: SidePanel_GUI.getSidePanel(context, viewModel, sidePanel_Height, sidePanel_Width, haunting_game)),
             // LOG ENTRIES
             if(viewModel.isLogEntriesWindowVisible)
             Positioned(
@@ -108,7 +111,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
             //DIALOG WINDOW
             if(viewModel.isDialogWindowVisible == true)
-            DialogWindow_GUI.getDialogWindow(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
+            DialogWindow_GUI.getDialogScreen(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
             if(viewModel.gameWindow == GameWindow.ghostData && viewModel.chosenGhost != null)
             GhostData_GUI.getGhostDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
