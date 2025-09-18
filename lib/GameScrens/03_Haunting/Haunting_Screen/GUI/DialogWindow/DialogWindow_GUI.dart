@@ -12,7 +12,7 @@ class DialogWindow_GUI{
     double textBox_Height = height * 0.5;
 
     return Container(
-      height: screenHeight, width: screenWidth, color: Colors.black54,
+      height: screenHeight, width: screenWidth,
       child: Stack(
         alignment: Alignment(0, 0),
         children: [

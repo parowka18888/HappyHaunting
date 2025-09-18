@@ -6,7 +6,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_View
 
 class FramedWindow_GUI{
 
-  static double cornerSize = 40;
+  static double cornerSize = 7;
   static double framePadding = cornerSize * 0.37;
 
   static getFramedWindow(BuildContext context, HauntingGame_ViewModel viewModel, double width, double height,{
@@ -56,13 +56,13 @@ class FramedWindow_GUI{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(width: scaledCornerSize, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameCorner_TopLeft.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Corner_TopLeft.png', fit: BoxFit.fitHeight),
                   ),
                   Expanded(child: Container(height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameLine_Top.png', fit: BoxFit.fill),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Line_Top.png', fit: BoxFit.fill),
                   )),
                   Container(width: scaledCornerSize, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameCorner_TopRight.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Corner_TopRight.png', fit: BoxFit.fitHeight),
                   ),
                 ],
               ),
@@ -70,11 +70,11 @@ class FramedWindow_GUI{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(width: scaledCornerSize, height: height,
-                    child: Image.asset('assets/images/UI/Frame/FrameLine_Left.png', fit: BoxFit.fill),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Line_Left.png', fit: BoxFit.fill),
                   ),
                   Expanded(child: Container()),
                   Container(width: scaledCornerSize, height: height,
-                    child: Image.asset('assets/images/UI/Frame/FrameLine_Right.png', fit: BoxFit.fill),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Line_Right.png', fit: BoxFit.fill),
                   ),
                 ],
               )),
@@ -82,13 +82,13 @@ class FramedWindow_GUI{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(width: scaledCornerSize, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameCorner_BottomLeft.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Corner_BottomLeft.png', fit: BoxFit.fitHeight),
                   ),
                   Expanded(child: Container(height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameLine_Bottom.png', fit: BoxFit.fill),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Line_Bottom.png', fit: BoxFit.fill),
                   )),
                   Container(width: scaledCornerSize, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/FrameCorner_BottomRight.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/Gold/Corner_BottomRight.png', fit: BoxFit.fitHeight),
                   ),
                 ],
               )
