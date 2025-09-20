@@ -76,6 +76,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   void setIsDialogWindowVisible(bool bool) {
     isDialogWindowVisible = bool;
+    chosenGhost = null;
     notifyListeners();
   }
 

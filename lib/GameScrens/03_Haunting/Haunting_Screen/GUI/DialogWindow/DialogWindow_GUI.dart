@@ -12,11 +12,11 @@ class DialogWindow_GUI{
     double textBox_Height = height * 0.5;
 
     return Container(
-      height: screenHeight, width: screenWidth, color: Colors.black54,
+      height: screenHeight, width: screenWidth,
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
-          FramedWindow_GUI.getFramedWindow(context, viewModel, width, textBox_Height, function: () => getDialogWindow(viewModel, FramedWindow_Getter.getNewSize(width), FramedWindow_Getter.getNewSize(textBox_Height))),
+          FramedWindow_GUI.getFramedWindow(context, width, textBox_Height, function: () => getDialogWindow(viewModel, FramedWindow_Getter.getNewSize(width), FramedWindow_Getter.getNewSize(textBox_Height))),
         ],
       ),
     );

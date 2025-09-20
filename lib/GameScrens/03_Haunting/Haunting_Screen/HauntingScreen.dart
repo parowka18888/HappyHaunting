@@ -8,9 +8,10 @@ import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/ShadowSceen/ShadowScreen_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GhostData_GUI.dart';
+import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -107,6 +108,10 @@ class _HauntingScreenState extends State<HauntingScreen> {
                 child: HauntingScreen_Buttons_GUI.getFloorButton(context, floorButtons_Height)),
 
 
+
+            //SCREEN SHADOW
+            if(viewModel.isDialogWindowVisible == true || viewModel.gameWindow != GameWindow.empty)
+              ShadowScreen_GUI.getShadowScreen(screenWidth, screenHeight),
 
 
             //DIALOG WINDOW
