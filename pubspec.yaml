@@ -88,6 +88,8 @@ flutter:
     - assets/images/UI/
     - assets/images/UI/Background/
     - assets/images/UI/Moon/
+    - assets/images/UI/Cards/
+    - assets/images/UI/Logo/
     - assets/images/UI/GhostBackground/
     - assets/images/UI/Bars/
     - assets/images/UI/Buttons/
