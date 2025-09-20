@@ -54,6 +54,8 @@ class FramedWindow_GUI{
     double cornerSize = FramedWindow_Getter.getCornerSize(frameType);
     double scaledCornerSize =  FramedWindow_Getter.getScaledValue_CornerSize(cornerSize, width, height);
     double lineWidth = width - 2 * scaledCornerSize;
+    double lineHeight_Vertical = height - 2 * scaledCornerSize;
+    double singleLineHeight_Vertical = (lineHeight_Vertical / 2) * 0.8;
     double singleLineWidth = (lineWidth / 2) * 0.8;
 
     return Container(
@@ -71,11 +73,11 @@ class FramedWindow_GUI{
                     child: Image.asset('assets/images/UI/Frame/${frameType.name}/Corner_TopLeft.png', fit: BoxFit.fitHeight),
                   ),
                   Container(width: singleLineWidth, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_TopLeft.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_TopLeft.png', fit: BoxFit.fill),
                   ),
                   Expanded(child: Container()),
                   Container(width: singleLineWidth, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_TopRight.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_TopRight.png', fit: BoxFit.fill),
                   ),
                   Container(width: scaledCornerSize, height: scaledCornerSize,
                     child: Image.asset('assets/images/UI/Frame/${frameType.name}/Corner_TopRight.png', fit: BoxFit.fitHeight),
@@ -85,30 +87,30 @@ class FramedWindow_GUI{
               Expanded(child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(width: scaledCornerSize, height: height,
+                  Container(width: scaledCornerSize, height: lineHeight_Vertical,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(width: scaledCornerSize, height: singleLineWidth,
+                        Container(width: scaledCornerSize, height: singleLineHeight_Vertical,
                           child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_LeftTop.png', fit: BoxFit.fill),
                         ),
                         Expanded(child: Container()),
-                        Container(width: scaledCornerSize, height: singleLineWidth,
+                        Container(width: scaledCornerSize, height: singleLineHeight_Vertical,
                           child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_LeftBottom.png', fit: BoxFit.fill),
                         ),
                       ],
                     )
                   ),
                   Expanded(child: Container()),
-                  Container(width: scaledCornerSize, height: height,
+                  Container(width: scaledCornerSize, height: lineHeight_Vertical,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(width: scaledCornerSize, height: singleLineWidth,
+                          Container(width: scaledCornerSize, height: singleLineHeight_Vertical,
                             child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_RightTop.png', fit: BoxFit.fill),
                           ),
                           Expanded(child: Container()),
-                          Container(width: scaledCornerSize, height: singleLineWidth,
+                          Container(width: scaledCornerSize, height: singleLineHeight_Vertical,
                             child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_RightBottom.png', fit: BoxFit.fill),
                           ),
                         ],
@@ -123,11 +125,11 @@ class FramedWindow_GUI{
                     child: Image.asset('assets/images/UI/Frame/${frameType.name}/Corner_BottomLeft.png', fit: BoxFit.fitHeight),
                   ),
                   Container(width: singleLineWidth, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_BottomLeft.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_BottomLeft.png', fit: BoxFit.fill),
                   ),
                   Expanded(child: Container()),
                   Container(width: singleLineWidth, height: scaledCornerSize,
-                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_BottomRight.png', fit: BoxFit.fitHeight),
+                    child: Image.asset('assets/images/UI/Frame/${frameType.name}/Line_BottomRight.png', fit: BoxFit.fill),
                   ),
                   Container(width: scaledCornerSize, height: scaledCornerSize,
                     child: Image.asset('assets/images/UI/Frame/${frameType.name}/Corner_BottomRight.png', fit: BoxFit.fitHeight),
