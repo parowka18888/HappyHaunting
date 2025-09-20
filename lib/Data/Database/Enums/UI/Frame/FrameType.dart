@@ -1,0 +1,3 @@
+enum FrameType{
+  Gold, GoldFancy
+}

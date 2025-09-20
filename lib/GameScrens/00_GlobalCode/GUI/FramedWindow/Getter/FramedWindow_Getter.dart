@@ -1,3 +1,4 @@
+import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 
 class FramedWindow_Getter{
@@ -19,6 +20,15 @@ class FramedWindow_Getter{
 
   static double getNewSize(double size) {
     return size - FramedWindow_GUI.framePadding;
+  }
+
+  static double getCornerSize(FrameType frameType) {
+    switch(frameType){
+      case FrameType.Gold:
+        return 7;
+      case FrameType.GoldFancy:
+        return 50;
+    }
   }
 
 }

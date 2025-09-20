@@ -86,12 +86,15 @@ flutter:
     - assets/images/Levels/PickUpObjects/
     - assets/images/Levels/InteractiveObjects/
     - assets/images/UI/
+    - assets/images/UI/Background/
+    - assets/images/UI/Moon/
     - assets/images/UI/GhostBackground/
     - assets/images/UI/Bars/
     - assets/images/UI/Buttons/
     - assets/images/UI/Icons/
     - assets/images/UI/SidePanel/
     - assets/images/UI/Frame/Gold/
+    - assets/images/UI/Frame/GoldFancy/
     - assets/images/UI/Frame/Blue/
     - assets/tiles/
 
