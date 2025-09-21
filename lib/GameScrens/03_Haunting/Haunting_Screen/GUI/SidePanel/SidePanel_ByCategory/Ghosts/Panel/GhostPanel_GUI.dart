@@ -98,7 +98,7 @@ class GhostPanel_GUI{
           itemBuilder: (context, index){
             Haunting_Power power = ghost.powers[index];
             return Button_GUI.getButton(height, power.icon,
-                pathIcon: "assets/images/Powers/${power.icon}.png",
+                catalog: "Powers",
                 function: () => PowerSetter.togglePowerActivation(power, game: viewModel.game),
                 isOpacityLowered: !power.isActivated
             );

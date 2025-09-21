@@ -24,6 +24,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
   @override
   Widget build(BuildContext context) {
 
+    //GHOSTS IN DATABASE
+    Box box_Ghosts = Hive.box<Ghost>('ghosts');
+
+    //SCREEN SIZE
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -38,7 +42,6 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double ghostListWidth = sideAreaWidth * 0.8;
 
     final viewModel = context.watch<HauntingGame_ViewModel>();
-    Box box_Ghosts = Hive.box<Ghost>('ghosts');
 
     return Scaffold(
       body: Center(
