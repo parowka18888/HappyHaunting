@@ -27,6 +27,8 @@ class Ghost extends HiveObject {
   @HiveField(9)  final String color;
   @HiveField(10)  final String banishingText;
 
+  @HiveField(11)  final bool isUnlocked;
+
   Ghost({
     required this.id,
     required this.name,
@@ -39,6 +41,7 @@ class Ghost extends HiveObject {
     required this.ghostImage,
     required this.color,
     required this.banishingText,
+    required this.isUnlocked,
   });
 
   factory Ghost.fromJson(Map<String, dynamic> json) => _$GhostFromJson(json);

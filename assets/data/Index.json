@@ -3,7 +3,9 @@
     "assets/data/ghosts/EP0_Spider.json",
     "assets/data/ghosts/EP0_Moth.json",
     "assets/data/ghosts/EP0_ClothesEater.json",
-    "assets/data/ghosts/EP0_Fly.json"
+    "assets/data/ghosts/EP0_Fly.json",
+    "assets/data/ghosts/EP0_Bee.json",
+    "assets/data/ghosts/EP0_Flea.json"
     ],
 
   "powers": [

@@ -20,8 +20,22 @@ class List_GUI{
   }
 
   static getList(BuildContext context, double height, double width) {
+
+    double framePadding = width * 0.1;
+
+    double listHeight = height - 2 * framePadding;
+    double listWidth = width - 2 * framePadding;
+
     return Container(
       height: height, width: width, color: Colors.green,
+      child: Stack(
+        alignment: Alignment(0, 0),
+        children: [
+          Container(
+            height: listHeight, width: listWidth, color: Colors.amber,
+          )
+        ],
+      ),
     );
   }
 
