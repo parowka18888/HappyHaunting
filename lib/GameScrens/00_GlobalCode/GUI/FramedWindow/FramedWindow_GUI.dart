@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FramePart.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/Getter/FramedWindow_Getter.dart';
-import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/Getter/FramedWindow_Image_Getter.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 class FramedWindow_GUI{
@@ -15,7 +13,7 @@ class FramedWindow_GUI{
 
   static getFramedWindow(BuildContext context, double width, double height,{
     Widget Function()? function,
-    FrameType frameType = FrameType.Gold
+    FrameType frameType = FrameType.GoldFancy
   }) {
 
     HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();

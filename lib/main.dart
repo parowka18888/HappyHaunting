@@ -6,7 +6,8 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/0
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
 import 'package:happyhaunting/GameScrens/01_Init/InitScreen.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -43,11 +44,20 @@ Future<void> main() async {
   ]);
 
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => HauntingGame_ViewModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HauntingGame_ViewModel()),
+        ChangeNotifierProvider(create: (_) => GhostSelector_ViewModel()),
+      ],
       child: const MyApp(),
     ),
   );
+  // runApp(
+  //   ChangeNotifierProvider(
+  //     create: (_) => HauntingGame_ViewModel(),
+  //     child: const MyApp(),
+  //   ),
+  // );
   // runApp(const MyApp());
 }
 

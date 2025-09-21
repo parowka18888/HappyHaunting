@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI_BackgroundLayer.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';

@@ -4,7 +4,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Morta
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/SidePanel/SidePanel_ByCategory/Mortals/Panel/MortalPanel_GUI.dart';
 
 import '../../../../../Haunting_Game/Haunting_Game.dart';
-import '../../../../../ViewModel/HauntingGame_ViewModel.dart';
+import '../../../../../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class MortalsList_GUI{
   static getMortalsList(BuildContext context, HauntingGame_ViewModel viewModel, double height, double width, Haunting_Game game) {

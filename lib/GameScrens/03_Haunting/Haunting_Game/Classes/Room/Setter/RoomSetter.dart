@@ -4,7 +4,7 @@ import 'package:flame/components.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/CheckConditions/RoomCheckConditions.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class RoomSetter{
   static void setRoomColor(Haunting_Room room, HauntingGame_ViewModel viewModel) {

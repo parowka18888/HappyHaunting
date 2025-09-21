@@ -22,4 +22,17 @@ class Background{
     );
   }
 
+  static getBackgroundLayers(double screenWidth, double screenHeight) {
+    return Container(
+      height: screenHeight, width: screenWidth,
+      child: Stack(
+        alignment: Alignment(0, 0),
+        children: [
+          getBackground(screenWidth, screenHeight),
+          getBackgroundShade(screenWidth, screenHeight)
+        ],
+      ),
+    );
+  }
+
 }

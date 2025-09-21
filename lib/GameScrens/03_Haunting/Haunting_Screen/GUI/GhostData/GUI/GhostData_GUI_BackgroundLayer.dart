@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../ViewModel/HauntingGame_ViewModel.dart';
+import '../../../../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class GhostData_GUI_BackgroundLayer{
   static getGhostData_Images(BuildContext context, double height, double width) {

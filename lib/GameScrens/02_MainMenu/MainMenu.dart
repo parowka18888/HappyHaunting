@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/Navigator/AppNavigator.dart';
-import 'package:happyhaunting/GameScrens/02_MainMenu/Subclasses/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/02_MainMenu/Subclasses/Logo/Logo_GUI.dart';
 import 'package:happyhaunting/GameScrens/02_MainMenu/Subclasses/MenuBaner/MenuBanner_GUI.dart';
 import 'package:happyhaunting/GameScrens/04_Ghosts/GhostsScreen.dart';
 import 'package:happyhaunting/GameScrens/04_LevelPicker/LevelPicker.dart';
 import 'package:provider/provider.dart';
 
+import '../00_GlobalCode/GUI/Background/Background.dart';
 import '../03_Haunting/Haunting_Screen/HauntingScreen.dart';
-import '../03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import '../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'Subclasses/MenuOptions/MenuOptions_GUI.dart';
 
 class MainMenu extends StatefulWidget {
@@ -97,8 +97,7 @@ class _MainMenuState extends State<MainMenu>
             alignment: Alignment(0, 0),
             children: [
               //BACKGROUND
-              Background.getBackground(screenWidth, screenHeight),
-              Background.getBackgroundShade(screenWidth, screenHeight),
+              Background.getBackgroundLayers(screenWidth, screenHeight),
 
               //WINDOW OPTIONS
               Positioned(

@@ -3,7 +3,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class Exorcism_Mechanics{
   static void exorcismNavigator(Haunting_Mortal mortal, Haunting_Game game, double modifier, HauntingGame_ViewModel viewModel) {

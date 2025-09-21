@@ -5,7 +5,7 @@ import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/SidePanel/SidePanel_ByCategory/Ghosts/Panel/GhostPanel_GUI.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class MortalPanel_GUI{
   static getMortalPanel(BuildContext context, double width, double height, HauntingGame_ViewModel viewModel, Haunting_Mortal mortal) {

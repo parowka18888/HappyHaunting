@@ -4,7 +4,7 @@ import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 
-import '../Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
+import '../../03_Haunting/Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
 
 class HauntingGame_ViewModel extends ChangeNotifier {
 

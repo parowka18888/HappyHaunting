@@ -10,7 +10,7 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/L
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/00_LoadingGameElements/LoadingGameElements.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 
 

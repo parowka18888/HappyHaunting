@@ -9,7 +9,7 @@ import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import '../00_GlobalCode/Navigator/AppNavigator.dart';
-import '../03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import '../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 class LevelPicker extends StatefulWidget {
   const LevelPicker({super.key});

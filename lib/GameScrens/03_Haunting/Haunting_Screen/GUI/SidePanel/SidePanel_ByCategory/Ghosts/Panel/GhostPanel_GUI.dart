@@ -6,7 +6,7 @@ import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.da
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
 import '../../../../../../Haunting_Game/Classes/Power/Haunting_Power.dart';

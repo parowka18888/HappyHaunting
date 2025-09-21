@@ -13,7 +13,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 

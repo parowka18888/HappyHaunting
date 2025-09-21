@@ -14,7 +14,7 @@ import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/UsedPowers/UsedPowers.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Scripts/LevelScripts/ScriptNavigator/Scripts_LevelBased.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
 import '../GhostSpot/Haunting_GhostSpot.dart';
