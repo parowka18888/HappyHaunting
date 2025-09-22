@@ -6,7 +6,6 @@ class DedicatedArea_GUI{
   static getDedicatedArea(BuildContext context,
       double areaWidth, double areaHeight,
       Widget Function()? function
-
       ) {
     return Container(
       width: areaWidth, height: areaHeight, //color: Colors.deepPurple,

@@ -9,6 +9,7 @@ import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../../Data/Database/DatabaseStructure/01_Power.dart';
 import '../../../../Data/Database/DatabaseStructure/02_Mortal.dart';
 import '../../../../Data/Database/DatabaseStructure/03_Level.dart';
+import '../../../../Data/Database/DatabaseStructure/08_Player.dart';
 
 class AddingData{
 
@@ -53,6 +54,14 @@ class AddingData{
       }
     }
     print("Liczba elementów w boxie ${box.length}");
+  }
+
+  static void addPlayer() {
+    Box box_Players = Hive.box<Player>('players');
+    if(box_Players.isEmpty){
+      Player player = Player();
+      box_Players.add(player);
+    }
   }
 
 }

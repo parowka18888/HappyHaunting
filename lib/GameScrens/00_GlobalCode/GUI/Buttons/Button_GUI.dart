@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Getter/Button_Getter.dart';
 
 class Button_GUI{
@@ -29,21 +30,34 @@ class Button_GUI{
         child: Stack(alignment: Alignment(0, 0),
           children: [
             Image.asset(background, fit: BoxFit.fill,),
-            ClipOval(
-              child: Opacity(
-                opacity: isOpacityLowered ? 0.5 : 1.0,
-                child: Image.asset(
-                  iconPath,
-                  height: size * 0.8,
-                ),
-              ),
-            ),
+            Background.getBackgroundShade(size, size, opacity: 0.25),
+            getImage(buttonType, isOpacityLowered, iconPath, size),
             Image.asset(shade, fit: BoxFit.fill,),
             Image.asset(frame, fit: BoxFit.fill,),
           ],
         ),
       ),
     );
+  }
+
+  static getImage(ButtonType buttonType, bool isOpacityLowered, String iconPath, double size) {
+    switch(buttonType){
+      case ButtonType.Circle:
+        return ClipOval(
+          child: Opacity(
+            opacity: isOpacityLowered ? 0.5 : 1.0,
+            child: Image.asset(
+              iconPath,
+              height: size * 0.8,
+            ),
+          ),
+        );
+      case ButtonType.Square:
+        return Image.asset(
+          iconPath,
+          height: size,
+        );
+    }
   }
 
 }

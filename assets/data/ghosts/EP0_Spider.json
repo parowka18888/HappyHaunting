@@ -3,6 +3,7 @@
   "name": "Pajunk",
   "icon" : "Spider_Icon",
   "ghostImage" : "Spider",
+  "headCenterPoint": 22,
   "color" : "Blue",
   "banishingText" : "spajder",
   "powersIDs": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],

@@ -32,6 +32,7 @@ class _InitState extends State<InitScreen> {
   void initState() {
     super.initState();
 
+    AddingData.addPlayer();
     AddingData.loadData();
 
     Future.delayed(Duration(seconds: 1), (){

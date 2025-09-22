@@ -4,7 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
@@ -16,8 +18,8 @@ class List_GUI{
         alignment: Alignment(0, 0),
         children: [
           FramedWindow_GUI.getFramedWindow(
-              context, width, height,
-            function: () => getList(context, height, width)
+              context, width, height, backgroundOpacity: 0.8,
+            function: () => getList(context, height, width,)
           )
         ],
       ),
@@ -25,6 +27,8 @@ class List_GUI{
   }
 
   static getList(BuildContext context, double height, double width) {
+
+    GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
 
     double framePadding = width * 0.1;
 
@@ -40,6 +44,16 @@ class List_GUI{
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
     int itemsCount = box_Ghosts.length;
 
+    List ghosts = box_Ghosts.values.toList();
+    ghosts.sort((a, b) => a.isUnlocked ? -1 : 1);
+
+    ghosts.sort((a, b) {
+      if (a.isUnlocked != b.isUnlocked) {
+        return a.isUnlocked ? -1 : 1;
+      }
+      return a.name.compareTo(b.name);
+    });
+
     return Container(
       height: height, width: width,// color: Colors.green,
       child: Stack(
@@ -48,18 +62,19 @@ class List_GUI{
           Container(
             height: listHeight, width: listWidth, //color: Colors.amber,
             child: GridView.count(
-                crossAxisCount: 4,
+                crossAxisCount: itemsInLine,
                 crossAxisSpacing: itemPadding,
                 mainAxisSpacing: itemPadding,
                 children: List.generate(itemsCount, (index) {
-                  Ghost ghost = box_Ghosts.getAt(index);
+                  Ghost ghost = ghosts[index];
                   return Container(
                     height: itemSize, width: itemSize,
-                    //color: Colors.blue,
-                    child: Button_GUI.getButton(itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square),
+                    child: Button_GUI.getButton(
+                        itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square,
+                        function: () => ghostSelector_ViewModel.setChosenGhost(ghost)
+                    ),
                   );
                 }),
-
             )
           )
         ],

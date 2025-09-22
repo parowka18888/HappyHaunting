@@ -33,13 +33,13 @@ class _GhostsScreenState extends State<GhostsScreen> {
 
     //BACKGROUND GHOST BOX
     double ghostViewHeight = screenHeight;
-    double ghostViewWidth = screenWidth * 0.5;
+    double ghostViewWidth = screenWidth;
 
     //LEFT BOX - GHOSTS LIST
     double sideAreaHeight = screenHeight;
     double sideAreaWidth = screenWidth * 0.4;
-    double ghostListHeight = sideAreaHeight * 0.8;
-    double ghostListWidth = sideAreaWidth * 0.8;
+    double ghostListHeight = sideAreaHeight * 0.7;
+    double ghostListWidth = sideAreaWidth * 0.7;
 
     final viewModel = context.watch<HauntingGame_ViewModel>();
 
@@ -62,39 +62,19 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
                             () => List_GUI.getListLayers(context, ghostListWidth, ghostListHeight)
                     )
+                ),
+
+                //GHOSTS LIST
+                Positioned(
+                    right: 0,
+                    child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
+                            () => List_GUI.getListLayers(context, ghostListWidth, ghostListHeight)
+                    )
                 )
 
               ],
             ),
-            // child: Container(
-            //   width: screenWidth, height: screenHeight,
-            //   color: Colors.blue,
-            //   child: ListView.builder(
-            //     itemCount: box_Ghosts.length,
-            //       itemBuilder: (context, index){
-            //       Ghost ghost = box_Ghosts.getAt(index);
-            //         return Expanded(child: Row(
-            //           mainAxisAlignment: MainAxisAlignment.center,
-            //           children: [
-            //             Image.asset('assets/images/Ghosts/${ghost.icon}.png'),
-            //             Column(mainAxisAlignment: MainAxisAlignment.center,
-            //             children: [
-            //               Text(ghost.id),
-            //               Text(ghost.name),
-            //             ],),
-            //             Column(mainAxisAlignment: MainAxisAlignment.center,
-            //               children: [
-            //                 if(ghost.auras.length > 0)
-            //                 Text(ghost.auras[0].id + " " + ghost.auras[0].name),
-            //                 if(ghost.auras.length > 1)
-            //                   Text(ghost.auras[1].id + " " + ghost.auras[1].name),
-            //                 if(ghost.auras.length > 2)
-            //                   Text(ghost.auras[2].id + " " + ghost.auras[2].name)
-            //               ],)
-            //           ],
-            //         ));
-            //   }),
-            // )
+
         ),
       ),
     );
