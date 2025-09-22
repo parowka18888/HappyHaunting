@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
-import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/Haunting/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Haunting_Game.dart';
 

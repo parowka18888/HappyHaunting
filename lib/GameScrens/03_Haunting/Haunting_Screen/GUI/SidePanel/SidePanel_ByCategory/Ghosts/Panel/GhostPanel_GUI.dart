@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
-import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/Haunting/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/03_Haunting/Haunting_Game/Classes/Room/SubClasses/Aura/Haunting_Aura.dart';

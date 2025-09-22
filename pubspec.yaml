@@ -87,6 +87,7 @@ flutter:
     - assets/images/Levels/InteractiveObjects/
     - assets/images/UI/
     - assets/images/UI/Background/
+    - assets/images/UI/Decorator/
     - assets/images/UI/Moon/
     - assets/images/UI/Cards/
     - assets/images/UI/Logo/

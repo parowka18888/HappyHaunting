@@ -4,6 +4,7 @@
   "icon" : "Moth_Icon",
   "ghostImage" : "Moth",
   "headCenterPoint": 22,
+  "level": 1,
   "color" : "Purple",
   "banishingText" : "mofffff",
   "powersIDs": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_ClothesEater_01"],

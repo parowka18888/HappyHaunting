@@ -8,12 +8,16 @@ class IconGetter{
     return "assets/images/Ghosts/${ghost.icon}.png";
   }
 
-  static String getPowerIcon(Haunting_Power power) {
+  static String getPowerIcon(power) {
     return "assets/images/Powers/${power.icon}.png";
   }
 
   static String getMortalIcon(Haunting_Mortal mortal) {
     return "assets/images/Mortals/${mortal.icon}.png";
+  }
+
+  static String getUnknownIcon() {
+    return "assets/images/UI/Icons/QuestionMark.png";
   }
 
 }

@@ -11,13 +11,11 @@ class FramedWindow_GUI{
   static double cornerSize = 7;
   static double framePadding = cornerSize * 0.37;
 
-  static getFramedWindow(BuildContext context, double width, double height,{
+  static getFramedWindow(BuildContext? context, double width, double height,{
     Widget Function()? function,
     FrameType frameType = FrameType.GoldFancy,
     double backgroundOpacity = 1.0
   }) {
-
-    HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
 
     return Container(
       width: width, height: height,

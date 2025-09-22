@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
-import 'package:happyhaunting/Data/Database/Enums/Window/GameWindow.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/Haunting/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/ShadowSceen/ShadowScreen_GUI.dart';

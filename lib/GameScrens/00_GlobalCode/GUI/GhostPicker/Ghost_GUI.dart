@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 class Ghost_GUI{
   static getGhostImage(BuildContext context, double height, double width) {
-
     GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
     Ghost? ghost = ghostSelector_ViewModel.chosenGhost;
     return Container(
