@@ -15,9 +15,9 @@
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                4,
                 3,
-                5
+                5,
+                4
             ],
             "scale": 1,
             "selectedLayer": 4,
@@ -28,8 +28,8 @@
         },
         "Level_Test2.tmx": {
             "expandedObjectLayers": [
-                4,
-                3
+                3,
+                4
             ],
             "scale": 0.33,
             "selectedLayer": 3,
@@ -48,14 +48,14 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                3,
-                7
+                7,
+                3
             ],
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 1244.25,
-                "y": 203.75
+                "x": 1501.75,
+                "y": 1320
             }
         },
         "Terrain (16x16).tsx": {

@@ -18,7 +18,7 @@ class DedicatedArea_GUI{
     int index = 0 + random.nextInt(list.length);
 
     return Container(
-      width: areaWidth, height: areaHeight, color: list[index],
+      width: areaWidth, height: areaHeight,// color: list[index],
       child: Stack(
         alignment: Alignment(0, 0),
         children: [

@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
-import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Abilities/PowerList.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Divider/Divider_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Powers/PowerDescription.dart';
 import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import '../00_GlobalCode/GUI/Powers/PowerList.dart';
 
 class GhostUpgrading_GUI{
   static Widget getGhostUpgradeLayers(BuildContext context, double width, double height) {
@@ -58,6 +59,7 @@ class GhostUpgrading_GUI{
 
     //CONTENT
     double abilitiesButtonsHeight = abilitiesButtonsBoxHeight * 0.85;
+    double abilityDescriptionHeight = abilityDescriptionBoxHeight * 0.85;
 
     return Container(
       width: width, height: height, //color: Colors.pink,
@@ -72,7 +74,7 @@ class GhostUpgrading_GUI{
                   () => Divider_GUI.getDivider(itemWidth, dividerBoxHeight)
           ),
           DedicatedArea_GUI.getDedicatedArea(context, width, abilityDescriptionBoxHeight,
-                  null
+                  () => PowerDescription.getPowerDescriptionBox(context, itemWidth, abilityDescriptionHeight)
           ),
           // DedicatedArea_GUI.getDedicatedArea(context, width, dividerHeight, null),
           // DedicatedArea_GUI.getDedicatedArea(context, width, abilityDescriptionHeight, null),

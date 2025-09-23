@@ -33,7 +33,7 @@ class Scripts_TestLevel_Mortal{
     ];
     String text = "New mortal Appeared - BM";
 
-    // print("SPRAWDZAM BM");
+    print("SPRAWDZAM BM -> ${conditions} ; ${mortal.conditionsMet}");
     //CHECK IF CONDITIONS ARE MET
     bool conditionsAreMet = Script_CheckConditions.checkIfConditionsAreMet(conditions, mortal.conditionsMet);
     if(conditionsAreMet){
@@ -55,8 +55,9 @@ class Scripts_TestLevel_Mortal{
 
     //TRAPPED GHOST IS FREED [1]
     if(!mortal.conditionsMet.contains(1)){
-      Haunting_Ghost? trappedGhost = GhostGetter.getGhostByID("EP0_ClothesEater", game, isTrapped: true);
+      Haunting_Ghost? trappedGhost = GhostGetter.getGhostByID("EP0_ClothesEater", game, isTrapped: true, isFree: false);
       if(trappedGhost != null){
+        print("TU ${trappedGhost.isScriptExecuted}");
         if(trappedGhost.isScriptExecuted == true){
           mortal.conditionsMet.add(1);
         }

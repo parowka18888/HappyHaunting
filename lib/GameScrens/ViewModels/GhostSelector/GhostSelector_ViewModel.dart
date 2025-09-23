@@ -12,6 +12,7 @@ class GhostSelector_ViewModel extends ChangeNotifier {
 
   void setChosenGhost(Ghost? ghost){
     chosenGhost = ghost;
+    chosenPower = null;
     notifyListeners();
   }
 

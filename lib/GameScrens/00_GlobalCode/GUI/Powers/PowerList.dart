@@ -2,15 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
-import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Abilities/Getter/PowerList_Getter.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/Getter/IconGetter.dart';
 import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../../Data/Database/Enums/UI/Button/ButtonType.dart';
+import 'Getter/PowerList_Getter.dart';
 
 class PowerList{
   static getPowerList(GhostSelector_ViewModel viewModel, double width, double height) {
@@ -41,13 +42,13 @@ class PowerList{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          getPowerIcon(iconSize, ghost, 0, viewModel),
+          getPowerIcon(iconSize, ghost, viewModel, index: 0),
           Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, 1, viewModel),
+          getPowerIcon(iconSize, ghost, viewModel, index: 1),
           Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, 2, viewModel),
+          getPowerIcon(iconSize, ghost, viewModel, index: 2),
           Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, 3, viewModel),
+          getPowerIcon(iconSize, ghost, viewModel, index: 3),
         ],
       ),
     );
@@ -56,18 +57,24 @@ class PowerList{
   static getHintBox(GhostSelector_ViewModel viewModel, double height, double width) {
     return Container(
       width: width, height: height, //color: Colors.pink,
-      child: Text("WYBIERZ MOC"),
+      child: TextAndFont.getText(width, height, "Wybierz moc"),
     );
   }
 
-  static getPowerIcon(double iconSize, Ghost? ghost, int index, GhostSelector_ViewModel viewModel) {
+  static getPowerIcon(double iconSize, Ghost? ghost, GhostSelector_ViewModel viewModel,  {
+    Power? power,
+    int index = 0
+  }) {
     String icon = "";
-    Power? power;
-    if(ghost != null && ghost.powers.length >= index){
-      power = ghost.powers[index];
-      icon = power.icon;
+    if(power == null){
+      if(ghost != null && ghost.powers.length >= index){
+        power = ghost.powers[index];
+        icon = power.icon;
+      } else {
+        icon = "UnknownPower";
+      }
     } else {
-      icon = "UnknownPower";
+      icon = power.icon;
     }
 
     return Container(
