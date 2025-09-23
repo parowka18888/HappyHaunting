@@ -16,6 +16,8 @@ class Power extends HiveObject {
   @HiveField(4)  final double stat_Health;
   @HiveField(5)  final double stat_Madness;
   @HiveField(6)  final double stat_Faith;
+  @HiveField(15)  final double stat_Impurity;
+  @HiveField(16)  final double stat_Emotions;
 
   @HiveField(7)  final double cost;
   @HiveField(8)  final double cooldown;
@@ -49,6 +51,8 @@ class Power extends HiveObject {
   required this.powerTime,
   required this.powerTagsIDs,
   required this.powerTags,
+  required this.stat_Emotions,
+  required this.stat_Impurity,
   });
 
   factory Power.fromJson(Map<String, dynamic> json) => _$PowerFromJson(json);

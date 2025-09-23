@@ -9,23 +9,23 @@ import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Text/TextAndFont.dart
 import 'package:happyhaunting/GameScrens/00_GlobalCode/Getter/IconGetter.dart';
 import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 
-import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
-import '../../../../Data/Database/Enums/UI/Button/ButtonType.dart';
+import '../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
+import '../../../../../Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'Getter/PowerList_Getter.dart';
 
 class PowerList{
+
   static getPowerList(GhostSelector_ViewModel viewModel, double width, double height) {
 
-    double iconsBoxHeight = height * 0.8;
+    double iconsBoxHeight = height * 0.85;
     double hintBoxHeight =  height - iconsBoxHeight;
-
     return Container(
       height: height, width: width,// color: Colors.green,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
             getIconsBox(viewModel, iconsBoxHeight, width),
-            getHintBox(viewModel, hintBoxHeight, width),
+            // getHintBox(viewModel, hintBoxHeight, width),
         ],
       ),
     );
@@ -36,20 +36,17 @@ class PowerList{
     Ghost? ghost = viewModel.chosenGhost;
     double iconPadding = height * 0.15;
     double iconSize = PowerList_Getter.getScaledIconSize(height, width, iconPadding);
-    // double iconSize = height - iconPadding;
+
     return Container(
       width: width, height: height,// color: Colors.deepPurple,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          getPowerIcon(iconSize, ghost, viewModel, index: 0),
-          Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, viewModel, index: 1),
-          Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, viewModel, index: 2),
-          Padding(padding: EdgeInsets.only(left: iconPadding)),
-          getPowerIcon(iconSize, ghost, viewModel, index: 3),
-        ],
+        children: List.generate(4, (index) {
+          return Padding(
+            padding: EdgeInsets.only(left: index == 0 ? 0 : iconPadding),
+            child: getPowerIcon(iconSize, ghost, index: index, viewModel: viewModel),
+          );
+        }),
       ),
     );
   }
@@ -61,22 +58,14 @@ class PowerList{
     );
   }
 
-  static getPowerIcon(double iconSize, Ghost? ghost, GhostSelector_ViewModel viewModel,  {
+  static getPowerIcon(double iconSize, Ghost? ghost,  {
     Power? power,
-    int index = 0
+    int index = 0,
+    GhostSelector_ViewModel? viewModel
   }) {
-    String icon = "";
-    if(power == null){
-      if(ghost != null && ghost.powers.length >= index){
-        power = ghost.powers[index];
-        icon = power.icon;
-      } else {
-        icon = "UnknownPower";
-      }
-    } else {
-      icon = power.icon;
-    }
-
+    Power? chosenPower;
+    if(power == null && ghost != null) chosenPower = PowerList_Getter.getPowerByIndex(ghost, index);
+    String icon = PowerList_Getter.getIconName(power, ghost, index);
     return Container(
       height: iconSize, width: iconSize, //color: Colors.blue,
       child: Stack(alignment: Alignment(0, 0),
@@ -84,7 +73,7 @@ class PowerList{
           Background.getBackgroundLayers(iconSize, iconSize),
           Button_GUI.getButton(
               iconSize, icon, catalog: 'Powers', buttonType: ButtonType.Square,
-              function: () => viewModel.setChosenPower(power)
+              function: (viewModel == null && chosenPower != null) ? null : () => viewModel!.setChosenPower(chosenPower)
           ),
         ],
       ),

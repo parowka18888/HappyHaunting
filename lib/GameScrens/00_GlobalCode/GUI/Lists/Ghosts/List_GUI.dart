@@ -8,7 +8,7 @@ import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
+import '../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
 class List_GUI{
   static getListLayers(BuildContext context, double width, double height) {

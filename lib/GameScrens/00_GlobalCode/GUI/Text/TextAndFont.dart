@@ -7,18 +7,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auto_size_text/flutter_auto_size_text.dart';
 
 class TextAndFont{
-  static getText(double width, double height, String string) {
+  static getText(double width, double height, String string, {
+    double? fontSize,
+    Alignment alignment = Alignment.center
+  }) {
+    if(fontSize == null) fontSize = height;
+
     return SizedBox(
         width: width, height: height,
-        child: AutoSizeText(
-          string,
-          textAlign: TextAlign.center,
-          minFontSize: 8,
-          style: TextStyle(
-            fontSize: height,
-            color: Colors.white
+        child: Align( alignment: alignment,
+          child: AutoSizeText(
+            string,
+            minFontSize: 5,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: fontSize,
+              color: Colors.white,
+
+            ),
           ),
-        )
+        ),
     );
   }
 

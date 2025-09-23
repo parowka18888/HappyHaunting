@@ -10,6 +10,8 @@
   "stat_Health": 0,
   "stat_Madness": 0,
   "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
 
   "powerType" : "lureFloor",
   "powerChances" : 25,

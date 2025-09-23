@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
-import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Lists/List_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Lists/Ghosts/List_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/Navigator/AppNavigator.dart';
 import 'package:happyhaunting/GameScrens/04_LevelPicker/LevelPicker.dart';
 import 'package:hive/hive.dart';
@@ -9,10 +9,10 @@ import 'package:provider/provider.dart';
 
 import '../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../00_GlobalCode/GUI/Background/Background.dart';
-import 'GhostUpgrading_GUI.dart';
 import '../00_GlobalCode/GUI/GhostPicker/GhostView_GUI.dart';
 import '../03_Haunting/Haunting_Screen/HauntingScreen.dart';
 import '../ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import 'GhostData/GhostsScreen_SidePanel.dart';
 
 class GhostsScreen extends StatefulWidget {
   const GhostsScreen({super.key});
@@ -69,8 +69,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
                 Positioned(
                     right: 0,
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
-                            // () => List_GUI.getListLayers(context, ghostListWidth, ghostListHeight)
-                            () => GhostUpgrading_GUI.getGhostUpgradeLayers(context, ghostListWidth, ghostListHeight)
+                            () => GhostsScreen_SidePanel.getGhostDataBox(context, ghostListWidth, ghostListHeight)
                     )
                 )
 

@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 class Divider_GUI{
   static Widget getDivider(double width, double height) {
     return Container(
-      height: height,width: width, color: Colors.amber,
+      height: height,width: width, //color: Colors.amber,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
