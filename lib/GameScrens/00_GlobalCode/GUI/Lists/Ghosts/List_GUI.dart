@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Lists/Ghosts/FilterButtons/GhostFilterButtons.dart';
+import 'package:happyhaunting/GameScrens/04_Ghosts/GhostData/Managing/Elements/Buttons/Managing_Buttons.dart';
 import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +14,10 @@ import '../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
 class List_GUI{
   static getListLayers(BuildContext context, double width, double height) {
+
+    double buttonsHeight = height * 0.15;
+    double buttonsOffset = - (height / 2);
+
     return Container(
       height: height, width: width,// color: Colors.pink,
       child: Stack(
@@ -20,6 +26,9 @@ class List_GUI{
           FramedWindow_GUI.getFramedWindow(
               context, width, height, backgroundOpacity: 0.8,
             function: () => getList(context, height, width,)
+          ),
+          Transform.translate(offset: Offset(0, buttonsOffset),
+            child: GhostFilterButtons.getFilterButtons(context, width, buttonsHeight),
           )
         ],
       ),
@@ -44,7 +53,10 @@ class List_GUI{
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
     int itemsCount = box_Ghosts.length;
 
-    List ghosts = box_Ghosts.values.toList();
+    List<Ghost> ghosts = box_Ghosts.values.cast<Ghost>().toList();
+    if(ghostSelector_ViewModel.chosenGhostTypes.isNotEmpty){
+      ghosts = ghosts.where((ghost) => ghostSelector_ViewModel.chosenGhostTypes.contains(ghost.mainStat)).toList();
+    }
     ghosts.sort((a, b) => a.isUnlocked ? -1 : 1);
 
     ghosts.sort((a, b) {
@@ -65,7 +77,7 @@ class List_GUI{
                 crossAxisCount: itemsInLine,
                 crossAxisSpacing: itemPadding,
                 mainAxisSpacing: itemPadding,
-                children: List.generate(itemsCount, (index) {
+                children: List.generate(ghosts.length, (index) {
                   Ghost ghost = ghosts[index];
                   return Container(
                     height: itemSize, width: itemSize,

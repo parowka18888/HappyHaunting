@@ -5,17 +5,17 @@ class Statistic_Getter{
   static String getStatisticImage(Statistic statistic) {
     switch(statistic){
       case Statistic.fear:
-        return 'assets/images/UI/Icons/Fear.png';
+        return 'Fear';
       case Statistic.health:
-        return 'assets/images/UI/Icons/Soul.png';
+        return 'Soul';
       case Statistic.madness:
-        return 'assets/images/UI/Icons/Madness.png';
+        return 'Madness';
       case Statistic.faith:
-        return 'assets/images/UI/Icons/Faith.png';
+        return 'Faith';
       case Statistic.impurity:
-        return 'assets/images/UI/Icons/Impurity.png';
+        return 'Impurity';
       case Statistic.emotions:
-        return 'assets/images/UI/Icons/Balance.png';
+        return 'Balance';
     }
   }
 

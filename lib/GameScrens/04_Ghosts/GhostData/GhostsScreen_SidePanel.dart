@@ -5,27 +5,34 @@ import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSele
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/00_GlobalCode/GUI/Powers/Description/PowerDescription.dart';
-import 'package:happyhaunting/GameScrens/04_Ghosts/GhostData/Powers/GhostsScreen_SidePanel_Powers.dart';
+import 'package:happyhaunting/GameScrens/04_Ghosts/GhostData/Managing/Elements/Buttons/Managing_Buttons.dart';
 import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../00_GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import '../../00_GlobalCode/GUI/Powers/List/PowerList.dart';
+import 'Managing/SidePanel_Managing.dart';
 
 class GhostsScreen_SidePanel{
-  static Widget getGhostDataBox(BuildContext context, double width, double height) {
-    return Container(
-      width: width, height: height,
-      child: Stack(
-        alignment: Alignment(0, 0),
-        children: [
-          FramedWindow_GUI.getFramedWindow(
-              context, width, height, backgroundOpacity: 0.8,
-              function: () => getGhostData(context, height, width,)
-          )
-        ],
-      ),
+  static Widget getSidePanelBox(BuildContext context, double width, double height) {
+
+    double buttonsHeight = height * 0.175;
+    double buttonsOffset = - (height / 2);
+
+    return Stack(
+      alignment: Alignment(0, 0),
+      children: [
+        FramedWindow_GUI.getFramedWindow(
+            context, width, height, backgroundOpacity: 0.8,
+            function: () => getGhostData(context, height, width,)
+        ),
+
+        Transform.translate(
+          offset: Offset(0, buttonsOffset),
+          child: Managing_Buttons.getManagingButtons(context, width, buttonsHeight),
+        ),
+      ],
     );
   }
 
@@ -42,8 +49,8 @@ class GhostsScreen_SidePanel{
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
-          if(currentMode == GhostSelector_WindowMode.Abilities)
-            GhostsScreen_SidePanel_Powers.getPowersBox(context, availableWidth, availableHeight)
+          if(currentMode == GhostSelector_WindowMode.powers)
+            SidePanel_Managing.getPowersBox(context, availableWidth, availableHeight)
         ],
       )
     );

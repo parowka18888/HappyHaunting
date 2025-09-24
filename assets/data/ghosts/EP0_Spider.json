@@ -4,6 +4,7 @@
   "icon" : "Spider_Icon",
   "ghostImage" : "Spider",
   "headCenterPoint": 22,
+  "mainStat": "emotions",
   "level": 1,
   "color" : "Blue",
   "banishingText" : "spajder",

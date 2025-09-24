@@ -4,6 +4,7 @@
   "icon" : "ClothesEater_Icon",
   "ghostImage" : "ClothesEater",
   "headCenterPoint": 18,
+  "mainStat": "fear",
   "level": 1,
   "color" : "Yellow",
   "banishingText" : "clothes iter",

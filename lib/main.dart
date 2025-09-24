@@ -16,6 +16,7 @@ import 'Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'Data/Database/DatabaseStructure/02_Mortal.dart';
 import 'Data/Database/DatabaseStructure/03_Level.dart';
 import 'Data/Database/DatabaseStructure/08_Player.dart';
+import 'Data/Database/Enums/Stats/StatisticAdapter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ Future<void> main() async {
   Hive.registerAdapter(PowerTag_Adapter());
   Hive.registerAdapter(MortalTag_Adapter());
   Hive.registerAdapter(LevelScript_Adapter());
+  Hive.registerAdapter(Statistic_Adapter());
 
   Hive.registerAdapter(PlayerAdapter());
   Hive.registerAdapter(GhostAdapter());

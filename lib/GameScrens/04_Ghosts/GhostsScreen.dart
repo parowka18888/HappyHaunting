@@ -65,11 +65,11 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     )
                 ),
 
-                //GHOSTS LIST
+                //GHOST MANAGING
                 Positioned(
                     right: 0,
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
-                            () => GhostsScreen_SidePanel.getGhostDataBox(context, ghostListWidth, ghostListHeight)
+                            () => GhostsScreen_SidePanel.getSidePanelBox(context, ghostListWidth, ghostListHeight)
                     )
                 )
 

@@ -7,7 +7,7 @@ import '../../../00_GlobalCode/GUI/Powers/Description/PowerDescription.dart';
 import '../../../00_GlobalCode/GUI/Powers/List/PowerList.dart';
 import '../../../ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
 
-class GhostsScreen_SidePanel_Powers{
+class SidePanel_Managing{
   static getPowersBox(BuildContext context, double width, double height) {
 
     GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();

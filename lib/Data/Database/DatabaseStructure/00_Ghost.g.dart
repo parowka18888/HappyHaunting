@@ -31,13 +31,14 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       isUnlocked: fields[11] as bool,
       headCenterPoint: fields[12] as int,
       level: fields[13] as int,
+      mainStat: fields[14] as Statistic,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(15)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -65,7 +66,9 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(12)
       ..write(obj.headCenterPoint)
       ..writeByte(13)
-      ..write(obj.level);
+      ..write(obj.level)
+      ..writeByte(14)
+      ..write(obj.mainStat);
   }
 
   @override
@@ -104,6 +107,7 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       isUnlocked: json['isUnlocked'] as bool,
       headCenterPoint: (json['headCenterPoint'] as num).toInt(),
       level: (json['level'] as num).toInt(),
+      mainStat: $enumDecode(_$StatisticEnumMap, json['mainStat']),
     );
 
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
@@ -121,4 +125,14 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'isUnlocked': instance.isUnlocked,
       'headCenterPoint': instance.headCenterPoint,
       'level': instance.level,
+      'mainStat': _$StatisticEnumMap[instance.mainStat]!,
     };
+
+const _$StatisticEnumMap = {
+  Statistic.fear: 'fear',
+  Statistic.health: 'health',
+  Statistic.madness: 'madness',
+  Statistic.faith: 'faith',
+  Statistic.impurity: 'impurity',
+  Statistic.emotions: 'emotions',
+};

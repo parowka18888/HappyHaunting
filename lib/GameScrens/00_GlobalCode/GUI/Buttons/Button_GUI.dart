@@ -9,7 +9,8 @@ class Button_GUI{
     String catalog = "UI/Icons",
     VoidCallback? function,
     bool isOpacityLowered = false,
-    ButtonType buttonType = ButtonType.Circle
+    ButtonType buttonType = ButtonType.Circle,
+    bool isActive = true
   }) {
 
     String iconPath = 'assets/images/${catalog}/$icon.png';
@@ -25,18 +26,18 @@ class Button_GUI{
           function();
         }
       },
-      child: Container(
-        height: size, width: size,
-        child: Stack(alignment: Alignment(0, 0),
-          children: [
-            Image.asset(background, fit: BoxFit.fill,),
-            Background.getBackgroundShade(size, size, opacity: 0.25),
-            getImage(buttonType, isOpacityLowered, iconPath, size),
-            Image.asset(shade, fit: BoxFit.fill,),
-            Image.asset(frame, fit: BoxFit.fill,),
-          ],
-        ),
-      ),
+      child: AnimatedContainer(duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
+          height: size, width: size,
+          child: Stack(alignment: Alignment(0, 0),
+            children: [
+              Image.asset(background, fit: BoxFit.fill,),
+              Background.getBackgroundShade(size, size, opacity: 0.25),
+              getImage(buttonType, isOpacityLowered, iconPath, size),
+              Image.asset(shade, fit: BoxFit.fill,),
+              Image.asset(frame, fit: BoxFit.fill,),
+            ],
+          ),
+      )
     );
   }
 
@@ -46,18 +47,21 @@ class Button_GUI{
         return ClipOval(
           child: Opacity(
             opacity: isOpacityLowered ? 0.5 : 1.0,
-            child: Image.asset(
-              iconPath,
-              height: size * 0.8,
-            ),
+            child: getAnimatedImage(size * 0.75, iconPath)
           ),
         );
       case ButtonType.Square:
-        return Image.asset(
-          iconPath,
-          height: size,
-        );
+        return getAnimatedImage(size, iconPath);
     }
+  }
+
+  static getAnimatedImage(double size, String iconPath) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 750),
+      curve: Curves.easeInOut,
+      height: size,
+      child: Image.asset(iconPath),
+    );
   }
 
 }

@@ -1,4 +1,5 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -31,6 +32,7 @@ class Ghost extends HiveObject {
   @HiveField(12)  final int headCenterPoint;
 
   @HiveField(13)  late int level;
+  @HiveField(14)  final Statistic mainStat;
 
   Ghost({
     required this.id,
@@ -47,6 +49,7 @@ class Ghost extends HiveObject {
     required this.isUnlocked,
     required this.headCenterPoint,
     required this.level,
+    required this.mainStat,
   });
 
   factory Ghost.fromJson(Map<String, dynamic> json) => _$GhostFromJson(json);

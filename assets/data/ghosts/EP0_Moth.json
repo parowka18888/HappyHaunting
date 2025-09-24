@@ -4,6 +4,7 @@
   "icon" : "Moth_Icon",
   "ghostImage" : "Moth",
   "headCenterPoint": 22,
+  "mainStat": "impurity",
   "level": 1,
   "color" : "Purple",
   "banishingText" : "mofffff",

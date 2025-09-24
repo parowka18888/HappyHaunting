@@ -4,6 +4,7 @@
   "icon" : "Fly_Icon",
   "ghostImage" : "Fly",
   "headCenterPoint": 41,
+  "mainStat": "faith",
   "level": 1,
   "color" : "Green",
   "banishingText" : "flajjjj",

@@ -4,6 +4,7 @@
   "icon" : "Bee_Icon",
   "ghostImage" : "Bee",
   "headCenterPoint": 20,
+  "mainStat": "health",
   "level": 1,
   "color" : "Blue",
   "banishingText" : "Bee",

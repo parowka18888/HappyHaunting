@@ -1,3 +1,3 @@
 enum GhostSelector_WindowMode{
-  empty, Abilities, Upgrade
+  empty, powers, upgrade, introduction
 }

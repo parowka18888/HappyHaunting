@@ -44,7 +44,9 @@ class Power_Damage{
             child: TextAndFont.getText(valueWidth, height, value.toString(), fontSize: height * 0.5, alignment: Alignment.centerRight),
           ),
           Container(width: imageWidth, height: height,// color: Colors.red,
-            child: Image.asset(Statistic_Getter.getStatisticImage(statistic),),
+            child: Image.asset(
+              'assets/images/UI/Icons/${Statistic_Getter.getStatisticImage(statistic)}.png'
+            ),
           ),
 
         ],

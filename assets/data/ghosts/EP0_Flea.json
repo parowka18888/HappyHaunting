@@ -4,6 +4,7 @@
   "icon" : "Flea_Icon",
   "ghostImage" : "Flea",
   "headCenterPoint": 27,
+  "mainStat": "madness",
   "level": 1,
   "color" : "Blue",
   "banishingText" : "Flea",
