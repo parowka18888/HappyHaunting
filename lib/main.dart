@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
@@ -5,9 +6,9 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
-import 'package:happyhaunting/GameScrens/01_Init/InitScreen.dart';
-import 'package:happyhaunting/GameScrens/ViewModels/GhostSelector/GhostSelector_ViewModel.dart';
-import 'package:happyhaunting/GameScrens/ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
+import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -21,9 +22,12 @@ import 'Data/Database/Enums/Stats/StatisticAdapter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  final dir = await getApplicationDocumentsDirectory();
-  Hive.init(dir.path);
-
+  if (kIsWeb) {
+  } else {
+    final dir = await getApplicationDocumentsDirectory();
+    Hive.init(dir.path);
+  }
+  
   Hive.registerAdapter(PowerTag_Adapter());
   Hive.registerAdapter(MortalTag_Adapter());
   Hive.registerAdapter(LevelScript_Adapter());
