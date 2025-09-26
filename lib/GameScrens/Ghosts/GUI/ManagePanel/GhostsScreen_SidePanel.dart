@@ -46,8 +46,8 @@ class GhostsScreen_SidePanel{
     double availableWidth = width * 0.85;
     double availableHeight = height - (width - availableWidth);
 
-    double segment1Height = availableHeight * 0.24;
-    double segment3Height = availableHeight * 0.24;
+    double segment1Height = availableHeight * 0.25;
+    double segment3Height = availableHeight * 0.25;
     double dividerHeight = availableHeight * 0.07;
     double segment2Height = availableHeight - segment1Height - segment3Height - dividerHeight * 2;
     if(ghostSelector_ViewModel.chosenGhost == null){

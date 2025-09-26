@@ -11,7 +11,8 @@ class Button_GUI{
     bool isOpacityLowered = false,
     ButtonType buttonType = ButtonType.Circle,
     bool isActive = true,
-    String? overWrittenBackground
+    String? overWrittenBackground,
+    double imageSize = 1.0
   }) {
     String iconPath = 'assets/images/${catalog}/$icon.png';
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
@@ -33,7 +34,7 @@ class Button_GUI{
               getBackground(background, buttonType),
               // Image.asset(background, fit: BoxFit.fill,),
               // Background.getBackgroundShade(size, size, opacity: 0.25),
-              getImage(buttonType, isOpacityLowered, iconPath, size),
+              getImage(buttonType, isOpacityLowered, iconPath, size * imageSize),
               Image.asset(shade, fit: BoxFit.fill,),
               Image.asset(frame, fit: BoxFit.fill,),
             ],
