@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Template/SidePanelTemplate.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Powers/Description/PowerDescription.dart';
@@ -12,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import '../Powers/List/PowerList.dart';
+import 'CoreData/Managing_CoreData.dart';
 import 'Powers/Managing_Powers.dart';
 
 class GhostsScreen_SidePanel{
@@ -44,13 +46,29 @@ class GhostsScreen_SidePanel{
     double availableWidth = width * 0.85;
     double availableHeight = height - (width - availableWidth);
 
+    double segment1Height = availableHeight * 0.24;
+    double segment3Height = availableHeight * 0.24;
+    double dividerHeight = availableHeight * 0.07;
+    double segment2Height = availableHeight - segment1Height - segment3Height - dividerHeight * 2;
+    if(ghostSelector_ViewModel.chosenGhost == null){
+      return Container();
+    }
     return Container(
       width: width, height: height,
-      child: Stack(
-        alignment: Alignment(0, 0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if(currentMode == GhostSelector_WindowMode.powers)
-            Managing_Powers.getPowersBox(context, availableWidth, availableHeight)
+          SidePanelTemplate.getFirstSegment(context, availableWidth, segment1Height),
+          Divider_GUI.getDivider(width, dividerHeight),
+          SidePanelTemplate.getSecondSegment(context, width, segment2Height, availableWidth),
+          Divider_GUI.getDivider(width, dividerHeight),
+          SidePanelTemplate.getThirdSegment(context, availableWidth, segment3Height),
+          // if(currentMode == GhostSelector_WindowMode.introduction)
+          //   Managing_CoreData.getGhostCoreData(context, availableWidth, availableHeight,
+          //       [segment1Height, segment2Height, segment3Height], dividerHeight
+          //   ),
+          // if(currentMode == GhostSelector_WindowMode.powers)
+          //   Managing_Powers.getPowersBox(context, availableWidth, availableHeight)
         ],
       )
     );
