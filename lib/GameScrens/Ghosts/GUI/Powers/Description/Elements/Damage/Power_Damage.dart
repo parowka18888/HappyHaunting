@@ -41,7 +41,7 @@ class Power_Damage{
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(width: valueWidth, height: height,// color: Colors.deepPurpleAccent,
-            child: TextAndFont.getText(valueWidth, height, value.toString(), fontSize: height * 0.5, alignment: Alignment.centerRight),
+            child: TextAndFont.getText(valueWidth, height, value.toString(), fontSize: height * 0.5, alignment: Alignment.centerRight, maxLines: 1),
           ),
           Container(width: imageWidth, height: height,// color: Colors.red,
             child: Image.asset(

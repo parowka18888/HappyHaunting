@@ -10,12 +10,12 @@ class Button_GUI{
     VoidCallback? function,
     bool isOpacityLowered = false,
     ButtonType buttonType = ButtonType.Circle,
-    bool isActive = true
+    bool isActive = true,
+    String? overWrittenBackground
   }) {
-
     String iconPath = 'assets/images/${catalog}/$icon.png';
-
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
+    if(overWrittenBackground != null) background = 'assets/images/UI/Buttons/${overWrittenBackground}.png';
     String frame = 'assets/images/UI/Buttons/${buttonType.name}Button_Frame.png';
     String shade = 'assets/images/UI/Buttons/${buttonType.name}Button_Shade.png';
 
@@ -30,7 +30,8 @@ class Button_GUI{
           height: size, width: size,
           child: Stack(alignment: Alignment(0, 0),
             children: [
-              Image.asset(background, fit: BoxFit.fill,),
+              getBackground(background, buttonType),
+              // Image.asset(background, fit: BoxFit.fill,),
               // Background.getBackgroundShade(size, size, opacity: 0.25),
               getImage(buttonType, isOpacityLowered, iconPath, size),
               Image.asset(shade, fit: BoxFit.fill,),
@@ -62,6 +63,23 @@ class Button_GUI{
       height: size,
       child: Image.asset(iconPath),
     );
+  }
+
+  static getBackground(String background, ButtonType buttonType) {
+    switch(buttonType){
+      case ButtonType.Circle:
+        return ClipOval(
+          child: Image.asset(
+            background,
+            fit: BoxFit.fill,
+          ),
+        );
+      case ButtonType.Square:
+        return Image.asset(
+          background,
+          fit: BoxFit.fill,
+        );
+    }
   }
 
 }

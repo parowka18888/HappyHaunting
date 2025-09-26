@@ -36,4 +36,21 @@ class Statistic_Getter{
     }
   }
 
+  static getStatisticBackground(Statistic statistic) {
+    switch(statistic){
+      case Statistic.fear:
+        return 'SquareButton_Red';
+      case Statistic.health:
+        return 'SquareButton_Blue';
+      case Statistic.madness:
+        return 'SquareButton_Yellow';
+      case Statistic.faith:
+        return 'SquareButton_Purple';
+      case Statistic.impurity:
+        return 'SquareButton_Green';
+      case Statistic.emotions:
+        return 'SquareButton_Pink';
+    }
+  }
+
 }
