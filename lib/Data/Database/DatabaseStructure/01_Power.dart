@@ -25,7 +25,7 @@ class Power extends HiveObject {
   @HiveField(9)  final String icon;
 
   @HiveField(10)  final String powerType;
-  @HiveField(11)  final int powerChances;
+  @HiveField(11)  final double powerChances;
 
   @HiveField(12)  final double powerTime;
 

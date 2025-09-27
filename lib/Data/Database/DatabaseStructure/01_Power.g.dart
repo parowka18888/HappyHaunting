@@ -28,7 +28,7 @@ class PowerAdapter extends TypeAdapter<Power> {
       cooldown: fields[8] as double,
       icon: fields[9] as String,
       powerType: fields[10] as String,
-      powerChances: fields[11] as int,
+      powerChances: fields[11] as double,
       powerTime: fields[12] as double,
       powerTagsIDs: (fields[13] as List).cast<String>(),
       powerTags: (fields[14] as List).cast<PowerTag>(),
@@ -104,7 +104,7 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       cooldown: (json['cooldown'] as num).toDouble(),
       icon: json['icon'] as String,
       powerType: json['powerType'] as String,
-      powerChances: (json['powerChances'] as num).toInt(),
+      powerChances: (json['powerChances'] as num).toDouble(),
       powerTime: (json['powerTime'] as num).toDouble(),
       powerTagsIDs: (json['powerTagsIDs'] as List<dynamic>)
           .map((e) => e as String)

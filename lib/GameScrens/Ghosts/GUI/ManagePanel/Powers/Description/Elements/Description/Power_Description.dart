@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../../../Data/Database/DatabaseStructure/01_Power.dart';
-import '../../../../../../GlobalCode/GUI/Text/TextAndFont.dart';
+import '../../../../../../../../Data/Database/DatabaseStructure/01_Power.dart';
+import '../../../../../../../GlobalCode/GUI/Text/TextAndFont.dart';
 
 class Power_Description{
   static getDescriptionBox(BuildContext context, double width, double height, Power power) {

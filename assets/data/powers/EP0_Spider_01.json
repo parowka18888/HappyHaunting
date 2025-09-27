@@ -1,7 +1,7 @@
 {
   "id": "EP0_Spider_01",
   "name": "Poza siecią",
-  "description": "W aktywnym obszarze pojawia się rojowisko pająków na okres 10 sekund.\nPająki zadają obrażenia co sekundę śmiertelnikom w pomieszczeniu.",
+  "description": "W aktywnym obszarze pojawia się rojowisko pająków na okres ?powerTime? sekund.\nPająki zadają obrażenia co sekundę śmiertelnikom w pomieszczeniu.",
 
   "cost" : 20,
   "cooldown" : 25,

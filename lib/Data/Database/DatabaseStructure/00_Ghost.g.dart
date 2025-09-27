@@ -30,7 +30,7 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       banishingText: fields[10] as String,
       isUnlocked: fields[11] as bool,
       headCenterPoint: fields[12] as int,
-      level: fields[13] as int,
+      tier: fields[13] as GhostTier,
       mainStat: fields[14] as Statistic,
     );
   }
@@ -66,7 +66,7 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(12)
       ..write(obj.headCenterPoint)
       ..writeByte(13)
-      ..write(obj.level)
+      ..write(obj.tier)
       ..writeByte(14)
       ..write(obj.mainStat);
   }
@@ -106,7 +106,7 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       banishingText: json['banishingText'] as String,
       isUnlocked: json['isUnlocked'] as bool,
       headCenterPoint: (json['headCenterPoint'] as num).toInt(),
-      level: (json['level'] as num).toInt(),
+      tier: $enumDecode(_$GhostTierEnumMap, json['tier']),
       mainStat: $enumDecode(_$StatisticEnumMap, json['mainStat']),
     );
 
@@ -124,9 +124,17 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'banishingText': instance.banishingText,
       'isUnlocked': instance.isUnlocked,
       'headCenterPoint': instance.headCenterPoint,
-      'level': instance.level,
+      'tier': _$GhostTierEnumMap[instance.tier]!,
       'mainStat': _$StatisticEnumMap[instance.mainStat]!,
     };
+
+const _$GhostTierEnumMap = {
+  GhostTier.tier1: 'tier1',
+  GhostTier.tier2: 'tier2',
+  GhostTier.tier3: 'tier3',
+  GhostTier.tier4: 'tier4',
+  GhostTier.tier5: 'tier5',
+};
 
 const _$StatisticEnumMap = {
   Statistic.fear: 'fear',

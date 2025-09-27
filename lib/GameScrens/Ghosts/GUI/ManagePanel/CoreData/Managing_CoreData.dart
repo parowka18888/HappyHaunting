@@ -19,28 +19,9 @@ class Managing_CoreData{
 
   static double bigCircleModifier = 0.8;
 
-  static getGhostCoreData(BuildContext context, double width, double height, List<double> segmentsHeights, double dividerHeight) {
-    GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
-    Ghost? ghost = ghostSelector_ViewModel.chosenGhost;
-    double bigCircleSize = height * 0.3;
-
-    return Container(
-      height: height, width: width, //color: Colors.purple,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          getImagesBox(ghost!, width, segmentsHeights[0]),
-          Divider_GUI.getDivider(width, dividerHeight),
-          getNameAndDescriptionBox(ghost, width, segmentsHeights[1]),
-          Divider_GUI.getDivider(width, dividerHeight),
-          getTierBox(ghost, width, segmentsHeights[2])
-        ],
-      ),
-    );
-  }
-
   static getImagesBox(Ghost ghost, double width, double height) {
     double size = height * 0.8;
+    double textHeight = height - size;
     double decoratorHeight = height * 0.25;
     double decoratorPadding = (width - size) / 2 + size;
     return Container(
@@ -55,6 +36,10 @@ class Managing_CoreData{
           Positioned(
               top: 0, right: decoratorPadding,
               child: Decorator_GUI.getDecorator(decoratorHeight, FrameDecorator.upsideDownLeft)),
+          Positioned(bottom: 0, child: Container(
+            width: width, height: textHeight,// color: Colors.red,
+            child: TextAndFont.getText(width, textHeight, "Typ ducha: ${Statistic_Getter.getGhostTypeNameByStatistic(ghost.mainStat)}"),
+          ))
         ],
       ),
     );
@@ -79,6 +64,7 @@ class Managing_CoreData{
 
   static getTierBox(Ghost ghost, double width, double height) {
     double size = height * 0.8;
+    double textHeight = height - size;
     double decoratorHeight = height * 0.25;
     double decoratorPadding = (width - size) / 2 + size;
     return Container(
@@ -86,13 +72,17 @@ class Managing_CoreData{
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
-          Positioned(bottom: 0, child: Button_GUI.getButton(size, Tier_GUI.getTierImage(ghost.level), catalog: 'UI/Tiers/', imageSize: 0.8)),
+          Positioned(bottom: 0, child: Button_GUI.getButton(size, Tier_GUI.getTierImage(ghost.tier), catalog: 'UI/Tiers', imageSize: 0.8)),
           Positioned(
               bottom: 0, left: decoratorPadding,
               child: Decorator_GUI.getDecorator(decoratorHeight, FrameDecorator.right)),
           Positioned(
               bottom: 0, right: decoratorPadding,
               child: Decorator_GUI.getDecorator(decoratorHeight, FrameDecorator.left)),
+          Positioned(top: 0, child: Container(
+            width: width, height: textHeight,// color: Colors.red,
+            child: TextAndFont.getText(width, textHeight, "Poziom ducha:"),
+          ))
         ],
       ),
     );

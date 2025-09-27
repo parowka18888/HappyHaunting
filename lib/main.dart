@@ -6,6 +6,7 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
 import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
@@ -32,6 +33,7 @@ Future<void> main() async {
   Hive.registerAdapter(MortalTag_Adapter());
   Hive.registerAdapter(LevelScript_Adapter());
   Hive.registerAdapter(Statistic_Adapter());
+  Hive.registerAdapter(GhostTier_Adapter());
 
   Hive.registerAdapter(PlayerAdapter());
   Hive.registerAdapter(GhostAdapter());

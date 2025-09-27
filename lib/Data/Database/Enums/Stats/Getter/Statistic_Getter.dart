@@ -53,4 +53,21 @@ class Statistic_Getter{
     }
   }
 
+  static getGhostTypeNameByStatistic(Statistic statistic) {
+    switch(statistic){
+      case Statistic.fear:
+        return 'Upiór';
+      case Statistic.health:
+        return 'Mara';
+      case Statistic.madness:
+        return 'Zmrocze';
+      case Statistic.faith:
+        return 'Widmo';
+      case Statistic.impurity:
+        return 'Plaga';
+      case Statistic.emotions:
+        return 'Gremlin';
+    }
+  }
+
 }

@@ -30,6 +30,7 @@ class PowerList_Getter{
     return icon;
   }
 
+
   static Power getPowerByIndex(Ghost? ghost, int index) {
     return ghost!.powers[index];
   }

@@ -47,22 +47,21 @@ class Button_GUI{
     switch(buttonType){
       case ButtonType.Circle:
         return ClipOval(
-          child: Opacity(
-            opacity: isOpacityLowered ? 0.5 : 1.0,
-            child: getAnimatedImage(size * 0.75, iconPath)
-          ),
+            child: getAnimatedImage(size * 0.75, iconPath, isOpacityLowered)
         );
       case ButtonType.Square:
-        return getAnimatedImage(size, iconPath);
+        return getAnimatedImage(size, iconPath, isOpacityLowered);
     }
   }
 
-  static getAnimatedImage(double size, String iconPath) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 750),
-      curve: Curves.easeInOut,
-      height: size,
-      child: Image.asset(iconPath),
+  static getAnimatedImage(double size, String iconPath, bool isOpacityLowered) {
+    return AnimatedOpacity(opacity: isOpacityLowered ? 0.5 : 1.0, duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 750),
+        curve: Curves.easeInOut,
+        height: size,
+        child: Image.asset(iconPath),
+      ),
     );
   }
 

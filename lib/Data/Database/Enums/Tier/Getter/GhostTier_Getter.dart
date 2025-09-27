@@ -1,0 +1,3 @@
+class GhostTier_Getter{
+
+}

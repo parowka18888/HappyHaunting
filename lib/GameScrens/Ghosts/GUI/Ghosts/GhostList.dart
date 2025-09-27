@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/BackgroundPattern.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/FilterButtons/GhostFilterButtons.dart';
@@ -23,6 +24,7 @@ class GhostList{
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
+          BackgroundPattern.getBackgroundPatter(width),
           FramedWindow_GUI.getFramedWindow(
               context, width, height, backgroundOpacity: 0.8,
             function: () => getList(context, height, width,)

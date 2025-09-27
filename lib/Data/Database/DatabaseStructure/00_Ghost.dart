@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -31,7 +32,7 @@ class Ghost extends HiveObject {
   @HiveField(11)  final bool isUnlocked;
   @HiveField(12)  final int headCenterPoint;
 
-  @HiveField(13)  late int level;
+  @HiveField(13)  late GhostTier tier;
   @HiveField(14)  final Statistic mainStat;
 
   Ghost({
@@ -48,7 +49,7 @@ class Ghost extends HiveObject {
     required this.banishingText,
     required this.isUnlocked,
     required this.headCenterPoint,
-    required this.level,
+    required this.tier,
     required this.mainStat,
   });
 

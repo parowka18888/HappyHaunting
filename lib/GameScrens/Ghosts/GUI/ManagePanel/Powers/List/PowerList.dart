@@ -9,8 +9,8 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/IconGetter.dart';
 import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
 
-import '../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
-import '../../../../../Data/Database/Enums/UI/Button/ButtonType.dart';
+import '../../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
+import '../../../../../../Data/Database/Enums/UI/Button/ButtonType.dart';
 import '../Getter/PowerList_Getter.dart';
 
 class PowerList{
@@ -66,14 +66,15 @@ class PowerList{
     Power? chosenPower;
     if(power == null && ghost != null) chosenPower = PowerList_Getter.getPowerByIndex(ghost, index);
     String icon = PowerList_Getter.getIconName(power, ghost, index);
-    return Container(
-      height: iconSize, width: iconSize, //color: Colors.blue,
+    return AnimatedContainer(duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
+      height: viewModel?.chosenPower == chosenPower ? iconSize : iconSize * 0.75,
       child: Stack(alignment: Alignment(0, 0),
         children: [
           Background.getBackgroundLayers(iconSize, iconSize),
           Button_GUI.getButton(
               iconSize, icon, catalog: 'Powers', buttonType: ButtonType.Square,
-              function: (viewModel == null && chosenPower != null) ? null : () => viewModel!.setChosenPower(chosenPower)
+              function: (viewModel == null && chosenPower != null) ? null : () => viewModel!.setChosenPower(chosenPower),
+              isOpacityLowered: viewModel?.chosenPower == chosenPower ? false : true
           ),
         ],
       ),

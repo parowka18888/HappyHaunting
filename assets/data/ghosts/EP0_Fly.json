@@ -5,7 +5,7 @@
   "ghostImage" : "Fly",
   "headCenterPoint": 41,
   "mainStat": "faith",
-  "level": 1,
+  "tier": "tier1",
   "color" : "Green",
   "banishingText" : "flajjjj",
   "powersIDs": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
