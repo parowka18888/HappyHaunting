@@ -41,14 +41,14 @@ class Power_Damage{
   }
 
   static getDamageBoxForStat(Statistic statistic, double height, double width, Power power, Ghost ghost) {
-    double imageWidth = width * 0.3;
+    double imageWidth = width * 0.5;
     double valueWidth = width - imageWidth;
 
     int value = Statistic_Getter.getPowerValue(statistic, power).round();
     if(value <= 0){
       return Container();
     }
-    double tierModifier = TierStats_Getter.getUpgradedValue_Damage(value, ghost.tier);
+    int tierModifier = TierStats_Getter.getUpgradedValue_Damage(value, ghost.tier);
     return Container(
       height: height, width: width,// color: Colors.green,
       child: Row(

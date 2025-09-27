@@ -3,6 +3,7 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
+import 'package:happyhaunting/Data/Database/Setters/Ghost/DatabaseGhost_Setter.dart';
 
 class GhostSelector_ViewModel extends ChangeNotifier {
 
@@ -48,6 +49,11 @@ class GhostSelector_ViewModel extends ChangeNotifier {
     } else {
       chosenGhostTypes.add(stat);
     }
+    notifyListeners();
+  }
+
+  void upgradeChosenGhost() {
+    DatabaseGhost_Setter.upgradeGhost(chosenGhost);
     notifyListeners();
   }
 

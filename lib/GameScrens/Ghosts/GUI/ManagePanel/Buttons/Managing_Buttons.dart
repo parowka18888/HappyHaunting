@@ -37,7 +37,7 @@ class Managing_Buttons{
     return Button_GUI.getButton(
         viewModel.windowMode == mode ? defaultHeight : modifiedHeight,
         icon,
-        isOpacityLowered: viewModel.windowMode == mode ? false : true,
+        isIconOpacityLowered: viewModel.windowMode == mode ? false : true,
         function: () => viewModel.setWindowMode(mode));
   }
 

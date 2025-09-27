@@ -6,6 +6,8 @@ import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/CoreData/Managin
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/PowerDescription.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/Elements/Description/Power_Description.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/List/PowerList.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Upgrade/UpgradeTiersPreview_GUI.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Upgrade/UpgradeValues_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +32,9 @@ class SidePanelTemplate{
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.introduction)
             Managing_CoreData.getImagesBox(ghost!, width, height),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers)
-            PowerList.getPowerList(ghostSelector_ViewModel, width, height)
+            PowerList.getPowerList(ghostSelector_ViewModel, width, height),
+          if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade)
+            UpgradeValues_GUI.getUpgradeValues(ghostSelector_ViewModel, width, height)
         ],
       ),
     );
@@ -63,7 +67,11 @@ class SidePanelTemplate{
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.introduction)
             Managing_CoreData.getNameAndDescriptionBox(ghost!, availableWidth, height),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers)
-            PowerDescription.getPowerDescriptionBox(context, availableWidth, height)
+            PowerDescription.getPowerDescriptionBox(context, availableWidth, height),
+          if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade)
+            ElevatedButton(onPressed: (){
+              ghostSelector_ViewModel.upgradeChosenGhost();
+            }, child: Text("Ulepsz"))
         ],
       ),
     );
@@ -82,7 +90,9 @@ class SidePanelTemplate{
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.introduction)
             Managing_CoreData.getTierBox(ghost!, width, height),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers)
-          FramedWindow_GUI.getFramedWindow(context, width, height, function: () => Power_Damage.getDamageBox(context, width, height))
+            FramedWindow_GUI.getFramedWindow(context, width, height, function: () => Power_Damage.getDamageBox(context, width, height)),
+          if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade)
+            UpgradeTiersPreview_GUI.getTiersPreview(width, height, ghost!)
 
         ],
       ),

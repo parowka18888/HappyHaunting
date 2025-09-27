@@ -9,6 +9,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Decorator/Decorator_GUI.
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Tier/Tier_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/Settings/Tiers/TierStats_Getter.dart';
 import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -56,7 +57,7 @@ class Managing_CoreData{
         children: [
           TextAndFont.getText(width, nameHeight, ghost.name),
           TextAndFont.getText(width, descriptionHeight, ghost.health.toString()),
-          TextAndFont.getText(width, detailsHeight, 'Zdrowie: ${ghost.health}'),
+          TextAndFont.getText(width, detailsHeight, 'Zdrowie: ${ghost.health} (${TierStats_Getter.getUpgradedValue_Health(ghost.health, ghost.tier)})'),
         ],
       )
     );

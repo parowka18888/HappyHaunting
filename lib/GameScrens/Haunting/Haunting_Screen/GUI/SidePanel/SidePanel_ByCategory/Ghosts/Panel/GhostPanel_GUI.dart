@@ -100,7 +100,7 @@ class GhostPanel_GUI{
             return Button_GUI.getButton(height, power.icon,
                 catalog: "Powers",
                 function: () => PowerSetter.togglePowerActivation(power, game: viewModel.game),
-                isOpacityLowered: !power.isActivated
+                isIconOpacityLowered: !power.isActivated
             );
       }),
     );

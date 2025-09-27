@@ -37,8 +37,8 @@ class GhostFilterButtons{
     return Button_GUI.getButton(
         viewModel.chosenGhostTypes.contains(type) ? defaultHeight : modifiedHeight,
         Statistic_Getter.getStatisticImage(type),
-        isOpacityLowered: viewModel.chosenGhostTypes.contains(type) ? false : true,
-        overWrittenBackground: Statistic_Getter.getStatisticBackground(type),
+        isIconOpacityLowered: viewModel.chosenGhostTypes.contains(type) ? false : true,
+        // overWrittenBackground: Statistic_Getter.getStatisticBackground(type),
         function: () => viewModel.toggleFilter(type));
   }
 

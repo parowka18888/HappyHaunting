@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Getter/Button_Getter.dart';
 
@@ -8,11 +9,12 @@ class Button_GUI{
   static getButton(double size, String icon, {
     String catalog = "UI/Icons",
     VoidCallback? function,
-    bool isOpacityLowered = false,
+    bool isIconOpacityLowered = false,
     ButtonType buttonType = ButtonType.Circle,
     bool isActive = true,
     String? overWrittenBackground,
-    double imageSize = 1.0
+    double imageSize = 1.0,
+    double opacity = 1.0
   }) {
     String iconPath = 'assets/images/${catalog}/$icon.png';
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
@@ -27,18 +29,23 @@ class Button_GUI{
           function();
         }
       },
-      child: AnimatedContainer(duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
+      child: AnimatedOpacity(
+        opacity: opacity,
+        duration: AnimatedContainer_Getter.getDuration(),
+        curve: AnimatedContainer_Getter.getCurve(),
+        child: AnimatedContainer(duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
           height: size, width: size,
           child: Stack(alignment: Alignment(0, 0),
             children: [
               getBackground(background, buttonType),
               // Image.asset(background, fit: BoxFit.fill,),
               // Background.getBackgroundShade(size, size, opacity: 0.25),
-              getImage(buttonType, isOpacityLowered, iconPath, size * imageSize),
+              getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize),
               Image.asset(shade, fit: BoxFit.fill,),
               Image.asset(frame, fit: BoxFit.fill,),
             ],
           ),
+        ),
       )
     );
   }

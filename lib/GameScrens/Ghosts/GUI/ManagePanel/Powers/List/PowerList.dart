@@ -74,7 +74,7 @@ class PowerList{
           Button_GUI.getButton(
               iconSize, icon, catalog: 'Powers', buttonType: ButtonType.Square,
               function: (viewModel == null && chosenPower != null) ? null : () => viewModel!.setChosenPower(chosenPower),
-              isOpacityLowered: viewModel?.chosenPower == chosenPower ? false : true
+              isIconOpacityLowered: viewModel?.chosenPower == chosenPower ? false : true
           ),
         ],
       ),

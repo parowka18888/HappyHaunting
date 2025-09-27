@@ -18,7 +18,7 @@ class GhostsScreen_SidePanel{
   static Widget getSidePanelBox(BuildContext context, double width, double height) {
 
     double buttonsHeight = height * 0.175;
-    double buttonsOffset = - (height / 2);
+    double buttonsOffset = - (height / 2) ;
 
     return Stack(
       alignment: Alignment(0, 0),

@@ -105,7 +105,7 @@ class Power_CoreData{
                 children: [
                   Container(
                     height: valueBoxHeight, width: isVisible ? valueWidth : 0,// color: Colors.blue,
-                    child: TextAndFont.getText(valueWidth, valueBoxHeight, '${value.round().toString()}${modifiedValue > 0 ? "A" : ""}', alignment: Alignment.centerRight),
+                    child: TextAndFont.getText(valueWidth, valueBoxHeight, '${value.round().toString()}${modifiedValue > 0 ? "(TO DO)" : ""}', alignment: Alignment.centerRight),
                   ),
                   Container(
                     height: valueBoxHeight, width: valueImageWidth,// color: Colors.green,
