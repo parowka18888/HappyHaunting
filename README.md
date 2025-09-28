@@ -41,6 +41,10 @@ Already implemented features:
 
 
 ## 🖼️ Screenshots
+
+### 👻  Ghost preview and upgrading:
+![Screenshot 2](assets/images/promo/HappyHaunting_upgrading.png)
+
 ### 👻  Game screen, with visible side panels for ghosts and mortals:
 ![Screenshot 2](assets/images/promo/HappyHaunting.png)
 
