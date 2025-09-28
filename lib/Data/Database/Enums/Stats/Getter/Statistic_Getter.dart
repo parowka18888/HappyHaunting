@@ -70,4 +70,21 @@ class Statistic_Getter{
     }
   }
 
+  static getStatisticColor(Statistic statistic) {
+    switch(statistic){
+      case Statistic.fear:
+        return 'Red';
+      case Statistic.health:
+        return 'Blue';
+      case Statistic.madness:
+        return 'Yellow';
+      case Statistic.faith:
+        return 'Purple';
+      case Statistic.impurity:
+        return 'Green';
+      case Statistic.emotions:
+        return 'Pink';
+    }
+  }
+
 }

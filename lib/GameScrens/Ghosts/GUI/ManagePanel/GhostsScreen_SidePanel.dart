@@ -62,12 +62,12 @@ class GhostsScreen_SidePanel{
           SidePanelTemplate.getFirstSegment(context, availableWidth, segment1Height),
           Divider_GUI.getDivider(width, dividerHeight),
           SidePanelTemplate.getSecondSegment(context, width,
-              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers ? segment2Height + dynamicHeightChangeValue : segment2Height,
+              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers || ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade ? segment2Height + dynamicHeightChangeValue : segment2Height,
               availableWidth
           ),
           Divider_GUI.getDivider(width, dividerHeight),
           SidePanelTemplate.getThirdSegment(context, availableWidth,
-              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers ? segment3Height - dynamicHeightChangeValue : segment3Height),
+              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers || ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade ? segment3Height - dynamicHeightChangeValue : segment3Height),
         ],
       )
     );

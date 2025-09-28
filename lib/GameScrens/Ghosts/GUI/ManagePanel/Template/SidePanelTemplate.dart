@@ -6,6 +6,7 @@ import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/CoreData/Managin
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/PowerDescription.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/Elements/Description/Power_Description.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/List/PowerList.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Upgrade/UpgradePrice_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Upgrade/UpgradeTiersPreview_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Upgrade/UpgradeValues_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
@@ -69,9 +70,7 @@ class SidePanelTemplate{
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers)
             PowerDescription.getPowerDescriptionBox(context, availableWidth, height),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade)
-            ElevatedButton(onPressed: (){
-              ghostSelector_ViewModel.upgradeChosenGhost();
-            }, child: Text("Ulepsz"))
+            UpgradePrice_GUI.getUpgradePriceBox(context, availableWidth, height)
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/GhostList.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/LevelPicker.dart';
@@ -42,6 +43,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double ghostListHeight = sideAreaHeight * 0.7;
     double ghostListWidth = sideAreaWidth * 0.7;
 
+    //RESOURCE BAR
+    double resourceBarHeight = screenHeight * 0.07;
+    double resourceBarWidth = screenWidth * 0.75;
+
     final viewModel = context.watch<HauntingGame_ViewModel>();
 
     return Scaffold(
@@ -71,6 +76,12 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
                             () => GhostsScreen_SidePanel.getSidePanelBox(context, ghostListWidth, ghostListHeight)
                     )
+                ),
+
+                //RESOURCES
+                Positioned(
+                    top: 0,
+                    child: ResourceBar_GUI.getResourceBar(context, resourceBarWidth, resourceBarHeight)
                 )
               ],
             ),
