@@ -28,13 +28,17 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ghostImage: fields[8] as String,
       color: fields[9] as String,
       banishingText: fields[10] as String,
+      isUnlocked: fields[11] as bool,
+      headCenterPoint: fields[12] as int,
+      tier: fields[13] as GhostTier,
+      mainStat: fields[14] as Statistic,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(15)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -56,7 +60,15 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(9)
       ..write(obj.color)
       ..writeByte(10)
-      ..write(obj.banishingText);
+      ..write(obj.banishingText)
+      ..writeByte(11)
+      ..write(obj.isUnlocked)
+      ..writeByte(12)
+      ..write(obj.headCenterPoint)
+      ..writeByte(13)
+      ..write(obj.tier)
+      ..writeByte(14)
+      ..write(obj.mainStat);
   }
 
   @override
@@ -92,6 +104,10 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       ghostImage: json['ghostImage'] as String,
       color: json['color'] as String,
       banishingText: json['banishingText'] as String,
+      isUnlocked: json['isUnlocked'] as bool,
+      headCenterPoint: (json['headCenterPoint'] as num).toInt(),
+      tier: $enumDecode(_$GhostTierEnumMap, json['tier']),
+      mainStat: $enumDecode(_$StatisticEnumMap, json['mainStat']),
     );
 
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
@@ -106,4 +122,25 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'ghostImage': instance.ghostImage,
       'color': instance.color,
       'banishingText': instance.banishingText,
+      'isUnlocked': instance.isUnlocked,
+      'headCenterPoint': instance.headCenterPoint,
+      'tier': _$GhostTierEnumMap[instance.tier]!,
+      'mainStat': _$StatisticEnumMap[instance.mainStat]!,
     };
+
+const _$GhostTierEnumMap = {
+  GhostTier.tier1: 'tier1',
+  GhostTier.tier2: 'tier2',
+  GhostTier.tier3: 'tier3',
+  GhostTier.tier4: 'tier4',
+  GhostTier.tier5: 'tier5',
+};
+
+const _$StatisticEnumMap = {
+  Statistic.fear: 'fear',
+  Statistic.health: 'health',
+  Statistic.madness: 'madness',
+  Statistic.faith: 'faith',
+  Statistic.impurity: 'impurity',
+  Statistic.emotions: 'emotions',
+};

@@ -3,13 +3,16 @@
     "assets/data/ghosts/EP0_Spider.json",
     "assets/data/ghosts/EP0_Moth.json",
     "assets/data/ghosts/EP0_ClothesEater.json",
-    "assets/data/ghosts/EP0_Fly.json"
+    "assets/data/ghosts/EP0_Fly.json",
+    "assets/data/ghosts/EP0_Bee.json",
+    "assets/data/ghosts/EP0_Flea.json"
     ],
 
   "powers": [
     "assets/data/powers/EP0_Spider_01.json",
     "assets/data/powers/EP0_Spider_02.json",
     "assets/data/powers/EP0_Spider_03.json",
+    "assets/data/powers/EP0_Spider_04.json",
     "assets/data/powers/EP0_Fly_01.json",
     "assets/data/powers/EP0_Fly_02.json",
     "assets/data/powers/EP0_Fly_03.json",

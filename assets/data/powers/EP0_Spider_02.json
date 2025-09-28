@@ -1,22 +1,24 @@
 {
   "id": "EP0_Spider_02",
-  "name": "2",
-  "description": "Desc",
+  "name": "Kokon",
+  "description": "Śmiertelnik zostaje zamknięty w ciasnym kokonie.\nKokon zadaje natychmiastowe obrażenia śmiertelnikowi i unieruchamia go na czas 5 sekund.",
 
-  "cost" : 25,
-  "cooldown" : 25,
+  "cost" : 20,
+  "cooldown" : 15,
 
-  "stat_Fear": 25,
-  "stat_Health": 12,
-  "stat_Madness": 6,
-  "stat_Faith": 5,
+  "stat_Fear": 20,
+  "stat_Health": 35,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
 
   "powerType" : "mortalRoom",
   "powerChances" : 100,
   "powerTime" : 0,
 
   "powerTagsIDs": [],
-  "icon": "TestPower_2",
+  "icon": "Spider_Power_2",
 
 
   "powerTags": []

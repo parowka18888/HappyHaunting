@@ -28,17 +28,19 @@ class PowerAdapter extends TypeAdapter<Power> {
       cooldown: fields[8] as double,
       icon: fields[9] as String,
       powerType: fields[10] as String,
-      powerChances: fields[11] as int,
+      powerChances: fields[11] as double,
       powerTime: fields[12] as double,
       powerTagsIDs: (fields[13] as List).cast<String>(),
       powerTags: (fields[14] as List).cast<PowerTag>(),
+      stat_Emotions: fields[16] as double,
+      stat_Impurity: fields[15] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, Power obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(17)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -53,6 +55,10 @@ class PowerAdapter extends TypeAdapter<Power> {
       ..write(obj.stat_Madness)
       ..writeByte(6)
       ..write(obj.stat_Faith)
+      ..writeByte(15)
+      ..write(obj.stat_Impurity)
+      ..writeByte(16)
+      ..write(obj.stat_Emotions)
       ..writeByte(7)
       ..write(obj.cost)
       ..writeByte(8)
@@ -98,7 +104,7 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       cooldown: (json['cooldown'] as num).toDouble(),
       icon: json['icon'] as String,
       powerType: json['powerType'] as String,
-      powerChances: (json['powerChances'] as num).toInt(),
+      powerChances: (json['powerChances'] as num).toDouble(),
       powerTime: (json['powerTime'] as num).toDouble(),
       powerTagsIDs: (json['powerTagsIDs'] as List<dynamic>)
           .map((e) => e as String)
@@ -106,6 +112,8 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       powerTags: (json['powerTags'] as List<dynamic>)
           .map((e) => $enumDecode(_$PowerTagEnumMap, e))
           .toList(),
+      stat_Emotions: (json['stat_Emotions'] as num).toDouble(),
+      stat_Impurity: (json['stat_Impurity'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
@@ -116,6 +124,8 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
       'stat_Health': instance.stat_Health,
       'stat_Madness': instance.stat_Madness,
       'stat_Faith': instance.stat_Faith,
+      'stat_Impurity': instance.stat_Impurity,
+      'stat_Emotions': instance.stat_Emotions,
       'cost': instance.cost,
       'cooldown': instance.cooldown,
       'icon': instance.icon,

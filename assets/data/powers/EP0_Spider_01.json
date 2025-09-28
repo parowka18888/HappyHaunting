@@ -1,15 +1,17 @@
 {
   "id": "EP0_Spider_01",
-  "name": "1",
-  "description": "Desc",
+  "name": "Poza siecią",
+  "description": "W aktywnym obszarze pojawia się rojowisko pająków na okres ?powerTime? sekund.\nPająki zadają obrażenia co sekundę śmiertelnikom w pomieszczeniu.",
 
   "cost" : 20,
-  "cooldown" : 3,
+  "cooldown" : 25,
 
-  "stat_Fear": 40,
-  "stat_Health": 20,
-  "stat_Madness": 15,
-  "stat_Faith": 4,
+  "stat_Fear": 100,
+  "stat_Health": 5000,
+  "stat_Madness": 1,
+  "stat_Faith": 2,
+  "stat_Impurity": 3,
+  "stat_Emotions": 4,
 
   "powerType" : "mortalSingle",
   "powerChances" : 100,
@@ -18,7 +20,7 @@
 
   "powerTagsIDs": ["Noise"],
 
-  "icon": "TestPower_1",
+  "icon": "Spider_Power_1",
 
 
   "powerTags": []

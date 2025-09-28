@@ -43,6 +43,8 @@ dependencies:
   flame_tiled: ^3.0.5
   flame_audio: ^2.11.8
   provider: ^6.1.2
+  flutter_auto_size_text: ^4.1.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +89,7 @@ flutter:
     - assets/images/Levels/InteractiveObjects/
     - assets/images/UI/
     - assets/images/UI/Background/
+    - assets/images/UI/Decorator/
     - assets/images/UI/Moon/
     - assets/images/UI/Cards/
     - assets/images/UI/Logo/
@@ -94,6 +97,8 @@ flutter:
     - assets/images/UI/Bars/
     - assets/images/UI/Buttons/
     - assets/images/UI/Icons/
+    - assets/images/UI/Currency/
+    - assets/images/UI/Tiers/
     - assets/images/UI/SidePanel/
     - assets/images/UI/Frame/Gold/
     - assets/images/UI/Frame/GoldFancy/

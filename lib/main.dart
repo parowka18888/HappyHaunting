@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
@@ -5,8 +6,10 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
-import 'package:happyhaunting/GameScrens/01_Init/InitScreen.dart';
-import 'package:happyhaunting/GameScrens/03_Haunting/ViewModel/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
+import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
+import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -14,23 +17,32 @@ import 'package:provider/provider.dart';
 import 'Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'Data/Database/DatabaseStructure/02_Mortal.dart';
 import 'Data/Database/DatabaseStructure/03_Level.dart';
+import 'Data/Database/DatabaseStructure/08_Player.dart';
+import 'Data/Database/Enums/Stats/StatisticAdapter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  final dir = await getApplicationDocumentsDirectory();
-  Hive.init(dir.path);
-
+  if (kIsWeb) {
+  } else {
+    final dir = await getApplicationDocumentsDirectory();
+    Hive.init(dir.path);
+  }
+  
   Hive.registerAdapter(PowerTag_Adapter());
   Hive.registerAdapter(MortalTag_Adapter());
   Hive.registerAdapter(LevelScript_Adapter());
+  Hive.registerAdapter(Statistic_Adapter());
+  Hive.registerAdapter(GhostTier_Adapter());
 
+  Hive.registerAdapter(PlayerAdapter());
   Hive.registerAdapter(GhostAdapter());
   Hive.registerAdapter(PowerAdapter());
   Hive.registerAdapter(MortalAdapter());
   Hive.registerAdapter(LevelAdapter());
   Hive.registerAdapter(AuraAdapter());
 
+  await Hive.openBox<Player>('players');
   await Hive.openBox<Ghost>('ghosts');
   await Hive.openBox<Power>('powers');
   await Hive.openBox<Mortal>('mortals');
@@ -43,11 +55,20 @@ Future<void> main() async {
   ]);
 
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => HauntingGame_ViewModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HauntingGame_ViewModel()),
+        ChangeNotifierProvider(create: (_) => GhostSelector_ViewModel()),
+      ],
       child: const MyApp(),
     ),
   );
+  // runApp(
+  //   ChangeNotifierProvider(
+  //     create: (_) => HauntingGame_ViewModel(),
+  //     child: const MyApp(),
+  //   ),
+  // );
   // runApp(const MyApp());
 }
 
