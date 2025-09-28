@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/GhostList.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/LevelPicker.dart';
+import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
@@ -45,9 +48,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
 
     //RESOURCE BAR
     double resourceBarHeight = screenHeight * 0.07;
-    double resourceBarWidth = screenWidth * 0.75;
+    double resourceBarWidth = screenWidth * 0.6;
 
     final viewModel = context.watch<HauntingGame_ViewModel>();
+    final ghostSelector = context.watch<GhostSelector_ViewModel>();
 
     return Scaffold(
       body: Center(
@@ -79,8 +83,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
                 ),
 
                 //RESOURCES
-                Positioned(
-                    top: 0,
+                AnimatedPositioned(
+                    duration: AnimatedContainer_Getter.getDuration(),
+                    curve: AnimatedContainer_Getter.getCurve(),
+                    top: ghostSelector.windowMode == GhostSelector_WindowMode.upgrade ? 0 : -resourceBarHeight,
                     child: ResourceBar_GUI.getResourceBar(context, resourceBarWidth, resourceBarHeight)
                 )
               ],
