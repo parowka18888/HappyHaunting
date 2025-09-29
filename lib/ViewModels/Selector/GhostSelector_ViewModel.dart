@@ -63,4 +63,8 @@ class GhostSelector_ViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void refresh() {
+    notifyListeners();
+  }
+
 }

@@ -8,6 +8,8 @@ import 'package:happyhaunting/Data/Database/Enums/Resource/Resource.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/GhostTier_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/UpgradePrice_Getter.dart';
+import 'package:happyhaunting/Data/Database/Setters/Ghost/DatabaseGhost_Setter.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/Mechanics/Upgrade/GhostUpgrade.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
@@ -39,14 +41,14 @@ class UpgradePrice_GUI{
         alignment: Alignment(0, 0),
         children: [
           Positioned(top: (smallerDimension * bigCircleModifier) * 0.5,
-            child: getResourceCirclesBox(smallerDimension, ghost, ghostCanBeUpgraded),),
+            child: getResourceCirclesBox(smallerDimension, ghost, ghostCanBeUpgraded, viewModel)),
           Positioned(bottom: 0, child: getBottomPriceLine(width, bottomPriceLineHeight, ghost, ghostCanBeUpgraded))
         ],
       ),
     );
   }
 
-  static getResourceCirclesBox(double smallerDimension, Ghost ghost, bool ghostCanBeUpgraded) {
+  static getResourceCirclesBox(double smallerDimension, Ghost ghost, bool ghostCanBeUpgraded, GhostSelector_ViewModel viewModel) {
     double bigCircleSize = smallerDimension * bigCircleModifier;
     double smallCircleSize = smallerDimension * smallCircleModifier;
 
@@ -64,7 +66,9 @@ class UpgradePrice_GUI{
       children: [
         Button_GUI.getButton(bigCircleSize, 'ArrowUp',
             isActive: ghostCanBeUpgraded ? true : false,
-            opacity: ghostCanBeUpgraded ? 1.0 : 0.3
+            opacity: ghostCanBeUpgraded ? 1.0 : 0.3,
+            function: () => GhostUpgrade.upgradeGhost(ghost),
+            ghostSelector_ViewModel: viewModel
         ),
         getSingleResourceButton(-(smallR + bigR + smallPadding), 0, smallCircleSize, Resource.faith, modifierX: -1, ghost),
         getSingleResourceButton((smallR + bigR + smallPadding), 0, smallCircleSize, Resource.impurity, modifierX: 1, ghost),

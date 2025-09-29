@@ -12,9 +12,6 @@ import '../../../List/PowerList.dart';
 
 class Power_CoreData{
   static getCoreDataBox(BuildContext context, double width, double height, Power power, Ghost ghost) {
-
-    // double imageBoxWidth = width * 0.3;
-    // double imageWidth = ScaledUI.getScaledHeight(imageBoxWidth, height, 0, 1);
     double stringsWidth = width;
 
     return Container(
@@ -22,8 +19,7 @@ class Power_CoreData{
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // getCoreData_Image(imageWidth, imageWidth, ghost, power),
-          getCoreData_PowerStrings(height, stringsWidth, power)
+          getCoreData_PowerStrings(height, stringsWidth, power, ghost)
         ],
       ),
     );
@@ -35,11 +31,9 @@ class Power_CoreData{
   //   );
   // }
 
-  static getCoreData_PowerStrings(double height, double width, Power power) {
+  static getCoreData_PowerStrings(double height, double width, Power power, Ghost ghost) {
 
     double itemCount = 4;
-    // if(power.powerTime > 0) itemCount++;
-    // if(power.powerChances < 100) itemCount++;
 
     double nameWidth = width;
     double nameHeight = height * 0.35;
@@ -63,8 +57,8 @@ class Power_CoreData{
               children: [
                 getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Energia', power.cost, 'Mana'),
                 getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Czas odnowienia', power.cooldown, 'Cooldown'),
-                getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Czas trwania', power.powerTime, 'Cooldown', isVisible: PowersGUI_CheckConditions.checkIfPowerTimeIsAvailable(power.powerTime)),
-                getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Skuteczność', power.powerChances, 'Cooldown', isVisible: PowersGUI_CheckConditions.checkIfPowerChanceIsAvailable(power.powerChances)),
+                getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Czas trwania', power.powerTime, 'TimeOfPower', modifiedValue: TierStats_Getter.getUpgradedValue_PowerTime(power.powerTime, ghost.tier), isVisible: PowersGUI_CheckConditions.checkIfPowerTimeIsAvailable(power.powerTime)),
+                getCoreData_PowerString_Category(additionDataHeight, additionDataWidth, 'Skuteczność', power.powerChances, 'Efficiency', modifiedValue: TierStats_Getter.getUpgradedValue_Chance(power.powerChances, ghost.tier), isVisible: PowersGUI_CheckConditions.checkIfPowerChanceIsAvailable(power.powerChances)),
               ],
             ),
           ),
@@ -76,15 +70,17 @@ class Power_CoreData{
 
   static getCoreData_PowerString_Category(double height, double width, String categoryName, double value, String icon, {
     bool isVisible = true,
-    double modifiedValue = 0
+    int modifiedValue = 0
   }) {
 
     double valueBoxHeight = height * 0.6;
+    // double valueHeight = valueBoxHeight * 0.5;
+    // double iconHeight = valueBoxHeight * 0.5;
     double categoryNameHeight = height - valueBoxHeight;
 
     double boxWidth = ScaledUI.getScaledHeight(width, valueBoxHeight, 0, 2);
-    double valueImageWidth = boxWidth;
-    double valueWidth = boxWidth;
+    double valueImageWidth = boxWidth * 1;
+    double valueWidth = width - valueImageWidth ;
 
 
     return AnimatedOpacity(
@@ -95,24 +91,32 @@ class Power_CoreData{
         curve: AnimatedContainer_Getter.getCurve(),
         height: height,
         width: isVisible ? width : 0,
+        // color: Colors.red,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: valueBoxHeight, width: width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              height: valueBoxHeight, width: width,// color: Colors.green,
+              child: Stack(
+                alignment: Alignment(0, 0),
                 children: [
-                  Container(
-                    height: valueBoxHeight, width: isVisible ? valueWidth : 0,// color: Colors.blue,
-                    child: TextAndFont.getText(valueWidth, valueBoxHeight, '${value.round().toString()}${modifiedValue > 0 ? "(TO DO)" : ""}', alignment: Alignment.centerRight),
-                  ),
-                  Container(
-                    height: valueBoxHeight, width: valueImageWidth,// color: Colors.green,
-                    child: Image.asset('assets/images/UI/Icons/$icon.png',),
-                  )
+                  Positioned(right: 0, child:  Image.asset('assets/images/UI/Icons/$icon.png', height: valueBoxHeight,),),
+                  TextAndFont.getText(width, valueBoxHeight, '${value.round().toString()}${modifiedValue > 0 ? "(${modifiedValue.round()})" : ""}', alignment: Alignment.bottomCenter),
                 ],
               ),
+              // child: Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Container(
+              //       height: valueBoxHeight, width: isVisible ? valueWidth : 0,// color: Colors.blue,
+              //       child: TextAndFont.getText(valueWidth, valueBoxHeight, '${value.round().toString()}${modifiedValue > 0 ? "(${modifiedValue.round()})" : ""}', alignment: Alignment.center),
+              //     ),
+              //     Container(
+              //       height: valueBoxHeight, width: valueImageWidth,// color: Colors.green,
+              //       child: Image.asset('assets/images/UI/Icons/$icon.png',),
+              //     )
+              //   ],
+              // ),
             ),
             Container(
               height: categoryNameHeight, width: width,

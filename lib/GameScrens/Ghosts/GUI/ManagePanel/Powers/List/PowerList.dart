@@ -65,6 +65,8 @@ class PowerList{
   }) {
     Power? chosenPower;
     if(power == null && ghost != null) chosenPower = PowerList_Getter.getPowerByIndex(ghost, index);
+    bool isPowerChosen = viewModel?.chosenPower == chosenPower;
+
     String icon = PowerList_Getter.getIconName(power, ghost, index);
     return AnimatedContainer(duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
       height: viewModel?.chosenPower == chosenPower ? iconSize : iconSize * 0.75,
@@ -72,9 +74,9 @@ class PowerList{
         children: [
           Background.getBackgroundLayers(iconSize, iconSize),
           Button_GUI.getButton(
-              iconSize, icon, catalog: 'Powers', buttonType: ButtonType.Square,
-              function: (viewModel == null && chosenPower != null) ? null : () => viewModel!.setChosenPower(chosenPower),
-              isIconOpacityLowered: viewModel?.chosenPower == chosenPower ? false : true
+              iconSize, icon, catalog: 'Powers', buttonType: ButtonType.Square, imageSize: 1.0,
+              function: (viewModel == null && isPowerChosen) ? null : () => viewModel!.setChosenPower(chosenPower),
+              isIconOpacityLowered: isPowerChosen ? false : true
           ),
         ],
       ),

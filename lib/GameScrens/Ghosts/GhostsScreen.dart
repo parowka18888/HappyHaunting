@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
+import 'package:happyhaunting/Data/Database/Setters/Player/DatabasePlayer_Setter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
@@ -92,9 +93,11 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     child: ResourceBar_GUI.getResourceBar(context, resourceBarWidth, resourceBarHeight)
                 ),
 
-                ElevatedButton(onPressed: (){
+                // ElevatedButton(onPressed: (){
+                //   DatabasePlayer_Setter.cheatResources();
+                //   viewModel.refresh();
+                // }, child: Text('DODAJ ZASOBY!'))
 
-                }, child: Text('DODAJ ZASOBY!'))
               ],
             ),
         ),

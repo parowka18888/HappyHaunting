@@ -47,7 +47,7 @@ class GhostFilterButtons{
     return Button_GUI.getButton(
         sidePanelButtonsHeight,
         'Filter',
-        // imageSize: 0.8,
+        imageSize: 0.6,
       function: () => viewModel.toggleFilterMode()
     );
   }

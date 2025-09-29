@@ -17,7 +17,7 @@ import '../../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../../../../Data/Database/DatabaseStructure/01_Power.dart';
 
 class PowerDescription{
-  static Widget getPowerDescriptionBox(BuildContext context, double width, double height) {
+  static Widget getPowerDescriptionBox(BuildContext context, double width, double height, double statsWidth) {
 
     GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
     Ghost? ghost = ghostSelector_ViewModel.chosenGhost;
@@ -31,11 +31,11 @@ class PowerDescription{
     double dividerWidth = width * 0.8;
     double descriptionHeight = height - coreDataHeight - padding - dividerHeight;
     return Container(
-      width: width, height: height,// color: Colors.blue,
+      width: statsWidth, height: height,// color: Colors.blue,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Power_CoreData.getCoreDataBox(context, width, coreDataHeight, power, ghost),
+          Power_CoreData.getCoreDataBox(context, statsWidth, coreDataHeight, power, ghost),
           Divider_GUI.getDivider(dividerWidth, dividerHeight),
           //DESCRIPTION
           Power_Description.getDescriptionBox(context, width, descriptionHeight, power),

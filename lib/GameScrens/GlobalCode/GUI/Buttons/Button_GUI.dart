@@ -8,8 +8,10 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/Animat
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Getter/Button_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Tier/Tier_GUI.dart';
+import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
+import '../../../../ViewModels/Selector/GhostSelector_ViewModel.dart';
 
 class Button_GUI{
   static getButton(double size, String icon, {
@@ -20,7 +22,9 @@ class Button_GUI{
     bool isActive = true,
     String? overWrittenBackground,
     double imageSize = 0.7,
-    double opacity = 1.0
+    double opacity = 1.0,
+    GhostSelector_ViewModel? ghostSelector_ViewModel,
+    HauntingGame_ViewModel? haunting_ViewModel,
   }) {
     String iconPath = 'assets/images/${catalog}/$icon.png';
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
@@ -31,8 +35,11 @@ class Button_GUI{
 
     return GestureDetector(
       onTap: (){
-        if(function != null){
+        if(function != null && isActive == true){
           function();
+          if(ghostSelector_ViewModel != null) ghostSelector_ViewModel.refresh();
+          if(haunting_ViewModel != null) haunting_ViewModel.refresh();
+
         }
       },
       child: AnimatedOpacity(
@@ -46,8 +53,8 @@ class Button_GUI{
             child: Stack(alignment: Alignment(0, 0),
               children: [
                 getBackground(background, buttonType),
-                // Image.asset(background, fit: BoxFit.fill,),
-                // Background.getBackgroundShade(size, size, opacity: 0.25),
+                // // // Image.asset(background, fit: BoxFit.fill,),
+                // // // Background.getBackgroundShade(size, size, opacity: 0.25),
                 getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize),
                 Image.asset(shade, fit: BoxFit.fill,),
                 Image.asset(frame, fit: BoxFit.fill,),
