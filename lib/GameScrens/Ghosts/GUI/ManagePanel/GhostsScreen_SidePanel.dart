@@ -15,24 +15,30 @@ import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 
 class GhostsScreen_SidePanel{
-  static Widget getSidePanelBox(BuildContext context, double width, double height) {
+  static Widget getSidePanelBox(BuildContext context, double width, double height, double sidePanelButtonsHeight) {
 
     double buttonsHeight = height * 0.175;
     double buttonsOffset = - (height / 2) ;
+    double totalHeight = height + sidePanelButtonsHeight * 0.7;
+    return Container(
+      height: totalHeight, width: width, // color: Colors.blue,
+      child: Stack(
+        alignment: Alignment(0, 0),
+        children: [
+          BackgroundPattern.getBackgroundPatter(width),
+          Positioned(
+            bottom: 0,
+              child: FramedWindow_GUI.getFramedWindow(
+              context, width, height, backgroundOpacity: 0.8,
+              function: () => getGhostData(context, height, width,)
+          )),
+          Positioned(
+            top: 0,
+              child: Managing_Buttons.getManagingButtons(context, width, buttonsHeight)
+          )
 
-    return Stack(
-      alignment: Alignment(0, 0),
-      children: [
-        BackgroundPattern.getBackgroundPatter(width),
-        FramedWindow_GUI.getFramedWindow(
-            context, width, height, backgroundOpacity: 0.8,
-            function: () => getGhostData(context, height, width,)
-        ),
-        Transform.translate(
-          offset: Offset(0, buttonsOffset),
-          child: Managing_Buttons.getManagingButtons(context, width, buttonsHeight),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

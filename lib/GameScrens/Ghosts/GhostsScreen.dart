@@ -45,6 +45,8 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double sideAreaWidth = screenWidth * 0.4;
     double ghostListHeight = sideAreaHeight * 0.7;
     double ghostListWidth = sideAreaWidth * 0.7;
+    double sidePanelButtonsHeight = ghostListHeight * 0.15;
+
 
     //RESOURCE BAR
     double resourceBarHeight = screenHeight * 0.07;
@@ -78,7 +80,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
                 Positioned(
                     right: 0,
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
-                            () => GhostsScreen_SidePanel.getSidePanelBox(context, ghostListWidth, ghostListHeight)
+                            () => GhostsScreen_SidePanel.getSidePanelBox(context, ghostListWidth, ghostListHeight, sidePanelButtonsHeight)
                     )
                 ),
 
