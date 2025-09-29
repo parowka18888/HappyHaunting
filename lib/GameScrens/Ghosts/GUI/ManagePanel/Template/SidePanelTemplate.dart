@@ -68,7 +68,7 @@ class SidePanelTemplate{
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.introduction)
             Managing_CoreData.getNameAndDescriptionBox(ghost!, availableWidth, height),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers)
-            PowerDescription.getPowerDescriptionBox(context, availableWidth, height),
+            PowerDescription.getPowerDescriptionBox(context, availableWidth, height, width),
           if(ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade)
             UpgradePrice_GUI.getUpgradePriceBox(context, availableWidth, height)
         ],

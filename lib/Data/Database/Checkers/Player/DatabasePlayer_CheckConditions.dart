@@ -7,7 +7,7 @@ import '../../DatabaseStructure/08_Player.dart';
 class DatabasePlayer_CheckConditions{
 
   static bool checkIfPlayerCanAfford(int neededCount, Resource resource) {
-      if(DatabasePlayer_Getter.getPlayerResourceCountByResource(resource) > neededCount) return true;
+      if(DatabasePlayer_Getter.getPlayerResourceCountByResource(resource) >= neededCount) return true;
       return false;
   }
 

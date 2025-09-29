@@ -10,13 +10,22 @@ class TierStats_Getter{
     return upgradedValue;
   }
 
-  static int getUpgradedValue_PowerTime(double powerTime, GhostTier tier) {
-    int modifier = TierModifier_Getter.getTierModifier_Damage(tier).round();
-    return modifier;
+  static int getUpgradedValue_PowerTime(double value, GhostTier tier) {
+    double modifier = TierModifier_Getter.getTierModifier_TimeOfPower(tier);
+    modifier = modifier / 100;
+    int upgradedValue = (value * modifier).round();
+    return upgradedValue;
   }
 
   static getUpgradedValue_Health(double value, GhostTier tier) {
     double modifier = TierModifier_Getter.getTierModifier_Health(tier);
+    modifier = modifier / 100;
+    int upgradedValue = (value * modifier).round();
+    return upgradedValue;
+  }
+
+  static getUpgradedValue_Chance(double value, GhostTier tier) {
+    double modifier = TierModifier_Getter.getTierModifier_Chance(tier);
     modifier = modifier / 100;
     int upgradedValue = (value * modifier).round();
     return upgradedValue;
