@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/BackgroundPattern.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
@@ -14,24 +15,32 @@ import 'package:provider/provider.dart';
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
 class GhostList{
-  static getListLayers(BuildContext context, double width, double height) {
+  static getListLayers(BuildContext context, double width, double height, double sidePanelButtonsHeight) {
 
-    double buttonsHeight = height * 0.15;
-    double buttonsOffset = - (height / 2);
+    GhostSelector_ViewModel viewModel = context.watch<GhostSelector_ViewModel>();
 
+    double buttonHeightPaddingModifier = 0.7;
+    double totalHeight = height + sidePanelButtonsHeight * buttonHeightPaddingModifier;
+    double filterPadding = viewModel.isFilterButtonsBoxVisible ? 0 : -sidePanelButtonsHeight;
     return Container(
-      height: height, width: width,// color: Colors.pink,
+      height: totalHeight, width: width,// color: Colors.blue,
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
           BackgroundPattern.getBackgroundPatter(width),
-          FramedWindow_GUI.getFramedWindow(
+          Positioned(bottom: 0, child: FramedWindow_GUI.getFramedWindow(
               context, width, height, backgroundOpacity: 0.8,
-            function: () => getList(context, height, width,)
-          ),
-          Transform.translate(offset: Offset(0, buttonsOffset),
-            child: GhostFilterButtons.getFilterButtons(context, width, buttonsHeight),
-          )
+              function: () => getList(context, height, width,)
+          )),
+          Positioned(top: 0, child: GhostFilterButtons.getFilterMainButton(viewModel, width, sidePanelButtonsHeight)),
+          AnimatedPositioned(
+              duration: AnimatedContainer_Getter.getDuration(),
+              curve: AnimatedContainer_Getter.getCurve(),
+              bottom: filterPadding,
+              child: FramedWindow_GUI.getFramedWindow(context, width, sidePanelButtonsHeight,
+              function: ()=> GhostFilterButtons.getFilterButtons(context, width, sidePanelButtonsHeight))
+              )
+          // Positioned(top: 0, child: GhostFilterButtons.getFilterButtons(context, width, sidePanelButtonsHeight))
         ],
       ),
     );
@@ -51,6 +60,7 @@ class GhostList{
       double areaForItems = listWidth - (itemPadding * itemsInLine - 1);
 
     double itemSize = areaForItems / itemsInLine;
+    double ghostTierSize = itemSize * 0.3;
 
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
     int itemsCount = box_Ghosts.length;
@@ -86,12 +96,22 @@ class GhostList{
                   key: ValueKey(ghosts.length),
                   children: List.generate(ghosts.length, (index) {
                     Ghost ghost = ghosts[index];
-                    return Container(
-                      height: itemSize, width: itemSize,
-                      child: Button_GUI.getButton(
-                          itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square,
-                          function: () => ghostSelector_ViewModel.setChosenGhost(ghost)
-                      ),
+                    return Stack(
+                      alignment: Alignment(0, 0),
+                      children: [
+                        Container(
+                          height: itemSize, width: itemSize,
+                          child: Button_GUI.getButton(
+                              itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square,
+                              imageSize: 1.0,
+                              function: () => ghostSelector_ViewModel.setChosenGhost(ghost)
+                          ),
+                        ),
+                        Positioned(
+                            bottom: 0, left: 0,
+                            child: Button_GUI.getTierButton(ghost, ghostTierSize))
+
+                      ],
                     );
                   }),
                 )

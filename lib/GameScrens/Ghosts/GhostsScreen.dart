@@ -45,7 +45,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double sideAreaWidth = screenWidth * 0.4;
     double ghostListHeight = sideAreaHeight * 0.7;
     double ghostListWidth = sideAreaWidth * 0.7;
-    double sidePanelButtonsHeight = ghostListHeight * 0.15;
+    double sidePanelButtonsHeight = ghostListHeight * 0.175;
 
 
     //RESOURCE BAR
@@ -72,7 +72,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
                 Positioned(
                   left: 0,
                     child: DedicatedArea_GUI.getDedicatedArea(context, sideAreaWidth, sideAreaHeight,
-                            () => GhostList.getListLayers(context, ghostListWidth, ghostListHeight)
+                            () => GhostList.getListLayers(context, ghostListWidth, ghostListHeight, sidePanelButtonsHeight)
                     )
                 ),
 
@@ -90,7 +90,11 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     curve: AnimatedContainer_Getter.getCurve(),
                     top: ghostSelector.windowMode == GhostSelector_WindowMode.upgrade ? 0 : -resourceBarHeight,
                     child: ResourceBar_GUI.getResourceBar(context, resourceBarWidth, resourceBarHeight)
-                )
+                ),
+
+                ElevatedButton(onPressed: (){
+
+                }, child: Text('DODAJ ZASOBY!'))
               ],
             ),
         ),

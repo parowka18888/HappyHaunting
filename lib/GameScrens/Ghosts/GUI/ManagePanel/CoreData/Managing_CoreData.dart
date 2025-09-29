@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Getter/Statistic_Getter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/GhostTier_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
@@ -73,7 +74,9 @@ class Managing_CoreData{
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
-          Positioned(bottom: 0, child: Button_GUI.getButton(size, Tier_GUI.getTierImage(ghost.tier), catalog: 'UI/Tiers', imageSize: 0.8)),
+          Positioned(bottom: 0,
+              child: Button_GUI.getTierButton(ghost, size),
+          ),
           Positioned(
               bottom: 0, left: decoratorPadding,
               child: Decorator_GUI.getDecorator(decoratorHeight, FrameDecorator.right)),

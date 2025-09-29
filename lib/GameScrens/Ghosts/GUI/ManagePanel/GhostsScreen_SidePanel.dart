@@ -17,9 +17,8 @@ import '../../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 class GhostsScreen_SidePanel{
   static Widget getSidePanelBox(BuildContext context, double width, double height, double sidePanelButtonsHeight) {
 
-    double buttonsHeight = height * 0.175;
-    double buttonsOffset = - (height / 2) ;
-    double totalHeight = height + sidePanelButtonsHeight * 0.7;
+    double buttonHeightPaddingModifier = 0.7;
+    double totalHeight = height + sidePanelButtonsHeight * buttonHeightPaddingModifier;
     return Container(
       height: totalHeight, width: width, // color: Colors.blue,
       child: Stack(
@@ -34,7 +33,7 @@ class GhostsScreen_SidePanel{
           )),
           Positioned(
             top: 0,
-              child: Managing_Buttons.getManagingButtons(context, width, buttonsHeight)
+              child: Managing_Buttons.getManagingButtons(context, width, sidePanelButtonsHeight)
           )
 
         ],

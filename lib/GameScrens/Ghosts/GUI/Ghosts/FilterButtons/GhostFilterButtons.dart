@@ -38,8 +38,18 @@ class GhostFilterButtons{
         viewModel.chosenGhostTypes.contains(type) ? defaultHeight : modifiedHeight,
         Statistic_Getter.getStatisticImage(type),
         isIconOpacityLowered: viewModel.chosenGhostTypes.contains(type) ? false : true,
-        // overWrittenBackground: Statistic_Getter.getStatisticBackground(type),
+        overWrittenBackground: Statistic_Getter.getStatisticBackground(type),
         function: () => viewModel.toggleFilter(type));
+  }
+
+  static getFilterMainButton(GhostSelector_ViewModel viewModel, double width, double sidePanelButtonsHeight) {
+
+    return Button_GUI.getButton(
+        sidePanelButtonsHeight,
+        'Filter',
+        // imageSize: 0.8,
+      function: () => viewModel.toggleFilterMode()
+    );
   }
 
 }

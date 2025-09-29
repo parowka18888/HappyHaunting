@@ -6,6 +6,7 @@ import 'package:happyhaunting/Data/Database/Enums/Tier/CheckConditions/GhostTier
 import 'package:happyhaunting/Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
+import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/GhostTier_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/ScaledUI.dart';
 
@@ -25,13 +26,7 @@ class UpgradeTiersPreview_GUI{
         children: GhostTier.values
             .map((tier) => Row(
           children: [
-            Button_GUI.getButton(
-              ghost.tier == tier ? currentTierSize : size,
-              Tier_GUI.getTierImage(tier),
-              catalog: 'UI/Tiers',
-              imageSize: 0.8,
-              opacity: GhostTier_CheckConditions.checkIfGhostReachedLevel(ghost, tier) ? 1.0 : 0.5,
-            ),
+            Button_GUI.getTierButton(ghost, ghost.tier == tier ? currentTierSize : size, tier: tier),
             if (tier != GhostTier.values.last)
               Padding(padding: EdgeInsets.only(left: padding)),
           ],

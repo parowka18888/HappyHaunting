@@ -12,6 +12,7 @@ class GhostSelector_ViewModel extends ChangeNotifier {
   List<Statistic> chosenGhostTypes = [];
 
   GhostSelector_WindowMode windowMode = GhostSelector_WindowMode.powers;
+  bool isFilterButtonsBoxVisible = false;
 
   void setChosenGhost(Ghost? ghost){
     chosenGhost = ghost;
@@ -54,6 +55,11 @@ class GhostSelector_ViewModel extends ChangeNotifier {
 
   void upgradeChosenGhost() {
     DatabaseGhost_Setter.upgradeGhost(chosenGhost);
+    notifyListeners();
+  }
+
+  void toggleFilterMode() {
+    isFilterButtonsBoxVisible = !isFilterButtonsBoxVisible;
     notifyListeners();
   }
 
