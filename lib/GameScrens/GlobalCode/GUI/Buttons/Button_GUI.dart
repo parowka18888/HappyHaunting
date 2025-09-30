@@ -11,7 +11,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Tier/Tier_GUI.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../Data/Database/Enums/Tier/CheckConditions/GhostTier_CheckConditions.dart';
-import '../../../../ViewModels/Selector/GhostSelector_ViewModel.dart';
+import '../../../../ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 
 class Button_GUI{
   static getButton(double size, String icon, {

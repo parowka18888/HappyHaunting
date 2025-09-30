@@ -6,7 +6,7 @@ import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/GhostTier_Getter.d
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Settings/Tiers/TierModifier_Getter.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 
 class UpgradeValues_GUI{
   static getUpgradeValues(GhostSelector_ViewModel ghostSelector_ViewModel, double width, double height) {

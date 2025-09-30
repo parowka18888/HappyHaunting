@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Getter/PowerGUI_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/ScaledUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Settings/Tiers/TierStats_Getter.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';

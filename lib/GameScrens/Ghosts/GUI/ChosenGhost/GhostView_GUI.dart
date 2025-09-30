@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Moon/Moon_GUI.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';

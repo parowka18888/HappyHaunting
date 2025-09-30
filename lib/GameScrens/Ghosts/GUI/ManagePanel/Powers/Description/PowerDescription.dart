@@ -10,7 +10,7 @@ import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Descripti
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/Elements/CoreData/Power_CoreData.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/List/PowerList.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';

@@ -14,7 +14,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.da
 import 'package:provider/provider.dart';
 
 import '../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
-import '../../../../../ViewModels/Selector/GhostSelector_ViewModel.dart';
+import '../../../../../ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import '../../../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import '../Powers/Description/Elements/Damage/Power_Damage.dart';
 

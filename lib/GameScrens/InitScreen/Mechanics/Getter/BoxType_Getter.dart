@@ -1,6 +1,8 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:hive/hive.dart';
@@ -34,6 +36,12 @@ class BoxType_Getter{
       }
       case (Box<Aura> _) : {
         return Aura.fromJson(objectJson);
+      }
+      case (Box<Chapter> _) : {
+        return Chapter.fromJson(objectJson);
+      }
+      case (Box<Expansion> _) : {
+        return Expansion.fromJson(objectJson);
       }
     }
   }

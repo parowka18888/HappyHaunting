@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 class Ghost_GUI{

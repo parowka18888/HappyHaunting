@@ -7,7 +7,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart'
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/IconGetter.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 
 import '../../../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../../../../Data/Database/Enums/UI/Button/ButtonType.dart';

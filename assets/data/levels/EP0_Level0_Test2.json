@@ -14,6 +14,7 @@
 
   "mortalsIDs": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4"],
   "mortals": [],
+  "icon": "",
 
   "trappedGhostsIDs": [],
   "trappedGhosts": []

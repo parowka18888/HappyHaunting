@@ -48,5 +48,16 @@
     "assets/data/auras/Fire.json",
     "assets/data/auras/Outside.json",
     "assets/data/auras/Earth.json"
+  ],
+
+  "chapters": [
+    "assets/data/chapters/EP0_Chapter0.json",
+    "assets/data/chapters/EP0_Chapter1.json",
+    "assets/data/chapters/EP1_Chapter0.json"
+  ],
+
+  "expansions": [
+    "assets/data/expansions/EP0.json",
+    "assets/data/expansions/EP1.json"
   ]
 }

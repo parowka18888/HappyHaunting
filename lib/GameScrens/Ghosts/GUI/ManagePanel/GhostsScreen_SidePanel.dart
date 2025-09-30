@@ -8,7 +8,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedA
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Powers/Description/PowerDescription.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Buttons/Managing_Buttons.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';

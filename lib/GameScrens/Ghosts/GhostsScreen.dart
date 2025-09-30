@@ -11,7 +11,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GU
 import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/GhostList.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/LevelPicker.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 

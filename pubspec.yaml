@@ -79,6 +79,8 @@ flutter:
     - assets/data/mortals/
     - assets/data/levels/
     - assets/data/auras/
+    - assets/data/chapters/
+    - assets/data/expansions/
     - assets/images/Terrain/
     - assets/images/Mortals/
     - assets/images/Ghosts/

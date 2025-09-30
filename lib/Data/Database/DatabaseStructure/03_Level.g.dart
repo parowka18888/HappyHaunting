@@ -28,13 +28,14 @@ class LevelAdapter extends TypeAdapter<Level> {
       trappedGhosts: (fields[8] as List).cast<Ghost>(),
       startingText: fields[9] as String,
       script: fields[10] as LevelScript,
+      icon: fields[11] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -56,7 +57,9 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(9)
       ..write(obj.startingText)
       ..writeByte(10)
-      ..write(obj.script);
+      ..write(obj.script)
+      ..writeByte(11)
+      ..write(obj.icon);
   }
 
   @override
@@ -94,6 +97,7 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
           .toList(),
       startingText: json['startingText'] as String,
       script: $enumDecode(_$LevelScriptEnumMap, json['script']),
+      icon: json['icon'] as String,
     );
 
 Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
@@ -108,6 +112,7 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'trappedGhosts': instance.trappedGhosts,
       'startingText': instance.startingText,
       'script': _$LevelScriptEnumMap[instance.script]!,
+      'icon': instance.icon,
     };
 
 const _$LevelScriptEnumMap = {

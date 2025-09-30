@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
@@ -41,6 +43,8 @@ Future<void> main() async {
   Hive.registerAdapter(MortalAdapter());
   Hive.registerAdapter(LevelAdapter());
   Hive.registerAdapter(AuraAdapter());
+  Hive.registerAdapter(ChapterAdapter());
+  Hive.registerAdapter(ExpansionAdapter());
 
   await Hive.openBox<Player>('players');
   await Hive.openBox<Ghost>('ghosts');
@@ -48,6 +52,8 @@ Future<void> main() async {
   await Hive.openBox<Mortal>('mortals');
   await Hive.openBox<Level>('levels');
   await Hive.openBox<Aura>('auras');
+  await Hive.openBox<Chapter>('chapters');
+  await Hive.openBox<Expansion>('expansions');
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,

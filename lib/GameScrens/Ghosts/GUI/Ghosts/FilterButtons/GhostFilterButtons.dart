@@ -6,7 +6,7 @@ import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/ScaledUI.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../ViewModels/Selector/GhostSelector_ViewModel.dart';
+import '../../../../../ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import '../../../../GlobalCode/GUI/Buttons/Button_GUI.dart';
 
 class GhostFilterButtons{

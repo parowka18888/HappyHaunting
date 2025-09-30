@@ -8,7 +8,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart'
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/FilterButtons/GhostFilterButtons.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Buttons/Managing_Buttons.dart';
-import 'package:happyhaunting/ViewModels/Selector/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 

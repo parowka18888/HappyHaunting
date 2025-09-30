@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
+import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/Mechanics/Getter/BoxType_Getter.dart';
 import 'package:hive/hive.dart';
 
@@ -20,6 +22,8 @@ class AddingData{
     Box box_Mortals = Hive.box<Mortal>('mortals');
     Box box_Levels = Hive.box<Level>('levels');
     Box box_Auras = Hive.box<Aura>('auras');
+    Box box_Chapters = Hive.box<Chapter>('chapters');
+    Box box_Expansions = Hive.box<Expansion>('expansions');
 
     bool dataIsLoaded = true;
     int number_Ghosts = 2;
@@ -30,6 +34,8 @@ class AddingData{
     await AddingData.addDataToDatabase_FromJSON(box_Ghosts, 'ghosts');
     await AddingData.addDataToDatabase_FromJSON(box_Mortals, 'mortals');
     await AddingData.addDataToDatabase_FromJSON(box_Levels, 'levels');
+    await AddingData.addDataToDatabase_FromJSON(box_Chapters, 'chapters');
+    await AddingData.addDataToDatabase_FromJSON(box_Expansions, 'expansions');
 
   }
 
