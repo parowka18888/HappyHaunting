@@ -1,6 +1,8 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
+import 'package:happyhaunting/Data/Database/JsonConverter/AuraListConverter.dart';
+import 'package:happyhaunting/Data/Database/JsonConverter/PowerListConverter.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -16,36 +18,30 @@ class Ghost extends HiveObject {
   @HiveField(0)  final String id;
   @HiveField(1)  final String name;
 
-  @HiveField(2)  List<Power> powers;
-  @HiveField(3)  final List<String> powersIDs;
+  @HiveField(2) @PowerListConverter()  List<Power> powers;
 
-  @HiveField(4)  final String icon;
+  @HiveField(3)  final String icon;
 
-  @HiveField(5)  List<Aura> auras;
-  @HiveField(6)  final List<String> aurasIDs;
+  @HiveField(4) @AuraListConverter()  List<Aura> auras;
 
-  @HiveField(7)  final double health;
-  @HiveField(8)  final String ghostImage;
-  @HiveField(9)  final String color;
-  @HiveField(10)  final String banishingText;
+  @HiveField(5)  final double health;
+  @HiveField(6)  final String ghostImage;
+  @HiveField(7)  final String banishingText;
 
-  @HiveField(11)  final bool isUnlocked;
-  @HiveField(12)  final int headCenterPoint;
+  @HiveField(8)  final bool isUnlocked;
+  @HiveField(9)  final int headCenterPoint;
 
-  @HiveField(13)  late GhostTier tier;
-  @HiveField(14)  final Statistic mainStat;
+  @HiveField(10)  late GhostTier tier;
+  @HiveField(11)  final Statistic mainStat;
 
   Ghost({
     required this.id,
     required this.name,
     required this.powers,
-    required this.powersIDs,
     required this.icon,
     required this.auras,
-    required this.aurasIDs,
     required this.health,
     required this.ghostImage,
-    required this.color,
     required this.banishingText,
     required this.isUnlocked,
     required this.headCenterPoint,

@@ -6,13 +6,10 @@
   "headCenterPoint": 41,
   "mainStat": "faith",
   "tier": "tier1",
-  "color" : "Green",
   "banishingText" : "flajjjj",
-  "powersIDs": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
-  "aurasIDs": ["Aura_Earth", "Aura_Outside", "Aura_Inside"],
   "health" : 100,
   "isUnlocked" : true,
 
-  "powers": [],
-  "auras": []
+  "powers": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Earth", "Aura_Outside", "Aura_Inside"]
 }

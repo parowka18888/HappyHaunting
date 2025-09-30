@@ -16,8 +16,6 @@
   "powerType" : "lureFloor",
   "powerChances" : 25,
   "powerTime" : 0,
-
-  "powerTagsIDs": [],
   "icon": "TestPower_4",
 
 

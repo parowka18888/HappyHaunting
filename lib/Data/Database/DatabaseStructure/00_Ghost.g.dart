@@ -20,25 +20,22 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       id: fields[0] as String,
       name: fields[1] as String,
       powers: (fields[2] as List).cast<Power>(),
-      powersIDs: (fields[3] as List).cast<String>(),
-      icon: fields[4] as String,
-      auras: (fields[5] as List).cast<Aura>(),
-      aurasIDs: (fields[6] as List).cast<String>(),
-      health: fields[7] as double,
-      ghostImage: fields[8] as String,
-      color: fields[9] as String,
-      banishingText: fields[10] as String,
-      isUnlocked: fields[11] as bool,
-      headCenterPoint: fields[12] as int,
-      tier: fields[13] as GhostTier,
-      mainStat: fields[14] as Statistic,
+      icon: fields[3] as String,
+      auras: (fields[4] as List).cast<Aura>(),
+      health: fields[5] as double,
+      ghostImage: fields[6] as String,
+      banishingText: fields[7] as String,
+      isUnlocked: fields[8] as bool,
+      headCenterPoint: fields[9] as int,
+      tier: fields[10] as GhostTier,
+      mainStat: fields[11] as Statistic,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -46,28 +43,22 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(2)
       ..write(obj.powers)
       ..writeByte(3)
-      ..write(obj.powersIDs)
-      ..writeByte(4)
       ..write(obj.icon)
-      ..writeByte(5)
+      ..writeByte(4)
       ..write(obj.auras)
-      ..writeByte(6)
-      ..write(obj.aurasIDs)
-      ..writeByte(7)
+      ..writeByte(5)
       ..write(obj.health)
-      ..writeByte(8)
+      ..writeByte(6)
       ..write(obj.ghostImage)
-      ..writeByte(9)
-      ..write(obj.color)
-      ..writeByte(10)
+      ..writeByte(7)
       ..write(obj.banishingText)
-      ..writeByte(11)
+      ..writeByte(8)
       ..write(obj.isUnlocked)
-      ..writeByte(12)
+      ..writeByte(9)
       ..write(obj.headCenterPoint)
-      ..writeByte(13)
+      ..writeByte(10)
       ..write(obj.tier)
-      ..writeByte(14)
+      ..writeByte(11)
       ..write(obj.mainStat);
   }
 
@@ -89,20 +80,11 @@ class GhostAdapter extends TypeAdapter<Ghost> {
 Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       id: json['id'] as String,
       name: json['name'] as String,
-      powers: (json['powers'] as List<dynamic>)
-          .map((e) => Power.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      powersIDs:
-          (json['powersIDs'] as List<dynamic>).map((e) => e as String).toList(),
+      powers: const PowerListConverter().fromJson(json['powers'] as List),
       icon: json['icon'] as String,
-      auras: (json['auras'] as List<dynamic>)
-          .map((e) => Aura.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      aurasIDs:
-          (json['aurasIDs'] as List<dynamic>).map((e) => e as String).toList(),
+      auras: const AuraListConverter().fromJson(json['auras'] as List),
       health: (json['health'] as num).toDouble(),
       ghostImage: json['ghostImage'] as String,
-      color: json['color'] as String,
       banishingText: json['banishingText'] as String,
       isUnlocked: json['isUnlocked'] as bool,
       headCenterPoint: (json['headCenterPoint'] as num).toInt(),
@@ -113,14 +95,11 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'powers': instance.powers,
-      'powersIDs': instance.powersIDs,
+      'powers': const PowerListConverter().toJson(instance.powers),
       'icon': instance.icon,
-      'auras': instance.auras,
-      'aurasIDs': instance.aurasIDs,
+      'auras': const AuraListConverter().toJson(instance.auras),
       'health': instance.health,
       'ghostImage': instance.ghostImage,
-      'color': instance.color,
       'banishingText': instance.banishingText,
       'isUnlocked': instance.isUnlocked,
       'headCenterPoint': instance.headCenterPoint,

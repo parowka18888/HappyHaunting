@@ -48,72 +48,72 @@ class BoxType_Getter{
 
   static getDetailedInformation_ByBoxType(Box box, String objectID) {
     switch (box){
-      case (Box<Ghost> _) : {
-        var ghost = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(ghost != null){
-          List<Power> powers = [];
-          List<Aura> auras = [];
-          for(String id in ghost.powersIDs){
-            Power power = DatabaseObject_Getter.getObjectById(id, box_Powers);
-            powers.add(power);
-          }
-          for(String id in ghost.aurasIDs){
-            print(id); print(box_Auras.length);
-            Aura aura = DatabaseObject_Getter.getObjectById(id, box_Auras);
-            auras.add(aura);
-          }
-          ghost.powers = powers;
-          ghost.auras = auras;
-          ghost.save();
-          print("✅✅✅✅ Nadpisano dane ${ghost.id}");
-        }
-        break;
-      }
-      case (Box<Power> _) : {
-        Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(power != null){
-          for(var powerTag in power.powerTagsIDs){
-            PowerTag tag = PowerTag.values.byName(powerTag);
-            power.powerTags.add(tag);
-          }
-          power.save();
-        }
-        break;
-      }
-      case (Box<Mortal> _) : {
-        Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(mortal != null){
-          List<String> mortalTagsIDs = mortal.mortalTagsIDs;
-          for(String name in mortalTagsIDs){
-            MortalTag tag = MortalTag.values.byName(name);
-            mortal.mortalTags.add(tag);
-          }
-        }
-        break;
-      }
-      case (Box<Level> _) : {
-        Level? level = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(level != null){
-          List<String> mortalsIDs = level.mortalsIDs;
-          List<Mortal> mortals = [];
-          List<String> trappedGhostsIDs = level.trappedGhostsIDs;
-          List<Ghost> trappedGhosts = [];
-
-          for(String id in mortalsIDs){
-            Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
-            mortals.add(mortal);
-          }
-
-          for(String id in trappedGhostsIDs){
-            Ghost ghost = DatabaseObject_Getter.getObjectById(id, box_Ghosts);
-            trappedGhosts.add(ghost);
-          }
-          level.mortals = mortals;
-          level.trappedGhosts = trappedGhosts;
-
-          level.save();
-        }
-      }
+      // case (Box<Ghost> _) : {
+      //   var ghost = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(ghost != null){
+      //     List<Power> powers = [];
+      //     List<Aura> auras = [];
+      //     for(String id in ghost.powersIDs){
+      //       Power power = DatabaseObject_Getter.getObjectById(id, box_Powers);
+      //       powers.add(power);
+      //     }
+      //     for(String id in ghost.aurasIDs){
+      //       print(id); print(box_Auras.length);
+      //       Aura aura = DatabaseObject_Getter.getObjectById(id, box_Auras);
+      //       auras.add(aura);
+      //     }
+      //     ghost.powers = powers;
+      //     ghost.auras = auras;
+      //     ghost.save();
+      //     print("✅✅✅✅ Nadpisano dane ${ghost.id}");
+      //   }
+      //   break;
+      // }
+      // case (Box<Power> _) : {
+      //   Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(power != null){
+      //     for(var powerTag in power.powerTagsIDs){
+      //       PowerTag tag = PowerTag.values.byName(powerTag);
+      //       power.powerTags.add(tag);
+      //     }
+      //     power.save();
+      //   }
+      //   break;
+      // }
+      // case (Box<Mortal> _) : {
+      //   Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(mortal != null){
+      //     List<String> mortalTagsIDs = mortal.mortalTagsIDs;
+      //     for(String name in mortalTagsIDs){
+      //       MortalTag tag = MortalTag.values.byName(name);
+      //       mortal.mortalTags.add(tag);
+      //     }
+      //   }
+      //   break;
+      // }
+      // case (Box<Level> _) : {
+      //   Level? level = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(level != null){
+      //     List<String> mortalsIDs = level.mortalsIDs;
+      //     List<Mortal> mortals = [];
+      //     List<String> trappedGhostsIDs = level.trappedGhostsIDs;
+      //     List<Ghost> trappedGhosts = [];
+      //
+      //     for(String id in mortalsIDs){
+      //       Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
+      //       mortals.add(mortal);
+      //     }
+      //
+      //     for(String id in trappedGhostsIDs){
+      //       Ghost ghost = DatabaseObject_Getter.getObjectById(id, box_Ghosts);
+      //       trappedGhosts.add(ghost);
+      //     }
+      //     level.mortals = mortals;
+      //     level.trappedGhosts = trappedGhosts;
+      //
+      //     level.save();
+      //   }
+      // }
     }
 
   }

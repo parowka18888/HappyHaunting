@@ -16,8 +16,6 @@
   "powerType" : "lureMap",
   "powerChances" : 15,
   "powerTime" : 0,
-
-  "powerTagsIDs": [],
   "icon": "TestPower_5",
 
 

@@ -6,13 +6,10 @@
   "headCenterPoint": 27,
   "mainStat": "madness",
   "tier": "tier1",
-  "color" : "Blue",
   "banishingText" : "Flea",
-  "powersIDs": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],
-  "aurasIDs": ["Aura_Inside"],
   "health" : 55,
   "isUnlocked" : false,
 
-  "powers": [],
-  "auras": []
+  "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Inside"]
 }

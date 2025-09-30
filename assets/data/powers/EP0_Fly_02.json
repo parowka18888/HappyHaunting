@@ -16,7 +16,6 @@
   "powerType" : "effectRoom",
   "powerChances" : 100,
   "powerTime" : 10,
-  "powerTagsIDs": [],
   "icon": "TestPower_8",
 
 

@@ -17,9 +17,8 @@
   "powerChances" : 100,
   "powerTime" : 0,
 
-  "powerTagsIDs": ["Noise"],
   "icon": "Spider_Power_3",
 
 
-  "powerTags": []
+  "powerTags": ["Noise"]
 }

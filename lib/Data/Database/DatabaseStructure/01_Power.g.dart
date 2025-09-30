@@ -30,8 +30,7 @@ class PowerAdapter extends TypeAdapter<Power> {
       powerType: fields[10] as String,
       powerChances: fields[11] as double,
       powerTime: fields[12] as double,
-      powerTagsIDs: (fields[13] as List).cast<String>(),
-      powerTags: (fields[14] as List).cast<PowerTag>(),
+      powerTags: (fields[13] as List).cast<PowerTag>(),
       stat_Emotions: fields[16] as double,
       stat_Impurity: fields[15] as double,
     );
@@ -40,7 +39,7 @@ class PowerAdapter extends TypeAdapter<Power> {
   @override
   void write(BinaryWriter writer, Power obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(16)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -72,8 +71,6 @@ class PowerAdapter extends TypeAdapter<Power> {
       ..writeByte(12)
       ..write(obj.powerTime)
       ..writeByte(13)
-      ..write(obj.powerTagsIDs)
-      ..writeByte(14)
       ..write(obj.powerTags);
   }
 
@@ -106,9 +103,6 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       powerType: json['powerType'] as String,
       powerChances: (json['powerChances'] as num).toDouble(),
       powerTime: (json['powerTime'] as num).toDouble(),
-      powerTagsIDs: (json['powerTagsIDs'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
       powerTags: (json['powerTags'] as List<dynamic>)
           .map((e) => $enumDecode(_$PowerTagEnumMap, e))
           .toList(),
@@ -132,7 +126,6 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
       'powerType': instance.powerType,
       'powerChances': instance.powerChances,
       'powerTime': instance.powerTime,
-      'powerTagsIDs': instance.powerTagsIDs,
       'powerTags':
           instance.powerTags.map((e) => _$PowerTagEnumMap[e]!).toList(),
     };

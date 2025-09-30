@@ -29,8 +29,7 @@ class Power extends HiveObject {
 
   @HiveField(12)  final double powerTime;
 
-  @HiveField(13)  final List<String> powerTagsIDs;
-  @HiveField(14)  List<PowerTag> powerTags;
+  @HiveField(13)  List<PowerTag> powerTags;
 
 
 
@@ -49,7 +48,6 @@ class Power extends HiveObject {
   required this.powerType,
   required this.powerChances,
   required this.powerTime,
-  required this.powerTagsIDs,
   required this.powerTags,
   required this.stat_Emotions,
   required this.stat_Impurity,

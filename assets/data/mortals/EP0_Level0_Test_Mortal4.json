@@ -13,12 +13,11 @@
   "stat_Multiplier_Madness": 1.0,
   "stat_Multiplier_Faith": 1.0,
 
-  "mortalTagsIDs": ["regular"],
+  "mortalTags": ["regular"],
   "exorcismStrength" : 0,
 
 
-  "fear": "Null",
-  "mortalTags": []
+  "fear": "Null"
 
 
 }

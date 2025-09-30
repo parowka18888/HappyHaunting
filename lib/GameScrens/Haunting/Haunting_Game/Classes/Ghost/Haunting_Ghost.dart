@@ -15,13 +15,12 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
     required this.name, required this.icon, required this.id,
     required this.powers, required this.auras,
     required this.health_Current, required this.health_Maximum,
-    required this.image, required this.panelImage, required this.color, required this.banishText,
+    required this.image, required this.panelImage, required this.banishText,
   });
   String icon = "";
   String name = "";
   String id = "";
   String image = "";
-  String color = "";
   String panelImage = "";
   String banishText = "";
   List<Haunting_Power> powers = [];
