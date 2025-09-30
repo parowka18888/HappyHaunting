@@ -48,27 +48,27 @@ class BoxType_Getter{
 
   static getDetailedInformation_ByBoxType(Box box, String objectID) {
     switch (box){
-      case (Box<Ghost> _) : {
-        var ghost = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(ghost != null){
-          List<Power> powers = [];
-          List<Aura> auras = [];
-          for(String id in ghost.powersIDs){
-            Power power = DatabaseObject_Getter.getObjectById(id, box_Powers);
-            powers.add(power);
-          }
-          for(String id in ghost.aurasIDs){
-            print(id); print(box_Auras.length);
-            Aura aura = DatabaseObject_Getter.getObjectById(id, box_Auras);
-            auras.add(aura);
-          }
-          ghost.powers = powers;
-          ghost.auras = auras;
-          ghost.save();
-          print("✅✅✅✅ Nadpisano dane ${ghost.id}");
-        }
-        break;
-      }
+      // case (Box<Ghost> _) : {
+      //   var ghost = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(ghost != null){
+      //     List<Power> powers = [];
+      //     List<Aura> auras = [];
+      //     for(String id in ghost.powersIDs){
+      //       Power power = DatabaseObject_Getter.getObjectById(id, box_Powers);
+      //       powers.add(power);
+      //     }
+      //     for(String id in ghost.aurasIDs){
+      //       print(id); print(box_Auras.length);
+      //       Aura aura = DatabaseObject_Getter.getObjectById(id, box_Auras);
+      //       auras.add(aura);
+      //     }
+      //     ghost.powers = powers;
+      //     ghost.auras = auras;
+      //     ghost.save();
+      //     print("✅✅✅✅ Nadpisano dane ${ghost.id}");
+      //   }
+      //   break;
+      // }
       case (Box<Power> _) : {
         Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
         if(power != null){

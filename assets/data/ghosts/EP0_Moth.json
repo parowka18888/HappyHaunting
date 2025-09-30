@@ -6,13 +6,10 @@
   "headCenterPoint": 22,
   "mainStat": "impurity",
   "tier": "tier1",
-  "color" : "Purple",
   "banishingText" : "mofffff",
-  "powersIDs": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_ClothesEater_01"],
-  "aurasIDs": ["Aura_Fire", "Aura_Inside"],
   "health" : 75,
   "isUnlocked" : true,
 
-  "powers": [],
-  "auras": []
+  "powers": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Fire", "Aura_Inside"]
 }
