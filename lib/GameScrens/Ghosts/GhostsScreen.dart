@@ -52,10 +52,6 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double sidePanelButtonsHeight = ghostListHeight * 0.175;
 
 
-    //CANCEL BUTTON
-    double cancelButtonHeight = screenHeight * 0.1;
-    double cancelButtonMargin = cancelButtonHeight * 0.2;
-
     final viewModel = context.watch<HauntingGame_ViewModel>();
     final ghostSelector = context.watch<GhostSelector_ViewModel>();
 
@@ -96,7 +92,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     child: ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight)
                 ),
 
-                CancelButton_GUI.getCancelButton(cancelButtonHeight, margin: cancelButtonMargin,
+                CancelButton_GUI.getCancelButton(screenHeight,
                   function: () => CancelButton_Mechanics.popScreen(context)
                 )
 
