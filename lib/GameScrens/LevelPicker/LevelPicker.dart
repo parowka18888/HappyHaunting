@@ -48,34 +48,34 @@ class _LevelPickerState extends State<LevelPicker> {
 
     return Scaffold(
       body: Center(
-        // child: Stack(
-        //   alignment: Alignment(0, 0),
-        //   children: [
-        //     Background.getBackground(screenWidth, screenHeight),
-        //     ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight),
-        //     CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
-        //
-        //     LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: !isExpansionChosen, canPop: false,
-        //         function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
-        //     ),
-        //
-        //     LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: isExpansionChosen, canPop: true,
-        //         function: () => ChapterPicker_GUI().getLevelPickerBox(context, pickerWidth, pickerHeight)
-        //     ),
-        //
-        //   ],
-        // ),
-        child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Image.asset('assets/images/Mortals/TestMortal3.png'),
-                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(0)));}, child: Text("Level testowy 1")),
-                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(1)));}, child: Text("Level testowy 2")),
-                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(2)));}, child: Text("Level testowy 3 (piętra)")),
-              ],
-            )
+        child: Stack(
+          alignment: Alignment(0, 0),
+          children: [
+            Background.getBackground(screenWidth, screenHeight),
+            ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight),
+            CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
+
+            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: !isExpansionChosen, canPop: false,
+                function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
+            ),
+
+            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: isExpansionChosen, canPop: true,
+                function: () => ChapterPicker_GUI().getLevelPickerBox(context, pickerWidth, pickerHeight)
+            ),
+
+          ],
         ),
+        // child: Container(
+        //     child: Column(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         // Image.asset('assets/images/Mortals/TestMortal3.png'),
+        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(0)));}, child: Text("Level testowy 1")),
+        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(1)));}, child: Text("Level testowy 2")),
+        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(2)));}, child: Text("Level testowy 3 (piętra)")),
+        //       ],
+        //     )
+        // ),
       ),
     );
   }

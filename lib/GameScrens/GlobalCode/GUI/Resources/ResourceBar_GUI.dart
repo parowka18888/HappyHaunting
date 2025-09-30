@@ -11,7 +11,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 
 class ResourceBar_GUI{
   static getResourceBar(BuildContext context, double width, double height, {
-    bool isActive = false
+    bool isActive = true
   }) {
     //RESOURCE BAR
     double resourceBarHeight = height * 0.07;

@@ -11,7 +11,9 @@ class TextAndFont{
   static getText(double width, double height, String string, {
     double? fontSize,
     Alignment alignment = Alignment.center,
-    int maxLines = 50
+    int maxLines = 50,
+    double minFontSize = 5,
+    bool isFramed = true
   }) {
     if(fontSize == null) fontSize = height;
 
@@ -21,16 +23,36 @@ class TextAndFont{
       color: Colors.white,
     );
 
+    var outlineStyle = fontStyle.copyWith(
+      foreground: Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2
+        ..color = Colors.black,
+    );
+
+
     return SizedBox(
         width: width, height: height,
         child: Align( alignment: alignment,
-          child: AutoSizeText(
-            string,
-            minFontSize: 5,
-            maxLines: maxLines,
-            textAlign: TextAlign.justify,
-            style: fontStyle,
-          ),
+          child: Stack(
+            children: [
+              if(isFramed == true)
+              AutoSizeText(
+                string,
+                minFontSize: minFontSize,
+                maxLines: maxLines,
+                textAlign: TextAlign.justify,
+                style: outlineStyle,
+              ),
+              AutoSizeText(
+                string,
+                minFontSize: minFontSize,
+                maxLines: maxLines,
+                textAlign: TextAlign.justify,
+                style: fontStyle,
+              ),
+            ],
+          )
         ),
     );
   }

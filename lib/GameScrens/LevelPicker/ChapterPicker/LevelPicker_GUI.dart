@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameDecorator.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Decorator/Decorator_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/PlotTraits_GUI.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Data/Database/Enums/UI/Frame/FrameType.dart';
@@ -55,16 +59,57 @@ class ChapterPicker_GUI{
   }
 
   getChapterBox(BuildContext context, double width, double height, Chapter chapter) {
+
+    double coreDataWidth = width * 0.5;
+    double coreDataHeight = height * 0.9;
+    double coreDataPadding = coreDataWidth * 0.05;
+
+    double traitsSize = height * 0.6;
+    double traitTitleHeight = height * 0.15;
+
     return Container(
       height: height, width: width, color: Colors.blue,
       child: Stack(
         alignment: Alignment(0, 0),
         children: [
           LevelPickerTemplateBackground.getBackground(width, height, chapter.backgroundImage, 'UI/ExpansionPicker/'),
-
+          Positioned(left: coreDataPadding, child: getChapterCoreData(coreDataHeight, coreDataWidth, chapter)),
+          Positioned(right: 0, child: PlotTraits_GUI.getPlotTraitsBox(traitsSize, traitTitleHeight, chapter: chapter))
         ],
       ),
     );
   }
+
+  getChapterCoreData(double height, double width, Chapter chapter) {
+    double chapterTitleHeight = height * 0.3;
+
+    double chapterNameTextWidth = width * 0.7;
+    double chapterNameHeight = height - chapterTitleHeight;
+    
+    return Container(
+      height: height, width: width,// color: Colors.yellow,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: chapterTitleHeight, width: width, //color: Colors.blue,
+            child: TextAndFont.getText(width, chapterTitleHeight, "Rozdział ${chapter.number}"),
+          ),
+          Container(
+            height: chapterNameHeight, width: width,// color: Colors.red,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                    Expanded(child: Image.asset('assets/images/UI/Decorator/TextDecorator_Left.png'),),
+                    TextAndFont.getText(chapterNameTextWidth, chapterNameHeight, chapter.name),
+                    Expanded(child: Image.asset('assets/images/UI/Decorator/TextDecorator_Right.png'),),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 
 }

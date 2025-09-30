@@ -85,12 +85,7 @@ class _GhostsScreenState extends State<GhostsScreen> {
                 ),
 
                 //RESOURCES
-                AnimatedPositioned(
-                    duration: AnimatedContainer_Getter.getDuration(),
-                    curve: AnimatedContainer_Getter.getCurve(),
-                    top: ghostSelector.windowMode == GhostSelector_WindowMode.upgrade ? 0 : -screenHeight,
-                    child: ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight)
-                ),
+                ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight, isActive: ghostSelector.windowMode == GhostSelector_WindowMode.upgrade),
 
                 CancelButton_GUI.getCancelButton(screenHeight,
                   function: () => CancelButton_Mechanics.popScreen(context)

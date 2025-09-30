@@ -20,10 +20,11 @@ class Chapter extends HiveObject {
   @HiveField(2)  late String name;
   @HiveField(3)  late String description;
 
-
   @HiveField(4)
   @LevelListConverter()
   late List<Level> levels;
+
+  @HiveField(5)  late int number;
 
   Chapter({
     required this.id,
@@ -31,6 +32,7 @@ class Chapter extends HiveObject {
     required this.name,
     required this.description,
     required this.levels,
+    required this.number,
   });
 
   factory Chapter.fromJson(Map<String, dynamic> json) => _$ChapterFromJson(json);

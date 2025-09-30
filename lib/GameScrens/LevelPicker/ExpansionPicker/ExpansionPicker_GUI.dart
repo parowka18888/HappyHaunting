@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
+import 'package:happyhaunting/Data/Database/Getters/DatabaseChapter_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/PlotTraits_GUI.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/LevelPickerTemplateBackground.dart';
 import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -63,7 +65,6 @@ class ExpansionPicker_GUI{
 
     double circleSize = height * 0.6;
     double circleTitle = height * 0.15;
-    double circlePadding = circleSize * 0.2;
     double circleBoxPadding = width * 0.025;
 
     return Container(
@@ -86,45 +87,13 @@ class ExpansionPicker_GUI{
           ,),
         Positioned(
             right: circleBoxPadding,
-            child: getExpansionNumbersBox(expansion, circleSize, circlePadding, 3, circleTitle)
+            child: PlotTraits_GUI.getPlotTraitsBox(circleSize, circleTitle, expansion: expansion)
         )
       ],
     ),
       ),
     );
 
-  }
-
-  static getExpansionNumbersBox(Expansion expansion, double size, double padding, int itemCount, double circleTitleHeight) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        getSingleExpansionNumber(size, expansion.chapters.length, circleTitleHeight, "ROZDZIAŁY"),
-        Padding(padding: EdgeInsets.only(left: padding)),
-        getSingleExpansionNumber(size, 10, circleTitleHeight, "DUCHY"),
-        Padding(padding: EdgeInsets.only(left: padding)),
-        getSingleExpansionNumber(size, 10, circleTitleHeight, "OCENA"),
-      ],
-    );
-  }
-
-  static getSingleExpansionNumber(double size, int value, double titleHeight, String title) {
-    return Container(
-      height: size + titleHeight, width: size,// color: Colors.yellow,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: size, width: size, //color: Colors.blue,
-            child: Button_GUI.getButton(size, '', text: value.toString())
-          ),
-          Container(
-            height: titleHeight, width: size,// color: Colors.deepPurple,
-            child: TextAndFont.getText(size, titleHeight, title),
-          )
-        ],
-      ),
-    );
   }
 
 }
