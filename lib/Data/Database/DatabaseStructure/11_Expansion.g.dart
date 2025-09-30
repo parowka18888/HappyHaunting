@@ -61,9 +61,7 @@ Expansion _$ExpansionFromJson(Map<String, dynamic> json) => Expansion(
       backgroundImage: json['backgroundImage'] as String,
       townName: json['townName'] as String,
       description: json['description'] as String,
-      chapters: (json['chapters'] as List<dynamic>)
-          .map((e) => Chapter.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      chapters: const ChapterListConverter().fromJson(json['chapters'] as List),
     );
 
 Map<String, dynamic> _$ExpansionToJson(Expansion instance) => <String, dynamic>{
@@ -71,5 +69,5 @@ Map<String, dynamic> _$ExpansionToJson(Expansion instance) => <String, dynamic>{
       'backgroundImage': instance.backgroundImage,
       'townName': instance.townName,
       'description': instance.description,
-      'chapters': instance.chapters,
+      'chapters': const ChapterListConverter().toJson(instance.chapters),
     };

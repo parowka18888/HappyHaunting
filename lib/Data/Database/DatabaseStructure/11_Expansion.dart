@@ -2,6 +2,7 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
+import 'package:happyhaunting/Data/Database/JsonConverter/ChapterListConverter.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -17,7 +18,10 @@ class Expansion extends HiveObject {
 
   @HiveField(2)  late String townName;
   @HiveField(3)  late String description;
-  @HiveField(4)  late List<Chapter> chapters;
+
+  @HiveField(4)
+  @ChapterListConverter()
+  late List<Chapter> chapters;
 
   Expansion({
    required this.id,

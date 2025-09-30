@@ -1,8 +1,8 @@
 {
   "id":  "EP0",
-  "backgroundImage":  "GhostBackground_Neutral",
+  "backgroundImage":  "EP0",
 
   "townName":  "Upiorkowo",
   "description":  "bhbhujVGY G GHCycvv h hgchyv jh hj jh hjgh hgh ",
-  "chapters": []
+  "chapters": ["EP0_Chapter0", "EP0_Chapter1"]
 }

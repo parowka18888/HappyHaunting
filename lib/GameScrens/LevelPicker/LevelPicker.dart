@@ -9,11 +9,15 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GU
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/HauntingScreen.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/HauntingScreen.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/ExpansionPicker/ExpansionPicker_GUI.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/Template/LevelPickerTemplate_GUI.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import '../GlobalCode/Navigator/AppNavigator.dart';
 import '../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import 'ChapterPicker/LevelPicker_GUI.dart';
 
 class LevelPicker extends StatefulWidget {
   const LevelPicker({super.key});
@@ -31,9 +35,16 @@ class _LevelPickerState extends State<LevelPicker> {
 
     Box box_Levels = Hive.box<Level>('levels');
     final viewModel = context.watch<HauntingGame_ViewModel>();
+    LevelSelector_ViewModel levelSelector_ViewModel = context.watch<LevelSelector_ViewModel>();
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    double pickerHeight = screenHeight * 0.7;
+    double pickerWidth = screenWidth * 0.8;
+
+    bool isChapterChosen = levelSelector_ViewModel.chosenChapter == null ? false : true;
+    bool isExpansionChosen = levelSelector_ViewModel.chosenExpansion == null ? false : true;
 
     return Scaffold(
       body: Center(
@@ -43,6 +54,14 @@ class _LevelPickerState extends State<LevelPicker> {
             Background.getBackground(screenWidth, screenHeight),
             ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight),
             CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
+
+            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: !isExpansionChosen, canPop: false,
+                function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
+            ),
+
+            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight, isActive: isExpansionChosen, canPop: true,
+                function: () => ChapterPicker_GUI().getLevelPickerBox(context, pickerWidth, pickerHeight)
+            ),
 
           ],
         ),
