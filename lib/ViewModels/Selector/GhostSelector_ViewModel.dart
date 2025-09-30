@@ -11,7 +11,7 @@ class GhostSelector_ViewModel extends ChangeNotifier {
   Power? chosenPower;
   List<Statistic> chosenGhostTypes = [];
 
-  GhostSelector_WindowMode windowMode = GhostSelector_WindowMode.powers;
+  GhostSelector_WindowMode windowMode = GhostSelector_WindowMode.introduction;
   bool isFilterButtonsBoxVisible = false;
 
   void setChosenGhost(Ghost? ghost){
@@ -64,6 +64,15 @@ class GhostSelector_ViewModel extends ChangeNotifier {
   }
 
   void refresh() {
+    notifyListeners();
+  }
+
+  void clear() {
+    chosenGhost = null;
+    chosenPower = null;
+    chosenGhostTypes = [];
+    windowMode = GhostSelector_WindowMode.introduction;
+    isFilterButtonsBoxVisible = false;
     notifyListeners();
   }
 

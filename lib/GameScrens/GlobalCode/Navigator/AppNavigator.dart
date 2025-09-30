@@ -12,4 +12,16 @@ class AppNavigator{
     );
   }
 
+  static void popScreen(BuildContext context) {
+    Navigator.of(context).pop(PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {return SizedBox();},
+        transitionDuration: const Duration(seconds: 1),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(opacity: animation, child: child);
+        },
+      ),
+    );
+
+
+  }
+
 }
