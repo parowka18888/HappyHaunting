@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/HauntingScreen.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/HauntingScreen.dart';
@@ -38,6 +39,7 @@ class _LevelPickerState extends State<LevelPicker> {
           alignment: Alignment(0, 0),
           children: [
             Background.getBackground(screenWidth, screenHeight),
+            ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight)
 
           ],
         ),
