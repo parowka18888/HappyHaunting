@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
 import 'package:happyhaunting/Data/Database/Setters/Player/DatabasePlayer_Setter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/SpecialButtons/CancelButton/CancelButton_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/SpecialButtons/CancelButton/Mechanics/CancelButton_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
@@ -53,6 +56,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
     double resourceBarHeight = screenHeight * 0.07;
     double resourceBarWidth = screenWidth * 0.6;
 
+    //CANCEL BUTTON
+    double cancelButtonHeight = screenHeight * 0.1;
+    double cancelButtonMargin = cancelButtonHeight * 0.2;
+
     final viewModel = context.watch<HauntingGame_ViewModel>();
     final ghostSelector = context.watch<GhostSelector_ViewModel>();
 
@@ -92,6 +99,10 @@ class _GhostsScreenState extends State<GhostsScreen> {
                     top: ghostSelector.windowMode == GhostSelector_WindowMode.upgrade ? 0 : -resourceBarHeight,
                     child: ResourceBar_GUI.getResourceBar(context, resourceBarWidth, resourceBarHeight)
                 ),
+
+                CancelButton_GUI.getCancelButton(cancelButtonHeight, margin: cancelButtonMargin,
+                  function: () => CancelButton_Mechanics.popScreen(context)
+                )
 
                 // ElevatedButton(onPressed: (){
                 //   DatabasePlayer_Setter.cheatResources();
