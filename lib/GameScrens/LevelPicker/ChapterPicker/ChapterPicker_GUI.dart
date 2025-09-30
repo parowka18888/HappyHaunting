@@ -60,6 +60,7 @@ class ChapterPicker_GUI{
 
   getChapterBox(BuildContext context, double width, double height, Chapter chapter) {
 
+    LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
     double coreDataWidth = width * 0.5;
     double coreDataHeight = height * 0.9;
     double coreDataPadding = coreDataWidth * 0.05;
@@ -67,15 +68,20 @@ class ChapterPicker_GUI{
     double traitsSize = height * 0.6;
     double traitTitleHeight = height * 0.15;
 
-    return Container(
-      height: height, width: width, color: Colors.blue,
-      child: Stack(
-        alignment: Alignment(0, 0),
-        children: [
-          LevelPickerTemplateBackground.getBackground(width, height, chapter.backgroundImage, 'UI/ExpansionPicker/'),
-          Positioned(left: coreDataPadding, child: getChapterCoreData(coreDataHeight, coreDataWidth, chapter)),
-          Positioned(right: 0, child: PlotTraits_GUI.getPlotTraitsBox(traitsSize, traitTitleHeight, chapter: chapter))
-        ],
+    return GestureDetector(
+      onTap: (){
+        levelSelector_ViewModel.setChosenChapter(chapter);
+      },
+      child: Container(
+        height: height, width: width, color: Colors.blue,
+        child: Stack(
+          alignment: Alignment(0, 0),
+          children: [
+            LevelPickerTemplateBackground.getBackground(width, height, chapter.backgroundImage, 'UI/ExpansionPicker/'),
+            Positioned(left: coreDataPadding, child: getChapterCoreData(coreDataHeight, coreDataWidth, chapter)),
+            Positioned(right: 0, child: PlotTraits_GUI.getPlotTraitsBox(traitsSize, traitTitleHeight, chapter: chapter))
+          ],
+        ),
       ),
     );
   }
