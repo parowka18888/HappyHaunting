@@ -12,6 +12,7 @@ import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
 import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -65,6 +66,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => HauntingGame_ViewModel()),
         ChangeNotifierProvider(create: (_) => GhostSelector_ViewModel()),
+        ChangeNotifierProvider(create: (_) => LevelSelector_ViewModel()),
       ],
       child: const MyApp(),
     ),

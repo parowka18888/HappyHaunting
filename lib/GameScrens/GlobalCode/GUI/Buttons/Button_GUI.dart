@@ -7,6 +7,7 @@ import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Getter/Button_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Tier/Tier_GUI.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
@@ -25,6 +26,7 @@ class Button_GUI{
     double opacity = 1.0,
     GhostSelector_ViewModel? ghostSelector_ViewModel,
     HauntingGame_ViewModel? haunting_ViewModel,
+    String? text
   }) {
     String iconPath = 'assets/images/${catalog}/$icon.png';
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
@@ -53,9 +55,10 @@ class Button_GUI{
             child: Stack(alignment: Alignment(0, 0),
               children: [
                 getBackground(background, buttonType),
+                if(text != null) TextAndFont.getText(size, size, text),
                 // // // Image.asset(background, fit: BoxFit.fill,),
                 // // // Background.getBackgroundShade(size, size, opacity: 0.25),
-                getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize),
+                if(icon.length > 0) getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize),
                 Image.asset(shade, fit: BoxFit.fill,),
                 Image.asset(frame, fit: BoxFit.fill,),
               ],

@@ -10,19 +10,21 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 
 class ResourceBar_GUI{
   static getResourceBar(BuildContext context, double width, double height) {
-    return Container(
-      height: height, width: width, color: Colors.blue,
-      child: Stack(
-        alignment: Alignment(0, 0),
-        children: [
-          getResourceList(context, width, height)
-          // FramedWindow_GUI.getFramedWindow(context, width, height,
-          //     frameType: FrameType.Gold,
-          //   function: () => getResourceList(context, width, height)
-          // )
-        ],
-      ),
-    );
+    //RESOURCE BAR
+    double resourceBarHeight = height * 0.07;
+    double resourceBarWidth = width * 0.6;
+
+    return Positioned(
+        top: 0,
+        child: Container(
+          height: resourceBarHeight, width: resourceBarWidth, color: Colors.blue,
+          child: Stack(
+            alignment: Alignment(0, 0),
+            children: [
+              getResourceList(context, resourceBarWidth, resourceBarHeight)
+            ],
+          ),
+      ));
   }
 
   static getResourceList(BuildContext context, double width, double height) {
