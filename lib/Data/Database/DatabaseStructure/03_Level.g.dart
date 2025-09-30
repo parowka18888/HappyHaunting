@@ -20,22 +20,20 @@ class LevelAdapter extends TypeAdapter<Level> {
       id: fields[0] as String,
       name: fields[1] as String,
       fileName: fields[2] as String,
-      mortalsIDs: (fields[3] as List).cast<String>(),
-      mortals: (fields[4] as List).cast<Mortal>(),
-      levelWidth: fields[5] as double,
-      levelHeight: fields[6] as double,
-      trappedGhostsIDs: (fields[7] as List).cast<String>(),
-      trappedGhosts: (fields[8] as List).cast<Ghost>(),
-      startingText: fields[9] as String,
-      script: fields[10] as LevelScript,
-      icon: fields[11] as String,
+      mortals: (fields[3] as List).cast<Mortal>(),
+      levelWidth: fields[4] as double,
+      levelHeight: fields[5] as double,
+      trappedGhosts: (fields[6] as List).cast<Ghost>(),
+      startingText: fields[7] as String,
+      script: fields[8] as LevelScript,
+      icon: fields[9] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -43,22 +41,18 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(2)
       ..write(obj.fileName)
       ..writeByte(3)
-      ..write(obj.mortalsIDs)
-      ..writeByte(4)
       ..write(obj.mortals)
-      ..writeByte(5)
+      ..writeByte(4)
       ..write(obj.levelWidth)
-      ..writeByte(6)
+      ..writeByte(5)
       ..write(obj.levelHeight)
-      ..writeByte(7)
-      ..write(obj.trappedGhostsIDs)
-      ..writeByte(8)
+      ..writeByte(6)
       ..write(obj.trappedGhosts)
-      ..writeByte(9)
+      ..writeByte(7)
       ..write(obj.startingText)
-      ..writeByte(10)
+      ..writeByte(8)
       ..write(obj.script)
-      ..writeByte(11)
+      ..writeByte(9)
       ..write(obj.icon);
   }
 
@@ -81,20 +75,11 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
       id: json['id'] as String,
       name: json['name'] as String,
       fileName: json['fileName'] as String,
-      mortalsIDs: (json['mortalsIDs'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      mortals: (json['mortals'] as List<dynamic>)
-          .map((e) => Mortal.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      mortals: const MortalListConverter().fromJson(json['mortals'] as List),
       levelWidth: (json['levelWidth'] as num).toDouble(),
       levelHeight: (json['levelHeight'] as num).toDouble(),
-      trappedGhostsIDs: (json['trappedGhostsIDs'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      trappedGhosts: (json['trappedGhosts'] as List<dynamic>)
-          .map((e) => Ghost.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      trappedGhosts:
+          const GhostListConverter().fromJson(json['trappedGhosts'] as List),
       startingText: json['startingText'] as String,
       script: $enumDecode(_$LevelScriptEnumMap, json['script']),
       icon: json['icon'] as String,
@@ -104,12 +89,11 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'fileName': instance.fileName,
-      'mortalsIDs': instance.mortalsIDs,
-      'mortals': instance.mortals,
+      'mortals': const MortalListConverter().toJson(instance.mortals),
       'levelWidth': instance.levelWidth,
       'levelHeight': instance.levelHeight,
-      'trappedGhostsIDs': instance.trappedGhostsIDs,
-      'trappedGhosts': instance.trappedGhosts,
+      'trappedGhosts':
+          const GhostListConverter().toJson(instance.trappedGhosts),
       'startingText': instance.startingText,
       'script': _$LevelScriptEnumMap[instance.script]!,
       'icon': instance.icon,

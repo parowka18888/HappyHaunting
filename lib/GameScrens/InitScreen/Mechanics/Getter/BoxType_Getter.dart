@@ -91,29 +91,29 @@ class BoxType_Getter{
         }
         break;
       }
-      case (Box<Level> _) : {
-        Level? level = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(level != null){
-          List<String> mortalsIDs = level.mortalsIDs;
-          List<Mortal> mortals = [];
-          List<String> trappedGhostsIDs = level.trappedGhostsIDs;
-          List<Ghost> trappedGhosts = [];
-
-          for(String id in mortalsIDs){
-            Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
-            mortals.add(mortal);
-          }
-
-          for(String id in trappedGhostsIDs){
-            Ghost ghost = DatabaseObject_Getter.getObjectById(id, box_Ghosts);
-            trappedGhosts.add(ghost);
-          }
-          level.mortals = mortals;
-          level.trappedGhosts = trappedGhosts;
-
-          level.save();
-        }
-      }
+      // case (Box<Level> _) : {
+      //   Level? level = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(level != null){
+      //     List<String> mortalsIDs = level.mortalsIDs;
+      //     List<Mortal> mortals = [];
+      //     List<String> trappedGhostsIDs = level.trappedGhostsIDs;
+      //     List<Ghost> trappedGhosts = [];
+      //
+      //     for(String id in mortalsIDs){
+      //       Mortal mortal = DatabaseObject_Getter.getObjectById(id, box_Mortals);
+      //       mortals.add(mortal);
+      //     }
+      //
+      //     for(String id in trappedGhostsIDs){
+      //       Ghost ghost = DatabaseObject_Getter.getObjectById(id, box_Ghosts);
+      //       trappedGhosts.add(ghost);
+      //     }
+      //     level.mortals = mortals;
+      //     level.trappedGhosts = trappedGhosts;
+      //
+      //     level.save();
+      //   }
+      // }
     }
 
   }

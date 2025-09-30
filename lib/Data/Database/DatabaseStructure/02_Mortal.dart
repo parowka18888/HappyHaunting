@@ -23,12 +23,11 @@ class Mortal extends HiveObject {
   @HiveField(10) final String? type;
   @HiveField(11) final String icon;
 
-  @HiveField(12)  final List<String> mortalTagsIDs;
-  @HiveField(13)  List<MortalTag> mortalTags;
+  @HiveField(12)  List<MortalTag> mortalTags;
 
-  @HiveField(14)  final double exorcismStrength;
+  @HiveField(13)  final double exorcismStrength;
 
-  @HiveField(15)  PowerTag fear;
+  @HiveField(14)  PowerTag fear;
 
   Mortal({
     required this.id,
@@ -43,7 +42,6 @@ class Mortal extends HiveObject {
     required this.stat_Multiplier_Faith,
     required this.type,
     required this.icon,
-    required this.mortalTagsIDs,
     required this.mortalTags,
     required this.exorcismStrength,
     required this.fear,
