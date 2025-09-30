@@ -80,17 +80,17 @@ class BoxType_Getter{
         }
         break;
       }
-      case (Box<Mortal> _) : {
-        Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(mortal != null){
-          List<String> mortalTagsIDs = mortal.mortalTagsIDs;
-          for(String name in mortalTagsIDs){
-            MortalTag tag = MortalTag.values.byName(name);
-            mortal.mortalTags.add(tag);
-          }
-        }
-        break;
-      }
+      // case (Box<Mortal> _) : {
+      //   Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(mortal != null){
+      //     List<String> mortalTagsIDs = mortal.mortalTagsIDs;
+      //     for(String name in mortalTagsIDs){
+      //       MortalTag tag = MortalTag.values.byName(name);
+      //       mortal.mortalTags.add(tag);
+      //     }
+      //   }
+      //   break;
+      // }
       // case (Box<Level> _) : {
       //   Level? level = DatabaseObject_Getter.getObjectById(objectID, box);
       //   if(level != null){
