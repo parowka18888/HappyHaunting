@@ -18,10 +18,8 @@
   "powerTime" : 0,
 
 
-  "powerTagsIDs": ["Noise"],
-
   "icon": "Spider_Power_1",
 
 
-  "powerTags": []
+  "powerTags": ["Noise"]
 }

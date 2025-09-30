@@ -16,8 +16,6 @@
   "powerType" : "posessionMortal",
   "powerChances" : 25,
   "powerTime" : 10,
-
-  "powerTagsIDs": [],
   "icon": "TestPower_6",
 
 

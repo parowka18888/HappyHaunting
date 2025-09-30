@@ -69,17 +69,17 @@ class BoxType_Getter{
       //   }
       //   break;
       // }
-      case (Box<Power> _) : {
-        Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
-        if(power != null){
-          for(var powerTag in power.powerTagsIDs){
-            PowerTag tag = PowerTag.values.byName(powerTag);
-            power.powerTags.add(tag);
-          }
-          power.save();
-        }
-        break;
-      }
+      // case (Box<Power> _) : {
+      //   Power? power = DatabaseObject_Getter.getObjectById(objectID, box);
+      //   if(power != null){
+      //     for(var powerTag in power.powerTagsIDs){
+      //       PowerTag tag = PowerTag.values.byName(powerTag);
+      //       power.powerTags.add(tag);
+      //     }
+      //     power.save();
+      //   }
+      //   break;
+      // }
       // case (Box<Mortal> _) : {
       //   Mortal? mortal = DatabaseObject_Getter.getObjectById(objectID, box);
       //   if(mortal != null){
