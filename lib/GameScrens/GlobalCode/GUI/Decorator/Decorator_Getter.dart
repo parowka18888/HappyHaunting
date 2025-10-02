@@ -11,6 +11,10 @@ class Decorator_Getter{
         return 'assets/images/UI/Decorator/FrameDecorator_Right_UpsideDown.png';
       case FrameDecorator.upsideDownLeft:
         return 'assets/images/UI/Decorator/FrameDecorator_Left_UpsideDown.png';
+      case FrameDecorator.boxLeft:
+        return 'assets/images/UI/Decorator/TextDecorator_Left.png';
+      case FrameDecorator.boxRight:
+        return 'assets/images/UI/Decorator/TextDecorator_Right.png';
     }
   }
 

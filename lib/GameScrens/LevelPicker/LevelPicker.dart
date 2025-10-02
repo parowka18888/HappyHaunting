@@ -55,22 +55,22 @@ class _LevelPickerState extends State<LevelPicker> {
             CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
 
             LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
-                isActive: !isExpansionChosen,
+                isActive: true,
                 canPop: false,
                 function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
             ),
 
-            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
-                isActive: isExpansionChosen && !isChapterChosen,
-                canPop: true,
-                function: () => ChapterPicker_GUI().getLevelPickerBox(context, pickerWidth, pickerHeight)
-            ),
-
-            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
-                isActive: isExpansionChosen && isChapterChosen,
-                canPop: true,
-                function: () => MapPicker_GUI.getMapPickerBox(context, pickerWidth, pickerHeight)
-            ),
+            // LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
+            //     isActive: isExpansionChosen && !isChapterChosen,
+            //     canPop: true,
+            //     function: () => ChapterPicker_GUI().getLevelPickerBox(context, pickerWidth, pickerHeight)
+            // ),
+            //
+            // LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
+            //     isActive: isExpansionChosen && isChapterChosen,
+            //     canPop: true,
+            //     function: () => MapPicker_GUI.getMapPickerBox(context, pickerWidth, pickerHeight)
+            // ),
 
           ],
         ),

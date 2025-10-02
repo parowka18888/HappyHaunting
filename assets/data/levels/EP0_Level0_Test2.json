@@ -14,6 +14,7 @@
 
   "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4"],
   "icon": "",
+  "background": "EP0_0_1",
 
   "trappedGhosts": []
 

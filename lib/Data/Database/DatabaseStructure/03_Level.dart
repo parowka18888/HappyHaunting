@@ -26,6 +26,7 @@ class Level extends HiveObject {
   @HiveField(7)  final String startingText;
   @HiveField(8)  final LevelScript script;
   @HiveField(9)  final String icon;
+  @HiveField(10)  final String background;
 
   Level({
     required this.id,
@@ -38,6 +39,7 @@ class Level extends HiveObject {
     required this.startingText,
     required this.script,
     required this.icon,
+    required this.background,
   });
 
   factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);
