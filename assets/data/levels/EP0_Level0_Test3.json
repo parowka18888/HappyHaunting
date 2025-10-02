@@ -17,7 +17,11 @@
   "icon": "",
   "background": "EP0_0_0",
 
-  "trappedGhosts": ["EP0_ClothesEater"]
+  "trappedGhosts": ["EP0_ClothesEater"],
+  "rate": 5,
+  "seconds": 0,
+  "isUnlocked": true,
+  "isBeaten": true
 
 
 }

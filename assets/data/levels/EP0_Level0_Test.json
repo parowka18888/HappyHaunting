@@ -16,7 +16,9 @@
   "icon": "",
   "background": "EP0_0_2",
 
-  "trappedGhosts": []
-
-
+  "trappedGhosts": [],
+  "rate": 3,
+  "seconds": 0,
+  "isUnlocked": true,
+  "isBeaten": true
 }

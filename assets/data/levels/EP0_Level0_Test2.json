@@ -16,7 +16,11 @@
   "icon": "",
   "background": "EP0_0_1",
 
-  "trappedGhosts": []
+  "trappedGhosts": ["EP0_Flea", "EP0_Moth", "EP0_Spider", "EP0_Bee"],
+  "rate": 2,
+  "seconds": 0,
+  "isUnlocked": true,
+  "isBeaten": true
 
 
 }
