@@ -22,13 +22,14 @@ class ChapterAdapter extends TypeAdapter<Chapter> {
       name: fields[2] as String,
       description: fields[3] as String,
       levels: (fields[4] as List).cast<Level>(),
+      number: fields[5] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Chapter obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class ChapterAdapter extends TypeAdapter<Chapter> {
       ..writeByte(3)
       ..write(obj.description)
       ..writeByte(4)
-      ..write(obj.levels);
+      ..write(obj.levels)
+      ..writeByte(5)
+      ..write(obj.number);
   }
 
   @override
@@ -62,6 +65,7 @@ Chapter _$ChapterFromJson(Map<String, dynamic> json) => Chapter(
       name: json['name'] as String,
       description: json['description'] as String,
       levels: const LevelListConverter().fromJson(json['levels'] as List),
+      number: (json['number'] as num).toInt(),
     );
 
 Map<String, dynamic> _$ChapterToJson(Chapter instance) => <String, dynamic>{
@@ -70,4 +74,5 @@ Map<String, dynamic> _$ChapterToJson(Chapter instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'levels': const LevelListConverter().toJson(instance.levels),
+      'number': instance.number,
     };

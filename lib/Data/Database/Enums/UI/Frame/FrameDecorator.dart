@@ -1,3 +1,3 @@
 enum FrameDecorator{
-  right, left, upsideDownRight, upsideDownLeft
+  right, left, upsideDownRight, upsideDownLeft, boxLeft, boxRight
 }

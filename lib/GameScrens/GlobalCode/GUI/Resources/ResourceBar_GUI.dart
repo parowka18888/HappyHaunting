@@ -5,17 +5,22 @@ import 'package:happyhaunting/Data/Database/Enums/Resource/Getter/Resource_Gette
 import 'package:happyhaunting/Data/Database/Enums/Resource/Resource.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabasePlayer_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 
 class ResourceBar_GUI{
-  static getResourceBar(BuildContext context, double width, double height) {
+  static getResourceBar(BuildContext context, double width, double height, {
+    bool isActive = true
+  }) {
     //RESOURCE BAR
     double resourceBarHeight = height * 0.07;
     double resourceBarWidth = width * 0.6;
 
-    return Positioned(
-        top: 0,
+    return AnimatedPositioned(
+        duration: AnimatedContainer_Getter.getDuration(),
+        curve: AnimatedContainer_Getter.getCurve(),
+        top: isActive ? 0 : -resourceBarHeight,
         child: Container(
           height: resourceBarHeight, width: resourceBarWidth, color: Colors.blue,
           child: Stack(

@@ -38,7 +38,11 @@ class LevelPickerTemplate_GUI{
               if(expansion != null && canPop)
               Positioned(
                   top: 0, left: 0,
-                  child: Button_GUI.getButton(buttonSize, 'ArrowLeft', function: ()=> levelSelector_ViewModel.setChosenExpansion(null))
+                  child: Button_GUI.getButton(buttonSize, 'ArrowLeft',
+                      function: levelSelector_ViewModel.chosenChapter == null ?
+                          ()=> levelSelector_ViewModel.setChosenExpansion(null) :
+                          ()=> levelSelector_ViewModel.setChosenChapter(null)
+                  )
               )
             ],
           ),

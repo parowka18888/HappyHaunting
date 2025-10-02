@@ -26,7 +26,8 @@ class Button_GUI{
     double opacity = 1.0,
     GhostSelector_ViewModel? ghostSelector_ViewModel,
     HauntingGame_ViewModel? haunting_ViewModel,
-    String? text
+    String? text,
+    bool isImageHiddenWithDarkLayer = false
   }) {
     String iconPath = 'assets/images/${catalog}/$icon.png';
     String background = 'assets/images/UI/Buttons/${buttonType.name}Button.png';
@@ -58,7 +59,7 @@ class Button_GUI{
                 if(text != null) TextAndFont.getText(size, size, text),
                 // // // Image.asset(background, fit: BoxFit.fill,),
                 // // // Background.getBackgroundShade(size, size, opacity: 0.25),
-                if(icon.length > 0) getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize),
+                if(icon.length > 0) getImage(buttonType, isIconOpacityLowered, iconPath, size * imageSize, isImageHiddenWithDarkLayer),
                 Image.asset(shade, fit: BoxFit.fill,),
                 Image.asset(frame, fit: BoxFit.fill,),
               ],
@@ -69,26 +70,39 @@ class Button_GUI{
     );
   }
 
-  static getImage(ButtonType buttonType, bool isOpacityLowered, String iconPath, double size) {
-    switch(buttonType){
-      case ButtonType.Circle:
-        return getAnimatedImage(size, iconPath, isOpacityLowered);
-        return ClipOval(
-            child: getAnimatedImage(size, iconPath, isOpacityLowered)
-        );
-      case ButtonType.Square:
-        return getAnimatedImage(size, iconPath, isOpacityLowered);
-    }
+  static getImage(ButtonType buttonType, bool isOpacityLowered, String iconPath, double size, bool isImageHiddenWithDarkLayer) {
+    return getAnimatedImage(size, iconPath, isOpacityLowered, isImageHiddenWithDarkLayer);
+    // switch(buttonType){
+    //   case ButtonType.Circle:
+    //     return getAnimatedImage(size, iconPath, isOpacityLowered, isImageHiddenWithDarkLayer);
+    //     // return ClipOval(
+    //     //     child: getAnimatedImage(size, iconPath, isOpacityLowered)
+    //     // );
+    //   case ButtonType.Square:
+    //     return getAnimatedImage(size, iconPath, isOpacityLowered, );
+    // }
   }
 
-  static getAnimatedImage(double size, String iconPath, bool isOpacityLowered) {
+  static getAnimatedImage(double size, String iconPath, bool isOpacityLowered, bool isImageHiddenWithDarkLayer) {
     return AnimatedOpacity(opacity: isOpacityLowered ? 0.5 : 1.0, duration: Duration(milliseconds: 500), curve: Curves.easeInOut,
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 750),
-        curve: Curves.easeInOut,
-        height: size,
-        child: Image.asset(iconPath),
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(
+          Color.fromRGBO(0, 0, 0, isImageHiddenWithDarkLayer ? 1 : 0),
+          BlendMode.srcATop,
+        ),
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 750),
+          curve: Curves.easeInOut,
+          height: size,
+          child: Image.asset(iconPath),
+        ),
       ),
+      // child: AnimatedContainer(
+      //   duration: Duration(milliseconds: 750),
+      //   curve: Curves.easeInOut,
+      //   height: size,
+      //   child: Image.asset(iconPath),
+      // ),
     );
   }
 

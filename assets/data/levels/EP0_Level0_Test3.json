@@ -15,8 +15,13 @@
 
   "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4", "EP0_Level0_Test_Mortal5", "EP0_Level0_Test_Mortal6", "EP0_Level0_Test_Mortal7", "EP0_Level0_Test_Mortal8"],
   "icon": "",
+  "background": "EP0_0_0",
 
-  "trappedGhosts": ["EP0_ClothesEater"]
+  "trappedGhosts": ["EP0_ClothesEater"],
+  "rate": 5,
+  "seconds": 0,
+  "isUnlocked": true,
+  "isBeaten": true
 
 
 }

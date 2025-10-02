@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
+import 'package:happyhaunting/Data/Database/Getters/DatabaseChapter_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/ChapterPicker/ChapterPicker_GUI.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/MapPicker/MapPicker_GUI.dart';
+import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/PlotTraits_GUI.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/LevelPickerTemplateBackground.dart';
 import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -15,10 +21,11 @@ class ExpansionPicker_GUI{
   static getExpansionPickerBox(BuildContext context, double width, double height) {
 
     var box_Expansion = Hive.box<Expansion>('expansions');
+    LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
 
     double entyWidth = width;
     double entryHeight = height * 0.4;
-    double entryHeight_Activated = height * 0.5;
+    double entryHeight_Activated = height * 1;
     double entryPadding = entryHeight * 0.03;
 
     int itemCount = box_Expansion.length;
@@ -33,15 +40,19 @@ class ExpansionPicker_GUI{
               itemBuilder: (context, index){
               Expansion? expansion = box_Expansion.getAt(index);
               if(expansion == null) return Container();
+              bool isThisExpansionChosen = levelSelector_ViewModel.chosenExpansion?.id == expansion.id;
+              double newHeight = isThisExpansionChosen ? entryHeight_Activated : entryHeight;
 
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: entryHeight, width: entyWidth,
-                    child: FramedWindow_GUI.getFramedWindow(context, entyWidth, entryHeight,
+                  AnimatedContainer(
+                    duration: AnimatedContainer_Getter.getDuration(),
+                    curve: AnimatedContainer_Getter.getCurve(),
+                    height: newHeight, width: entyWidth,
+                    child: FramedWindow_GUI.getFramedWindow(context, entyWidth, newHeight,
                         frameType: FrameType.Gold,
-                        function: () => getExpansionBox(context, entyWidth, entryHeight, expansion),
+                        function: () => getExpansionBox(context, entyWidth, newHeight, expansion, entryHeight),
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(top: entryPadding)),
@@ -53,78 +64,95 @@ class ExpansionPicker_GUI{
     );
   }
 
-  static getExpansionBox(BuildContext context, double width, double height, Expansion expansion) {
+  static getExpansionBox(BuildContext context, double width, double height, Expansion expansion, double defaultHeight) {
 
     LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
+    bool isExpansionChosen = levelSelector_ViewModel.chosenExpansion?.id == expansion.id;
+    bool isChapterChosen = levelSelector_ViewModel.chosenChapter != null;
 
-    double descriptionHeight = height * 0.4;
-    double descriptionWidth = width * 0.4;
-    double descriptionPadding = height * 0.1;
+    double padding = defaultHeight * 0.1;
+    //LEFT SIDE
+    double descriptionHeight = defaultHeight * 0.6;
+    double chapterPickerHeight = height - descriptionHeight - padding * 2;
+    double leftSideWidth = width * 0.325;
+    double topPadding_ChapterPicker = isExpansionChosen ? padding : padding - chapterPickerHeight * 2;
 
-    double circleSize = height * 0.6;
-    double circleTitle = height * 0.15;
-    double circlePadding = circleSize * 0.2;
-    double circleBoxPadding = width * 0.025;
+    //RIGHT SIDE
+    double levelPickerHeight = height - 2 * padding;
+    double levelPickerWidth = width - leftSideWidth - padding * 3;
+    double topPadding_LevelPicker = isChapterChosen ? padding : padding - levelPickerHeight * 1.25;
+
+    //TITLE AND DIVIDER
+    double titleHeight = height * 0.125;
+    double dividerHeight = height * 0.05;
+    double dividerWidthModifier = 0.8;
+
+
+    // double circleSize = defaultHeight * 0.6;
+    // double circleTitle = defaultHeight * 0.15;
+    // double circleBoxPadding = width * 0.025;
 
     return Container(
       height: height, width: width,
       child: GestureDetector(
         onTap: (){
-          levelSelector_ViewModel.setChosenExpansion(expansion);
+          // if(levelSelector_ViewModel.chosenExpansion?.id != expansion.id){
+          //     levelSelector_ViewModel.clear();
+          //     levelSelector_ViewModel.setChosenExpansion(expansion);
+          // }
+          if(levelSelector_ViewModel.chosenExpansion?.id == expansion.id){
+            levelSelector_ViewModel.clear();
+          } else {
+            levelSelector_ViewModel.clear();
+            levelSelector_ViewModel.setChosenExpansion(expansion);
+          }
+
         },
         child: Stack(
           alignment: Alignment(0, 0),
-      children: [
-        LevelPickerTemplateBackground.getBackground(width, height, expansion.backgroundImage, 'UI/ExpansionPicker/'),
-        Positioned(
-          bottom: descriptionPadding, left: descriptionPadding,
-          child: TextAndFont.getText(descriptionWidth, descriptionHeight,
-              expansion.description,
-              fontSize: descriptionHeight * 0.25,
-              alignment: Alignment.bottomLeft
-          )
-          ,),
-        Positioned(
-            right: circleBoxPadding,
-            child: getExpansionNumbersBox(expansion, circleSize, circlePadding, 3, circleTitle)
-        )
-      ],
+          children: [
+            LevelPickerTemplateBackground.getBackground(width, height, expansion.backgroundImage, 'UI/ExpansionPicker/'),
+            //DESCRIPTION
+            Positioned(
+              bottom: padding, left: padding,
+              child: TextAndFont.getText(leftSideWidth, descriptionHeight,
+                  expansion.description,
+                  // fontSize: descriptionHeight * 0.25,
+                  alignment: Alignment.bottomLeft
+              )
+            ),
+
+            //CHAPTER PICKER
+            AnimatedPositioned(
+                duration: AnimatedContainer_Getter.getDuration(),
+                top: topPadding_ChapterPicker, left: padding,
+                child: ChapterPicker_GUI.getChapterPickerBox(context, expansion, chapterPickerHeight, leftSideWidth,
+                    titleHeight, dividerHeight, dividerWidthModifier
+                )
+            ),
+
+            //LEVEL PICKER
+            if(levelSelector_ViewModel.chosenExpansion?.id == expansion.id)
+            AnimatedPositioned(
+                duration: AnimatedContainer_Getter.getDuration(),
+                top: topPadding_LevelPicker, right: padding,
+                child: MapPicker_GUI.getMapPickerBox(context,
+                    levelPickerHeight, levelPickerWidth,
+                    titleHeight, dividerHeight, dividerWidthModifier,
+                    isChapterChosen
+                )
+            ),
+
+
+            // Positioned(
+            //     right: circleBoxPadding,
+            //     child: PlotTraits_GUI.getPlotTraitsBox(circleSize, circleTitle, expansion: expansion)
+            // )
+          ],
     ),
       ),
     );
 
-  }
-
-  static getExpansionNumbersBox(Expansion expansion, double size, double padding, int itemCount, double circleTitleHeight) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        getSingleExpansionNumber(size, expansion.chapters.length, circleTitleHeight, "ROZDZIAŁY"),
-        Padding(padding: EdgeInsets.only(left: padding)),
-        getSingleExpansionNumber(size, 10, circleTitleHeight, "DUCHY"),
-        Padding(padding: EdgeInsets.only(left: padding)),
-        getSingleExpansionNumber(size, 10, circleTitleHeight, "OCENA"),
-      ],
-    );
-  }
-
-  static getSingleExpansionNumber(double size, int value, double titleHeight, String title) {
-    return Container(
-      height: size + titleHeight, width: size,// color: Colors.yellow,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: size, width: size, //color: Colors.blue,
-            child: Button_GUI.getButton(size, '', text: value.toString())
-          ),
-          Container(
-            height: titleHeight, width: size,// color: Colors.deepPurple,
-            child: TextAndFont.getText(size, titleHeight, title),
-          )
-        ],
-      ),
-    );
   }
 
 }

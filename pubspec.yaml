@@ -92,6 +92,7 @@ flutter:
     - assets/images/UI/
     - assets/images/UI/Background/
     - assets/images/UI/ExpansionPicker/
+    - assets/images/UI/LevelPicker/
     - assets/images/UI/Decorator/
     - assets/images/UI/Moon/
     - assets/images/UI/Cards/

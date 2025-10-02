@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameType.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/Background.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/BackgroundPattern.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/Getter/FramedWindow_Getter.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +16,8 @@ class FramedWindow_GUI{
   static Widget getFramedWindow(BuildContext? context, double width, double height,{
     Widget Function()? function,
     FrameType frameType = FrameType.GoldFancy,
-    double backgroundOpacity = 1.0
+    double backgroundOpacity = 1.0,
+    bool isDecorated = false
   }) {
 
     return Container(
@@ -23,6 +26,8 @@ class FramedWindow_GUI{
         alignment: Alignment(0, 0),
         children: [
           getBackground(width, height, backgroundOpacity),
+          if(isDecorated)
+            BackgroundPattern.getBackgroundPatter(width),
           if(function != null)
             function(),
           getFrame(width, height, frameType),
