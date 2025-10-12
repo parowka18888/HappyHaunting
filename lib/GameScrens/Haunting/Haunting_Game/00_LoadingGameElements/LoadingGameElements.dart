@@ -42,7 +42,7 @@ class LoadingGameElements{
       for(final spawnPoint in spawnPointsLayer.objects){
         switch(spawnPoint.class_){
           case 'Mortal': {
-            LoadingMortal.loadMortal(spawnPoint, game);
+            // LoadingMortal.loadMortal(spawnPoint, game);
             break;
           }
           case 'Effect': {

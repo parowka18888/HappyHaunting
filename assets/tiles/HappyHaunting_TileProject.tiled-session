@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_Test3.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
         "."
     ],
@@ -13,17 +13,36 @@
             "scaleInDock": 0.125,
             "scaleInEditor": 0.5
         },
+        "FurnitureGothicMansion (32x32).tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "Level_EP0_0_Tutorial.tmx": {
+            "expandedObjectLayers": [
+                8,
+                9,
+                7,
+                6,
+                10
+            ],
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1658,
+                "y": 770
+            }
+        },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
+                4,
                 3,
-                5,
-                4
+                5
             ],
-            "scale": 1,
+            "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 768,
-                "y": 440
+                "x": 548.6666666666665,
+                "y": 336.6666666666667
             }
         },
         "Level_Test2.tmx": {
@@ -34,32 +53,48 @@
             "scale": 0.33,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 912.1212121212121,
-                "y": 439.3939393939394
+                "x": 910.6060606060605,
+                "y": 437.8787878787879
             }
         },
         "Level_Test3 — kopia.tmx": {
             "scale": 0.22022727272727272,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1537.0485036119712,
-                "y": 1321.3622291021675
+                "x": 1144.2724458204336,
+                "y": 1323.6326109391127
             }
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
+                4,
+                3,
                 7,
-                3
+                6,
+                5
             ],
-            "scale": 2,
-            "selectedLayer": 6,
+            "scale": 1.5,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 1367.75,
-                "y": 540.75
+                "x": 515.6666666666666,
+                "y": 376.33333333333326
             }
         },
         "Terrain (16x16).tsx": {
             "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TerrainTextures (16x16).tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TerrainTextures (32x32).tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Walls (32x32).tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -75,40 +110,41 @@
         }
     },
     "last.externalTilesetPath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/tiles",
-    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Test",
+    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Furniture",
     "map.fixedSize": true,
-    "map.height": 135,
+    "map.height": 68,
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 16,
-    "map.tileWidth": 16,
-    "map.width": 240,
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
+    "map.width": 120,
     "openFiles": [
-        "Terrain (16x16).tsx",
-        "BgTest.tsx",
-        "Level_Test2.tmx",
-        "Level_Test.tmx",
         "Level_Test3.tmx",
-        "furnitureTest.tsx",
-        "furnitureTest2.tsx",
-        "Level_Test3 — kopia.tmx"
+        "Level_EP0_0_Tutorial.tmx",
+        "TerrainTextures (32x32).tsx",
+        "Walls (32x32).tsx",
+        "FurnitureGothicMansion (32x32).tsx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "FurnitureGothicMansion (32x32).tsx",
+        "Walls (32x32).tsx",
+        "TerrainTextures (32x32).tsx",
+        "Level_EP0_0_Tutorial.tmx",
+        "Level_Test3.tmx",
+        "TerrainTextures (16x16).tsx",
         "Terrain (16x16).tsx",
         "BgTest.tsx",
         "Level_Test2.tmx",
         "Level_Test.tmx",
-        "Level_Test3 — kopia.tmx",
-        "furnitureTest2.tsx",
         "furnitureTest.tsx",
-        "Level_Test3.tmx"
+        "furnitureTest2.tsx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 32,
+        "width": 32
     },
     "tileset.useTransparentColor": true
 }

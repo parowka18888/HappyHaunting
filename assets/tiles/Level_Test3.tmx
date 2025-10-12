@@ -735,7 +735,7 @@
   <object id="331" x="1372" y="104" width="20" height="216"/>
   <object id="332" x="1176" y="320" width="112" height="16"/>
  </objectgroup>
- <objectgroup id="4" name="SpawnPoints" visible="0">
+ <objectgroup id="4" name="SpawnPoints">
   <object id="18" name="Level0_1_0" type="Mortal" x="364" y="236" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
@@ -1788,7 +1788,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="6" name="Rooms" visible="0">
+ <objectgroup id="6" name="Rooms">
   <object id="53" name="Room_0_1" type="Room" x="248" y="408">
    <properties>
     <property name="auras" value="Aura_Electricity,Aura_Inside"/>

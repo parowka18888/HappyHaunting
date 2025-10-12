@@ -13,8 +13,10 @@ class Haunting_Camera{
     Future.delayed(const Duration(seconds: 1), (){
       CameraComponent cam = CameraComponent.withFixedResolution(
         world: world,
-        width: game.width * cameraWidth_Modifier,
-        height: game.height * cameraHeight_Modifier,
+        width: game.width,
+        // width: game.width * cameraWidth_Modifier,
+        // height: game.height * cameraHeight_Modifier,
+        height: game.height,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
       game.camera = cam;
@@ -27,9 +29,9 @@ class Haunting_Camera{
     if(chosenFloor == 0){
       game.camera.viewfinder.position = Vector2(0, 0);
     } else if (chosenFloor > 0){
-      game.camera.viewfinder.position = Vector2(0, game.height * cameraHeight_Modifier * chosenFloor);
+      game.camera.viewfinder.position = Vector2(0, game.height * chosenFloor);
     } else {
-      game.camera.viewfinder.position = Vector2(game.width * cameraWidth_Modifier, game.height * cameraHeight_Modifier * chosenFloor.abs());
+      game.camera.viewfinder.position = Vector2(game.width, game.height * chosenFloor.abs());
     }
 
   }

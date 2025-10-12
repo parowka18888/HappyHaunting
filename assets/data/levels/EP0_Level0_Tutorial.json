@@ -1,25 +1,28 @@
 {
-  "id": "EP0_Level0_Test",
+  "id": "EP0_Level0_Tutorial",
   "name": "Level 1",
 
-  "fileName": "Level_Test",
-  "levelWidth": 1920,
-  "levelHeight": 1080,
-  "tileSize": 16,
+  "fileName": "Level_EP0_0_Tutorial",
+  "levelWidth": 3840,
+  "levelHeight": 2176,
+  "tileSize": 32,
 
-  "numberOfFloors": 0,
+  "numberOfFloors": 1,
   "numberOfFloorsBasement": 0,
 
-  "startingText": "",
+  "startingText": "This is testing text for dialog window",
+
   "script": "empty",
 
   "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3"],
   "icon": "",
-  "background": "EP0_0_2",
+  "background": "EP0_0_0",
 
   "trappedGhosts": [],
-  "rate": 3,
+  "rate": 5,
   "seconds": 0,
   "isUnlocked": true,
   "isBeaten": true
+
+
 }

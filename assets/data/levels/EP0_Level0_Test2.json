@@ -5,6 +5,7 @@
   "fileName": "Level_Test2",
   "levelWidth": 1920,
   "levelHeight": 1080,
+  "tileSize": 16,
 
   "numberOfFloors": 0,
   "numberOfFloorsBasement": 0,

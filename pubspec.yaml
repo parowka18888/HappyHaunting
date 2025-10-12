@@ -89,6 +89,9 @@ flutter:
     - assets/images/Levels/Test/
     - assets/images/Levels/PickUpObjects/
     - assets/images/Levels/InteractiveObjects/
+    - assets/images/Levels/Furniture/
+    - assets/images/Levels/Terrain/
+    - assets/images/Levels/Walls/
     - assets/images/UI/
     - assets/images/UI/Background/
     - assets/images/UI/ExpansionPicker/

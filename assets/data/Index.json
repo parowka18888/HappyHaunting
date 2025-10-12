@@ -38,7 +38,8 @@
   "levels": [
     "assets/data/levels/EP0_Level0_Test.json",
     "assets/data/levels/EP0_Level0_Test2.json",
-    "assets/data/levels/EP0_Level0_Test3.json"
+    "assets/data/levels/EP0_Level0_Test3.json",
+    "assets/data/levels/EP0_Level0_Tutorial.json"
   ],
 
   "auras": [
