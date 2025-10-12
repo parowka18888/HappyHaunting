@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "Level_EP0_0_Tutorial.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -19,30 +19,30 @@
         },
         "Level_EP0_0_Tutorial.tmx": {
             "expandedObjectLayers": [
-                8,
-                9,
-                7,
                 6,
-                10
+                10,
+                8,
+                7,
+                9
             ],
-            "scale": 1.5,
-            "selectedLayer": 8,
+            "scale": 0.75,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 2040.333333333333,
-                "y": 885
+                "x": 1656,
+                "y": 1088
             }
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
                 4,
-                3,
-                5
+                5,
+                3
             ],
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 548.6666666666665,
-                "y": 336.6666666666667
+                "x": 768,
+                "y": 440
             }
         },
         "Level_Test2.tmx": {
@@ -67,17 +67,17 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                4,
-                3,
-                7,
                 6,
-                5
+                4,
+                7,
+                5,
+                3
             ],
             "scale": 0.75,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 674,
-                "y": 380.6666666666667
+                "x": 1536.6666666666665,
+                "y": 1320
             }
         },
         "Terrain (16x16).tsx": {
@@ -122,21 +122,22 @@
         "Level_EP0_0_Tutorial.tmx",
         "TerrainTextures (32x32).tsx",
         "Walls (32x32).tsx",
-        "FurnitureGothicMansion (32x32).tsx"
+        "FurnitureGothicMansion (32x32).tsx",
+        "Level_Test.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "Level_Test3.tmx",
+        "Level_Test.tmx",
         "FurnitureGothicMansion (32x32).tsx",
         "Walls (32x32).tsx",
         "TerrainTextures (32x32).tsx",
         "Level_EP0_0_Tutorial.tmx",
-        "Level_Test3.tmx",
         "TerrainTextures (16x16).tsx",
         "Terrain (16x16).tsx",
         "BgTest.tsx",
         "Level_Test2.tmx",
-        "Level_Test.tmx",
         "furnitureTest.tsx",
         "furnitureTest2.tsx"
     ],
