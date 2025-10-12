@@ -25,11 +25,11 @@
                 6,
                 10
             ],
-            "scale": 0.25,
-            "selectedLayer": 0,
+            "scale": 1.5,
+            "selectedLayer": 8,
             "viewCenter": {
-                "x": 1658,
-                "y": 770
+                "x": 2040.333333333333,
+                "y": 885
             }
         },
         "Level_Test.tmx": {
@@ -73,11 +73,11 @@
                 6,
                 5
             ],
-            "scale": 1.5,
+            "scale": 0.75,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 515.6666666666666,
-                "y": 376.33333333333326
+                "x": 674,
+                "y": 380.6666666666667
             }
         },
         "Terrain (16x16).tsx": {

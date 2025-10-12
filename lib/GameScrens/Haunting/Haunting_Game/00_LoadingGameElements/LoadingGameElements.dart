@@ -42,7 +42,7 @@ class LoadingGameElements{
       for(final spawnPoint in spawnPointsLayer.objects){
         switch(spawnPoint.class_){
           case 'Mortal': {
-            // LoadingMortal.loadMortal(spawnPoint, game);
+            LoadingMortal.loadMortal(spawnPoint, game);
             break;
           }
           case 'Effect': {
@@ -176,6 +176,7 @@ class LoadingGameElements{
         switch(room.class_){
           case 'Room' : {
             String auras_String = room.properties.getValue('auras');
+            String id = room.properties.getValue('id');
             List<String> listOfAuras_String = LoadingRoom.getSeparatedAuras(auras_String);
             List<Aura> auras = LoadingRoom.getListOfAuras(listOfAuras_String);
 
@@ -188,7 +189,7 @@ class LoadingGameElements{
                   polygon: polygonPoints,
                   auras: auras,//spawnPoint.properties.getValue('offNeg');
                   floorID: room.properties.getValue('floor'),
-                  id: room.name
+                  id: id
               );
               level.rooms.add(haunting_room);
               level.level.add(haunting_room);

@@ -8,7 +8,7 @@ class AStar_Grid{
     if (collisions != null) {
       final mapWidth = level.level.tileMap.map.width;
       final mapHeight = level.level.tileMap.map.height;
-      final tileSize = 16;
+      final tileSize = level.game.tileSize;
 
       level.walkableGrid = List.generate(mapHeight, (y) => List.generate(mapWidth, (x) => true));
 

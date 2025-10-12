@@ -108,16 +108,16 @@ List<Vector2> reconstructPath(Node node) {
   return path.reversed.toList();
 }
 
-Vector2 worldToGrid(Vector2 worldPos) {
+Vector2 worldToGrid(Vector2 worldPos, int tileSize) {
   return Vector2(
-    (worldPos.x / 16).floorToDouble(),
-    (worldPos.y / 16).floorToDouble(),
+    (worldPos.x / tileSize).floorToDouble(),
+    (worldPos.y / tileSize).floorToDouble(),
   );
 }
 
-Vector2 gridToWorld(Vector2 gridPos) {
+Vector2 gridToWorld(Vector2 gridPos, int tileSize) {
   return Vector2(
-    gridPos.x * 16 + 8,
-    gridPos.y * 16 + 8,
+    gridPos.x * tileSize + 8,
+    gridPos.y * tileSize + 8,
   );
 }

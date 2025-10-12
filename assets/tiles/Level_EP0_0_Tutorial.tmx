@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="120" height="68" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="71">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="120" height="68" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="80">
  <tileset firstgid="1" source="TerrainTextures (16x16).tsx"/>
  <tileset firstgid="6145" source="TerrainTextures (32x32).tsx"/>
  <tileset firstgid="7681" source="Walls (32x32).tsx"/>
@@ -292,10 +292,16 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="6" name="MortalDestinationPoints">
-  <object id="1" name="MortalActionPoint_0" type="MortalActionPoint" x="1608" y="1512" width="32" height="32"/>
+ <objectgroup id="6" name="MortalDestinationPoints" visible="0">
   <object id="13" name="MortalActionPoint_0" type="MortalActionPoint" x="1256" y="1576" width="32" height="32"/>
-  <object id="14" name="MortalActionPoint_0" type="MortalActionPoint" x="1984" y="1600" width="32" height="32"/>
+  <object id="71" name="MortalActionPoint_0" type="MortalActionPoint" x="1368" y="1088" width="32" height="32"/>
+  <object id="72" name="MortalActionPoint_0" type="MortalActionPoint" x="1505" y="965" width="32" height="32"/>
+  <object id="73" name="MortalActionPoint_0" type="MortalActionPoint" x="1744" y="1224" width="32" height="32"/>
+  <object id="74" name="MortalActionPoint_0" type="MortalActionPoint" x="1792" y="945" width="32" height="32"/>
+  <object id="75" name="MortalActionPoint_0" type="MortalActionPoint" x="2035" y="986" width="32" height="32"/>
+  <object id="76" name="MortalActionPoint_0" type="MortalActionPoint" x="2218" y="767" width="32" height="32"/>
+  <object id="77" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32"/>
+  <object id="78" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="7" name="MortalSpecialPoints" visible="0">
   <object id="15" name="Exit_0_0" type="MortalSpecialPoint_Exit" x="1600" y="1656" width="32" height="32">
@@ -325,7 +331,7 @@
   <object id="33" x="1152" y="1392" width="376" height="48"/>
   <object id="34" x="1696" y="1392" width="432" height="48"/>
  </objectgroup>
- <objectgroup id="9" name="SpawnPoints" visible="0" offsetx="-136" offsety="32">
+ <objectgroup id="9" name="SpawnPoints" offsetx="-136" offsety="32">
   <object id="35" name="MortalSpawnPoint" type="Mortal" x="1672" y="1688" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
@@ -352,89 +358,89 @@
   </object>
   <object id="41" name="Room_0_2_0" type="Ghost" x="1424" y="1239" width="32" height="32">
    <properties>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="42" name="Room_0_2_1" type="Ghost" x="1464" y="1239" width="32" height="32">
    <properties>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="43" name="Room_0_2_2" type="Ghost" x="1504" y="1239" width="32" height="32">
    <properties>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="44" name="RoomAura_0_2" type="Aura" x="1448" y="1215" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="1"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="45" name="RoomAura_0_2" type="Aura" x="1428" y="1215" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="0"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="46" name="RoomAura_0_2" type="Aura" x="1468" y="1215" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="2"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="47" name="RoomAura_0_2" type="Aura" x="1488" y="1215" width="16" height="16">
    <properties>
     <property name="auraIndex" type="int" value="3"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="48" name="Effect_0" type="Effect" x="1428" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="0"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="49" name="Effect_0" type="Effect" x="1448" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="1"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="50" name="Effect_0" type="Effect" x="1468" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="2"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="51" name="Effect_0" type="Effect" x="1488" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="3"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="52" name="Effect_0" type="Effect" x="1508" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="4"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="53" name="Effect_0" type="Effect" x="1528" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="5"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="54" name="Effect_0" type="Effect" x="1548" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="6"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="55" name="Effect_0" type="Effect" x="1568" y="1191" width="16" height="16">
    <properties>
     <property name="effectIndex" type="int" value="7"/>
-    <property name="roomName" value="Room_0_2"/>
+    <property name="roomName" value="Room_0_0"/>
    </properties>
   </object>
   <object id="56" name="Room_0_2_0" type="Ghost" x="2160" y="720" width="32" height="32">
@@ -525,19 +531,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="Rooms" visible="0">
-  <object id="39" name="Room_0_0" type="Room" x="1288" y="872" width="656" height="432">
-   <properties>
-    <property name="auras" value="Aura_Electricity,Aura_Inside"/>
-    <property name="floor" type="int" value="0"/>
-   </properties>
-  </object>
+ <objectgroup id="10" name="Rooms">
   <object id="40" name="Room_0_1" type="Room" x="1800" y="864">
    <properties>
     <property name="auras" value="Aura_Electricity,Aura_Inside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_1"/>
    </properties>
    <polygon points="0,0 0,-216 560,-216 560,216 152,216 152,0"/>
+  </object>
+  <object id="79" type="Room" x="1288" y="872">
+   <properties>
+    <property name="auras" value="Aura_Electricity,Aura_Inside"/>
+    <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_0"/>
+   </properties>
+   <polygon points="0,0 0,432 656,432 656,0"/>
   </object>
  </objectgroup>
 </map>

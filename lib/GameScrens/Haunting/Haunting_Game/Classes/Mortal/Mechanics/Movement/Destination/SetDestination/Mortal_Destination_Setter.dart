@@ -41,17 +41,18 @@ class Mortal_Destination_Setter{
   static void setNextDestinationPath(Haunting_Mortal mortal, Haunting_Game game) {
     MortalChecker.checkForMortalState(mortal, game);
     if(mortal.currentDestination != null){
-      double mortalSize = 32;
-      double gridSize = 16;
+      int tileSize = game.tileSize;
+      double mortalSize = tileSize * 2;
+      int gridSize = tileSize;
       int mortalSizeInTiles = (mortalSize / gridSize).toInt();
       List<Vector2> path = findPathAStar(
         game.level.walkableGrid,
-        worldToGrid(mortal.position),
-        worldToGrid(mortal.currentDestination!),
+        worldToGrid(mortal.position, gridSize),
+        worldToGrid(mortal.currentDestination!, gridSize),
           mortalSizeInTiles, mortalSizeInTiles
       );
       if(path.isNotEmpty){
-        mortal.path = path.map((p) => gridToWorld(p)).toList();
+        mortal.path = path.map((p) => gridToWorld(p, gridSize)).toList();
       }
       else {
         print("NIE ZNALEZIONO SCIEZKI dla ${mortal.name} - ${DateTime.timestamp()}");

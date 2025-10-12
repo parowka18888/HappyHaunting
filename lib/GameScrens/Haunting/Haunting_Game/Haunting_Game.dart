@@ -23,6 +23,7 @@ class Haunting_Game extends FlameGame with HasCollisionDetection {
   List<Ghost> trappedGhosts = [];
   double width = 1920;
   double height = 1080;
+  int tileSize = 32;
   LevelScript? script;
   HauntingGame_ViewModel viewModel = HauntingGame_ViewModel();
 
