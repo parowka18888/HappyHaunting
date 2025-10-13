@@ -46,7 +46,8 @@ class Mortal_Setter extends SpriteComponent with HasGameReference<Haunting_Game>
 
   static void setState(Haunting_Mortal mortal, Mortal_State state) {
     mortal.state = state;
-    double speed = Mortal_StaticData.getMortalSpeedByState(state);
+    var game = mortal.game;
+    double speed = Mortal_StaticData.getMortalSpeedByState(state, game);
     setSpeed(mortal, speed);
   }
 

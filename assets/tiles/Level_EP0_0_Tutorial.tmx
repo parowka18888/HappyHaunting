@@ -655,7 +655,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="Rooms" visible="0">
+ <objectgroup id="10" name="Rooms">
   <object id="40" name="Room_0_1" type="Room" x="1800" y="864">
    <properties>
     <property name="auras" value="Aura_Electricity,Aura_Inside"/>

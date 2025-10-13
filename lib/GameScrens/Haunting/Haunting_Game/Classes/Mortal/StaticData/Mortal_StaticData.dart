@@ -1,16 +1,25 @@
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
 class Mortal_StaticData{
-  static double getMortalSpeedByState(Mortal_State state) {
+  static double getMortalSpeedByState(Mortal_State state, Haunting_Game game) {
+    var levelHeight = game.height; //880, 2176, 4352
+    double modifier = 17.6;
+
     switch (state) {
       case Mortal_State.calm:
-        return 50;
+        modifier = 17.6;
+        break;
       case Mortal_State.scared:
-        return 75;
+        modifier = 11.7;
+        break;
       case Mortal_State.terrified:
-        return 100;
+        modifier = 8.8;
+        break;
     }
+    return levelHeight / modifier; //50, 75, 100
+
   }
 
   static double getChanceForChangingFloor_ByState(Mortal_State state) {

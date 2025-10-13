@@ -18,6 +18,7 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/M
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Movement/Mortal_Movement.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/PickUp/Mechanics/PickUp_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
@@ -124,6 +125,8 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
     ));
+
+    speed = Mortal_StaticData.getMortalSpeedByState(state, game);
 
     Mortal_Destination_Navigator.setMortalNextDestination_Navigator(this, game);
 
