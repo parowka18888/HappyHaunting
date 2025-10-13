@@ -145,6 +145,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
       ..width = widget.chosenLevel.levelWidth
       ..height = widget.chosenLevel.levelHeight
       ..tileSize = widget.chosenLevel.tileSize
+      ..numberOfFloors = widget.chosenLevel.numberOfFloors
+      ..numberOfFloorsBasement = widget.chosenLevel.numberOfFloorsBasement
       ..viewModel = viewModel
       ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3), box_Ghosts.getAt(0), box_Ghosts.getAt(4), box_Ghosts.getAt(5)]
       ..trappedGhosts = widget.chosenLevel.trappedGhosts

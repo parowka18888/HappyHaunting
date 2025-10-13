@@ -364,21 +364,65 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="6" name="MortalDestinationPoints" visible="0">
-  <object id="13" name="MortalActionPoint_0" type="MortalActionPoint" x="1600" y="1368" width="32" height="32"/>
-  <object id="71" name="MortalActionPoint_0" type="MortalActionPoint" x="1312" y="1016" width="64" height="64"/>
-  <object id="72" name="MortalActionPoint_0" type="MortalActionPoint" x="1640" y="1200" width="64" height="64"/>
-  <object id="73" name="MortalActionPoint_0" type="MortalActionPoint" x="1608" y="696" width="64" height="64"/>
-  <object id="74" name="MortalActionPoint_0" type="MortalActionPoint" x="1480" y="1200" width="64" height="64"/>
-  <object id="75" name="MortalActionPoint_0" type="MortalActionPoint" x="2035" y="986" width="32" height="32"/>
-  <object id="76" name="MortalActionPoint_0" type="MortalActionPoint" x="2218" y="767" width="32" height="32"/>
-  <object id="77" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32"/>
-  <object id="78" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32"/>
-  <object id="92" name="MortalActionPoint_0" type="MortalActionPoint" x="2040" y="752" width="32" height="32"/>
-  <object id="93" name="MortalActionPoint_0" type="MortalActionPoint" x="2043" y="878" width="32" height="32"/>
+ <objectgroup id="6" name="MortalDestinationPoints">
+  <object id="13" name="MortalActionPoint_0" type="MortalActionPoint" x="1600" y="1368" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="71" name="MortalActionPoint_0" type="MortalActionPoint" x="1312" y="1016" width="64" height="64">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="72" name="MortalActionPoint_0" type="MortalActionPoint" x="1640" y="1200" width="64" height="64">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="73" name="MortalActionPoint_0" type="MortalActionPoint" x="1608" y="696" width="64" height="64">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="74" name="MortalActionPoint_0" type="MortalActionPoint" x="1480" y="1200" width="64" height="64">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="75" name="MortalActionPoint_0" type="MortalActionPoint" x="2035" y="986" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="76" name="MortalActionPoint_0" type="MortalActionPoint" x="2218" y="767" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="77" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="78" name="MortalActionPoint_0" type="MortalActionPoint" x="2258" y="957" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="92" name="MortalActionPoint_0" type="MortalActionPoint" x="2040" y="752" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="93" name="MortalActionPoint_0" type="MortalActionPoint" x="2043" y="878" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="7" name="MortalSpecialPoints" visible="0">
-  <object id="15" name="Exit_0_0" type="MortalSpecialPoint_Exit" x="1600" y="1656" width="32" height="32">
+  <object id="15" name="Exit_0_0" type="MortalSpecialPoint_Exit" x="1584" y="1624" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -411,7 +455,7 @@
   <object id="90" x="1288" y="1264" width="56" height="40"/>
   <object id="91" x="1896" y="880" width="40" height="48"/>
  </objectgroup>
- <objectgroup id="9" name="SpawnPoints">
+ <objectgroup id="9" name="SpawnPoints" visible="0">
   <object id="35" name="MortalSpawnPoint" type="Mortal" x="1664" y="1696" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>

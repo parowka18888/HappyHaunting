@@ -31,6 +31,7 @@ class Haunting_Exit extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Haunting_Mortal){
       if(other.isDefeated == true){
+
         if(other.pickUp?.interactiveObject != null){
           PickUp_Mechanics.leftPickUp(other, game);
         }

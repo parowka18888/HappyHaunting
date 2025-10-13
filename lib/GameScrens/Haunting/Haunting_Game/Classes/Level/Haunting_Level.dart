@@ -56,8 +56,8 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
 
     level = await TiledComponent.load('${levelName}.tmx', Vector2.all(game.tileSize.toDouble()));
 
-    LoadingGameElements.loadLevelRooms(this, game);
     LoadingGameElements.loadLevelFloors(this, game);
+    LoadingGameElements.loadLevelRooms(this, game);
     LoadingGameElements.loadLevelMortalActionPoints(this, game);
     LoadingGameElements.loadLevelMortalSpecialPoints(this, game);
     LoadingGameElements.loadLevelObjects(this, game);

@@ -19,30 +19,44 @@
         },
         "Level_EP0_0_Tutorial.tmx": {
             "expandedObjectLayers": [
-                6,
                 10,
-                8,
                 7,
+                8,
+                6,
                 9
             ],
-            "scale": 0.75,
-            "selectedLayer": 0,
+            "scale": 0.33,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1656,
-                "y": 1088
+                "x": 1516.6666666666667,
+                "y": 1416.6666666666667
+            }
+        },
+        "Level_EP0_0_Tutorial_64.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2,
+                5,
+                6
+            ],
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 4853.030303030303,
+                "y": 2271.212121212121
             }
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                4,
+                3,
                 5,
-                3
+                4
             ],
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 768,
-                "y": 440
+                "x": 768.6666666666665,
+                "y": 439.33333333333337
             }
         },
         "Level_Test2.tmx": {
@@ -67,17 +81,17 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                6,
-                4,
+                3,
                 7,
                 5,
-                3
+                4,
+                6
             ],
-            "scale": 0.75,
-            "selectedLayer": 7,
+            "scale": 0.5,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 1536.6666666666665,
-                "y": 1320
+                "x": 2281,
+                "y": 1253
             }
         },
         "Terrain (16x16).tsx": {
@@ -92,6 +106,9 @@
         },
         "TerrainTextures (32x32).tsx": {
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TerrainTextures (64x64).tsx": {
             "scaleInEditor": 1
         },
         "Walls (32x32).tsx": {
@@ -110,13 +127,13 @@
         }
     },
     "last.externalTilesetPath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/tiles",
-    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Furniture",
+    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Terrain",
     "map.fixedSize": true,
     "map.height": 68,
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 32,
-    "map.tileWidth": 32,
-    "map.width": 120,
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 140,
     "openFiles": [
         "Level_Test3.tmx",
         "Level_EP0_0_Tutorial.tmx",
@@ -126,26 +143,26 @@
         "Level_Test.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
-    "property.type": "string",
+    "property.type": "int",
     "recentFiles": [
         "Level_Test3.tmx",
-        "Level_Test.tmx",
-        "FurnitureGothicMansion (32x32).tsx",
-        "Walls (32x32).tsx",
         "TerrainTextures (32x32).tsx",
+        "TerrainTextures (64x64).tsx",
+        "Walls (32x32).tsx",
+        "FurnitureGothicMansion (32x32).tsx",
+        "Level_Test.tmx",
         "Level_EP0_0_Tutorial.tmx",
         "TerrainTextures (16x16).tsx",
         "Terrain (16x16).tsx",
         "BgTest.tsx",
         "Level_Test2.tmx",
-        "furnitureTest.tsx",
-        "furnitureTest2.tsx"
+        "furnitureTest.tsx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 64,
+        "width": 64
     },
     "tileset.useTransparentColor": true
 }
