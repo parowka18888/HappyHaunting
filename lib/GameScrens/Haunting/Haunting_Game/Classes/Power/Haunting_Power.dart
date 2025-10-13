@@ -11,6 +11,7 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
     required this.id, required this.name, required this.description, required this.icon,
     required this.cost, required this.cooldown, required this.powerType,
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
+    required this.stat_Emotions, required this.stat_Impurity,
     required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime, required this.powerTags
   });
 
@@ -22,6 +23,8 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
   double stat_Health = 0;
   double stat_Madness = 0;
   double stat_Faith = 0;
+  double stat_Emotions = 0;
+  double stat_Impurity = 0;
   String icon = "";
   bool isActivated = false;
   bool isDeactivatingForbidden = false;

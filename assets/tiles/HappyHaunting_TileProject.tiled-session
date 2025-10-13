@@ -90,8 +90,8 @@
             "scale": 0.5,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 2281,
-                "y": 1253
+                "x": 643,
+                "y": 485
             }
         },
         "Terrain (16x16).tsx": {
@@ -127,7 +127,7 @@
         }
     },
     "last.externalTilesetPath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/tiles",
-    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Terrain",
+    "last.imagePath": "C:/Users/flapd/StudioProjects/HappyHaunting/assets/images/Levels/Furniture",
     "map.fixedSize": true,
     "map.height": 68,
     "map.lastUsedFormat": "tmx",
@@ -145,11 +145,11 @@
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "int",
     "recentFiles": [
+        "FurnitureGothicMansion (32x32).tsx",
         "Level_Test3.tmx",
         "TerrainTextures (32x32).tsx",
         "TerrainTextures (64x64).tsx",
         "Walls (32x32).tsx",
-        "FurnitureGothicMansion (32x32).tsx",
         "Level_Test.tmx",
         "Level_EP0_0_Tutorial.tmx",
         "TerrainTextures (16x16).tsx",

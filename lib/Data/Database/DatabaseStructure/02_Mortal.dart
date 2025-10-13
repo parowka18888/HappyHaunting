@@ -20,6 +20,12 @@ class Mortal extends HiveObject {
   @HiveField(7)  final double stat_Multiplier_Health;
   @HiveField(8)  final double stat_Multiplier_Madness;
   @HiveField(9)  final double stat_Multiplier_Faith;
+
+  @HiveField(15)  final double stat_Emotions;
+  @HiveField(16)  final double stat_Impurity;
+  @HiveField(17)  final double stat_Multiplier_Emotions;
+  @HiveField(18)  final double stat_Multiplier_Impurity;
+
   @HiveField(10) final String? type;
   @HiveField(11) final String icon;
 
@@ -36,7 +42,11 @@ class Mortal extends HiveObject {
     required this.stat_Health,
     required this.stat_Madness,
     required this.stat_Faith,
+    required this.stat_Emotions,
+    required this.stat_Impurity,
     required this.stat_Multiplier_Fear,
+    required this.stat_Multiplier_Emotions,
+    required this.stat_Multiplier_Impurity,
     required this.stat_Multiplier_Health,
     required this.stat_Multiplier_Madness,
     required this.stat_Multiplier_Faith,
