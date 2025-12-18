@@ -25,21 +25,27 @@ class DealingDamage{
       double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier).toStringAsFixed(2));
       double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness * modifier).toStringAsFixed(2));
       double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith * modifier).toStringAsFixed(2));
+      double damageEmotions = double.parse((power.stat_Emotions * mortal.stat_Multiplier_Emotions * modifier).toStringAsFixed(2));
+      double damageImpurity = double.parse((power.stat_Impurity * mortal.stat_Multiplier_Impurity * modifier).toStringAsFixed(2));
 
       if(damageFear > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
       if(damageHealth > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
       if(damageMadness > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.amber);
       if(damageFaith > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.blue);
+      if(damageEmotions > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.pink);
+      if(damageImpurity > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.purple);
 
       mortal.stat_Current_Fear += damageFear;
       mortal.stat_Current_Health += damageHealth;
       mortal.stat_Current_Madness += damageMadness;
       mortal.stat_Current_Faith += damageFaith;
+      mortal.stat_Current_Emotions += damageEmotions;
+      mortal.stat_Current_Impurity += damageImpurity;
 
       MortalChecker.checkIfMortalIsDefeated(mortal, game);
-      return [damageFear, damageHealth, damageMadness, damageFaith];
+      return [damageFear, damageHealth, damageMadness, damageFaith, damageEmotions, damageImpurity];
     }
-    return [0,0,0,0];
+    return [0,0,0,0,0,0];
   }
 
   static void dealDamageToAllMortals(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Game game, ){

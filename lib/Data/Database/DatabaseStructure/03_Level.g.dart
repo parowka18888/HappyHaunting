@@ -32,13 +32,17 @@ class LevelAdapter extends TypeAdapter<Level> {
       seconds: fields[12] as int,
       isUnlocked: fields[13] as bool,
       isBeaten: fields[14] as bool,
+      tileWidth: fields[15] as int,
+      tileHeight: fields[18] as int,
+      numberOfFloors: fields[16] as int,
+      numberOfFloorsBasement: fields[17] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(19)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -68,7 +72,15 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(13)
       ..write(obj.isUnlocked)
       ..writeByte(14)
-      ..write(obj.isBeaten);
+      ..write(obj.isBeaten)
+      ..writeByte(16)
+      ..write(obj.numberOfFloors)
+      ..writeByte(17)
+      ..write(obj.numberOfFloorsBasement)
+      ..writeByte(15)
+      ..write(obj.tileWidth)
+      ..writeByte(18)
+      ..write(obj.tileHeight);
   }
 
   @override
@@ -103,6 +115,10 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
       seconds: (json['seconds'] as num).toInt(),
       isUnlocked: json['isUnlocked'] as bool,
       isBeaten: json['isBeaten'] as bool,
+      tileWidth: (json['tileWidth'] as num).toInt(),
+      tileHeight: (json['tileHeight'] as num).toInt(),
+      numberOfFloors: (json['numberOfFloors'] as num).toInt(),
+      numberOfFloorsBasement: (json['numberOfFloorsBasement'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
@@ -122,6 +138,10 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'seconds': instance.seconds,
       'isUnlocked': instance.isUnlocked,
       'isBeaten': instance.isBeaten,
+      'numberOfFloors': instance.numberOfFloors,
+      'numberOfFloorsBasement': instance.numberOfFloorsBasement,
+      'tileWidth': instance.tileWidth,
+      'tileHeight': instance.tileHeight,
     };
 
 const _$LevelScriptEnumMap = {

@@ -78,13 +78,17 @@ class LoadingGameElements{
       for (final point in actionPointsLayer.objects) {
         switch(point.class_){
           case 'MortalActionPoint' : {
-            String pointName = point.name;
-            List<String> pointName_Parts = pointName.split('_');
-            int floorID_ByPoint = int.parse(pointName_Parts[1]);
+            // String pointName = point.name;
+            // List<String> pointName_Parts = pointName.split('_');
+            // int floorID_ByPoint = int.parse(pointName_Parts[1]);
+            int floorID = point.properties.getValue('floor');
             //GET FLOOR BY POINT ID AND ADD POINT TO ITS LIST
-            Haunting_Floor? floorByID = FloorGetter.getFloorById(floorID_ByPoint, game);
+            Haunting_Floor? floorByID = FloorGetter.getFloorById(floorID, game);
             if(floorByID != null){
               floorByID.mortalActionPoints.add(Vector2(point.x, point.y));
+              // final map = level.level.tileMap.map;
+              // final worldPos = getObjectWorldPosition(point, map, game.tileWidth, game.tileHeight);
+              // floorByID.mortalActionPoints.add(worldPos);
             }
           }
         }
@@ -94,13 +98,13 @@ class LoadingGameElements{
 
   static void loadLevelMortalSpecialPoints(Haunting_Level level, Haunting_Game game) {
     final actionPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('MortalSpecialPoints');
+
     if(actionPointsLayer != null){
       for (final point in actionPointsLayer.objects) {
         switch(point.class_){
           case 'MortalSpecialPoint_Stairs' : {
             int floorID = point.properties.getValue('floor');
             int floorChangingValue = point.properties.getValue('floorChangingValue');
-
             Haunting_Stairs stairs = Haunting_Stairs(
                 position: point.position,
                 size: point.size,
@@ -136,6 +140,7 @@ class LoadingGameElements{
             bool isSeducing = point.properties.getValue('isSeducing');
             bool isPickUpObject = point.properties.getValue('isPickUpObject');
             String image = point.properties.getValue('image');
+
 
             String? imageValue;
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
@@ -176,22 +181,29 @@ class LoadingGameElements{
         switch(room.class_){
           case 'Room' : {
             String auras_String = room.properties.getValue('auras');
+            String id = room.properties.getValue('id');
+            int floorId = room.properties.getValue('floor');
             List<String> listOfAuras_String = LoadingRoom.getSeparatedAuras(auras_String);
             List<Aura> auras = LoadingRoom.getListOfAuras(listOfAuras_String);
 
-            if (room.isPolygon) {
-              final polygonPoints = room.polygon.map((p) {
-                return Vector2(room.x + p.x, room.y + p.y);
-              }).toList();
-              Haunting_Room haunting_room = Haunting_Room(
+            Haunting_Floor? floor = FloorGetter.getFloorById(floorId, game);
+            if(floor != null){
+              if (room.isPolygon) {
+                final polygonPoints = room.polygon.map((p) {
+                  return Vector2(room.x + p.x, room.y + p.y);
+                }).toList();
+                Haunting_Room haunting_room = Haunting_Room(
                   // position: room.position,
-                  polygon: polygonPoints,
-                  auras: auras,//spawnPoint.properties.getValue('offNeg');
-                  floorID: room.properties.getValue('floor'),
-                  id: room.name
-              );
-              level.rooms.add(haunting_room);
-              level.level.add(haunting_room);
+                    polygon: polygonPoints,
+                    auras: auras,//spawnPoint.properties.getValue('offNeg');
+                    // floorID: room.properties.getValue('floor'),
+                    floor: floor,
+                    id: id
+                );
+                level.rooms.add(haunting_room);
+                level.level.add(haunting_room);
+                floor.listRooms.add(haunting_room);
+              }
             }
           }
         }
@@ -201,22 +213,45 @@ class LoadingGameElements{
 
   static void loadLevelFloors(Haunting_Level level, Haunting_Game game) {
     List<Haunting_Room> listOfRooms = game.level.rooms;
-    for(Haunting_Room room in listOfRooms){
+    int floorsCount = game.numberOfFloors;
+    int basementFloorsCount = game.numberOfFloorsBasement;
+
+    //CREATING FLOORS
+    for(int i = 0; i < floorsCount; i++){
       //IF FLOOR WITH ID DOES NOT EXIST CREATE ONE
-      if((level.floors.any((floor) => floor.id == room.floorID))){} else {
-        print("nie ma floor o id ${room.floorID} -> tworzenie");
-        Haunting_Floor floor = Haunting_Floor(id: room.floorID);
+      if((level.floors.any((floor) => floor.id == i))){} else {
+        print("nie ma floor o id ${i} -> tworzenie");
+        Haunting_Floor floor = Haunting_Floor(id: i);
         level.floors.add(floor);
       }
-      //GET FLOOR BY ID AND ADD ROOM TO ITS LIST
-      Haunting_Floor? floorByID = FloorGetter.getFloorById(room.floorID, game);
-      if(floorByID != null){
-        floorByID.listRooms.add(room);
-        room.floor = floorByID;
+    }
+    //CREATING BASEMENT FLOORS
+    for(int i = 1; i < basementFloorsCount + 1; i++){
+      //IF FLOOR WITH ID DOES NOT EXIST CREATE ONE
+      int floorID = 0 - i;
+      if((level.floors.any((floor) => floor.id == floorID))){} else {
+        print("nie ma floor o id ${floorID} -> tworzenie");
+        Haunting_Floor floor = Haunting_Floor(id: floorID);
+        level.floors.add(floor);
       }
     }
-  }
 
+    // for(Haunting_Room room in listOfRooms){
+    //   //IF FLOOR WITH ID DOES NOT EXIST CREATE ONE
+    //   if((level.floors.any((floor) => floor.id == room.floorID))){} else {
+    //     print("nie ma floor o id ${room.floorID} -> tworzenie");
+    //     Haunting_Floor floor = Haunting_Floor(id: room.floorID);
+    //     level.floors.add(floor);
+    //   }
+    //   //GET FLOOR BY ID AND ADD ROOM TO ITS LIST
+    //   Haunting_Floor? floorByID = FloorGetter.getFloorById(room.floorID, game);
+    //   if(floorByID != null){
+    //     floorByID.listRooms.add(room);
+    //     room.floor = floorByID;
+    //   }
+    // }
+
+  }
 
 
 }

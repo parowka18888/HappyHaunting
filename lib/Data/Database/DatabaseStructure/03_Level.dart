@@ -34,6 +34,12 @@ class Level extends HiveObject {
   @HiveField(13)  late bool isUnlocked;
   @HiveField(14)  late bool isBeaten;
 
+  @HiveField(16)  late int numberOfFloors;
+  @HiveField(17)  late int numberOfFloorsBasement;
+
+  @HiveField(15)  late int tileWidth;
+  @HiveField(18)  late int tileHeight;
+
   Level({
     required this.id,
     required this.name,
@@ -50,6 +56,10 @@ class Level extends HiveObject {
     required this.seconds,
     required this.isUnlocked,
     required this.isBeaten,
+    required this.tileWidth,
+    required this.tileHeight,
+    required this.numberOfFloors,
+    required this.numberOfFloorsBasement,
   });
 
   factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);

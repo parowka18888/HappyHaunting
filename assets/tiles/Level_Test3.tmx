@@ -512,59 +512,263 @@
 </data>
  </layer>
  <objectgroup id="5" name="MortalDestinationPoints">
-  <object id="22" name="MortalActionPoint_0" type="MortalActionPoint" x="272" y="416" width="32" height="32"/>
-  <object id="23" name="MortalActionPoint_0" type="MortalActionPoint" x="380" y="300" width="32" height="32"/>
-  <object id="24" name="MortalActionPoint_0" type="MortalActionPoint" x="324" y="112" width="32" height="32"/>
-  <object id="25" name="MortalActionPoint_0" type="MortalActionPoint" x="480" y="272" width="32" height="32"/>
-  <object id="26" name="MortalActionPoint_0" type="MortalActionPoint" x="560" y="592" width="32" height="32"/>
-  <object id="27" name="MortalActionPoint_0" type="MortalActionPoint" x="592" y="412" width="32" height="32"/>
-  <object id="28" name="MortalActionPoint_0" type="MortalActionPoint" x="644" y="720" width="32" height="32"/>
-  <object id="29" name="MortalActionPoint_0" type="MortalActionPoint" x="540" y="160" width="32" height="32"/>
-  <object id="30" name="MortalActionPoint_0" type="MortalActionPoint" x="288" y="240" width="32" height="32"/>
-  <object id="31" name="MortalActionPoint_0" type="MortalActionPoint" x="320" y="296" width="32" height="32"/>
-  <object id="32" name="MortalActionPoint_0" type="MortalActionPoint" x="356" y="244" width="32" height="32"/>
-  <object id="33" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="320" width="32" height="32"/>
-  <object id="34" name="MortalActionPoint_0" type="MortalActionPoint" x="516" y="364" width="32" height="32"/>
-  <object id="35" name="MortalActionPoint_0" type="MortalActionPoint" x="532" y="256" width="32" height="32"/>
-  <object id="36" name="MortalActionPoint_0" type="MortalActionPoint" x="588" y="328" width="32" height="32"/>
-  <object id="37" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="364" width="32" height="32"/>
-  <object id="38" name="MortalActionPoint_0" type="MortalActionPoint" x="340" y="436" width="32" height="32"/>
-  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="412" width="32" height="32"/>
-  <object id="40" name="MortalActionPoint_0" type="MortalActionPoint" x="284" y="476" width="32" height="32"/>
-  <object id="41" name="MortalActionPoint_0" type="MortalActionPoint" x="332" y="500" width="32" height="32"/>
-  <object id="42" name="MortalActionPoint_0" type="MortalActionPoint" x="664" y="428" width="32" height="32"/>
-  <object id="43" name="MortalActionPoint_0" type="MortalActionPoint" x="892" y="492" width="32" height="32"/>
-  <object id="44" name="MortalActionPoint_0" type="MortalActionPoint" x="908" y="388" width="32" height="32"/>
-  <object id="45" name="MortalActionPoint_0" type="MortalActionPoint" x="640" y="560" width="32" height="32"/>
-  <object id="46" name="MortalActionPoint_0" type="MortalActionPoint" x="696" y="596" width="32" height="32"/>
-  <object id="47" name="MortalActionPoint_0" type="MortalActionPoint" x="740" y="564" width="32" height="32"/>
-  <object id="48" name="MortalActionPoint_0" type="MortalActionPoint" x="540" y="488" width="32" height="32"/>
-  <object id="49" name="MortalActionPoint_0" type="MortalActionPoint" x="500" y="508" width="32" height="32"/>
-  <object id="50" name="MortalActionPoint_0" type="MortalActionPoint" x="260" y="308" width="32" height="32"/>
-  <object id="51" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="484" width="32" height="32"/>
-  <object id="52" name="MortalActionPoint_0" type="MortalActionPoint" x="632" y="584" width="32" height="32"/>
-  <object id="111" name="MortalActionPoint_1" type="MortalActionPoint" x="932" y="1028" width="32" height="32"/>
-  <object id="112" name="MortalActionPoint_1" type="MortalActionPoint" x="1096" y="1148" width="32" height="32"/>
-  <object id="113" name="MortalActionPoint_1" type="MortalActionPoint" x="1304" y="1412" width="32" height="32"/>
-  <object id="114" name="MortalActionPoint_1" type="MortalActionPoint" x="828" y="1504" width="32" height="32"/>
-  <object id="115" name="MortalActionPoint_-1" type="MortalActionPoint" x="2144" y="1132" width="32" height="32"/>
-  <object id="116" name="MortalActionPoint_-1" type="MortalActionPoint" x="2320" y="1288" width="32" height="32"/>
-  <object id="117" name="MortalActionPoint_-1" type="MortalActionPoint" x="2272" y="1488" width="32" height="32"/>
-  <object id="118" name="MortalActionPoint_-1" type="MortalActionPoint" x="2812" y="1488" width="32" height="32"/>
-  <object id="167" name="MortalActionPoint_0" type="MortalActionPoint" x="444" y="84" width="32" height="32"/>
-  <object id="168" name="MortalActionPoint_0" type="MortalActionPoint" x="100" y="224" width="32" height="32"/>
-  <object id="169" name="MortalActionPoint_0" type="MortalActionPoint" x="160" y="436" width="32" height="32"/>
-  <object id="170" name="MortalActionPoint_0" type="MortalActionPoint" x="180" y="640" width="32" height="32"/>
-  <object id="171" name="MortalActionPoint_0" type="MortalActionPoint" x="412" y="776" width="32" height="32"/>
-  <object id="172" name="MortalActionPoint_0" type="MortalActionPoint" x="836" y="688" width="32" height="32"/>
-  <object id="173" name="MortalActionPoint_0" type="MortalActionPoint" x="1160" y="788" width="32" height="32"/>
-  <object id="174" name="MortalActionPoint_0" type="MortalActionPoint" x="1364" y="568" width="32" height="32"/>
-  <object id="175" name="MortalActionPoint_0" type="MortalActionPoint" x="1000" y="268" width="32" height="32"/>
-  <object id="176" name="MortalActionPoint_0" type="MortalActionPoint" x="1084" y="472" width="32" height="32"/>
-  <object id="177" name="MortalActionPoint_0" type="MortalActionPoint" x="1364" y="384" width="32" height="32"/>
-  <object id="179" name="MortalActionPoint_0" type="MortalActionPoint" x="764" y="96" width="32" height="32"/>
+  <object id="22" name="MortalActionPoint_0" type="MortalActionPoint" x="272" y="416" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="23" name="MortalActionPoint_0" type="MortalActionPoint" x="380" y="300" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="24" name="MortalActionPoint_0" type="MortalActionPoint" x="324" y="112" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="25" name="MortalActionPoint_0" type="MortalActionPoint" x="480" y="272" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="26" name="MortalActionPoint_0" type="MortalActionPoint" x="560" y="592" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="27" name="MortalActionPoint_0" type="MortalActionPoint" x="592" y="412" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="28" name="MortalActionPoint_0" type="MortalActionPoint" x="644" y="720" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="29" name="MortalActionPoint_0" type="MortalActionPoint" x="540" y="160" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="30" name="MortalActionPoint_0" type="MortalActionPoint" x="288" y="240" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="31" name="MortalActionPoint_0" type="MortalActionPoint" x="320" y="296" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="32" name="MortalActionPoint_0" type="MortalActionPoint" x="356" y="244" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="33" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="320" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="34" name="MortalActionPoint_0" type="MortalActionPoint" x="516" y="364" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="35" name="MortalActionPoint_0" type="MortalActionPoint" x="532" y="256" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="36" name="MortalActionPoint_0" type="MortalActionPoint" x="588" y="328" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="37" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="364" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="38" name="MortalActionPoint_0" type="MortalActionPoint" x="340" y="436" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="412" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="40" name="MortalActionPoint_0" type="MortalActionPoint" x="284" y="476" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="41" name="MortalActionPoint_0" type="MortalActionPoint" x="332" y="500" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="42" name="MortalActionPoint_0" type="MortalActionPoint" x="664" y="428" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="43" name="MortalActionPoint_0" type="MortalActionPoint" x="892" y="492" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="44" name="MortalActionPoint_0" type="MortalActionPoint" x="908" y="388" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="45" name="MortalActionPoint_0" type="MortalActionPoint" x="640" y="560" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="46" name="MortalActionPoint_0" type="MortalActionPoint" x="696" y="596" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="47" name="MortalActionPoint_0" type="MortalActionPoint" x="740" y="564" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="48" name="MortalActionPoint_0" type="MortalActionPoint" x="540" y="488" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="49" name="MortalActionPoint_0" type="MortalActionPoint" x="500" y="508" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="50" name="MortalActionPoint_0" type="MortalActionPoint" x="260" y="308" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="51" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="484" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="52" name="MortalActionPoint_0" type="MortalActionPoint" x="632" y="584" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="111" name="MortalActionPoint_1" type="MortalActionPoint" x="932" y="1028" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="112" name="MortalActionPoint_1" type="MortalActionPoint" x="1096" y="1148" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="113" name="MortalActionPoint_1" type="MortalActionPoint" x="1304" y="1412" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="114" name="MortalActionPoint_1" type="MortalActionPoint" x="828" y="1504" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="115" name="MortalActionPoint_-1" type="MortalActionPoint" x="2144" y="1132" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="116" name="MortalActionPoint_-1" type="MortalActionPoint" x="2320" y="1288" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="117" name="MortalActionPoint_-1" type="MortalActionPoint" x="2272" y="1488" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="118" name="MortalActionPoint_-1" type="MortalActionPoint" x="2812" y="1488" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="167" name="MortalActionPoint_0" type="MortalActionPoint" x="444" y="84" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="168" name="MortalActionPoint_0" type="MortalActionPoint" x="100" y="224" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="169" name="MortalActionPoint_0" type="MortalActionPoint" x="160" y="436" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="170" name="MortalActionPoint_0" type="MortalActionPoint" x="180" y="640" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="171" name="MortalActionPoint_0" type="MortalActionPoint" x="412" y="776" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="172" name="MortalActionPoint_0" type="MortalActionPoint" x="836" y="688" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="173" name="MortalActionPoint_0" type="MortalActionPoint" x="1160" y="788" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="174" name="MortalActionPoint_0" type="MortalActionPoint" x="1364" y="568" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="175" name="MortalActionPoint_0" type="MortalActionPoint" x="1000" y="268" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="176" name="MortalActionPoint_0" type="MortalActionPoint" x="1084" y="472" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="177" name="MortalActionPoint_0" type="MortalActionPoint" x="1364" y="384" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="179" name="MortalActionPoint_0" type="MortalActionPoint" x="764" y="96" width="32" height="32">
+   <properties>
+    <property name="floor" type="int" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup id="7" name="MortalSpecialPoints">
+ <objectgroup id="7" name="MortalSpecialPoints" visible="0">
   <object id="133" name="Stairs_0_-1" type="MortalSpecialPoint_Stairs" x="408" y="380" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
@@ -673,7 +877,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Collisions">
+ <objectgroup id="3" name="Collisions" visible="0">
   <object id="1" x="220" y="156" width="228" height="24"/>
   <object id="2" x="216" y="176" width="28" height="192"/>
   <object id="3" x="240" y="348" width="200" height="20"/>
@@ -1793,6 +1997,7 @@
    <properties>
     <property name="auras" value="Aura_Electricity,Aura_Inside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_1"/>
    </properties>
    <polygon points="0,0 136,0 136,56 348,56 348,156 0,156"/>
   </object>
@@ -1800,6 +2005,7 @@
    <properties>
     <property name="auras" value="Aura_Water,Aura_Earth,Aura_Fire"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_2"/>
    </properties>
    <polygon points="0,0 0,-176 192,-176 192,0"/>
   </object>
@@ -1807,6 +2013,7 @@
    <properties>
     <property name="auras" value="Aura_Inside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_3"/>
    </properties>
    <polygon points="0,232 -240,232 -240,128 -240,192 -196,192 -196,128 -208,128 -208,0 -44,0 -44,64 0,64"/>
   </object>
@@ -1814,6 +2021,7 @@
    <properties>
     <property name="auras" value=""/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_4"/>
    </properties>
    <polygon points="0,0 0,244 -244,244 -240,168 -188,168 -188,72 -144,72 -144,0 -136,0"/>
   </object>
@@ -1821,6 +2029,7 @@
    <properties>
     <property name="auras" value="Aura_Water,Aura_Earth,Aura_Fire"/>
     <property name="floor" type="int" value="1"/>
+    <property name="id" value="Room_1_1"/>
    </properties>
    <polygon points="-4,64 -4,224 304,224 304,336 588,336 588,-4 48,-4 48,64"/>
   </object>
@@ -1828,6 +2037,7 @@
    <properties>
     <property name="auras" value="Aura_Water"/>
     <property name="floor" type="int" value="1"/>
+    <property name="id" value="Room_1_2"/>
    </properties>
    <polygon points="0,0 288,-4 284,244 -436,244 -436,112 0,112"/>
   </object>
@@ -1835,6 +2045,7 @@
    <properties>
     <property name="auras" value="Aura_Inside"/>
     <property name="floor" type="int" value="-1"/>
+    <property name="id" value="Room_-1_1"/>
    </properties>
    <polygon points="0,0 436,0 436,336 884,336 884,632 76,632 76,384 160,384 160,324 96,324 96,344 -8,344"/>
   </object>
@@ -1842,6 +2053,7 @@
    <properties>
     <property name="auras" value="Aura_Outside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_5"/>
    </properties>
    <polygon points="0,0 -224,0 -224,460 648,460 648,232 560,232 560,248 292,248 292,168 4,168 0,168"/>
   </object>
@@ -1849,6 +2061,7 @@
    <properties>
     <property name="auras" value="Aura_Outside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_6"/>
    </properties>
    <polygon points="0,0 0,-400 912,-400 912,-20 640,-20 640,-188 436,-188 436,-244 216,-244 216,-40 376,-40 376,-8 220,-8 4,-8"/>
   </object>
@@ -1856,6 +2069,7 @@
    <properties>
     <property name="auras" value="Aura_Outside,Aura_Inside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_7"/>
    </properties>
    <polygon points="0,0 312,0 312,88 144,88 144,332 252,332 252,300 356,300 356,332 464,332 464,88 320,88 320,0 600,0 596,472 -132,472 -132,384 0,384"/>
   </object>
@@ -1863,6 +2077,7 @@
    <properties>
     <property name="auras" value="Aura_Outside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_8"/>
    </properties>
    <polygon points="0,0 0,152 92,152 92,384 732,384 732,-4"/>
   </object>
@@ -1870,6 +2085,7 @@
    <properties>
     <property name="auras" value="Aura_Inside"/>
     <property name="floor" type="int" value="0"/>
+    <property name="id" value="Room_0_9"/>
    </properties>
    <polygon points="0,0 304,0 304,228 204,228 204,208 100,208 100,228 0,228"/>
   </object>

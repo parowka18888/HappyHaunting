@@ -2,6 +2,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/Mortal/LoadingPickUp.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -30,6 +31,7 @@ class LoadingMortal{
     }
 
     if(mortal != null && floor != null){
+
       final haunting_Mortal = Haunting_Mortal(
           position: spawnPoint.position,
           size: spawnPoint.size,
@@ -41,15 +43,21 @@ class LoadingMortal{
           stat_Health: mortal.stat_Health,
           stat_Madness: mortal.stat_Madness,
           stat_Faith: mortal.stat_Faith,
+          stat_Impurity: mortal.stat_Impurity,
+          stat_Emotions: mortal.stat_Emotions,
           exorcismStrength: mortal.exorcismStrength,
           stat_Multiplier_Fear: mortal.stat_Multiplier_Fear,
           stat_Multiplier_Health: mortal.stat_Multiplier_Health,
           stat_Multiplier_Madness: mortal.stat_Multiplier_Madness,
           stat_Multiplier_Faith: mortal.stat_Multiplier_Faith,
+          stat_Multiplier_Emotions: mortal.stat_Multiplier_Emotions,
+          stat_Multiplier_Impurity: mortal.stat_Multiplier_Impurity,
           stat_Current_Fear: 0,
           stat_Current_Health: 0,
           stat_Current_Madness: 0,
           stat_Current_Faith: 0,
+          stat_Current_Emotions: 0,
+          stat_Current_Impurity: 0,
           isActive: !isTriggeredByScript,
           script: levelScript,
           tags: mortal.mortalTags,

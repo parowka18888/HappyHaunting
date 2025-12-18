@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
@@ -50,17 +51,33 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   late List<Haunting_Room> rooms = [];
 
 
-
   @override
   FutureOr<void> onLoad() async {
 
-    level = await TiledComponent.load('${levelName}.tmx', Vector2.all(16));
+    level = await TiledComponent.load(
+      '${levelName}.tmx',
+      Vector2(game.tileWidth.toDouble(), game.tileHeight.toDouble()),
+    );
 
-    LoadingGameElements.loadLevelRooms(this, game);
+    final tiledMap = level.tileMap;
+    var orientation = tiledMap.map.orientation;
+    if (orientation == MapOrientation.orthogonal) {
+      print('Mapa jest ortogonalna');
+    } else if (orientation == MapOrientation.isometric) {
+      print('Mapa jest izometryczna');
+    } else {
+      print('Inna orientacja: $orientation');
+    }
+
+
+    // level = await TiledComponent.load('${levelName}.tmx', Vector2.all(game.tileWidth.toDouble()));
+
     LoadingGameElements.loadLevelFloors(this, game);
+    LoadingGameElements.loadLevelRooms(this, game);
     LoadingGameElements.loadLevelMortalActionPoints(this, game);
     LoadingGameElements.loadLevelMortalSpecialPoints(this, game);
     LoadingGameElements.loadLevelObjects(this, game);
+
     // LoadingGameElements.loadFloorsByActionPoints(this);
 
     AStar_Grid.getWalkableGrid(this);

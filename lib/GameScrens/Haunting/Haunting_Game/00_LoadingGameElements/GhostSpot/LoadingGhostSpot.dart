@@ -1,6 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/Position/PositionGetter.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
@@ -12,6 +14,7 @@ class LoadingGhostSpot{
   static Haunting_GhostSpot? loadGhostSpot(TiledObject spawnPoint, Haunting_Game game,{
     GhostSpot_Type type = GhostSpot_Type.room
   }) {
+
     final ghostSpot = Haunting_GhostSpot(
         position: spawnPoint.position,
         size: spawnPoint.size,

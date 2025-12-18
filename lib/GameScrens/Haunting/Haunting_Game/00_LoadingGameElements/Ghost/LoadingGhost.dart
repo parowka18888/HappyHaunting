@@ -1,6 +1,7 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
@@ -52,7 +53,7 @@ class LoadingGhost{
     PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
     Haunting_Power power = Haunting_Power(id: ghostPower.id, name: ghostPower.name, description: ghostPower.description,
         icon: ghostPower.icon, cost: ghostPower.cost, cooldown: ghostPower.cooldown, powerTags: ghostPower.powerTags,
-        stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith,
+        stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith, stat_Emotions: ghostPower.stat_Emotions, stat_Impurity: ghostPower.stat_Impurity,
         isActivated: false, isDeactivatingForbidden: false, powerType:  type, powerTime : ghostPower.powerTime
     );
     game.level.level.add(power);

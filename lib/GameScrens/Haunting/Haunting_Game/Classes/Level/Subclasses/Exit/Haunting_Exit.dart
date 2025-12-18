@@ -20,6 +20,7 @@ class Haunting_Exit extends PositionComponent
 
   @override
   FutureOr<void> onLoad() {
+    debugMode = true;
     add(RectangleHitbox(
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
@@ -31,6 +32,7 @@ class Haunting_Exit extends PositionComponent
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Haunting_Mortal){
       if(other.isDefeated == true){
+
         if(other.pickUp?.interactiveObject != null){
           PickUp_Mechanics.leftPickUp(other, game);
         }

@@ -18,6 +18,7 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/M
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Setter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Movement/Mortal_Movement.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/PickUp/Mechanics/PickUp_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
@@ -33,9 +34,9 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   Haunting_Mortal({
     super.position, super.size,
     required this.icon, required this.name, required this.fear,
-    required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
-    required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,
-    required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith,
+    required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith, required this.stat_Emotions, required this.stat_Impurity,
+    required this.stat_Current_Fear, required this.stat_Current_Health, required this.stat_Current_Madness, required this.stat_Current_Faith,  required this.stat_Current_Emotions, required this.stat_Current_Impurity,
+    required this.stat_Multiplier_Fear, required this.stat_Multiplier_Health, required this.stat_Multiplier_Madness, required this.stat_Multiplier_Faith, required this.stat_Multiplier_Emotions, required this.stat_Multiplier_Impurity,
     required this.floor, required this.id, required this.isActive, required this.script, required this.exorcismStrength, required this.tags
 
   });
@@ -77,16 +78,22 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   double stat_Health = 0;
   double stat_Madness = 0;
   double stat_Faith = 0;
+  double stat_Impurity = 0;
+  double stat_Emotions = 0;
 
   double stat_Current_Fear = 0;
   double stat_Current_Health = 0;
   double stat_Current_Madness = 0;
   double stat_Current_Faith = 0;
+  double stat_Current_Impurity = 0;
+  double stat_Current_Emotions = 0;
 
   double stat_Multiplier_Fear = 0;
   double stat_Multiplier_Health = 0;
   double stat_Multiplier_Madness = 0;
   double stat_Multiplier_Faith = 0;
+  double stat_Multiplier_Impurity = 0;
+  double stat_Multiplier_Emotions = 0;
 
   Haunting_Floor? floor;
   Haunting_Room? room;
@@ -124,6 +131,8 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         position: Vector2(this.width * 0.25, this.height * 0.25),
         size: Vector2(this.width * 0.5, this.height * 0.5)
     ));
+
+    speed = Mortal_StaticData.getMortalSpeedByState(state, game);
 
     Mortal_Destination_Navigator.setMortalNextDestination_Navigator(this, game);
 

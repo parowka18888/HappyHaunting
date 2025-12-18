@@ -23,7 +23,11 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       stat_Health: fields[3] as double,
       stat_Madness: fields[4] as double,
       stat_Faith: fields[5] as double,
+      stat_Emotions: fields[15] as double,
+      stat_Impurity: fields[16] as double,
       stat_Multiplier_Fear: fields[6] as double,
+      stat_Multiplier_Emotions: fields[17] as double,
+      stat_Multiplier_Impurity: fields[18] as double,
       stat_Multiplier_Health: fields[7] as double,
       stat_Multiplier_Madness: fields[8] as double,
       stat_Multiplier_Faith: fields[9] as double,
@@ -38,7 +42,7 @@ class MortalAdapter extends TypeAdapter<Mortal> {
   @override
   void write(BinaryWriter writer, Mortal obj) {
     writer
-      ..writeByte(15)
+      ..writeByte(19)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,6 +63,14 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       ..write(obj.stat_Multiplier_Madness)
       ..writeByte(9)
       ..write(obj.stat_Multiplier_Faith)
+      ..writeByte(15)
+      ..write(obj.stat_Emotions)
+      ..writeByte(16)
+      ..write(obj.stat_Impurity)
+      ..writeByte(17)
+      ..write(obj.stat_Multiplier_Emotions)
+      ..writeByte(18)
+      ..write(obj.stat_Multiplier_Impurity)
       ..writeByte(10)
       ..write(obj.type)
       ..writeByte(11)
@@ -93,7 +105,13 @@ Mortal _$MortalFromJson(Map<String, dynamic> json) => Mortal(
       stat_Health: (json['stat_Health'] as num).toDouble(),
       stat_Madness: (json['stat_Madness'] as num).toDouble(),
       stat_Faith: (json['stat_Faith'] as num).toDouble(),
+      stat_Emotions: (json['stat_Emotions'] as num).toDouble(),
+      stat_Impurity: (json['stat_Impurity'] as num).toDouble(),
       stat_Multiplier_Fear: (json['stat_Multiplier_Fear'] as num).toDouble(),
+      stat_Multiplier_Emotions:
+          (json['stat_Multiplier_Emotions'] as num).toDouble(),
+      stat_Multiplier_Impurity:
+          (json['stat_Multiplier_Impurity'] as num).toDouble(),
       stat_Multiplier_Health:
           (json['stat_Multiplier_Health'] as num).toDouble(),
       stat_Multiplier_Madness:
@@ -119,6 +137,10 @@ Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
       'stat_Multiplier_Health': instance.stat_Multiplier_Health,
       'stat_Multiplier_Madness': instance.stat_Multiplier_Madness,
       'stat_Multiplier_Faith': instance.stat_Multiplier_Faith,
+      'stat_Emotions': instance.stat_Emotions,
+      'stat_Impurity': instance.stat_Impurity,
+      'stat_Multiplier_Emotions': instance.stat_Multiplier_Emotions,
+      'stat_Multiplier_Impurity': instance.stat_Multiplier_Impurity,
       'type': instance.type,
       'icon': instance.icon,
       'mortalTags':

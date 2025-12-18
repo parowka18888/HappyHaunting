@@ -138,12 +138,22 @@ class _HauntingScreenState extends State<HauntingScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<HauntingGame_ViewModel>().setDialogData(widget.chosenLevel.startingText, true);
     });
+    print("""
+    ${widget.chosenLevel.levelWidth}, ${ widget.chosenLevel.tileWidth},
+    ${widget.chosenLevel.levelHeight}, ${ widget.chosenLevel.tileHeight},
+    ${widget.chosenLevel.fileName}
+    
+    """);
 
     haunting_game = Haunting_Game()
       ..levelName = widget.chosenLevel.fileName
       ..mortals = widget.chosenLevel.mortals
       ..width = widget.chosenLevel.levelWidth
       ..height = widget.chosenLevel.levelHeight
+      ..tileWidth = widget.chosenLevel.tileWidth
+      ..tileHeight = widget.chosenLevel.tileHeight
+      ..numberOfFloors = widget.chosenLevel.numberOfFloors
+      ..numberOfFloorsBasement = widget.chosenLevel.numberOfFloorsBasement
       ..viewModel = viewModel
       ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3), box_Ghosts.getAt(0), box_Ghosts.getAt(4), box_Ghosts.getAt(5)]
       ..trappedGhosts = widget.chosenLevel.trappedGhosts

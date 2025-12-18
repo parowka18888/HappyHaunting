@@ -14,6 +14,7 @@ import '../GlobalCode/GUI/Buttons/SpecialButtons/CancelButton/Mechanics/CancelBu
 import '../GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import '../GlobalCode/Navigator/AppNavigator.dart';
 import '../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import '../Haunting/Haunting_Screen/HauntingScreen.dart';
 import 'ChapterPicker/ChapterPicker_GUI.dart';
 import 'ExpansionPicker/ExpansionPicker_GUI.dart';
 import 'Template/LevelPickerTemplate_GUI.dart';
@@ -47,18 +48,18 @@ class _LevelPickerState extends State<LevelPicker> {
 
     return Scaffold(
       body: Center(
-        child: Stack(
-          alignment: Alignment(0, 0),
-          children: [
-            Background.getBackground(screenWidth, screenHeight),
-            ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight),
-            CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
-
-            LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
-                isActive: true,
-                canPop: false,
-                function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
-            ),
+       // child: Stack(
+        //  alignment: Alignment(0, 0),
+         // children: [
+            // Background.getBackground(screenWidth, screenHeight),
+            // ResourceBar_GUI.getResourceBar(context, screenWidth, screenHeight),
+            // CancelButton_GUI.getCancelButton(screenHeight, function: () => CancelButton_Mechanics.popScreen(context)),
+            //
+            // LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
+            //     isActive: true,
+            //     canPop: false,
+            //     function: () => ExpansionPicker_GUI.getExpansionPickerBox(context, pickerWidth, pickerHeight)
+            // ),
 
             // LevelPickerTemplate_GUI.getLevelPickerTemplate(context, pickerWidth, pickerHeight,
             //     isActive: isExpansionChosen && !isChapterChosen,
@@ -72,19 +73,22 @@ class _LevelPickerState extends State<LevelPicker> {
             //     function: () => MapPicker_GUI.getMapPickerBox(context, pickerWidth, pickerHeight)
             // ),
 
-          ],
+        //  ],
+       // ),
+        child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Image.asset('assets/images/Mortals/TestMortal3.png'),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(0)));}, child: Text("Level testowy 1")),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(1)));}, child: Text("Level testowy 2")),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(2)));}, child: Text("Level testowy 3 (piętra)")),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(3)));}, child: Text("Level 0 - tutorial")),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(4)));}, child: Text("Level 0 - tutorial 64")),
+                ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(5)));}, child: Text("Level 0 - isometric")),
+              ],
+            )
         ),
-        // child: Container(
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         // Image.asset('assets/images/Mortals/TestMortal3.png'),
-        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(0)));}, child: Text("Level testowy 1")),
-        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(1)));}, child: Text("Level testowy 2")),
-        //         ElevatedButton(onPressed: (){viewModel.clearData();AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: box_Levels.getAt(2)));}, child: Text("Level testowy 3 (piętra)")),
-        //       ],
-        //     )
-        // ),
       ),
     );
   }

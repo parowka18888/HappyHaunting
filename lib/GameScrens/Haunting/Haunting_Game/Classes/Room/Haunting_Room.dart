@@ -26,20 +26,21 @@ class Haunting_Room extends PolygonComponent
     required this.polygon,
     required this.auras,
     required this.id,
-    required this.floorID,
+    // required this.floorID,
+    required this.floor,
   }) : super(polygon, paint: Paint()..color = const Color(0x00FF0000));
 
   //VARIABLE FOR "FILLING" POLYGON INTO RECTANGLE, FOR OPTIMIZING CALCULATIONS
   late final Rect boundingBox;
 
   final String id;
-  final int floorID;
+  // final int floorID;
   final List<Aura> auras;
   final List<Haunting_GhostSpot> ghostSpots = [];
   final List<Vector2> polygon;
   List<Haunting_Effect> effects = [];
   List<Haunting_Mortal> mortalsInRoom = [];
-  Haunting_Floor? floor;
+  Haunting_Floor floor;
 
   @override
   Future<void> onLoad() async {

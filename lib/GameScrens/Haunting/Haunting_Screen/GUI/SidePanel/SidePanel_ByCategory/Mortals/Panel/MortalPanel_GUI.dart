@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Getter/Statistic_Getter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
@@ -59,18 +61,27 @@ class MortalPanel_GUI{
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Health, mortal.stat_Health, "Red"),
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Health, mortal.stat_Health, Statistic_Getter.getStatisticColor(Statistic.health)),
               Padding(padding: EdgeInsets.only(left: bar_Padding_Middle)),
-              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Fear, mortal.stat_Fear, "Green"),
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Fear, mortal.stat_Fear, Statistic_Getter.getStatisticColor(Statistic.fear)),
             ],
           ),
           Padding(padding: EdgeInsets.only(top: paddingHeight)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Madness, mortal.stat_Madness, "Yellow"),
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Madness, mortal.stat_Madness, Statistic_Getter.getStatisticColor(Statistic.madness)),
               Padding(padding: EdgeInsets.only(left: bar_Padding_Middle)),
-              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Faith, mortal.stat_Faith, "Blue"),
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Faith, mortal.stat_Faith, Statistic_Getter.getStatisticColor(Statistic.faith)),
+            ],
+          ),
+          Padding(padding: EdgeInsets.only(top: paddingHeight)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Impurity, mortal.stat_Impurity, Statistic_Getter.getStatisticColor(Statistic.impurity)),
+              Padding(padding: EdgeInsets.only(left: bar_Padding_Middle)),
+              getMortalBar_ByStat(bar_Width, bar_Height, mortal.stat_Current_Emotions, mortal.stat_Emotions, Statistic_Getter.getStatisticColor(Statistic.emotions)),
             ],
           )
         ],
