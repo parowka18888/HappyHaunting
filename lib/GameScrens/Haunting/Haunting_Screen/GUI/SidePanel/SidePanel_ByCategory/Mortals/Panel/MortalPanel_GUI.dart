@@ -39,11 +39,16 @@ class MortalPanel_GUI{
   }
 
   static getMortalImage(double width, double height, Haunting_Mortal mortal, HauntingGame_ViewModel viewModel) {
-    return Container(
-        height: height,
-        child: Opacity(opacity: mortal.isDefeated == false ? 1.0 : 0.5,
-          child: Image.asset('assets/images/Mortals/${mortal.icon}.png', fit: BoxFit.fitHeight,),
-        )
+    return GestureDetector(
+      onLongPress: (){
+        viewModel.setGameWindow_MortalData(mortal);
+      },
+      child: Container(
+          height: height,
+          child: Opacity(opacity: mortal.isDefeated == false ? 1.0 : 0.5,
+            child: Image.asset('assets/images/Mortals/${mortal.icon}.png', fit: BoxFit.fitHeight,),
+          )
+      ),
     );
   }
 

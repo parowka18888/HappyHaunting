@@ -54,7 +54,8 @@ class LoadingGhost{
     Haunting_Power power = Haunting_Power(id: ghostPower.id, name: ghostPower.name, description: ghostPower.description,
         icon: ghostPower.icon, cost: ghostPower.cost, cooldown: ghostPower.cooldown, powerTags: ghostPower.powerTags,
         stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith, stat_Emotions: ghostPower.stat_Emotions, stat_Impurity: ghostPower.stat_Impurity,
-        isActivated: false, isDeactivatingForbidden: false, powerType:  type, powerTime : ghostPower.powerTime
+        isActivated: false, isDeactivatingForbidden: false, powerType:  type, powerTime : ghostPower.powerTime,
+        powerScript: ghostPower.effectScript
     );
     game.level.level.add(power);
     powers.add(power);

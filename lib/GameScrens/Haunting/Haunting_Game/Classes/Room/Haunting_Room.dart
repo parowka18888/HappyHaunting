@@ -8,13 +8,13 @@ import 'package:flame/particles.dart';
 import 'package:flutter/material.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/Room/LoadingRoom.dart';
-import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomGhost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Setter/RoomSetter.dart';
 
 import '../../Haunting_Game.dart';
+import '../Effect/Room/Haunting_Effect.dart';
 import '../GhostSpot/Haunting_GhostSpot.dart';
 import '../Mortal/Haunting_Mortal.dart';
 import 'SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';

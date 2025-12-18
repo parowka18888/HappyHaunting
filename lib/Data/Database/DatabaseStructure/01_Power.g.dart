@@ -33,13 +33,14 @@ class PowerAdapter extends TypeAdapter<Power> {
       powerTags: (fields[13] as List).cast<PowerTag>(),
       stat_Emotions: fields[16] as double,
       stat_Impurity: fields[15] as double,
+      effectScript: fields[14] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Power obj) {
     writer
-      ..writeByte(16)
+      ..writeByte(17)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -66,6 +67,8 @@ class PowerAdapter extends TypeAdapter<Power> {
       ..write(obj.icon)
       ..writeByte(10)
       ..write(obj.powerType)
+      ..writeByte(14)
+      ..write(obj.effectScript)
       ..writeByte(11)
       ..write(obj.powerChances)
       ..writeByte(12)
@@ -108,6 +111,7 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
           .toList(),
       stat_Emotions: (json['stat_Emotions'] as num).toDouble(),
       stat_Impurity: (json['stat_Impurity'] as num).toDouble(),
+      effectScript: json['effectScript'] as String?,
     );
 
 Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
@@ -124,6 +128,7 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
       'cooldown': instance.cooldown,
       'icon': instance.icon,
       'powerType': instance.powerType,
+      'effectScript': instance.effectScript,
       'powerChances': instance.powerChances,
       'powerTime': instance.powerTime,
       'powerTags':

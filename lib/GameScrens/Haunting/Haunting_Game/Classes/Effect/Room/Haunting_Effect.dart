@@ -3,11 +3,12 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Mechanics/RoomEffect_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 
-import '../../Haunting_Game.dart';
-import '../Power/Haunting_Power.dart';
-import '../Power/Mechanics/DealingDamage/DealingDamage.dart';
+import '../../../Haunting_Game.dart';
+import '../../Power/Haunting_Power.dart';
+import '../../Power/Mechanics/DealingDamage/DealingDamage.dart';
 
 class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Game>, TapCallbacks{
 
@@ -60,8 +61,10 @@ class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Gam
       if(timer <= 0){
         //RELOAD TIMER
         timer = 1;
-        //DEAL DAMAGE TO MORTALS
-        DealingDamage.dealDamageToAllMortals(power!, room!.mortalsInRoom, game);
+
+        //EXECUTE EFFECT
+        RoomEffect_Navigator.navigateMortalEffect(this);
+
         //DECREASE EFFECT TIME
         timeLeft -= 1;
         //IT EFFECT IS NO LONGER AVAILABLE< REMOVE IT

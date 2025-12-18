@@ -1,4 +1,5 @@
 import 'package:flame/components.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
@@ -12,7 +13,8 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
     required this.cost, required this.cooldown, required this.powerType,
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
     required this.stat_Emotions, required this.stat_Impurity,
-    required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime, required this.powerTags
+    required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime, required this.powerTags,
+    this.powerScript
   });
 
   String id = "";
@@ -32,10 +34,25 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
   List<PowerTag> powerTags = [];
   double powerTime = 0;
 
+  //SCRIPTING
+  String? powerScript;
+  PowerScript? script;
+
   //COOLDOWN
   double cooldown = 0; //MAX COOLDOWN
   double currentCooldown = 0;
 
+  @override
+  Future<void> onLoad() async {
+    if(powerScript != null){
+      try {
+        script = PowerScript.values.byName(powerScript!);
+      } catch (e) {
+        throw Exception("Błąd");
+      }
+    }
+    return super.onLoad();
+  }
 
   @override
   void update(double dt) {

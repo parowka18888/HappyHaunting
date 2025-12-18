@@ -1,3 +1,3 @@
 enum GameWindow{
-  empty, ghostData
+  empty, ghostData, mortalData
 }
