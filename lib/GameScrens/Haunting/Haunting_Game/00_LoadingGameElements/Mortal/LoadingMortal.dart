@@ -2,6 +2,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/GhostSpot/LoadingGhostSpot.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/Mortal/LoadingPickUp.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';
 
@@ -30,6 +31,7 @@ class LoadingMortal{
     }
 
     if(mortal != null && floor != null){
+
       final haunting_Mortal = Haunting_Mortal(
           position: spawnPoint.position,
           size: spawnPoint.size,

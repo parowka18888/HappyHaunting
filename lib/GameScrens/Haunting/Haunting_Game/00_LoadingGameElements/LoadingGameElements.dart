@@ -86,6 +86,9 @@ class LoadingGameElements{
             Haunting_Floor? floorByID = FloorGetter.getFloorById(floorID, game);
             if(floorByID != null){
               floorByID.mortalActionPoints.add(Vector2(point.x, point.y));
+              // final map = level.level.tileMap.map;
+              // final worldPos = getObjectWorldPosition(point, map, game.tileWidth, game.tileHeight);
+              // floorByID.mortalActionPoints.add(worldPos);
             }
           }
         }
@@ -95,13 +98,13 @@ class LoadingGameElements{
 
   static void loadLevelMortalSpecialPoints(Haunting_Level level, Haunting_Game game) {
     final actionPointsLayer = level.level.tileMap.getLayer<ObjectGroup>('MortalSpecialPoints');
+
     if(actionPointsLayer != null){
       for (final point in actionPointsLayer.objects) {
         switch(point.class_){
           case 'MortalSpecialPoint_Stairs' : {
             int floorID = point.properties.getValue('floor');
             int floorChangingValue = point.properties.getValue('floorChangingValue');
-
             Haunting_Stairs stairs = Haunting_Stairs(
                 position: point.position,
                 size: point.size,
@@ -137,6 +140,7 @@ class LoadingGameElements{
             bool isSeducing = point.properties.getValue('isSeducing');
             bool isPickUpObject = point.properties.getValue('isPickUpObject');
             String image = point.properties.getValue('image');
+
 
             String? imageValue;
             Haunting_Floor? floor = FloorGetter.getFloorById(floorID, game);
@@ -248,7 +252,6 @@ class LoadingGameElements{
     // }
 
   }
-
 
 
 }

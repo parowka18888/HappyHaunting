@@ -1,6 +1,7 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/GhostScript/GhostScript.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Haunting_Level.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:tiled/src/objects/tiled_object.dart';

@@ -54,13 +54,30 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   @override
   FutureOr<void> onLoad() async {
 
-    level = await TiledComponent.load('${levelName}.tmx', Vector2.all(game.tileSize.toDouble()));
+    level = await TiledComponent.load(
+      '${levelName}.tmx',
+      Vector2(game.tileWidth.toDouble(), game.tileHeight.toDouble()),
+    );
+
+    final tiledMap = level.tileMap;
+    var orientation = tiledMap.map.orientation;
+    if (orientation == MapOrientation.orthogonal) {
+      print('Mapa jest ortogonalna');
+    } else if (orientation == MapOrientation.isometric) {
+      print('Mapa jest izometryczna');
+    } else {
+      print('Inna orientacja: $orientation');
+    }
+
+
+    // level = await TiledComponent.load('${levelName}.tmx', Vector2.all(game.tileWidth.toDouble()));
 
     LoadingGameElements.loadLevelFloors(this, game);
     LoadingGameElements.loadLevelRooms(this, game);
     LoadingGameElements.loadLevelMortalActionPoints(this, game);
     LoadingGameElements.loadLevelMortalSpecialPoints(this, game);
     LoadingGameElements.loadLevelObjects(this, game);
+
     // LoadingGameElements.loadFloorsByActionPoints(this);
 
     AStar_Grid.getWalkableGrid(this);

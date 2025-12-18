@@ -108,16 +108,29 @@ List<Vector2> reconstructPath(Node node) {
   return path.reversed.toList();
 }
 
-Vector2 worldToGrid(Vector2 worldPos, int tileSize) {
+Vector2 worldToGrid(Vector2 worldPos, int tileWidth, int tileHeight) {
   return Vector2(
-    (worldPos.x / tileSize).floorToDouble(),
-    (worldPos.y / tileSize).floorToDouble(),
+    (worldPos.x / tileWidth).floorToDouble(),
+    (worldPos.y / tileHeight).floorToDouble(),
   );
 }
 
-Vector2 gridToWorld(Vector2 gridPos, int tileSize) {
+// Vector2 worldToGrid(Vector2 worldPos, int tileSize) {
+//   return Vector2(
+//     (worldPos.x / tileSize).floorToDouble(),
+//     (worldPos.y / tileSize).floorToDouble(),
+//   );
+// }
+
+Vector2 gridToWorld(Vector2 gridPos, int tileWidth, int tileHeight) {
   return Vector2(
-    gridPos.x * tileSize + 8,
-    gridPos.y * tileSize + 8,
+    gridPos.x * tileWidth + tileWidth / 2,
+    gridPos.y * tileHeight + tileHeight / 2,
   );
 }
+// Vector2 gridToWorld(Vector2 gridPos, int tileSize) {
+//   return Vector2(
+//     gridPos.x * tileSize + 8,
+//     gridPos.y * tileSize + 8,
+//   );
+// }

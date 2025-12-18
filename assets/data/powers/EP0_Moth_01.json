@@ -16,7 +16,7 @@
   "powerType" : "lureFloor",
   "powerChances" : 25,
   "powerTime" : 0,
-  "icon": "TestPower_4",
+  "icon": "Moth_Power_1",
 
 
   "powerTags": []

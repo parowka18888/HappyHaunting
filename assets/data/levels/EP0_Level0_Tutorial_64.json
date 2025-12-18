@@ -5,7 +5,8 @@
   "fileName": "Level_EP0_0_Tutorial_64",
   "levelWidth": 8960,
   "levelHeight": 4352,
-  "tileSize": 64,
+  "tileWidth": 64,
+  "tileHeight": 64,
 
   "numberOfFloors": 1,
   "numberOfFloorsBasement": 0,

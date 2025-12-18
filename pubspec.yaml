@@ -93,6 +93,7 @@ flutter:
     - assets/images/Levels/Furniture/
     - assets/images/Levels/Terrain/
     - assets/images/Levels/Walls/
+    - assets/images/Levels/Effects/
     - assets/images/UI/
     - assets/images/UI/Background/
     - assets/images/UI/ExpansionPicker/

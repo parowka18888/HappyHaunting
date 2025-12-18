@@ -3,9 +3,8 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_EP0_0_Tutorial_64.tmx",
+    "activeFile": "EP0_Level_0_Castle.tmx",
     "expandedProjectPaths": [
-        "Levels",
         "."
     ],
     "fileStates": {
@@ -30,8 +29,8 @@
             "scale": 0.0625,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 4368,
-                "y": 2184
+                "x": 5672,
+                "y": 3920
             }
         },
         "FurnitureCastle (64x64).tsx": {
@@ -50,16 +49,12 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
-        "Isometric_Castle (192x192).tsx": {
-            "scaleInDock": 0.75,
-            "scaleInEditor": 1
-        },
         "Level_EP0_0_Tutorial.tmx": {
             "expandedObjectLayers": [
-                6,
-                10,
                 8,
+                10,
                 9,
+                6,
                 7
             ],
             "scale": 0.33,
@@ -70,29 +65,18 @@
             }
         },
         "Level_EP0_0_Tutorial_64.tmx": {
-            "expandedGroupLayers": [
-                18
-            ],
             "expandedObjectLayers": [
-                2,
-                4,
-                5,
                 3,
-                6
+                5,
+                6,
+                2,
+                4
             ],
             "scale": 0.125,
-            "selectedLayer": 6,
+            "selectedLayer": 15,
             "viewCenter": {
-                "x": 5492,
-                "y": 2656
-            }
-        },
-        "Level_EP0_Pilot.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 4366.666666666667,
-                "y": 2183.333333333333
+                "x": 4484,
+                "y": 2176
             }
         },
         "Level_Test.tmx": {
@@ -124,38 +108,38 @@
             "scale": 0.22022727272727272,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1534.778121775026,
-                "y": 1319.0918472652218
+                "x": 311.0423116615068,
+                "y": 1325.9029927760578
             }
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                6,
-                4,
-                5,
                 3,
-                7
+                5,
+                6,
+                7,
+                4
             ],
-            "scale": 0.33,
+            "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 1419.6969696969697,
-                "y": 669.6969696969696
+                "x": 1536.5,
+                "y": 1320
             }
         },
         "Level_Test_Isometric.tmx": {
             "expandedObjectLayers": [
-                6,
-                8,
-                9,
                 5,
-                7
+                8,
+                6,
+                7,
+                9
             ],
             "scale": 0.125,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 3328,
-                "y": 1660
+                "x": 3332,
+                "y": 2876
             }
         },
         "Level_Test_Isometric2.tmx": {
@@ -221,25 +205,27 @@
     "map.tileWidth": 128,
     "map.width": 140,
     "openFiles": [
-        "Level_Test3 — kopia.tmx",
+        "Level_EP0_0_Tutorial.tmx",
         "Level_EP0_0_Tutorial_64.tmx",
-        "Level_EP0_Pilot.tmx"
+        "Level_Test3.tmx",
+        "Castletest (64x64).tsx",
+        "EP0_Level_0_Castle.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "int",
     "recentFiles": [
         "Level_Test3 — kopia.tmx",
-        "Level_EP0_Pilot.tmx",
-        "Level_EP0_0_Tutorial_64.tmx",
-        "Isometric_Castle (192x192).tsx",
         "Level_EP0_0_Tutorial.tmx",
+        "Level_EP0_0_Tutorial_64.tmx",
         "Level_Test3.tmx",
-        "Level_Test_Isometric.tmx",
-        "EP0_Level_0_Castle.tmx",
         "Castletest (64x64).tsx",
+        "EP0_Level_0_Castle.tmx",
         "BgTest.tsx",
         "Level_Test_Isometric2.tmx",
-        "Castleest (64x64).tsx"
+        "Level_Test_Isometric.tmx",
+        "Castleest (64x64).tsx",
+        "TerrainIsometric.tsx",
+        "FurnitureGothicMansion (64x64).tsx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",

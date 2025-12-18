@@ -5,7 +5,8 @@
   "fileName": "Level_Test3",
   "levelWidth": 1536,
   "levelHeight": 880,
-  "tileSize": 16,
+  "tileWidth": 16,
+  "tileHeight": 16,
 
   "numberOfFloors": 2,
   "numberOfFloorsBasement": 2,

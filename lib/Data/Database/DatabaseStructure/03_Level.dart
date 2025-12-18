@@ -34,9 +34,11 @@ class Level extends HiveObject {
   @HiveField(13)  late bool isUnlocked;
   @HiveField(14)  late bool isBeaten;
 
-  @HiveField(15)  late int tileSize;
   @HiveField(16)  late int numberOfFloors;
   @HiveField(17)  late int numberOfFloorsBasement;
+
+  @HiveField(15)  late int tileWidth;
+  @HiveField(18)  late int tileHeight;
 
   Level({
     required this.id,
@@ -54,7 +56,8 @@ class Level extends HiveObject {
     required this.seconds,
     required this.isUnlocked,
     required this.isBeaten,
-    required this.tileSize,
+    required this.tileWidth,
+    required this.tileHeight,
     required this.numberOfFloors,
     required this.numberOfFloorsBasement,
   });

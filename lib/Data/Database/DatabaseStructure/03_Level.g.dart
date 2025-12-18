@@ -32,7 +32,8 @@ class LevelAdapter extends TypeAdapter<Level> {
       seconds: fields[12] as int,
       isUnlocked: fields[13] as bool,
       isBeaten: fields[14] as bool,
-      tileSize: fields[15] as int,
+      tileWidth: fields[15] as int,
+      tileHeight: fields[18] as int,
       numberOfFloors: fields[16] as int,
       numberOfFloorsBasement: fields[17] as int,
     );
@@ -41,7 +42,7 @@ class LevelAdapter extends TypeAdapter<Level> {
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(18)
+      ..writeByte(19)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -72,12 +73,14 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..write(obj.isUnlocked)
       ..writeByte(14)
       ..write(obj.isBeaten)
-      ..writeByte(15)
-      ..write(obj.tileSize)
       ..writeByte(16)
       ..write(obj.numberOfFloors)
       ..writeByte(17)
-      ..write(obj.numberOfFloorsBasement);
+      ..write(obj.numberOfFloorsBasement)
+      ..writeByte(15)
+      ..write(obj.tileWidth)
+      ..writeByte(18)
+      ..write(obj.tileHeight);
   }
 
   @override
@@ -112,7 +115,8 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
       seconds: (json['seconds'] as num).toInt(),
       isUnlocked: json['isUnlocked'] as bool,
       isBeaten: json['isBeaten'] as bool,
-      tileSize: (json['tileSize'] as num).toInt(),
+      tileWidth: (json['tileWidth'] as num).toInt(),
+      tileHeight: (json['tileHeight'] as num).toInt(),
       numberOfFloors: (json['numberOfFloors'] as num).toInt(),
       numberOfFloorsBasement: (json['numberOfFloorsBasement'] as num).toInt(),
     );
@@ -134,9 +138,10 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'seconds': instance.seconds,
       'isUnlocked': instance.isUnlocked,
       'isBeaten': instance.isBeaten,
-      'tileSize': instance.tileSize,
       'numberOfFloors': instance.numberOfFloors,
       'numberOfFloorsBasement': instance.numberOfFloorsBasement,
+      'tileWidth': instance.tileWidth,
+      'tileHeight': instance.tileHeight,
     };
 
 const _$LevelScriptEnumMap = {

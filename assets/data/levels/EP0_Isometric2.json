@@ -1,11 +1,11 @@
 {
-  "id": "EP0_Level0_Tutorial",
+  "id": "EP0_Isometric2",
   "name": "Level 1",
 
-  "fileName": "Level_EP0_0_Tutorial",
-  "levelWidth": 3840,
-  "levelHeight": 2176,
-  "tileWidth": 32,
+  "fileName": "Level_Test_Isometric2",
+  "levelWidth": 8992,
+  "levelHeight": 3216,
+  "tileWidth": 64,
   "tileHeight": 32,
 
   "numberOfFloors": 1,
