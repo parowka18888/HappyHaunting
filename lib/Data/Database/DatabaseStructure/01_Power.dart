@@ -25,6 +25,7 @@ class Power extends HiveObject {
   @HiveField(9)  final String icon;
 
   @HiveField(10)  final String powerType;
+  @HiveField(14)  final String? effectScript;
   @HiveField(11)  final double powerChances;
 
   @HiveField(12)  final double powerTime;
@@ -51,6 +52,7 @@ class Power extends HiveObject {
   required this.powerTags,
   required this.stat_Emotions,
   required this.stat_Impurity,
+    this.effectScript
   });
 
   factory Power.fromJson(Map<String, dynamic> json) => _$PowerFromJson(json);

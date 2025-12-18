@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:happyhaunting/Data/Database/Enums/GameCategory.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/Haunting/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
@@ -14,6 +15,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
 
   //FIELD FOR SELECTED GHOST FROM LIST
   Haunting_Ghost? chosenGhost;
+
+  //FIELD FOR SELECTED MORTAL FROM LIST
+  Haunting_Mortal? chosenMortal;
 
   //FIELD FOR CURRENT FLOOR
   int currentFloor = 0;
@@ -63,6 +67,10 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     chosenGhost = ghost;
     notifyListeners();
   }
+  void setChosenMortal(Haunting_Mortal? mortal) {
+    chosenMortal = mortal;
+    notifyListeners();
+  }
 
   void addEntry(List<String> entry) {
     entries.add(entry);
@@ -101,6 +109,16 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setGameWindow_MortalData(Haunting_Mortal? mortal) {
+    setChosenMortal(mortal);
+    if(mortal == null){
+      setGameWindow(GameWindow.empty);
+    } else {
+      setGameWindow(GameWindow.mortalData);
+    }
+    notifyListeners();
+  }
+
   void setIsLogEntriesWindowVisible(bool bool) {
     isLogEntriesWindowVisible = bool;
     notifyListeners();
@@ -114,6 +132,7 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     }
 
   }
+
 
 
 

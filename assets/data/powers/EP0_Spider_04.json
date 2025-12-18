@@ -7,15 +7,16 @@
   "cooldown" : 40,
 
   "stat_Fear": 20,
-  "stat_Health": 45,
+  "stat_Health": 0,
   "stat_Madness": 0,
   "stat_Faith": 0,
   "stat_Impurity": 0,
   "stat_Emotions": 0,
 
-  "powerType" : "mortalSingle",
+  "powerType" : "effectMortal",
+  "effectScript" : "damage",
   "powerChances" : 100,
-  "powerTime" : 0,
+  "powerTime" : 10,
 
 
   "icon": "Spider_Power_4",

@@ -10,6 +10,7 @@ import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/CheckConditions/MortalChecker.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Exorcism/Exorcism_Mechanics.dart';
@@ -60,6 +61,8 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   //MORTAL VISIBILITY
   bool isActive = true;
   bool isActive_Helper = true; //WHEN VALUE isActive changes, SOME ACTIONS CAN BE HOLD
+
+  List<Haunting_MortalEffect> effects = [];
 
   //MORTAL SCRIPTS
   MortalScript? script;

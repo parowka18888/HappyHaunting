@@ -12,6 +12,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/ShadowSceen/ShadowScreen
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/MortalData/GUI/MortalData_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import 'package:hive/hive.dart';
@@ -120,6 +121,9 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
             if(viewModel.gameWindow == GameWindow.ghostData && viewModel.chosenGhost != null)
             GhostData_GUI.getGhostDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
+
+            if(viewModel.gameWindow == GameWindow.mortalData && viewModel.chosenMortal != null)
+              MortalData_GUI.getMortalDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
 
 
 
