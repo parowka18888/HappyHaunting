@@ -2,11 +2,11 @@
   "id": "EP0_Isometric",
   "name": "Level 1",
 
-  "fileName": "Level_Test_Isometric",
-  "levelWidth": 6656,
-  "levelHeight": 3328,
-  "tileWidth": 64,
-  "tileHeight": 32,
+  "fileName": "Level_Test",
+  "levelWidth": 18432,
+  "levelHeight": 10560,
+  "tileWidth": 96,
+  "tileHeight": 96,
 
   "numberOfFloors": 1,
   "numberOfFloorsBasement": 0,
@@ -15,7 +15,7 @@
 
   "script": "empty",
 
-  "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3"],
+  "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4", "EP0_Level0_Test_Mortal5", "EP0_Level0_Test_Mortal6", "EP0_Level0_Test_Mortal7", "EP0_Level0_Test_Mortal8"],
   "icon": "",
   "background": "EP0_0_0",
 

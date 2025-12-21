@@ -37,6 +37,9 @@
 
   "levels": [
     "assets/data/levels/EP0_Level0_Test3.json",
+    "assets/data/levels/EP0_Level0_Tutorial.json",
+    "assets/data/levels/EP0_Level0_Tutorial_64.json",
+    "assets/data/levels/EP0_Isometric.json",
     "assets/data/levels/EP0_Pilot.json"
   ],
 

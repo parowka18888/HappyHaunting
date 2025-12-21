@@ -6,6 +6,9 @@ import 'package:happyhaunting/Data/Database/JsonConverter/ChapterListConverter.d
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../JsonConverter/LevelListConverter.dart';
+import '03_Level.dart';
+
 part '11_Expansion.g.dart';
 
 @HiveType(typeId: 11)
@@ -17,18 +20,23 @@ class Expansion extends HiveObject {
   @HiveField(1)  late String backgroundImage;
 
   @HiveField(2)  late String townName;
-  @HiveField(3)  late String description;
+  @HiveField(3)  late String expansionName;
+  @HiveField(4)  late String description;
 
-  @HiveField(4)
-  @ChapterListConverter()
-  late List<Chapter> chapters;
+  @HiveField(5)
+  @LevelListConverter()
+  late List<Level> levels;
+
+  @HiveField(6)  late bool isUnlocked;
 
   Expansion({
    required this.id,
    required this.backgroundImage,
    required this.townName,
    required this.description,
-   required this.chapters,
+   required this.expansionName,
+   required this.levels,
+   required this.isUnlocked,
   });
 
   factory Expansion.fromJson(Map<String, dynamic> json) => _$ExpansionFromJson(json);

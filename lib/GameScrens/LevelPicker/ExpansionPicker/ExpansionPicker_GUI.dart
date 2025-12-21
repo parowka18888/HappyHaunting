@@ -9,7 +9,6 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart'
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
-import 'package:happyhaunting/GameScrens/LevelPicker/ChapterPicker/ChapterPicker_GUI.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/MapPicker/MapPicker_GUI.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/PlotTraits_GUI.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/LevelPickerTemplateBackground.dart';
@@ -68,7 +67,6 @@ class ExpansionPicker_GUI{
 
     LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
     bool isExpansionChosen = levelSelector_ViewModel.chosenExpansion?.id == expansion.id;
-    bool isChapterChosen = levelSelector_ViewModel.chosenChapter != null;
 
     double padding = defaultHeight * 0.1;
     //LEFT SIDE
@@ -77,10 +75,11 @@ class ExpansionPicker_GUI{
     double leftSideWidth = width * 0.325;
     double topPadding_ChapterPicker = isExpansionChosen ? padding : padding - chapterPickerHeight * 2;
 
-    //RIGHT SIDE
-    double levelPickerHeight = height - 2 * padding;
-    double levelPickerWidth = width - leftSideWidth - padding * 3;
-    double topPadding_LevelPicker = isChapterChosen ? padding : padding - levelPickerHeight * 1.25;
+    //LEVEL PICKER
+    double paddingLevelPicker_Top = height * 0.25;
+    double paddingLevelPicker_Bottom = height * 0.1;
+    double levelPickerHeight = height - paddingLevelPicker_Bottom - paddingLevelPicker_Top;
+    double levelPickerWidth = width * 0.87;
 
     //TITLE AND DIVIDER
     double titleHeight = height * 0.125;
@@ -88,25 +87,20 @@ class ExpansionPicker_GUI{
     double dividerWidthModifier = 0.8;
 
 
-    // double circleSize = defaultHeight * 0.6;
-    // double circleTitle = defaultHeight * 0.15;
-    // double circleBoxPadding = width * 0.025;
+    double circleSize = defaultHeight * 0.6;
+    double circleTitle = defaultHeight * 0.15;
+    double circleBoxPadding = width * 0.025;
 
     return Container(
       height: height, width: width,
       child: GestureDetector(
         onTap: (){
-          // if(levelSelector_ViewModel.chosenExpansion?.id != expansion.id){
-          //     levelSelector_ViewModel.clear();
-          //     levelSelector_ViewModel.setChosenExpansion(expansion);
-          // }
           if(levelSelector_ViewModel.chosenExpansion?.id == expansion.id){
             levelSelector_ViewModel.clear();
           } else {
             levelSelector_ViewModel.clear();
             levelSelector_ViewModel.setChosenExpansion(expansion);
           }
-
         },
         child: Stack(
           alignment: Alignment(0, 0),
@@ -115,39 +109,44 @@ class ExpansionPicker_GUI{
             //DESCRIPTION
             Positioned(
               bottom: padding, left: padding,
-              child: TextAndFont.getText(leftSideWidth, descriptionHeight,
-                  expansion.description,
-                  // fontSize: descriptionHeight * 0.25,
-                  alignment: Alignment.bottomLeft
+              child: AnimatedOpacity
+                (
+                opacity: levelSelector_ViewModel.chosenExpansion?.id == expansion.id ? 0 : 1,
+                duration: AnimatedContainer_Getter.getDuration(),
+                curve: AnimatedContainer_Getter.getCurve(),
+                child: TextAndFont.getText(leftSideWidth, descriptionHeight,
+                    expansion.description,
+                    // fontSize: descriptionHeight * 0.25,
+                    alignment: Alignment.bottomLeft
+                ),
               )
             ),
 
-            //CHAPTER PICKER
-            AnimatedPositioned(
-                duration: AnimatedContainer_Getter.getDuration(),
-                top: topPadding_ChapterPicker, left: padding,
-                child: ChapterPicker_GUI.getChapterPickerBox(context, expansion, chapterPickerHeight, leftSideWidth,
-                    titleHeight, dividerHeight, dividerWidthModifier
-                )
-            ),
+            //STATS
+              Positioned(
+                  right: circleBoxPadding,
+                  child: AnimatedOpacity
+                    (
+                    opacity: levelSelector_ViewModel.chosenExpansion?.id == expansion.id ? 0 : 1,
+                    duration: AnimatedContainer_Getter.getDuration(),
+                    curve: AnimatedContainer_Getter.getCurve(),
+                      child: PlotTraits_GUI.getPlotTraitsBox(circleSize, circleTitle, expansion: expansion)
+                  )
+              ),
 
             //LEVEL PICKER
             if(levelSelector_ViewModel.chosenExpansion?.id == expansion.id)
             AnimatedPositioned(
                 duration: AnimatedContainer_Getter.getDuration(),
-                top: topPadding_LevelPicker, right: padding,
+                top: paddingLevelPicker_Top,
+                bottom: paddingLevelPicker_Bottom,
                 child: MapPicker_GUI.getMapPickerBox(context,
                     levelPickerHeight, levelPickerWidth,
                     titleHeight, dividerHeight, dividerWidthModifier,
-                    isChapterChosen
+                    isExpansionChosen
                 )
             ),
 
-
-            // Positioned(
-            //     right: circleBoxPadding,
-            //     child: PlotTraits_GUI.getPlotTraitsBox(circleSize, circleTitle, expansion: expansion)
-            // )
           ],
     ),
       ),

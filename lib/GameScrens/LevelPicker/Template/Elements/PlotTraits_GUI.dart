@@ -16,8 +16,8 @@ class PlotTraits_GUI{
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        if(expansion != null)
-        getSingleExpansionNumber(size, expansion.chapters.length, "ROZDZIAŁY", padding, circleTileHeight),
+        // if(expansion != null)
+        // getSingleExpansionNumber(size, expansion.chapters.length, "ROZDZIAŁY", padding, circleTileHeight),
         if(chapter != null || expansion != null)
         getSingleExpansionNumber(size,
             expansion != null ? DatabaseExpansion__Getter.getExpansionGhostsNumber(expansion) :

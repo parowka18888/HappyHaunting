@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_EP0_0_Tutorial_64.tmx",
+    "activeFile": "Level_EP0_Pilot.tmx",
     "expandedProjectPaths": [
         "Levels",
         "."
@@ -58,15 +58,15 @@
             "expandedObjectLayers": [
                 6,
                 10,
-                8,
                 9,
+                8,
                 7
             ],
             "scale": 0.33,
-            "selectedLayer": 5,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 1919.6969696969697,
-                "y": 1087.8787878787878
+                "x": 1922.7272727272725,
+                "y": 1090.9090909090908
             }
         },
         "Level_EP0_0_Tutorial_64.tmx": {
@@ -74,38 +74,36 @@
                 18
             ],
             "expandedObjectLayers": [
+                6,
                 2,
-                4,
                 5,
                 3,
-                6
+                4
             ],
             "scale": 0.125,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 5492,
-                "y": 2656
+                "x": 2340,
+                "y": 2168
             }
         },
         "Level_EP0_Pilot.tmx": {
             "scale": 0.33,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 4366.666666666667,
-                "y": 2183.333333333333
+                "x": 6307.575757575758,
+                "y": 1715.151515151515
             }
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                3,
-                5,
-                4
+                10
             ],
-            "scale": 0.75,
-            "selectedLayer": 4,
+            "scale": 1,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 768.6666666666665,
-                "y": 439.33333333333337
+                "x": 7065.5,
+                "y": 2249
             }
         },
         "Level_Test2.tmx": {
@@ -116,8 +114,8 @@
             "scale": 0.33,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 910.6060606060605,
-                "y": 437.8787878787879
+                "x": 766.6666666666666,
+                "y": 440.9090909090909
             }
         },
         "Level_Test3 — kopia.tmx": {
@@ -131,31 +129,31 @@
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
                 6,
-                4,
                 5,
                 3,
+                4,
                 7
             ],
-            "scale": 0.33,
+            "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 1419.6969696969697,
-                "y": 669.6969696969696
+                "x": 1108.5,
+                "y": 638
             }
         },
         "Level_Test_Isometric.tmx": {
             "expandedObjectLayers": [
                 6,
-                8,
-                9,
                 5,
+                9,
+                8,
                 7
             ],
             "scale": 0.125,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 3328,
-                "y": 1660
+                "x": 4604,
+                "y": 1488
             }
         },
         "Level_Test_Isometric2.tmx": {
@@ -223,23 +221,29 @@
     "openFiles": [
         "Level_Test3 — kopia.tmx",
         "Level_EP0_0_Tutorial_64.tmx",
-        "Level_EP0_Pilot.tmx"
+        "Level_EP0_Pilot.tmx",
+        "EP0_Level_0_Castle.tmx",
+        "Level_EP0_0_Tutorial.tmx",
+        "Level_Test.tmx",
+        "Level_Test_Isometric.tmx",
+        "Level_Test2.tmx",
+        "Level_Test3.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "int",
     "recentFiles": [
-        "Level_Test3 — kopia.tmx",
-        "Level_EP0_Pilot.tmx",
-        "Level_EP0_0_Tutorial_64.tmx",
-        "Isometric_Castle (192x192).tsx",
         "Level_EP0_0_Tutorial.tmx",
+        "Level_EP0_0_Tutorial_64.tmx",
         "Level_Test3.tmx",
+        "Level_Test2.tmx",
         "Level_Test_Isometric.tmx",
         "EP0_Level_0_Castle.tmx",
+        "Level_Test3 — kopia.tmx",
+        "Level_EP0_Pilot.tmx",
+        "Level_Test.tmx",
+        "Isometric_Castle (192x192).tsx",
         "Castletest (64x64).tsx",
-        "BgTest.tsx",
-        "Level_Test_Isometric2.tmx",
-        "Castleest (64x64).tsx"
+        "BgTest.tsx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
