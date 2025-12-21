@@ -2,9 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:happyhaunting/Data/AppData/AppData.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameDecorator.dart';
+import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/BackgroundPattern.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Decorator/Decorator_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/Title/PickerTitle_GUI.dart';
@@ -14,8 +19,11 @@ import 'package:provider/provider.dart';
 
 import '../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../Data/Database/Enums/UI/Frame/FrameType.dart';
+import '../../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import '../../GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import '../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
+import '../../GlobalCode/Navigator/AppNavigator.dart';
+import '../../Haunting/Haunting_Screen/HauntingScreen.dart';
 
 class MapPicker_GUI{
   static getMapPickerBox(BuildContext context, double height, double width,
@@ -36,67 +44,65 @@ class MapPicker_GUI{
   static getMapPickerColumn(BuildContext context, double height, double width,
       double titleHeight, double dividerHeight, double dividerWidthModifier
       ) {
-    LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
-    Chapter? chapter = levelSelector_ViewModel.chosenChapter;
-    if(chapter == null) return Container();
-    double dividerWidth = width * dividerWidthModifier;
-    double listHeight = height - dividerHeight - titleHeight;
     return Container(
       height: height,width: width, //color: Colors.yellow,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          PickerTitle_GUI.getTitle(width, titleHeight, "Wybierz poziom"),
-          Divider_GUI.getDivider(dividerWidth, dividerHeight),
-          getMapList(context, chapter, width, listHeight)
-        ],
-      ),
+      child: getMapList(context, width, height)
     );
   }
 
-  static getMapList(BuildContext context, Chapter chapter, double width, double height) {
+  static getMapList(BuildContext context, double width, double height) {
     LevelSelector_ViewModel levelSelector_ViewModel = context.read<LevelSelector_ViewModel>();
 
-    int itemCount = chapter.levels.length;
-    double entryHeight = height * 0.25;
-    double entryHeight_Active = height * 0.5;
+    double entryHeight = height * 0.3;
     double entryWidth = width;
 
+    final int itemCount = levelSelector_ViewModel.chosenExpansion!.levels.length;
     return Container(
       height: height, width: width, //color: Colors.purple,
       child: ListView.builder(
           itemCount: itemCount,
           itemBuilder: (context, index){
-            Level level = chapter.levels[index];
-            bool isLevelChosen = levelSelector_ViewModel.chosenLevel?.id == level.id;
-            double finalEntryHeight = isLevelChosen ? entryHeight : entryHeight;
-            return GestureDetector(
-              onTap: (){
-                levelSelector_ViewModel.setChosenLevel(level);
-              },
-              child: AnimatedContainer(
-                duration: AnimatedContainer_Getter.getDuration(),
-                curve: AnimatedContainer_Getter.getCurve(),
-                width: entryWidth, height: finalEntryHeight,
-                child: FramedWindow_GUI.getFramedWindow(context, entryWidth, finalEntryHeight, frameType: FrameType.Gold,
-                    function: ()=> getMapDetails(context, level, entryWidth, finalEntryHeight, isLevelChosen)
-                ),
+            Level level = levelSelector_ViewModel.chosenExpansion!.levels[index];
+            return AnimatedContainer(
+              duration: AnimatedContainer_Getter.getDuration(),
+              curve: AnimatedContainer_Getter.getCurve(),
+              width: entryWidth, height: entryHeight,
+              child: FramedWindow_GUI.getFramedWindow(context, entryWidth, entryHeight, frameType: FrameType.Gold,
+                  function: ()=> getMapDetails(context, level, entryWidth, entryHeight)
               ),
             );
       }),
     );
   }
 
-  static getMapDetails(BuildContext context, Level level, double width, double height, bool isLevelChosen) {
-    double coreDataWidth = width * 0.375;
-    double coreDataHeight = height * 0.7;
+  static getMapDetails(BuildContext context, Level level, double width, double height) {
+    // double coreDataWidth = width * 0.375;
+    // double coreDataHeight = height * 0.7;
+
+    Box box_Levels = Hive.box<Level>('levels');
+    final viewModel = context.watch<HauntingGame_ViewModel>();
+
+    //DEFAULT DATA
     double padding = height * 0.1;
+    double defaultHeight = height - padding;
 
-    double trappedGhostsHeight = height * 0.5;
-    double trappedGhostsWidth = width * 0.275;
+    //TRAPPED GHOSTS
+    double trappedGhostsHeight = defaultHeight * 0.6;
 
-    double timeWidth = width - padding * 2 - trappedGhostsWidth - coreDataWidth;
-    double timeHeight = coreDataHeight;
+    //PLAY BUTTON
+    double playButtonHeight = defaultHeight * 0.8;
+    bool isLevelUnlocked = level.isUnlocked;
+
+    //TITLE
+    double titleHeight = defaultHeight;
+    double titleWidth = width * 0.375;
+
+    //TIME
+    double timePadding = padding * 2 + playButtonHeight;
+    double timeHeight = defaultHeight;
+    double timeWidth = (width / 2) - timePadding - titleWidth / 2;
+
+
 
     return Container(
       height: height, width: width,
@@ -104,19 +110,36 @@ class MapPicker_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
+          Opacity(opacity: 0.15, child: BackgroundPattern.getBackgroundPatter(width),),
           getBackground(height, width, level.background),
-          //CORE DATA (TITLE)
-          Positioned(
-              left: padding,
-              child:  getCoreData(coreDataHeight, coreDataWidth, isLevelChosen, level)),
+
           //GHOSTS
           Positioned(
-              right: padding, //top: padding,
-              child: getTrappedGhostsContainer(context, trappedGhostsHeight, trappedGhostsWidth, level)),
+              left: padding, bottom: padding,
+              child: getTrappedGhostsContainer(context, trappedGhostsHeight, width, level)),
+          //PLAY BUTTON
+          Positioned(
+            right: padding,
+            child: Button_GUI.getButton(playButtonHeight, 'ArrowRight',
+              isIconOpacityLowered: !isLevelUnlocked,
+              isActive: isLevelUnlocked,
+              function: (){
+                viewModel.clearData();
+                AppNavigator.navigateToScreen(context,
+                    HauntingScreen(chosenLevel: DatabaseObject_Getter.getObjectById(level.id, box_Levels))
+                );
+              }
+            ),
+          ),
           //TIME
           Positioned(
-            left: padding + coreDataWidth,
-              child: getTimeContainer(timeWidth, timeHeight, level))
+            // right: timePadding,
+            child: getTimeContainer(timeWidth, defaultHeight, level)),
+
+          //CORE DATA (TITLE)
+          Positioned(
+              child: getCoreData(titleWidth, titleHeight, level)
+          ),
         ],
       ),
     );
@@ -125,54 +148,37 @@ class MapPicker_GUI{
   static getBackground(double height, double width, String name) {
     return Container(
       height: height, width: width,
-      child: Image.asset('assets/images/UI/LevelPicker/$name.png', fit: BoxFit.cover,),
-    );
-  }
-
-  static getCoreData(double height, double width, bool isLevelChosen, Level level) {
-    double titleHeight = isLevelChosen ? height * 0.3 : height * 0.6;
-    double dividerHeight = height * 0.15;
-    double dividerWidth = width * 0.9;
-    double descriptionHeight = height - titleHeight - dividerHeight;
-    return AnimatedContainer(
-      duration: AnimatedContainer_Getter.getDuration(),
-      curve: AnimatedContainer_Getter.getCurve(),
-      height: height, width: width,// color: Colors.yellow,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextAndFont.getText(width, titleHeight, level.name),
-          if(isLevelChosen)
-          Divider_GUI.getDivider(dividerWidth, dividerHeight),
-          if(isLevelChosen)
-          TextAndFont.getText(width, descriptionHeight, level.startingText),
-        ],
-      ),
+      child: Image.asset('assets/images/UI/LevelPicker/$name.png', fit: BoxFit.fitHeight, alignment: Alignment.centerLeft,),
     );
   }
 
   static getTrappedGhostsContainer(BuildContext context, double height, double width, Level level) {
+
     double padding = height * 0.05;
+    double circleSize = height;
+
     int itemCount = level.trappedGhosts.length;
 
     return Container(
-      height: height, width: width, //color: Colors.purple,
+      height: height, width: width,
       child: ListView.builder(
-        itemCount: itemCount,
-        scrollDirection: Axis.horizontal,
-        reverse: true,
-        itemBuilder: (context, index){
-        Ghost ghost = level.trappedGhosts[index];
-        return Row(
-          children: [
-            Padding(padding: EdgeInsets.only(left: padding)),
-            Button_GUI.getButton(
-              height, ghost.icon, catalog: 'Ghosts',
-              imageSize: 1, isIconOpacityLowered: !ghost.isUnlocked, isImageHiddenWithDarkLayer: !ghost.isUnlocked
-            ),
-          ],
-        );
-      }),
+          itemCount: itemCount,
+          padding: EdgeInsets.only(left: 0, bottom: 0),
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index){
+            Ghost ghost = level.trappedGhosts[index];
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Button_GUI.getButton(
+                    circleSize, ghost.icon, catalog: 'Ghosts',
+                    imageSize: 1, isIconOpacityLowered: !ghost.isUnlocked, isImageHiddenWithDarkLayer: !ghost.isUnlocked
+                ),
+                Padding(padding: EdgeInsets.only(left: padding))
+              ],
+            );
+          }
+      )
     );
   }
 
@@ -196,6 +202,30 @@ class MapPicker_GUI{
       ),
     );
   }
+
+  static getCoreData(double width, double height, Level level) {
+    double decoratorWidth = width * 0.2;
+    double titleWidth = width - decoratorWidth * 2;
+    return Container(
+      height: height,
+      width: width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(width: decoratorWidth, height: height,
+            child: Decorator_GUI.getDecorator(height, FrameDecorator.boxLeft),
+          ),
+          Container(width: titleWidth, height: height,
+            child: TextAndFont.getText(titleWidth, height, level.name),
+          ),
+          Container(width: decoratorWidth, height: height,
+            child: Decorator_GUI.getDecorator(height, FrameDecorator.boxRight),
+          ),
+        ],
+      ),
+    );
+  }
+
   
 
 }

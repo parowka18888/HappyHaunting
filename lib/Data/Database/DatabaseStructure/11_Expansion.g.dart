@@ -20,15 +20,17 @@ class ExpansionAdapter extends TypeAdapter<Expansion> {
       id: fields[0] as String,
       backgroundImage: fields[1] as String,
       townName: fields[2] as String,
-      description: fields[3] as String,
-      chapters: (fields[4] as List).cast<Chapter>(),
+      description: fields[4] as String,
+      expansionName: fields[3] as String,
+      levels: (fields[5] as List).cast<Level>(),
+      isUnlocked: fields[6] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, Expansion obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -36,9 +38,13 @@ class ExpansionAdapter extends TypeAdapter<Expansion> {
       ..writeByte(2)
       ..write(obj.townName)
       ..writeByte(3)
-      ..write(obj.description)
+      ..write(obj.expansionName)
       ..writeByte(4)
-      ..write(obj.chapters);
+      ..write(obj.description)
+      ..writeByte(5)
+      ..write(obj.levels)
+      ..writeByte(6)
+      ..write(obj.isUnlocked);
   }
 
   @override
@@ -61,13 +67,17 @@ Expansion _$ExpansionFromJson(Map<String, dynamic> json) => Expansion(
       backgroundImage: json['backgroundImage'] as String,
       townName: json['townName'] as String,
       description: json['description'] as String,
-      chapters: const ChapterListConverter().fromJson(json['chapters'] as List),
+      expansionName: json['expansionName'] as String,
+      levels: const LevelListConverter().fromJson(json['levels'] as List),
+      isUnlocked: json['isUnlocked'] as bool,
     );
 
 Map<String, dynamic> _$ExpansionToJson(Expansion instance) => <String, dynamic>{
       'id': instance.id,
       'backgroundImage': instance.backgroundImage,
       'townName': instance.townName,
+      'expansionName': instance.expansionName,
       'description': instance.description,
-      'chapters': const ChapterListConverter().toJson(instance.chapters),
+      'levels': const LevelListConverter().toJson(instance.levels),
+      'isUnlocked': instance.isUnlocked,
     };
