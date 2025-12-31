@@ -1,0 +1,29 @@
+{
+  "id": "EP0_Shade",
+
+  "name": "EP0_Shade_Name",
+  "description": "EP0_Shade_Description",
+
+  "icon" : "Shade_Icon",
+  "ghostImage" : "Shade",
+  "ghostPanel" : "Shade_Panel",
+  "headCenterPoint": 18,
+
+
+  "mainStat": "faith",
+  "secondaryStats": ["faith", "fear"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Shade_Recruit",
+  "reserveText":  "EP0_Shade_Reserve",
+  "helpText":     "EP0_Shade_Help",
+  "banishText" :  "EP0_Shade_Banish",
+  "hintText" :    "EP0_Shade_Hint",
+  "freeingText" : "EP0_Shade_Free",
+
+  "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_Spider_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

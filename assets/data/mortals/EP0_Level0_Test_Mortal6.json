@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal6",
   "name": "Kucyki",
+  "description": "",
   "icon" : "TestMortal6",
 
   "stat_Fear": 200,

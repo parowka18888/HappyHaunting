@@ -1,0 +1,27 @@
+{
+  "id": "EP0_GrimFamily_Uncle",
+  "name": "EP0_GrimFamily_Uncle_Name",
+  "description": "EP0_GrimFamily_Uncle_Description",
+  "icon" : "Mortal_Placeholder",
+
+  "stat_Fear": 200,
+  "stat_Health": 193,
+  "stat_Madness": 150,
+  "stat_Faith": 230,
+  "stat_Impurity": 230,
+  "stat_Emotions": 230,
+
+  "stat_Multiplier_Fear": 0.8,
+  "stat_Multiplier_Health": 1.2,
+  "stat_Multiplier_Madness": 1.1,
+  "stat_Multiplier_Faith": 0.5,
+  "stat_Multiplier_Emotions": 0.5,
+  "stat_Multiplier_Impurity": 0.5,
+
+  "mortalTags": ["regular"],
+  "exorcismStrength" : 0,
+
+  "fear": "Null"
+
+
+}

@@ -14,14 +14,11 @@ class Haunting_Camera{
       CameraComponent cam = CameraComponent.withFixedResolution(
         world: world,
         width: game.width,
-        // width: game.width * cameraWidth_Modifier,
-        // height: game.height * cameraHeight_Modifier,
         height: game.height,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
       game.camera = cam;
       game.add(cam);
-
     });
   }
 

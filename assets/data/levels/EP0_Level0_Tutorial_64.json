@@ -8,10 +8,11 @@
   "tileWidth": 64,
   "tileHeight": 64,
 
-  "numberOfFloors": 1,
-  "numberOfFloorsBasement": 0,
+  "numberOfFloors": 4,
+  "numberOfFloorsBasement": 4,
 
   "startingText": "This is testing text for dialog window",
+  "endingText": "EP0_Level_0_EndingText",
 
   "script": "empty",
 

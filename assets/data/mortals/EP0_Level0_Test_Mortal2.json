@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal2",
   "name": "Bojec",
+  "description": "",
   "icon" : "TestMortal2",
 
   "stat_Fear": 200,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="96" height="55" tilewidth="96" tileheight="96" infinite="0" nextlayerid="14" nextobjectid="269">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="96" height="55" tilewidth="64" tileheight="64" infinite="0" nextlayerid="14" nextobjectid="269">
  <tileset firstgid="1" source="Terrain (16x16).tsx"/>
  <tileset firstgid="243" source="Isometric_Castle (192x192).tsx"/>
  <layer id="2" name="Background" width="96" height="55">
@@ -121,7 +121,7 @@
 </data>
  </layer>
  <objectgroup id="10" name="SpawnPoints">
-  <object id="265" name="Level0_2_0" type="Mortal" x="7104" y="2016" width="96" height="96">
+  <object id="265" name="Level0_2_0" type="Mortal" x="2360" y="816" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
     <property name="isTriggeredByScript" type="bool" value="false"/>
@@ -131,19 +131,19 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="MortalSpecialPoints">
-  <object id="266" name="Exit_0_0" type="MortalSpecialPoint_Exit" x="6816" y="2016" width="96" height="96">
+  <object id="266" name="Exit_0_0" type="MortalSpecialPoint_Exit" x="2072" y="816" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="12" name="MortalDestinationPoints">
-  <object id="267" name="MortalActionPoint_0" type="MortalActionPoint" x="7296" y="2496" width="96" height="96">
+  <object id="267" name="MortalActionPoint_0" type="MortalActionPoint" x="2552" y="1296" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="268" name="MortalActionPoint_0" type="MortalActionPoint" x="6816" y="2304" width="96" height="96">
+  <object id="268" name="MortalActionPoint_0" type="MortalActionPoint" x="2072" y="1104" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>

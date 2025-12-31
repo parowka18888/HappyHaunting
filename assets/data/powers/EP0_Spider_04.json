@@ -1,26 +1,23 @@
 {
   "id": "EP0_Spider_04",
-  "name": "Pajęcza obecność",
-  "description": "Na całej mapie pojawiają się pająki, zadające natychmiastowe obrażenia wszystkim śmiertelnikom.",
+  "name": "EP0_Spider_04_Name",
+  "description": "EP0_Spider_04_Description",
 
-  "cost" : 40,
-  "cooldown" : 40,
+  "cost" : 80,
+  "cooldown" : 80,
 
-  "stat_Fear": 20,
-  "stat_Health": 0,
+  "stat_Fear": 65,
+  "stat_Health": 40,
   "stat_Madness": 0,
   "stat_Faith": 0,
-  "stat_Impurity": 0,
+  "stat_Impurity": 65,
   "stat_Emotions": 0,
 
-  "powerType" : "effectMortal",
-  "effectScript" : "damage",
+  "powerType" : "mortalGlobal",
   "powerChances" : 100,
-  "powerTime" : 10,
+  "powerTime" : 0,
 
 
   "icon": "Spider_Power_4",
-
-
-  "powerTags": ["Noise"]
+  "powerTags": ["spiders", "plague", "animals"]
 }

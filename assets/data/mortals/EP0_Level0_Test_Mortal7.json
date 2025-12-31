@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal7",
   "name": "Marej",
+  "description": "",
   "icon" : "TestMortal7",
 
   "stat_Fear": 200,

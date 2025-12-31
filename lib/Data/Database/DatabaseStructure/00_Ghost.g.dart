@@ -24,18 +24,26 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       auras: (fields[4] as List).cast<Aura>(),
       health: fields[5] as double,
       ghostImage: fields[6] as String,
-      banishingText: fields[7] as String,
       isUnlocked: fields[8] as bool,
       headCenterPoint: fields[9] as int,
       tier: fields[10] as GhostTier,
       mainStat: fields[11] as Statistic,
+      secondaryStats: (fields[12] as List).cast<Statistic>(),
+      description: fields[13] as String,
+      ghostPanel: fields[14] as String,
+      banishText: fields[17] as String,
+      freeingText: fields[19] as String,
+      helpText: fields[16] as String,
+      hintText: fields[18] as String,
+      recruitText: fields[7] as String,
+      reserveText: fields[15] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ghost obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(20)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,8 +58,6 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..write(obj.health)
       ..writeByte(6)
       ..write(obj.ghostImage)
-      ..writeByte(7)
-      ..write(obj.banishingText)
       ..writeByte(8)
       ..write(obj.isUnlocked)
       ..writeByte(9)
@@ -59,7 +65,25 @@ class GhostAdapter extends TypeAdapter<Ghost> {
       ..writeByte(10)
       ..write(obj.tier)
       ..writeByte(11)
-      ..write(obj.mainStat);
+      ..write(obj.mainStat)
+      ..writeByte(12)
+      ..write(obj.secondaryStats)
+      ..writeByte(13)
+      ..write(obj.description)
+      ..writeByte(14)
+      ..write(obj.ghostPanel)
+      ..writeByte(7)
+      ..write(obj.recruitText)
+      ..writeByte(15)
+      ..write(obj.reserveText)
+      ..writeByte(16)
+      ..write(obj.helpText)
+      ..writeByte(17)
+      ..write(obj.banishText)
+      ..writeByte(18)
+      ..write(obj.hintText)
+      ..writeByte(19)
+      ..write(obj.freeingText);
   }
 
   @override
@@ -85,11 +109,21 @@ Ghost _$GhostFromJson(Map<String, dynamic> json) => Ghost(
       auras: const AuraListConverter().fromJson(json['auras'] as List),
       health: (json['health'] as num).toDouble(),
       ghostImage: json['ghostImage'] as String,
-      banishingText: json['banishingText'] as String,
       isUnlocked: json['isUnlocked'] as bool,
       headCenterPoint: (json['headCenterPoint'] as num).toInt(),
       tier: $enumDecode(_$GhostTierEnumMap, json['tier']),
       mainStat: $enumDecode(_$StatisticEnumMap, json['mainStat']),
+      secondaryStats: (json['secondaryStats'] as List<dynamic>)
+          .map((e) => $enumDecode(_$StatisticEnumMap, e))
+          .toList(),
+      description: json['description'] as String,
+      ghostPanel: json['ghostPanel'] as String,
+      banishText: json['banishText'] as String,
+      freeingText: json['freeingText'] as String,
+      helpText: json['helpText'] as String,
+      hintText: json['hintText'] as String,
+      recruitText: json['recruitText'] as String,
+      reserveText: json['reserveText'] as String,
     );
 
 Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
@@ -100,11 +134,20 @@ Map<String, dynamic> _$GhostToJson(Ghost instance) => <String, dynamic>{
       'auras': const AuraListConverter().toJson(instance.auras),
       'health': instance.health,
       'ghostImage': instance.ghostImage,
-      'banishingText': instance.banishingText,
       'isUnlocked': instance.isUnlocked,
       'headCenterPoint': instance.headCenterPoint,
       'tier': _$GhostTierEnumMap[instance.tier]!,
       'mainStat': _$StatisticEnumMap[instance.mainStat]!,
+      'secondaryStats':
+          instance.secondaryStats.map((e) => _$StatisticEnumMap[e]!).toList(),
+      'description': instance.description,
+      'ghostPanel': instance.ghostPanel,
+      'recruitText': instance.recruitText,
+      'reserveText': instance.reserveText,
+      'helpText': instance.helpText,
+      'banishText': instance.banishText,
+      'hintText': instance.hintText,
+      'freeingText': instance.freeingText,
     };
 
 const _$GhostTierEnumMap = {

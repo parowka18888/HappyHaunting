@@ -36,13 +36,14 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       mortalTags: (fields[12] as List).cast<MortalTag>(),
       exorcismStrength: fields[13] as double,
       fear: fields[14] as PowerTag,
+      description: fields[19] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Mortal obj) {
     writer
-      ..writeByte(19)
+      ..writeByte(20)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -80,7 +81,9 @@ class MortalAdapter extends TypeAdapter<Mortal> {
       ..writeByte(13)
       ..write(obj.exorcismStrength)
       ..writeByte(14)
-      ..write(obj.fear);
+      ..write(obj.fear)
+      ..writeByte(19)
+      ..write(obj.description);
   }
 
   @override
@@ -124,6 +127,7 @@ Mortal _$MortalFromJson(Map<String, dynamic> json) => Mortal(
           .toList(),
       exorcismStrength: (json['exorcismStrength'] as num).toDouble(),
       fear: $enumDecode(_$PowerTagEnumMap, json['fear']),
+      description: json['description'] as String,
     );
 
 Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
@@ -147,6 +151,7 @@ Map<String, dynamic> _$MortalToJson(Mortal instance) => <String, dynamic>{
           instance.mortalTags.map((e) => _$MortalTagEnumMap[e]!).toList(),
       'exorcismStrength': instance.exorcismStrength,
       'fear': _$PowerTagEnumMap[instance.fear]!,
+      'description': instance.description,
     };
 
 const _$MortalTagEnumMap = {
@@ -160,4 +165,18 @@ const _$PowerTagEnumMap = {
   PowerTag.Blood: 'Blood',
   PowerTag.Insects: 'Insects',
   PowerTag.Water: 'Water',
+  PowerTag.spiders: 'spiders',
+  PowerTag.plague: 'plague',
+  PowerTag.animals: 'animals',
+  PowerTag.health: 'health',
+  PowerTag.immobilization: 'immobilization',
+  PowerTag.lossOfControl: 'lossOfControl',
+  PowerTag.claustrophobia: 'claustrophobia',
+  PowerTag.calm: 'calm',
+  PowerTag.weather: 'weather',
+  PowerTag.wind: 'wind',
+  PowerTag.melody: 'melody',
+  PowerTag.sound: 'sound',
+  PowerTag.lure: 'lure',
+  PowerTag.touchingObjects: 'touchingObjects',
 };

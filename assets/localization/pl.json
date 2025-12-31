@@ -1,0 +1,52 @@
+{
+  "___APPLICATION___": "-----------------------------------------------------------------------------------",
+  "LevelPicker_Info": "Jeśli uznajesz swoją drużynę duchów za gotową, rozpocznij kampanię klikając poniższy przycisk.",
+  "LevelPicker_SettingUnavailable": "Dodatkowe ustawienia rozgrywki są dostępne podczas kolejnych nawiedzeń tej misji. Rozegraj ją po raz pierwszy i wypłosz śmiertelników. Gdy tu wrócisz, ustawienia będą dostępne.",
+  "Setting_Option_MultiplyGhosts": "Powielanie duchów w drużynie",
+  "Setting_Option_HardMode": "Wytrzymali śmiertelnicy i trudniejsi przeciwnicy",
+  "Setting_Option_IgnoreTrappedGhosts": "Pomijanie mechanik uwięzionych duchów",
+
+  "___GHOSTS___": "-----------------------------------------------------------------------------------",
+  "EP0_Spider_Name": "Pajunk",
+  "EP0_Spider_Description": "Pajunk cieszy się dużym powodzeniem wśród śmiertelników ze względu na swoją rolę w świecie astralnym. A przecież większość pająków jest niegroźna - gorzej z samym Pajunkiem, który jest większy i nieśmiertelny. ",
+  "EP0_Spider_Recruit":  "Obudźcie się moje dzieci. Pora budować sieć.",
+  "EP0_Spider_Reserve": "Nasze losy znów się splotą.",
+  "EP0_Spider_Help":  "Oni mają jakiś SPREJ!",
+  "EP0_Spider_Banish": "Nas nie da się wytępić wrócimy.",
+  "EP0_Spider_Hint":  "",
+  "EP0_Spider_Free": "",
+
+  "EP0_AirElemental_Name": "Chmurka",
+  "EP0_AirElemental_Description": " Lorem ipsum ",
+  "EP0_AirElemental_Recruit":  "Nie martwcie się śmiertelnicy, chcemy dla was dobrze.",
+  "EP0_AirElemental_Reserve": "Spokojnie, mamy czas.",
+  "EP0_AirElemental_Help":  "Nie popieram takich metod.",
+  "EP0_AirElemental_Banish": "Oni chyba nie wierzą w horoskopy.",
+  "EP0_AirElemental_Hint":  "",
+  "EP0_AirElemental_Free": "",
+
+
+  "___POWERS___": "-----------------------------------------------------------------------------------",
+  "EP0_Spider_02_Name":  "Kokon",
+  "EP0_Spider_02_Description": "Duch unieruchamia śmiertelnika na określony czas, zadając natychmiastowe obrażenia.",
+  "EP0_Spider_03_Name":  "Pajęczy jad",
+  "EP0_Spider_03_Description": "Duch zatruwa śmiertelnika, zadając obrażenia w czasie.",
+  "EP0_Spider_01_Name":  "Poza siecią",
+  "EP0_Spider_01_Description": "W aktywnym obszarze pojawia się mnóstwo pająków na określony czas.",
+  "EP0_Spider_04_Name":  "Jesteśmy wszędzie",
+  "EP0_Spider_04_Description": "Duch rozkazuje wyjście pająkom na mapie, zadając wszystkim śmiertelnikom natychmiastowe obrażenia.",
+
+  "EP0_AirElemental_01_Name":  "Spokój",
+  "EP0_AirElemental_01_Description": "Duch uspokaja śmiertelników w pobliżu.",
+  "EP0_AirElemental_02_Name":  "Podmuch",
+  "EP0_AirElemental_02_Description": "Podmuch w pokoju.  Zadaje obrażenia i spowalnia śmiertelników. Efekt spowolnienia nie łączy sie z innymi.",
+  "EP0_AirElemental_03_Name":  "Intrygująca melodia",
+  "EP0_AirElemental_03_Description": "Przyzwanie z całej mapy",
+  "EP0_AirElemental_04_Name":  "Tornado",
+  "EP0_AirElemental_04_Description": "Pokój efekt. Zadaje obrażenia i znacząco spowalnia śmiertelników. Efekt spowolnienia nie łączy sie z innymi.",
+
+  "___MORTALS___": "-----------------------------------------------------------------------------------",
+
+
+  "___LEVELS___": "-----------------------------------------------------------------------------------"
+}

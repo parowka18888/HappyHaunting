@@ -364,7 +364,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="6" name="MortalDestinationPoints">
+ <objectgroup id="6" name="MortalDestinationPoints" visible="0">
   <object id="13" name="MortalActionPoint_0" type="MortalActionPoint" x="1600" y="1368" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
@@ -455,7 +455,7 @@
   <object id="90" x="1288" y="1264" width="56" height="40"/>
   <object id="91" x="1896" y="880" width="40" height="48"/>
  </objectgroup>
- <objectgroup id="9" name="SpawnPoints">
+ <objectgroup id="9" name="SpawnPoints" visible="0">
   <object id="35" name="MortalSpawnPoint" type="Mortal" x="1664" y="1696" width="64" height="64">
    <properties>
     <property name="floor" type="int" value="0"/>
@@ -655,7 +655,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="Rooms" visible="0">
+ <objectgroup id="10" name="Rooms">
   <object id="40" name="Room_0_1" type="Room" x="1800" y="864">
    <properties>
     <property name="auras" value="Aura_Electricity,Aura_Inside"/>

@@ -1,15 +1,29 @@
 {
   "id": "EP0_Bee",
-  "name": "Bee",
+
+  "name": "EP0_Bee_Name",
+  "description": "EP0_Bee_Description",
+
   "icon" : "Bee_Icon",
   "ghostImage" : "Bee",
+  "ghostPanel" : "Bee_Panel",
   "headCenterPoint": 20,
+
+
   "mainStat": "health",
-  "tier": "tier1",
-  "banishingText" : "Bee",
+  "secondaryStats": ["faith", "fear"],
   "health" : 55,
   "isUnlocked" : false,
 
-  "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],
-  "auras": ["Aura_Inside"]
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Bee_Recruit",
+  "reserveText":  "EP0_Bee_Reserve",
+  "helpText":     "EP0_Bee_Help",
+  "banishText" :  "EP0_Bee_Banish",
+  "hintText" :    "EP0_Bee_Hint",
+  "freeingText" : "EP0_Bee_Free",
+
+  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
 }

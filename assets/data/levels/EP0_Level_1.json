@@ -1,0 +1,30 @@
+{
+  "id": "EP0_Level_1",
+  "name": "EP0_Level_1_Name",
+  "startingText": "EP0_Level_1_StartingText",
+  "endingText": "EP0_Level_1_EndingText",
+  "background": "EP0_1",
+
+  "rate": 5,
+  "seconds": 0,
+  "isUnlocked": true,
+  "isBeaten": true,
+
+  "fileName": "EP0_Level_1",
+  "levelWidth": 5760,
+  "levelHeight": 3200,
+  "tileWidth": 64,
+  "tileHeight": 64,
+
+  "numberOfFloors": 1,
+  "numberOfFloorsBasement": 1,
+
+
+  "script": "testScript_Level",
+
+  "ghostsNumber": 10,
+  "mortals": ["EP0_GrimFamily_Mother", "EP0_GrimFamily_Father", "EP0_GrimFamily_Grandfather", "EP0_GrimFamily_Grandmother", "EP0_GrimFamily_Daughter", "EP0_GrimFamily_Son", "EP0_GrimFamily_Uncle", "EP0_GrimFamily_Friend", "EP0_Priest_Snake"],
+  "trappedGhosts": ["EP0_ClothesEater"]
+
+
+}

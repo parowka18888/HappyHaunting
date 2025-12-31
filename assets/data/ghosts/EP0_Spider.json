@@ -1,15 +1,30 @@
 {
   "id": "EP0_Spider",
-  "name": "Pajunk",
+
+  "name": "EP0_Spider_Name",
+  "description": "EP0_Spider_Description",
+
   "icon" : "Spider_Icon",
   "ghostImage" : "Spider",
+  "ghostPanel" : "Spider_Panel",
   "headCenterPoint": 22,
-  "mainStat": "emotions",
-  "tier": "tier1",
-  "banishingText" : "spajder",
+
+
+  "mainStat": "fear",
+  "secondaryStats": ["health", "impurity"],
   "health" : 55,
   "isUnlocked" : true,
 
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Spider_Recruit",
+  "reserveText":  "EP0_Spider_Reserve",
+  "helpText":     "EP0_Spider_Help",
+  "banishText" :  "EP0_Spider_Banish",
+  "hintText" :    "EP0_Spider_Hint",
+  "freeingText" : "EP0_Spider_Free",
+
   "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_Spider_04"],
-  "auras": ["Aura_Inside"]
+  "auras": ["Aura_Outside", "Aura_Inside"]
+
 }

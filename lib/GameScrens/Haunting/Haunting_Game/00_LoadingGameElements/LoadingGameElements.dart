@@ -203,21 +203,26 @@ class LoadingGameElements{
                 level.rooms.add(haunting_room);
                 level.level.add(haunting_room);
                 floor.listRooms.add(haunting_room);
+              } else {
+                print("Room is not polygon");
               }
+            } else {
+              print("Room is null");
             }
           }
         }
       }
+    } else {
+      print("Room layer is empty");
     }
   }
 
   static void loadLevelFloors(Haunting_Level level, Haunting_Game game) {
-    List<Haunting_Room> listOfRooms = game.level.rooms;
     int floorsCount = game.numberOfFloors;
     int basementFloorsCount = game.numberOfFloorsBasement;
 
     //CREATING FLOORS
-    for(int i = 0; i < floorsCount; i++){
+    for(int i = 0; i <= floorsCount; i++){
       //IF FLOOR WITH ID DOES NOT EXIST CREATE ONE
       if((level.floors.any((floor) => floor.id == i))){} else {
         print("nie ma floor o id ${i} -> tworzenie");

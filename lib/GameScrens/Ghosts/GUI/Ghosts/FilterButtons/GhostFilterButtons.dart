@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Getter/Statistic_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
+import 'package:happyhaunting/Data/Database/Enums/UI/Button/ButtonType.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Getter/ScaledUI.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,8 @@ class GhostFilterButtons{
   static getFilterButtons(BuildContext context, double width, double height) {
 
     GhostSelector_ViewModel viewModel = context.watch<GhostSelector_ViewModel>();
-    List<Statistic> ghostTypes = [Statistic.fear, Statistic.health, Statistic.madness, Statistic.emotions, Statistic.faith, Statistic.impurity];
+    List<Statistic> ghostTypes = Statistic.values.toList();
+    // List<Statistic> ghostTypes = [Statistic.fear, Statistic.health, Statistic.madness, Statistic.emotions, Statistic.faith, Statistic.impurity];
     double padding = height * 0.1;
     double buttonHeight = ScaledUI.getScaledHeight(width, height, padding, ghostTypes.length);
     double modifiedHeight = buttonHeight * 0.7;

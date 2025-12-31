@@ -60,6 +60,7 @@ class Mortal_Destination_Setter{
       } else {
         print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} - ${DateTime.timestamp()}");
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
+        // print("Disabling mortal action");
         Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
       }
 

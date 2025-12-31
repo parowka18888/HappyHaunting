@@ -10,12 +10,16 @@ class DedicatedArea_GUI{
 
   static getDedicatedArea(BuildContext context,
       double areaWidth, double areaHeight,
-      Widget Function()? function
+      Widget Function()? function,
+      {
+        double? paddingTop
+      }
       ) {
     List<Color> list = [
       Colors.amber, Colors.blue, Colors.pink, Colors.deepPurple, Colors.green, Colors.red, Colors.yellow, Colors.blueGrey, Colors.lightGreenAccent
     ];
     int index = 0 + random.nextInt(list.length);
+
 
     return Container(
       width: areaWidth, height: areaHeight,// color: list[index],
@@ -23,7 +27,8 @@ class DedicatedArea_GUI{
         alignment: Alignment(0, 0),
         children: [
           if(function != null)
-            function()
+            Positioned(top: paddingTop, child: function())
+
         ],
       ),
     );

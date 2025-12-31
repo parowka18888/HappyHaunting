@@ -82,7 +82,7 @@ class GhostPanel_GUI{
       child: Container(
         height: height,
         child: Opacity(opacity: ghost.isPlaced == true ? 1.0 : 0.5,
-          child: Image.asset('assets/images/Ghosts/${ghost.image}_Panel.png', fit: BoxFit.fitHeight,),
+          child: Image.asset('assets/images/Ghosts/${ghost.panelImage}.png', fit: BoxFit.fitHeight,),
         )
       ),
     );

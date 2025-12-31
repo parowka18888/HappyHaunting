@@ -28,12 +28,12 @@ class DealingDamage{
       double damageEmotions = double.parse((power.stat_Emotions * mortal.stat_Multiplier_Emotions * modifier).toStringAsFixed(2));
       double damageImpurity = double.parse((power.stat_Impurity * mortal.stat_Multiplier_Impurity * modifier).toStringAsFixed(2));
 
-      if(damageFear > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
-      if(damageHealth > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
-      if(damageMadness > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.amber);
-      if(damageFaith > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.blue);
-      if(damageEmotions > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.pink);
-      if(damageImpurity > 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.purple);
+      if(damageFear != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
+      if(damageHealth != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
+      if(damageMadness != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.amber);
+      if(damageFaith != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.blue);
+      if(damageEmotions != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.pink);
+      if(damageImpurity != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.purple);
 
       mortal.stat_Current_Fear += damageFear;
       mortal.stat_Current_Health += damageHealth;

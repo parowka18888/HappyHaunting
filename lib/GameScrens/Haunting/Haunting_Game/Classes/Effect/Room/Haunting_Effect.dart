@@ -63,7 +63,7 @@ class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Gam
         timer = 1;
 
         //EXECUTE EFFECT
-        RoomEffect_Navigator.navigateMortalEffect(this);
+        RoomEffect_Navigator.navigateRoomEffect(this);
 
         //DECREASE EFFECT TIME
         timeLeft -= 1;

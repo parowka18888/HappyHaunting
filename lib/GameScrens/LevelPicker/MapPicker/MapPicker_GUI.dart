@@ -7,18 +7,21 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/03_Level.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/UI/Frame/FrameDecorator.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/Ghosts/GhostsScreen.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Background/BackgroundPattern.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Decorator/Decorator_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Divider/Divider_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
 import 'package:happyhaunting/GameScrens/LevelPicker/Template/Elements/Title/PickerTitle_GUI.dart';
+import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
 import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../../../Data/Database/Enums/UI/Frame/FrameType.dart';
+import '../../../Data/Database/Enums/Window/GhostSelector/GhostSelector_WindowMode.dart';
 import '../../../ViewModels/Haunting/HauntingGame_ViewModel.dart';
 import '../../GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
 import '../../GlobalCode/GUI/FramedWindow/FramedWindow_GUI.dart';
@@ -81,6 +84,8 @@ class MapPicker_GUI{
 
     Box box_Levels = Hive.box<Level>('levels');
     final viewModel = context.watch<HauntingGame_ViewModel>();
+    final level_ViewModel = context.watch<LevelSelector_ViewModel>();
+    GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
 
     //DEFAULT DATA
     double padding = height * 0.1;
@@ -110,7 +115,7 @@ class MapPicker_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
-          Opacity(opacity: 0.15, child: BackgroundPattern.getBackgroundPatter(width),),
+          // Opacity(opacity: 0.15, child: BackgroundPattern.getBackgroundPatter(width),),
           getBackground(height, width, level.background),
 
           //GHOSTS
@@ -125,9 +130,14 @@ class MapPicker_GUI{
               isActive: isLevelUnlocked,
               function: (){
                 viewModel.clearData();
+                level_ViewModel.setChosenLevel(DatabaseObject_Getter.getObjectById(level.id, box_Levels));
+                ghostSelector_ViewModel.setWindowMode(GhostSelector_WindowMode.play);
                 AppNavigator.navigateToScreen(context,
-                    HauntingScreen(chosenLevel: DatabaseObject_Getter.getObjectById(level.id, box_Levels))
+                    GhostsScreen()
                 );
+                // AppNavigator.navigateToScreen(context,
+                //     HauntingScreen(chosenLevel: DatabaseObject_Getter.getObjectById(level.id, box_Levels))
+                // );
               }
             ),
           ),

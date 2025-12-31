@@ -1,15 +1,29 @@
 {
   "id": "EP0_Flea",
-  "name": "Flea",
+
+  "name": "EP0_Flea_Name",
+  "description": "EP0_Flea_Description",
+
   "icon" : "Flea_Icon",
   "ghostImage" : "Flea",
+  "ghostPanel" : "Flea_Panel",
   "headCenterPoint": 27,
+
+
   "mainStat": "madness",
-  "tier": "tier1",
-  "banishingText" : "Flea",
+  "secondaryStats": ["faith", "fear"],
   "health" : 55,
   "isUnlocked" : false,
 
-  "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_ClothesEater_01"],
-  "auras": ["Aura_Inside"]
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Flea_Recruit",
+  "reserveText":  "EP0_Flea_Reserve",
+  "helpText":     "EP0_Flea_Help",
+  "banishText" :  "EP0_Flea_Banish",
+  "hintText" :    "EP0_Flea_Hint",
+  "freeingText" : "EP0_Flea_Free",
+
+  "powers": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
 }

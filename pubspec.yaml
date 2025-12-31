@@ -46,6 +46,7 @@ dependencies:
   provider: ^6.1.2
   flutter_auto_size_text: ^4.1.0
   google_fonts: ^6.2.1
+  easy_localization: ^3.0.7+1
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/data/Index.json
+    - assets/localization/
     - assets/data/ghosts/
     - assets/data/powers/
     - assets/data/mortals/

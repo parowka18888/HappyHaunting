@@ -1,24 +1,23 @@
 {
   "id": "EP0_Spider_03",
-  "name": "Pajęczy jad",
-  "description": "Zatruwa śmiertelnika na czas 5 sekund.\nJad zadaje obrażenia co sekundę.",
+  "name": "EP0_Spider_03_Name",
+  "description": "EP0_Spider_03_Description",
 
-  "cost" : 25,
-  "cooldown" : 30,
+  "cost" : 20,
+  "cooldown" : 20,
 
-  "stat_Fear": 0,
-  "stat_Health": 10,
+  "stat_Fear": 7,
+  "stat_Health": 7,
   "stat_Madness": 0,
   "stat_Faith": 0,
-  "stat_Impurity": 5,
+  "stat_Impurity": 0,
   "stat_Emotions": 0,
 
-  "powerType" : "mortalGlobal",
+  "powerType" : "effectMortal",
   "powerChances" : 100,
-  "powerTime" : 0,
+  "powerTime" : 5,
+  "effectScript" : "damage",
 
   "icon": "Spider_Power_3",
-
-
-  "powerTags": ["Noise"]
+  "powerTags": ["health", "spiders"]
 }

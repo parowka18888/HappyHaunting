@@ -1,0 +1,24 @@
+{
+  "id": "EP0_AirElemental_04",
+  "name": "EP0_AirElemental_04_Name",
+  "description": "EP0_AirElemental_04_Description",
+
+  "cost" : 20,
+  "cooldown" : 25,
+
+  "stat_Fear": 0,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 20,
+  "stat_Impurity": 0,
+  "stat_Emotions": 20,
+
+  "powerType" : "effectRoom",
+  "powerChances" : 100,
+  "powerTime" : 8,
+  "effectScript" : "damage_ReducingMovement_80",
+
+
+  "icon": "EP0_AirElemental_4",
+  "powerTags": ["weather", "wind", "sound", "touchingObjects"]
+}

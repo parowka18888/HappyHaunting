@@ -1,0 +1,29 @@
+{
+  "id": "EP0_FireElemental",
+
+  "name": "EP0_FireElemental_Name",
+  "description": "EP0_FireElemental_Description",
+
+  "icon" : "FireElemental_Icon",
+  "ghostImage" : "FireElemental",
+  "ghostPanel" : "FireElemental_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "health",
+  "secondaryStats": ["impurity", "fear"],
+  "health" : 55,
+  "isUnlocked" : true,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_FireElemental_Recruit",
+  "reserveText":  "EP0_FireElemental_Reserve",
+  "helpText":     "EP0_FireElemental_Help",
+  "banishText" :  "EP0_FireElemental_Banish",
+  "hintText" :    "EP0_FireElemental_Hint",
+  "freeingText" : "EP0_FireElemental_Free",
+
+  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

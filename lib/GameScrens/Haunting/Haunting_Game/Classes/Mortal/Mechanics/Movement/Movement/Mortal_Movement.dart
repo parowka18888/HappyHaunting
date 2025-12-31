@@ -18,8 +18,13 @@ class Mortal_Movement{
       Vector2 direction = (target - mortal.position);
       double distance = direction.length;
 
-      if (distance < 1) {
+      const double reachThreshold = 0.5;
+      final double step = mortal.speed * dt;
+
+      if (distance <= step + reachThreshold) {
+        mortal.position.setFrom(target);
         mortal.path.removeAt(0);
+
         if (mortal.path.isEmpty) {
           if(mortal.finalDestination != null){
             Destination_Checker.checkIfMortalReachedFinalDestination(mortal);
@@ -35,9 +40,8 @@ class Mortal_Movement{
           }
           return;
         }
-      } else {
-        mortal.position += direction.normalized() * mortal.speed * dt;
       }
+      mortal.position += direction.normalized() * step;
     }
   }
 

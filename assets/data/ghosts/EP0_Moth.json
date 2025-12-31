@@ -1,15 +1,29 @@
 {
   "id": "EP0_Moth",
-  "name": "Moth",
+
+  "name": "EP0_Moth_Name",
+  "description": "EP0_Moth_Description",
+
   "icon" : "Moth_Icon",
   "ghostImage" : "Moth",
+  "ghostPanel" : "Moth_Panel",
   "headCenterPoint": 22,
-  "mainStat": "impurity",
-  "tier": "tier1",
-  "banishingText" : "mofffff",
-  "health" : 75,
+
+
+  "mainStat": "faith",
+  "secondaryStats": ["madness", "emotions"],
+  "health" : 55,
   "isUnlocked" : true,
 
-  "powers": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_ClothesEater_01"],
-  "auras": ["Aura_Fire", "Aura_Inside"]
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Moth_Recruit",
+  "reserveText":  "EP0_Moth_Reserve",
+  "helpText":     "EP0_Moth_Help",
+  "banishText" :  "EP0_Moth_Banish",
+  "hintText" :    "EP0_Moth_Hint",
+  "freeingText" : "EP0_Moth_Free",
+
+  "powers": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_Moth_03"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
 }

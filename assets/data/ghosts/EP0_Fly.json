@@ -1,15 +1,29 @@
 {
   "id": "EP0_Fly",
-  "name": "Muchhhha",
+
+  "name": "EP0_Fly_Name",
+  "description": "EP0_Fly_Description",
+
   "icon" : "Fly_Icon",
   "ghostImage" : "Fly",
+  "ghostPanel" : "Fly_Panel",
   "headCenterPoint": 41,
-  "mainStat": "faith",
+
+
+  "mainStat": "impurity",
+  "secondaryStats": ["faith", "fear"],
+  "health" : 55,
+  "isUnlocked" : false,
+
   "tier": "tier1",
-  "banishingText" : "flajjjj",
-  "health" : 100,
-  "isUnlocked" : true,
+
+  "recruitText":  "EP0_Fly_Recruit",
+  "reserveText":  "EP0_Fly_Reserve",
+  "helpText":     "EP0_Fly_Help",
+  "banishText" :  "EP0_Fly_Banish",
+  "hintText" :    "EP0_Fly_Hint",
+  "freeingText" : "EP0_Fly_Free",
 
   "powers": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
-  "auras": ["Aura_Earth", "Aura_Outside", "Aura_Inside"]
+  "auras": ["Aura_Outside", "Aura_Inside"]
 }

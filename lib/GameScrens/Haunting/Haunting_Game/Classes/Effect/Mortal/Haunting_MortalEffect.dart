@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Mechanics/MortalEffect_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
 import '../../Power/Mechanics/DealingDamage/DealingDamage.dart';
@@ -15,6 +16,8 @@ class Haunting_MortalEffect extends Component with HasGameReference<Haunting_Gam
 
   double timeLeft = 0;
   double timer = 1;
+
+  Haunting_Room? room;
 
   @override
   Future<void> onLoad() async {

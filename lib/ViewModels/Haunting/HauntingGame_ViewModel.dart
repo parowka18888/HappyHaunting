@@ -120,6 +120,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   }
 
   void setIsLogEntriesWindowVisible(bool bool) {
+
+    printGameInfo();
+
     isLogEntriesWindowVisible = bool;
     notifyListeners();
   }
@@ -131,6 +134,27 @@ class HauntingGame_ViewModel extends ChangeNotifier {
       notifyListeners();
     }
 
+  }
+
+  void printGameInfo() {
+    print("DATA");
+    print("Floors: ${game?.level.floors.length}");
+    if(game!.level.floors.isNotEmpty){
+      for(final floor in game!.level.floors){
+        print("Floor name ${floor.id}; action points ${floor.mortalActionPoints}; interactive objs ${floor.listInteractiveObjects.length};");
+      }
+    }
+
+    print("Pokoje: ${game?.level.rooms.length}");
+    if(game!.level.rooms.isNotEmpty){
+      for(final room in game!.level.rooms){
+          print("Room name ${room.id}; floor ${room.floor.id}; auras ${room.auras.length};");
+      }
+    }
+
+    print("Śmiertelnincy: ${game?.level.mortals.length}");
+
+    print("Destination points: ${game!.mortalActionPoints.length}");
   }
 
 

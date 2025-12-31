@@ -5,7 +5,12 @@
     "assets/data/ghosts/EP0_ClothesEater.json",
     "assets/data/ghosts/EP0_Fly.json",
     "assets/data/ghosts/EP0_Bee.json",
-    "assets/data/ghosts/EP0_Flea.json"
+    "assets/data/ghosts/EP0_Flea.json",
+    "assets/data/ghosts/EP0_AirElemental.json",
+    "assets/data/ghosts/EP0_Shade.json",
+    "assets/data/ghosts/EP0_FireElemental.json",
+    "assets/data/ghosts/EP0_Whisperer.json",
+    "assets/data/ghosts/EP0_Spark.json"
     ],
 
   "powers": [
@@ -13,6 +18,10 @@
     "assets/data/powers/EP0_Spider_02.json",
     "assets/data/powers/EP0_Spider_03.json",
     "assets/data/powers/EP0_Spider_04.json",
+    "assets/data/powers/EP0_AirElemental_01.json",
+    "assets/data/powers/EP0_AirElemental_02.json",
+    "assets/data/powers/EP0_AirElemental_03.json",
+    "assets/data/powers/EP0_AirElemental_04.json",
     "assets/data/powers/EP0_Fly_01.json",
     "assets/data/powers/EP0_Fly_02.json",
     "assets/data/powers/EP0_Fly_03.json",
@@ -32,15 +41,22 @@
     "assets/data/mortals/EP0_Level0_Test_Mortal5.json",
     "assets/data/mortals/EP0_Level0_Test_Mortal6.json",
     "assets/data/mortals/EP0_Level0_Test_Mortal7.json",
-    "assets/data/mortals/EP0_Level0_Test_Mortal8.json"
+    "assets/data/mortals/EP0_Level0_Test_Mortal8.json",
+    "assets/data/mortals/EP0_Priest_Snake.json",
+    "assets/data/mortals/EP0_GrimFamily_Daughter.json",
+    "assets/data/mortals/EP0_GrimFamily_Father.json",
+    "assets/data/mortals/EP0_GrimFamily_Grandfather.json",
+    "assets/data/mortals/EP0_GrimFamily_Grandmother.json",
+    "assets/data/mortals/EP0_GrimFamily_Mother.json",
+    "assets/data/mortals/EP0_GrimFamily_Son.json",
+    "assets/data/mortals/EP0_GrimFamily_Friend.json",
+    "assets/data/mortals/EP0_GrimFamily_Uncle.json"
   ],
 
   "levels": [
     "assets/data/levels/EP0_Level0_Test3.json",
-    "assets/data/levels/EP0_Level0_Tutorial.json",
-    "assets/data/levels/EP0_Level0_Tutorial_64.json",
-    "assets/data/levels/EP0_Isometric.json",
-    "assets/data/levels/EP0_Pilot.json"
+    "assets/data/levels/EP0_Level_1.json",
+    "assets/data/levels/EP0_Level_2.json"
   ],
 
   "auras": [

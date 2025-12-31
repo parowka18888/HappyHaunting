@@ -1,0 +1,24 @@
+{
+  "id": "EP0_ClothesEater_02",
+  "name": "1",
+  "description": "Desc",
+
+  "cost" : 20,
+  "cooldown" : 3,
+
+  "stat_Fear": 75,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
+
+  "powerType" : "mortalSingle",
+  "powerChances" : 100,
+  "powerTime" : 0,
+
+  "icon": "TestPower_11",
+
+
+  "powerTags": []
+}
