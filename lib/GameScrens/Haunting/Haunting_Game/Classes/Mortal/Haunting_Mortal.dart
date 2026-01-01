@@ -119,6 +119,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   List<Vector2> path = [];
 
   double speed = 50;
+  List<double> speedMultipliers = [1];
 
   @override
   Future<void> onLoad() async {
@@ -185,6 +186,12 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         //PUT PICKUP OBJECT WHEN MORTAL IS DEFEATED
         if(isDefeated == true && isEscaped == false){
           PickUp_Mechanics.leftPickUp(this, game);
+        }
+
+        //MORTAL SPEED
+        speed = Mortal_StaticData.getMortalSpeedByState(state, game);
+        for(final speedModifier in speedMultipliers){
+          speed *= speedModifier;
         }
 
 

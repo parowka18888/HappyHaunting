@@ -13,10 +13,11 @@ class MortalEffectMechanics{
   }
 
   static void reduceMortalSpeedByPercentageValue(Haunting_Mortal mortal, Haunting_MortalEffect effect, int percentageValue) {
-    if(effect.timeLeft <= 1){
+    if(effect.timeLeft <= 1 || !effect.room!.contains(mortal)){
       mortal.speed = Mortal_StaticData.getMortalSpeedByState(mortal.state, effect.game);
     } else {
-      mortal.speed = Mortal_StaticData.getMortalSpeedByState(mortal.state, effect.game) * (1 -(percentageValue / 100));
+      // mortal.speed = Mortal_StaticData.getMortalSpeedByState(mortal.state, effect.game) * (1 -(percentageValue / 100));
+      mortal.speed = 100;
     }
 
   }

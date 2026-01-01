@@ -12,6 +12,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/ShadowSceen/ShadowScreen
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/LoadingScreen/LoadingScreen_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/MortalData/GUI/MortalData_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
@@ -123,7 +124,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
 
             //DIALOG WINDOW
-            if(viewModel.isDialogWindowVisible == true)
+            // if(viewModel.isDialogWindowVisible == true)
             DialogWindow_GUI.getDialogScreen(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
             if(viewModel.gameWindow == GameWindow.ghostData && viewModel.chosenGhost != null)
@@ -132,7 +133,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
             if(viewModel.gameWindow == GameWindow.mortalData && viewModel.chosenMortal != null)
               MortalData_GUI.getMortalDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
 
-
+            LoadingScreen_GUI.getLoadingScreen(context, screenHeight, screenWidth)
 
           ],
         )

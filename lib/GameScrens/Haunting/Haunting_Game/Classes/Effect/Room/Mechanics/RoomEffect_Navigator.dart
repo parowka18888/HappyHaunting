@@ -1,5 +1,6 @@
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/RoomEffectMechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Haunting_Effect.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Mechanics/Speed/SpeedModifying.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 
 import '../../../../../../../Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript.dart';
@@ -22,12 +23,13 @@ class RoomEffect_Navigator{
         }
         case PowerScript.damage_ReducingMovement_50: {
           // DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
-          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 50, room);
+          // RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.5, room);
+          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.5, room);
           break;
           }
         case PowerScript.damage_ReducingMovement_80: {
           // DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
-          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 80, room);
+          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.8, room);
           break;
         }
         //UNAVAILABLE FOR ROOM (FOR NOW)
