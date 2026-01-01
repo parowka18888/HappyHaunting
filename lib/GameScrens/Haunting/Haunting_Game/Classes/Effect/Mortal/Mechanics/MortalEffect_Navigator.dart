@@ -22,7 +22,8 @@ class MortalEffect_Navigator{
         }
         case PowerScript.damage_blockingMovement:{
           DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
-          MortalEffectMechanics.setMortalSpeed(mortal, effect, 0);
+          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 0);
+          // MortalEffectMechanics.setMortalSpeed(mortal, effect, 0);
           break;
         }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
@@ -33,7 +34,7 @@ class MortalEffect_Navigator{
         }
         case PowerScript.damage_ReducingMovement_80:{
           DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
-          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 50);
+          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 80);
           break;
         }
       }

@@ -64,6 +64,7 @@ Future<void> main() async {
     DeviceOrientation.landscapeRight,
   ]);
 
+  EasyLocalization.logger.enableBuildModes = [];
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -73,6 +74,7 @@ Future<void> main() async {
       ],
       path: 'assets/localization',
       fallbackLocale: const Locale('en'),
+
       saveLocale: true,
       child: MultiProvider(
         providers: [
@@ -81,6 +83,7 @@ Future<void> main() async {
           ChangeNotifierProvider(create: (_) => LevelSelector_ViewModel()),
         ],
         child: const MyApp(),
+
       ),
     ),
   );

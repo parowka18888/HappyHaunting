@@ -9,13 +9,13 @@
   "stat_Fear": 0,
   "stat_Health": 0,
   "stat_Madness": 0,
-  "stat_Faith": 10,
+  "stat_Faith": 13,
   "stat_Impurity": 0,
-  "stat_Emotions": 10,
+  "stat_Emotions": 13,
 
   "powerType" : "effectRoom",
-  "powerChances" : 100,
-  "powerTime" : 5,
+  "powerChances" : 20,
+  "powerTime" : 3,
   "effectScript" : "damage_ReducingMovement_50",
 
 

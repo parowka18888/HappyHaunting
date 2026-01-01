@@ -1,5 +1,6 @@
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
 
 import '../../Mortal/StaticData/Mortal_StaticData.dart';
 
@@ -12,14 +13,15 @@ class MortalEffectMechanics{
     }
   }
 
-  static void reduceMortalSpeedByPercentageValue(Haunting_Mortal mortal, Haunting_MortalEffect effect, int percentageValue) {
-    if(effect.timeLeft <= 1 || !effect.room!.contains(mortal)){
-      mortal.speed = Mortal_StaticData.getMortalSpeedByState(mortal.state, effect.game);
-    } else {
-      // mortal.speed = Mortal_StaticData.getMortalSpeedByState(mortal.state, effect.game) * (1 -(percentageValue / 100));
-      mortal.speed = 100;
-    }
+  static void reduceMortalSpeedByPercentageValue(Haunting_Mortal mortal, Haunting_MortalEffect effect, double percentage) {
 
+    double value = (percentage / 100);
+    double multiplier = 1 - value;
+    mortal.speedMultipliersMap[effect] = multiplier;
+
+    if(effect.timeLeft <= 1){
+      mortal.speedMultipliersMap.remove(effect);
+    }
   }
 
 }

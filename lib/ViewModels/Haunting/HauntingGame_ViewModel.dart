@@ -91,7 +91,9 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   void setDialogData(String? text, bool isVisible) {
     isDialogWindowVisible = isVisible;
     dialogWindow_Text = text;
-    notifyListeners();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      notifyListeners();
+    });
   }
 
   void setGameWindow(GameWindow window) {

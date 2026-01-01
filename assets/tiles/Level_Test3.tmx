@@ -512,7 +512,7 @@
 </data>
  </layer>
  <objectgroup id="5" name="MortalDestinationPoints">
-  <object id="22" name="MortalActionPoint_0" type="MortalActionPoint" x="272" y="416" width="32" height="32">
+  <object id="22" name="MortalActionPoint_0" type="MortalActionPoint" x="280" y="432" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -567,12 +567,12 @@
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="33" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="320" width="32" height="32">
+  <object id="33" name="MortalActionPoint_0" type="MortalActionPoint" x="508" y="316" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="34" name="MortalActionPoint_0" type="MortalActionPoint" x="516" y="364" width="32" height="32">
+  <object id="34" name="MortalActionPoint_0" type="MortalActionPoint" x="532" y="364" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -582,22 +582,22 @@
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="36" name="MortalActionPoint_0" type="MortalActionPoint" x="588" y="328" width="32" height="32">
+  <object id="36" name="MortalActionPoint_0" type="MortalActionPoint" x="576" y="328" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="37" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="364" width="32" height="32">
+  <object id="37" name="MortalActionPoint_0" type="MortalActionPoint" x="488" y="356" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="38" name="MortalActionPoint_0" type="MortalActionPoint" x="340" y="436" width="32" height="32">
+  <object id="38" name="MortalActionPoint_0" type="MortalActionPoint" x="336" y="432" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="412" width="32" height="32">
+  <object id="39" name="MortalActionPoint_0" type="MortalActionPoint" x="512" y="400" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -642,12 +642,12 @@
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="48" name="MortalActionPoint_0" type="MortalActionPoint" x="540" y="488" width="32" height="32">
+  <object id="48" name="MortalActionPoint_0" type="MortalActionPoint" x="532" y="496" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="49" name="MortalActionPoint_0" type="MortalActionPoint" x="500" y="508" width="32" height="32">
+  <object id="49" name="MortalActionPoint_0" type="MortalActionPoint" x="476" y="508" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -657,7 +657,7 @@
     <property name="floor" type="int" value="0"/>
    </properties>
   </object>
-  <object id="51" name="MortalActionPoint_0" type="MortalActionPoint" x="456" y="484" width="32" height="32">
+  <object id="51" name="MortalActionPoint_0" type="MortalActionPoint" x="420" y="504" width="32" height="32">
    <properties>
     <property name="floor" type="int" value="0"/>
    </properties>
@@ -877,7 +877,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="3" name="Collisions" visible="0">
+ <objectgroup id="3" name="Collisions">
   <object id="1" x="220" y="156" width="228" height="24"/>
   <object id="2" x="216" y="176" width="28" height="192"/>
   <object id="3" x="240" y="348" width="200" height="20"/>
@@ -926,7 +926,6 @@
   <object id="166" x="780" y="572" width="24" height="84"/>
   <object id="315" x="648" y="500" width="88" height="56"/>
   <object id="316" x="732" y="400" width="48" height="52"/>
-  <object id="317" x="328" y="416" width="56" height="52"/>
   <object id="318" x="248" y="180" width="88" height="52"/>
   <object id="319" x="372" y="180" width="56" height="28"/>
   <object id="320" x="2536" y="1484" width="248" height="44"/>

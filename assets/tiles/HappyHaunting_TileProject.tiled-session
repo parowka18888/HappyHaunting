@@ -37,9 +37,9 @@
         "EP0_Level_1.tmx": {
             "expandedObjectLayers": [
                 5,
-                2,
+                3,
                 6,
-                3
+                2
             ],
             "scale": 0.33,
             "selectedLayer": 5,
@@ -137,16 +137,16 @@
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
                 5,
-                6,
-                4,
+                3,
                 7,
-                3
+                6,
+                4
             ],
             "scale": 0.75,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 997.3333333333334,
-                "y": 374.66666666666663
+                "x": 1536,
+                "y": 1320.6666666666665
             }
         },
         "Level_Test_Isometric.tmx": {

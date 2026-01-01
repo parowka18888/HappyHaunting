@@ -22,14 +22,11 @@ class RoomEffect_Navigator{
           break;
         }
         case PowerScript.damage_ReducingMovement_50: {
-          // DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
-          // RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.5, room);
-          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.5, room);
+          RoomEffectsMechanics.addEffectToMortal(effect, room);
           break;
           }
         case PowerScript.damage_ReducingMovement_80: {
-          // DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
-          RoomEffectsMechanics.reduceMortalSpeedInRoom(effect, room.mortalsInRoom, effect.game, 0.8, room);
+          RoomEffectsMechanics.addEffectToMortal(effect, room);
           break;
         }
         //UNAVAILABLE FOR ROOM (FOR NOW)

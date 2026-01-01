@@ -14,7 +14,7 @@
   "stat_Emotions": 20,
 
   "powerType" : "effectRoom",
-  "powerChances" : 100,
+  "powerChances" : 65,
   "powerTime" : 8,
   "effectScript" : "damage_ReducingMovement_80",
 

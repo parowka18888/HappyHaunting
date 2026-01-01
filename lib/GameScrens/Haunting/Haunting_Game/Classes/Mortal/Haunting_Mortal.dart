@@ -119,7 +119,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   List<Vector2> path = [];
 
   double speed = 50;
-  List<double> speedMultipliers = [1];
+  Map<Haunting_MortalEffect, double> speedMultipliersMap = {};
 
   @override
   Future<void> onLoad() async {
@@ -189,10 +189,9 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         }
 
         //MORTAL SPEED
-        speed = Mortal_StaticData.getMortalSpeedByState(state, game);
-        for(final speedModifier in speedMultipliers){
-          speed *= speedModifier;
-        }
+        speed = Mortal_StaticData.getMortalSpeedByState(state, game) *
+            speedMultipliersMap.values.fold(1.0, (a, b) => a * b);
+        print("Predkośc mortala ${name} to $speed");
 
 
         timeSinceLastReload = 0.0;
@@ -209,7 +208,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
     if(isActive != isActive_Helper){
       isActive_Helper = isActive;
       Mortal_Setter.setIsActiveData(this, game);
-      game.viewModel.refresh();
+      // game.viewModel.refresh();
     }
 
   }
