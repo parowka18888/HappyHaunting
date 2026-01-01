@@ -52,6 +52,7 @@ class Haunting_Room extends PolygonComponent
     for (final mortal in game.level.mortals) {
       if (containsPoint(mortal.position + Vector2(1, 1))) {
         mortalsInRoom.add(mortal);
+        mortal.room = this;
         print("✅ Mortal ${mortal.name} startuje w pokoju $id, na floor ${mortal.floor?.id}");
       }
     }

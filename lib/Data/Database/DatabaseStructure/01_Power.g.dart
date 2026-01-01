@@ -174,4 +174,5 @@ const _$PowerScriptEnumMap = {
   PowerScript.damage_blockingMovement: 'damage_blockingMovement',
   PowerScript.damage_ReducingMovement: 'damage_ReducingMovement',
   PowerScript.damage_fireElementalBuff: 'damage_fireElementalBuff',
+  PowerScript.damage_Spark_ChainEffect: 'damage_Spark_ChainEffect',
 };

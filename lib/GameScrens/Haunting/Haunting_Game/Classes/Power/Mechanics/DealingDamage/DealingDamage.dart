@@ -46,8 +46,10 @@ class DealingDamage{
       mortal.stat_Current_Impurity += damageImpurity;
 
       MortalChecker.checkIfMortalIsDefeated(mortal, game);
+      print([damageFear, damageHealth, damageMadness, damageFaith, damageEmotions, damageImpurity]);
       return [damageFear, damageHealth, damageMadness, damageFaith, damageEmotions, damageImpurity];
     }
+
     return [0,0,0,0,0,0];
   }
 

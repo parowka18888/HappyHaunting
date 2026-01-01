@@ -24,6 +24,6 @@
   "hintText" :    "EP0_Spark_Hint",
   "freeingText" : "EP0_Spark_Free",
 
-  "powers": ["EP0_Spider_01", "EP0_Spider_02", "EP0_Spider_03","EP0_Spider_04"],
+  "powers": ["EP0_Spark_01", "EP0_Spark_02", "EP0_Spark_03","EP0_Spark_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }

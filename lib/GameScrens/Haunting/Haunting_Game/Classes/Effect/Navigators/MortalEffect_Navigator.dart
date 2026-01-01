@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/MortalEffectMechanics.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/PowerScriptMechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
@@ -31,10 +32,16 @@ class MortalEffect_Navigator{
           MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, power.powerChances);
           break;
         }
+        case PowerScript.damage_Spark_ChainEffect:
+          {
+            DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
+            PowerScriptMechanics.spark_ChainEffect(power, mortal, effect);
+            break;
+
+          }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
-        case PowerScript.damage_fireElementalBuff:
-          // TODO: Handle this case.
-          throw UnimplementedError();
+        case PowerScript.damage_fireElementalBuff: break;
+
       }
     }
   }

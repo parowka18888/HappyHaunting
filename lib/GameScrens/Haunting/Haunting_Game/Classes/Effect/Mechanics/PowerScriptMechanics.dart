@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Getter/PowerGetter.dart';
@@ -21,13 +22,26 @@ class PowerScriptMechanics{
           if(effect.power != null){
             if(effect.power!.id == neededPower.id){
               double buff = (effect.power!.powerChances) / 100;
-              DealingDamage.dealDamageToAllMortals(power, mortals, power.game, buffModifier: 1000);
+              DealingDamage.dealDamageToAllMortals(power, mortals, power.game, buffModifier: buff);
             }
           }
         }
       }
 
     }
+  }
+
+  static void spark_ChainEffect(Haunting_Power power, Haunting_Mortal mortal, Haunting_MortalEffect? effect) {
+    if(mortal.effects.any((effect) => effect.power.id ==  'EP0_Spark_04')){
+      if(effect == null || effect.timeLeft <= 1){
+        Haunting_Room? room = mortal.room;
+        if(room != null) {
+          double modifier = ((power.powerChances / 100)) * power.powerTime;
+          DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, power.game, buffModifier: modifier);
+        }
+      }
+    }
+
   }
 
 }

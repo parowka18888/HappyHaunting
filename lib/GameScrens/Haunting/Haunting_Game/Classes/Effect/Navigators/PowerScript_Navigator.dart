@@ -15,10 +15,17 @@ class PowerScript_Navigator{
           PowerScriptMechanics.fireElementalBuff(power, mortals, ghost);
           break;
         }
+        case PowerScript.damage_Spark_ChainEffect: {
+          for(var mortal in mortals){
+            PowerScriptMechanics.spark_ChainEffect(power, mortal, null);
+          }
+          break;
+        }
       //UNAVAILABLE FOR MORTAL (FOR NOW)
         case PowerScript.damage: break;
         case PowerScript.damage_blockingMovement: break;
         case PowerScript.damage_ReducingMovement: break;
+        case PowerScript.damage_Spark_ChainEffect: break;
       }
     }
   }

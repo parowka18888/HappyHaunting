@@ -38,6 +38,7 @@ class RoomEffect_Navigator{
           }
         //UNAVAILABLE FOR ROOM (FOR NOW)
         case PowerScript.damage_blockingMovement: break;
+        case PowerScript.damage_Spark_ChainEffect: break;
       }
     }
   }
