@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';

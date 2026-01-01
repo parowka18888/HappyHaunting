@@ -16,7 +16,7 @@
   "powerType" : "effectRoom",
   "powerChances" : 65,
   "powerTime" : 8,
-  "effectScript" : "damage_ReducingMovement_80",
+  "effectScript" : "damage_ReducingMovement",
 
 
   "icon": "EP0_AirElemental_4",

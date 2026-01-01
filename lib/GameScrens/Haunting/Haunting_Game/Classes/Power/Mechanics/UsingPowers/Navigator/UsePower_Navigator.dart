@@ -1,4 +1,5 @@
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 
@@ -12,6 +13,7 @@ import '../ByType/Luring/PowersLuring.dart';
 import '../ByType/Possessing/PowersPossess.dart';
 
 class UsePower_Navigator{
+
   static void usePower_WithNavigator(Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, Haunting_Game game){
     PowerType powerType = power.powerType;
     switch (powerType){

@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript.dart';
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
@@ -12,9 +12,9 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
     required this.id, required this.name, required this.description, required this.icon,
     required this.cost, required this.cooldown, required this.powerType,
     required this.stat_Fear, required this.stat_Health, required this.stat_Madness, required this.stat_Faith,
-    required this.stat_Emotions, required this.stat_Impurity,
+    required this.stat_Emotions, required this.stat_Impurity, required this.powerChances,
     required this.isActivated, required this.isDeactivatingForbidden, required this.powerTime, required this.powerTags,
-    this.powerScript
+    this.script
   });
 
   String id = "";
@@ -27,6 +27,8 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
   double stat_Faith = 0;
   double stat_Emotions = 0;
   double stat_Impurity = 0;
+  double powerChances = 100;
+
   String icon = "";
   bool isActivated = false;
   bool isDeactivatingForbidden = false;
@@ -35,7 +37,6 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
   double powerTime = 0;
 
   //SCRIPTING
-  String? powerScript;
   PowerScript? script;
 
   //COOLDOWN
@@ -44,13 +45,13 @@ class Haunting_Power extends Component with HasGameReference<Haunting_Game> {
 
   @override
   Future<void> onLoad() async {
-    if(powerScript != null){
-      try {
-        script = PowerScript.values.byName(powerScript!);
-      } catch (e) {
-        throw Exception("Błąd");
-      }
-    }
+    // if(powerScript != null){
+    //   try {
+    //     script = PowerScript.values.byName(powerScript!);
+    //   } catch (e) {
+    //     throw Exception("Błąd");
+    //   }
+    // }
     return super.onLoad();
   }
 

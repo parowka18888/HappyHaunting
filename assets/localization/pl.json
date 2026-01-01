@@ -25,6 +25,14 @@
   "EP0_AirElemental_Hint":  "",
   "EP0_AirElemental_Free": "",
 
+  "EP0_FireElemental_Name": "Płomyk",
+  "EP0_FireElemental_Description": " Lorem ipsum ",
+  "EP0_FireElemental_Recruit":  "",
+  "EP0_FireElemental_Reserve": "",
+  "EP0_FireElemental_Help":  "",
+  "EP0_FireElemental_Banish": "",
+  "EP0_FireElemental_Hint":  "",
+  "EP0_FireElemental_Free": "",
 
   "___POWERS___": "-----------------------------------------------------------------------------------",
   "EP0_Spider_02_Name":  "Kokon",
@@ -44,6 +52,15 @@
   "EP0_AirElemental_03_Description": "Przyzwanie z całej mapy",
   "EP0_AirElemental_04_Name":  "Tornado",
   "EP0_AirElemental_04_Description": "Pokój efekt. Zadaje obrażenia i znacząco spowalnia śmiertelników. Efekt spowolnienia nie łączy sie z innymi.",
+
+  "EP0_FireElemental_01_Name":  "Przegrzanie",
+  "EP0_FireElemental_01_Description": "Natychmiastowe obrażenia i efekt na 1 smiertelnika",
+  "EP0_FireElemental_02_Name":  "Palenisko",
+  "EP0_FireElemental_02_Description": "Efekt room dmg",
+  "EP0_FireElemental_03_Name":  "Opary",
+  "EP0_FireElemental_03_Description": "wzmacnia obrazenia 3 innych zdolnosci",
+  "EP0_FireElemental_04_Name":  "Żywe zapałki",
+  "EP0_FireElemental_04_Description": "Natychmiastowe obrażenia i efekt na wszystkich w room",
 
   "___MORTALS___": "-----------------------------------------------------------------------------------",
 

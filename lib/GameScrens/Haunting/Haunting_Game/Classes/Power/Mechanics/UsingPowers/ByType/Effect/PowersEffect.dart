@@ -1,4 +1,5 @@
 
+import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
@@ -9,6 +10,8 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.da
 
 import '../../../../../Effect/Room/Haunting_Effect.dart';
 import '../../../../Haunting_Power.dart';
+import '../../../../Particles/PowerParticle.dart';
+import '../../../../Particles/PowerParticleGetter/PowerParticleGetter.dart';
 import '../../../PowerMechanics.dart';
 
 class PowersEffect{
@@ -26,6 +29,7 @@ class PowersEffect{
     if(effect != null){
       effect.power = power;
       effect.timeLeft = power.powerTime;
+      PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
       PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
     }
   }
@@ -38,6 +42,7 @@ class PowersEffect{
           Haunting_MortalEffect effect = Haunting_MortalEffect(power: power, mortal: mortal);
           game.add(effect);
           mortal.effects.add(effect);
+          PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot);
           PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
         }
       }

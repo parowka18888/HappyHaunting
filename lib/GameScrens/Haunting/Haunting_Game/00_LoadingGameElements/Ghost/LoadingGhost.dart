@@ -8,7 +8,7 @@ import 'package:tiled/src/objects/tiled_object.dart';
 
 import '../../../../../Data/Database/Enums/Getter/EnumGetter.dart';
 import '../../../../../Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
-import '../../../../../Data/Database/Enums/PowerType.dart';
+import '../../../../../Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import '../../Classes/Ghost/Haunting_Ghost.dart';
 import '../../Classes/Ghost/Subclasses/TrappedGhost/Getter/TrappedGhost_Getter.dart';
 import '../../Classes/GhostSpot/Haunting_GhostSpot.dart';
@@ -48,12 +48,12 @@ class LoadingGhost{
   }
 
   static void loadPower(Power ghostPower, Haunting_Game game, List<Haunting_Power> powers) {
-    PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
+    // PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
     Haunting_Power power = Haunting_Power(id: ghostPower.id, name: ghostPower.name, description: ghostPower.description,
         icon: ghostPower.icon, cost: ghostPower.cost, cooldown: ghostPower.cooldown, powerTags: ghostPower.powerTags,
         stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith, stat_Emotions: ghostPower.stat_Emotions, stat_Impurity: ghostPower.stat_Impurity,
-        isActivated: false, isDeactivatingForbidden: false, powerType:  type, powerTime : ghostPower.powerTime,
-        powerScript: ghostPower.effectScript
+        isActivated: false, isDeactivatingForbidden: false, powerType:  ghostPower.powerType, powerTime : ghostPower.powerTime,
+        script: ghostPower.effectScript, powerChances: ghostPower.powerChances
     );
     game.level.level.add(power);
     powers.add(power);

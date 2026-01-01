@@ -1,3 +1,5 @@
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -24,8 +26,8 @@ class Power extends HiveObject {
 
   @HiveField(9)  final String icon;
 
-  @HiveField(10)  final String powerType;
-  @HiveField(14)  final String? effectScript;
+  @HiveField(10)  final PowerType powerType;
+  @HiveField(14)  final PowerScript? effectScript;
   @HiveField(11)  final double powerChances;
 
   @HiveField(12)  final double powerTime;

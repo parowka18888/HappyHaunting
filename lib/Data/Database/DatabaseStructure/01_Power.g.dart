@@ -27,13 +27,13 @@ class PowerAdapter extends TypeAdapter<Power> {
       cost: fields[7] as double,
       cooldown: fields[8] as double,
       icon: fields[9] as String,
-      powerType: fields[10] as String,
+      powerType: fields[10] as PowerType,
       powerChances: fields[11] as double,
       powerTime: fields[12] as double,
       powerTags: (fields[13] as List).cast<PowerTag>(),
       stat_Emotions: fields[16] as double,
       stat_Impurity: fields[15] as double,
-      effectScript: fields[14] as String?,
+      effectScript: fields[14] as PowerScript?,
     );
   }
 
@@ -103,7 +103,7 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
       cost: (json['cost'] as num).toDouble(),
       cooldown: (json['cooldown'] as num).toDouble(),
       icon: json['icon'] as String,
-      powerType: json['powerType'] as String,
+      powerType: $enumDecode(_$PowerTypeEnumMap, json['powerType']),
       powerChances: (json['powerChances'] as num).toDouble(),
       powerTime: (json['powerTime'] as num).toDouble(),
       powerTags: (json['powerTags'] as List<dynamic>)
@@ -111,7 +111,8 @@ Power _$PowerFromJson(Map<String, dynamic> json) => Power(
           .toList(),
       stat_Emotions: (json['stat_Emotions'] as num).toDouble(),
       stat_Impurity: (json['stat_Impurity'] as num).toDouble(),
-      effectScript: json['effectScript'] as String?,
+      effectScript:
+          $enumDecodeNullable(_$PowerScriptEnumMap, json['effectScript']),
     );
 
 Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
@@ -127,13 +128,24 @@ Map<String, dynamic> _$PowerToJson(Power instance) => <String, dynamic>{
       'cost': instance.cost,
       'cooldown': instance.cooldown,
       'icon': instance.icon,
-      'powerType': instance.powerType,
-      'effectScript': instance.effectScript,
+      'powerType': _$PowerTypeEnumMap[instance.powerType]!,
+      'effectScript': _$PowerScriptEnumMap[instance.effectScript],
       'powerChances': instance.powerChances,
       'powerTime': instance.powerTime,
       'powerTags':
           instance.powerTags.map((e) => _$PowerTagEnumMap[e]!).toList(),
     };
+
+const _$PowerTypeEnumMap = {
+  PowerType.mortalSingle: 'mortalSingle',
+  PowerType.mortalRoom: 'mortalRoom',
+  PowerType.mortalGlobal: 'mortalGlobal',
+  PowerType.lureFloor: 'lureFloor',
+  PowerType.lureMap: 'lureMap',
+  PowerType.effectRoom: 'effectRoom',
+  PowerType.effectMortal: 'effectMortal',
+  PowerType.posessionMortal: 'posessionMortal',
+};
 
 const _$PowerTagEnumMap = {
   PowerTag.Null: 'Null',
@@ -155,4 +167,11 @@ const _$PowerTagEnumMap = {
   PowerTag.sound: 'sound',
   PowerTag.lure: 'lure',
   PowerTag.touchingObjects: 'touchingObjects',
+};
+
+const _$PowerScriptEnumMap = {
+  PowerScript.damage: 'damage',
+  PowerScript.damage_blockingMovement: 'damage_blockingMovement',
+  PowerScript.damage_ReducingMovement: 'damage_ReducingMovement',
+  PowerScript.damage_fireElementalBuff: 'damage_fireElementalBuff',
 };

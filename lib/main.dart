@@ -7,8 +7,10 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
 import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
@@ -38,6 +40,8 @@ Future<void> main() async {
   Hive.registerAdapter(LevelScript_Adapter());
   Hive.registerAdapter(Statistic_Adapter());
   Hive.registerAdapter(GhostTier_Adapter());
+  Hive.registerAdapter(PowerType_Adapter());
+  Hive.registerAdapter(PowerScript_Adapter());
 
   Hive.registerAdapter(PlayerAdapter());
   Hive.registerAdapter(GhostAdapter());

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
-import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Mechanics/MortalEffect_Navigator.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Navigators/MortalEffect_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
@@ -10,28 +10,6 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Hau
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
 class RoomEffectsMechanics{
-
-  static void doTimerAction(Haunting_Mortal mortal, Haunting_Effect effect, {
-    required Function() restartFunction,
-    required Function() effectFunction,
-  }) async {
-    int seconds = 0;
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-
-      if(seconds >= 1) timer.cancel();
-      //USUŃ JEŚLI MORTAL JEST POZA ROOM
-      if(!effect.room!.mortalsInRoom.contains(mortal) || effect.timeLeft <= 1){
-        restartFunction();
-        timer.cancel();
-      } else {
-        effectFunction();
-      }
-      seconds++;
-      print('Minęła $seconds sekunda dla mortala ${mortal.name}');
-      }
-    );
-  }
-
 
   static void addEffectToMortal(Haunting_Effect effect, Haunting_Room room) {
     for(Haunting_Mortal mortal in room.mortalsInRoom){

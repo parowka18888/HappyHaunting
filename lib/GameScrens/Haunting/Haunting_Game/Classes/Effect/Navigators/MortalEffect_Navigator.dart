@@ -4,8 +4,8 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/M
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
 
-import '../../../Mortal/StaticData/Mortal_StaticData.dart';
-import '../../../Power/Mechanics/DealingDamage/DealingDamage.dart';
+import '../../Mortal/StaticData/Mortal_StaticData.dart';
+import '../../Power/Mechanics/DealingDamage/DealingDamage.dart';
 
 class MortalEffect_Navigator{
 
@@ -22,21 +22,19 @@ class MortalEffect_Navigator{
         }
         case PowerScript.damage_blockingMovement:{
           DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
-          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 0);
+          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 100);
           // MortalEffectMechanics.setMortalSpeed(mortal, effect, 0);
           break;
         }
+        case PowerScript.damage_ReducingMovement:{
+          DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
+          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, power.powerChances);
+          break;
+        }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
-        case PowerScript.damage_ReducingMovement_50:{
-          DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
-          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 50);
-          break;
-        }
-        case PowerScript.damage_ReducingMovement_80:{
-          DealingDamage.dealInstantDamageToMortal(power, mortal, effect.game);
-          MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, 80);
-          break;
-        }
+        case PowerScript.damage_fireElementalBuff:
+          // TODO: Handle this case.
+          throw UnimplementedError();
       }
     }
   }

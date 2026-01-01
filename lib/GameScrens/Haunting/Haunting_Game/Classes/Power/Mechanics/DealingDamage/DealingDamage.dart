@@ -11,7 +11,10 @@ import '../../Particles/ParticleDamage.dart';
 import '../../Particles/PowerParticle.dart';
 
 class DealingDamage{
-  static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game) {
+  static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game, {
+    double buffModifier = 1,
+  }
+      ) {
     if(MortalChecker.checkIfMortalIsTargetable(mortal)){
       double modifier = 1;
 
@@ -21,12 +24,12 @@ class DealingDamage{
         Mortal_Setter.setIsFearUnlocked(mortal, true);
         modifier = 1.25;
       }
-      double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear * modifier).toStringAsFixed(2));
-      double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier).toStringAsFixed(2));
-      double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness * modifier).toStringAsFixed(2));
-      double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith * modifier).toStringAsFixed(2));
-      double damageEmotions = double.parse((power.stat_Emotions * mortal.stat_Multiplier_Emotions * modifier).toStringAsFixed(2));
-      double damageImpurity = double.parse((power.stat_Impurity * mortal.stat_Multiplier_Impurity * modifier).toStringAsFixed(2));
+      double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear * modifier * buffModifier).toStringAsFixed(2));
+      double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier * buffModifier).toStringAsFixed(2));
+      double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness * modifier * buffModifier).toStringAsFixed(2));
+      double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith * modifier * buffModifier).toStringAsFixed(2));
+      double damageEmotions = double.parse((power.stat_Emotions * mortal.stat_Multiplier_Emotions * modifier * buffModifier).toStringAsFixed(2));
+      double damageImpurity = double.parse((power.stat_Impurity * mortal.stat_Multiplier_Impurity * modifier * buffModifier).toStringAsFixed(2));
 
       if(damageFear != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
       if(damageHealth != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
@@ -48,9 +51,12 @@ class DealingDamage{
     return [0,0,0,0,0,0];
   }
 
-  static void dealDamageToAllMortals(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Game game, ){
+  static void dealDamageToAllMortals(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Game game,
+      {
+        double buffModifier = 1
+      }){
     for(var mortal in mortals){
-      dealInstantDamageToMortal(power, mortal, game);
+      dealInstantDamageToMortal(power, mortal, game, buffModifier: buffModifier);
     }
   }
 

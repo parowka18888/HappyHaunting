@@ -7,7 +7,7 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/L
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
@@ -191,7 +191,6 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
         //MORTAL SPEED
         speed = Mortal_StaticData.getMortalSpeedByState(state, game) *
             speedMultipliersMap.values.fold(1.0, (a, b) => a * b);
-        print("Predkośc mortala ${name} to $speed");
 
 
         timeSinceLastReload = 0.0;
