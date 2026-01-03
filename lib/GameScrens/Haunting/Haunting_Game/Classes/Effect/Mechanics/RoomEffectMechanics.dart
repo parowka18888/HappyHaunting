@@ -8,6 +8,13 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/S
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:hive/hive.dart';
+
+import '../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
+import '../../../../../../Data/Database/Getters/DatabaseObject_Getter.dart';
+import '../../Ghost/Getter/GhostGetter.dart';
+import '../../Ghost/Haunting_Ghost.dart';
+import '../../Power/Mechanics/UsingPowers/ByType/Effect/PowersEffect.dart';
 
 class RoomEffectsMechanics{
 
@@ -22,6 +29,21 @@ class RoomEffectsMechanics{
         MortalEffect_Navigator.navigateMortalEffect(mortalEffect);
       }
     }
+  }
+
+  static void addEffectToRoomsByAura(Haunting_Effect effect, String auraID){
+      Box box_Auras = Hive.box<Aura>('auras');
+      Aura? aura = DatabaseObject_Getter.getObjectById(auraID, box_Auras);
+      if(aura != null && effect.power != null){
+        List<Haunting_Room> rooms = effect.game.level.rooms.where((element) => element.auras.contains(aura)).toList();
+        rooms.remove(effect.room);
+        Haunting_Ghost? ghost = GhostGetter.getGhostByPower(effect.power!, effect.game);
+        if(ghost != null){
+          for(var chosenRoom in rooms){
+            if(effect.executionHelper == 0) PowersEffect.usePower_EffectRoom(effect.power!, ghost, chosenRoom, effect.game, skipAnimation: true, skipEndingProcess: true, executionHelper: 10);
+          }
+        }
+      }
   }
 
 }

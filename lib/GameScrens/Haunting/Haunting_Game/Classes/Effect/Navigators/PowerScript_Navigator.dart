@@ -26,6 +26,8 @@ class PowerScript_Navigator{
         case PowerScript.damage_blockingMovement: break;
         case PowerScript.damage_ReducingMovement: break;
         case PowerScript.damage_Spark_ChainEffect: break;
+        case PowerScript.damage_Whisperer_Intruder: break;
+        case PowerScript.damage_Moth_Darkness: break;
       }
     }
   }

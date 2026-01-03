@@ -24,6 +24,6 @@
   "hintText" :    "EP0_Whisperer_Hint",
   "freeingText" : "EP0_Whisperer_Free",
 
-  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
+  "powers": ["EP0_Whisperer_01", "EP0_Whisperer_02", "EP0_Whisperer_03","EP0_Whisperer_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }

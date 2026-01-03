@@ -8,6 +8,7 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/AnimatedContainer/Animat
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/SpecialButtons/CancelButton/CancelButton_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/SpecialButtons/CancelButton/Mechanics/CancelButton_Mechanics.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Cheats/Cheats_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/DedicatedArea/DedicatedArea_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Resources/ResourceBar_GUI.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
@@ -125,11 +126,14 @@ class _GhostsScreenState extends State<GhostsScreen> {
                   level_ViewModel.popScreen(context)
                   }
                 ),
+                CancelButton_GUI.getCheatButton(screenHeight,
+                    function: () => {
+                      viewModel.toggleIsCheatWindowVisible()
+                    }
+                ),
 
-                ElevatedButton(onPressed: (){
-                  DatabasePlayer_Setter.cheatResources();
-                  viewModel.refresh();
-                }, child: Text('DODAJ ZASOBY!'))
+                if(viewModel.isCheatBoxVisible)
+                Cheats_GUI.getCheatsBox(context),
 
               ],
             ),

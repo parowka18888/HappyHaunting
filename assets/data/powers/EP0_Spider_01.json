@@ -19,6 +19,6 @@
   "effectScript" : "damage",
 
 
-  "icon": "Spider_Power_1",
+  "icon": "EP0_Spider_1",
   "powerTags": ["Insects", "spiders", "plague", "animals"]
 }

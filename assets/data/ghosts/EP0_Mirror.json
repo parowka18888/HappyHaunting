@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_Mirror",
+  "name":         "EP0_Mirror_Name",
+  "description":  "EP0_Mirror_Description",
+
+  "icon" :       "Mirror_Icon",
+  "ghostImage" : "Mirror",
+  "ghostPanel" : "Mirror_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "emotions",
+  "secondaryStats": ["faith"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Mirror_Recruit",
+  "reserveText":  "EP0_Mirror_Reserve",
+  "helpText":     "EP0_Mirror_Help",
+  "banishText" :  "EP0_Mirror_Banish",
+  "hintText" :    "EP0_Mirror_Hint",
+  "freeingText" : "EP0_Mirror_Free",
+
+
+  "powers": [
+    "EP0_AirElemental_01",
+    "EP0_AirElemental_02",
+    "EP0_AirElemental_03",
+    "EP0_AirElemental_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

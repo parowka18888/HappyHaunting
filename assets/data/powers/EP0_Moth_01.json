@@ -1,12 +1,12 @@
 {
-  "id": "EP0_Moth_01",
-  "name": "PrzyzywaniePiętro",
-  "description": "Desc",
+  "id":           "EP0_Moth_01",
+  "name":         "EP0_Moth_01_Name",
+  "description":  "EP0_Moth_01_Description",
 
   "cost" : 20,
-  "cooldown" : 20,
+  "cooldown" : 10,
 
-  "stat_Fear": 0,
+  "stat_Fear": 10,
   "stat_Health": 0,
   "stat_Madness": 0,
   "stat_Faith": 0,
@@ -16,8 +16,7 @@
   "powerType" : "lureFloor",
   "powerChances" : 25,
   "powerTime" : 0,
-  "icon": "Moth_Power_1",
 
-
-  "powerTags": []
+  "icon": "EP0_Moth_1",
+  "powerTags": ["calm", "melody", "sound"]
 }

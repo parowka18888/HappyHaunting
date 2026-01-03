@@ -10,6 +10,10 @@
     "assets/data/ghosts/EP0_Shade.json",
     "assets/data/ghosts/EP0_FireElemental.json",
     "assets/data/ghosts/EP0_Whisperer.json",
+    "assets/data/ghosts/EP0_Policeman.json",
+    "assets/data/ghosts/EP0_Prisoner.json",
+    "assets/data/ghosts/EP0_Scarecrow.json",
+    "assets/data/ghosts/EP0_Mirror.json",
     "assets/data/ghosts/EP0_Spark.json"
     ],
 
@@ -30,15 +34,21 @@
     "assets/data/powers/EP0_Spark_02.json",
     "assets/data/powers/EP0_Spark_03.json",
     "assets/data/powers/EP0_Spark_04.json",
+    "assets/data/powers/EP0_Whisperer_01.json",
+    "assets/data/powers/EP0_Whisperer_02.json",
+    "assets/data/powers/EP0_Whisperer_03.json",
+    "assets/data/powers/EP0_Whisperer_04.json",
+    "assets/data/powers/EP0_Moth_01.json",
+    "assets/data/powers/EP0_Moth_02.json",
+    "assets/data/powers/EP0_Moth_03.json",
+    "assets/data/powers/EP0_Moth_04.json",
+
     "assets/data/powers/EP0_Fly_01.json",
     "assets/data/powers/EP0_Fly_02.json",
     "assets/data/powers/EP0_Fly_03.json",
     "assets/data/powers/EP0_ClothesEater_01.json",
     "assets/data/powers/EP0_ClothesEater_02.json",
-    "assets/data/powers/EP0_ClothesEater_03.json",
-    "assets/data/powers/EP0_Moth_01.json",
-    "assets/data/powers/EP0_Moth_02.json",
-    "assets/data/powers/EP0_Moth_03.json"
+    "assets/data/powers/EP0_ClothesEater_03.json"
   ],
 
   "mortals": [

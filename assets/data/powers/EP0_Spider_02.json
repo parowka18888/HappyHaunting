@@ -18,7 +18,7 @@
   "powerTime" : 5,
   "effectScript" : "damage_blockingMovement",
 
-  "icon": "Spider_Power_2",
+  "icon": "EP0_Spider_2",
 
   "powerTags": ["immobilization", "lossOfControl", "claustrophobia"]
 }

@@ -5,7 +5,7 @@ class PowersGUI_CheckConditions{
   }
 
   static checkIfPowerChanceIsAvailable(double powerChances) {
-    if(powerChances < 100) return true;
+    if(powerChances != 100) return true;
     return false;
   }
 

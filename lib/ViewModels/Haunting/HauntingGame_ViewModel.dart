@@ -32,6 +32,8 @@ class HauntingGame_ViewModel extends ChangeNotifier {
   GameWindow gameWindow = GameWindow.empty;
   bool isLogEntriesWindowVisible = false;
   Haunting_Game? game;
+  bool isCheatBoxVisible = false;
+
 
 
   void refresh(){
@@ -157,6 +159,11 @@ class HauntingGame_ViewModel extends ChangeNotifier {
     print("Śmiertelnincy: ${game?.level.mortals.length}");
 
     print("Destination points: ${game!.mortalActionPoints.length}");
+  }
+
+  void toggleIsCheatWindowVisible() {
+    isCheatBoxVisible = !isCheatBoxVisible;
+    notifyListeners();
   }
 
 

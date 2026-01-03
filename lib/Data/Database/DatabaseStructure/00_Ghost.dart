@@ -27,7 +27,7 @@ class Ghost extends HiveObject {
   @HiveField(5)  final double health;
   @HiveField(6)  final String ghostImage;
 
-  @HiveField(8)  final bool isUnlocked;
+  @HiveField(8)  late bool isUnlocked;
   @HiveField(9)  final int headCenterPoint;
 
   @HiveField(10)  late GhostTier tier;

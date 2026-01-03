@@ -1,8 +1,7 @@
 {
-  "id": "EP0_AirElemental",
-
-  "name": "EP0_AirElemental_Name",
-  "description": "EP0_AirElemental_Description",
+  "id":           "EP0_AirElemental",
+  "name":         "EP0_AirElemental_Name",
+  "description":  "EP0_AirElemental_Description",
 
   "icon" : "AirElemental_Icon",
   "ghostImage" : "AirElemental",

@@ -16,7 +16,11 @@ import '../../../PowerMechanics.dart';
 
 class PowersEffect{
 
-  static void usePower_EffectRoom(Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, Haunting_Game game) {
+  static void usePower_EffectRoom(Haunting_Power power, Haunting_Ghost ghost, Haunting_Room room, Haunting_Game game, {
+    bool skipAnimation = false,
+    bool skipEndingProcess = false,
+    double executionHelper = 0
+  }) {
     Haunting_Effect? effect;
     for(var roomEffect in room.effects){
       if(roomEffect.power == null){
@@ -29,8 +33,9 @@ class PowersEffect{
     if(effect != null){
       effect.power = power;
       effect.timeLeft = power.powerTime;
-      PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
-      PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
+      effect.executionHelper = executionHelper;
+      if(skipAnimation == false) PowerParticle.globalPower(Vector2(0, 0), ghost.ghostSpot!);
+      if(skipEndingProcess == false) PowerMechanics.usePower_EndingProcess(game, power, ghost, room);
     }
   }
 

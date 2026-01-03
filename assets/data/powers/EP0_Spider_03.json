@@ -18,6 +18,6 @@
   "powerTime" : 5,
   "effectScript" : "damage",
 
-  "icon": "Spider_Power_3",
+  "icon": "EP0_Spider_3",
   "powerTags": ["health", "spiders"]
 }

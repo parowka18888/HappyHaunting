@@ -1,7 +1,7 @@
 {
-  "id":           "EP0_Moth_03",
-  "name":         "EP0_Moth_03_Name",
-  "description":  "EP0_Moth_03_Description",
+  "id":           "EP0_Whisperer_02",
+  "name":         "EP0_Whisperer_02_Name",
+  "description":  "EP0_Whisperer_02_Description",
 
   "cost" : 20,
   "cooldown" : 10,
@@ -18,6 +18,6 @@
   "powerChances" : 100,
   "powerTime" : 6,
 
-  "icon": "EP0_Moth_3",
+  "icon": "EP0_Whisperer_2",
   "powerTags": ["calm", "melody", "sound"]
 }

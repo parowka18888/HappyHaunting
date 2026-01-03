@@ -6,9 +6,9 @@ import 'package:hive/hive.dart';
 class DatabasePlayer_Setter{
 
 
-  static void cheatResources() {
-    addGold(200);
-    addEssences(1);
+  static void cheatResources({int multiplier = 1}) {
+    addGold(200 * multiplier);
+    addEssences(1 * multiplier);
 
   }
 

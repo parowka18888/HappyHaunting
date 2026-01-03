@@ -4,6 +4,7 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/M
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 
 import '../../Mortal/StaticData/Mortal_StaticData.dart';
 import '../../Power/Mechanics/DealingDamage/DealingDamage.dart';
@@ -39,9 +40,19 @@ class MortalEffect_Navigator{
             break;
 
           }
+        case PowerScript.damage_Whisperer_Intruder:
+          {
+            Haunting_Room? room = mortal.room;
+            if(room != null){
+              DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, power.game);
+              MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, -power.powerChances);
+
+            }
+
+          }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
         case PowerScript.damage_fireElementalBuff: break;
-
+        case PowerScript.damage_Moth_Darkness: break;
       }
     }
   }

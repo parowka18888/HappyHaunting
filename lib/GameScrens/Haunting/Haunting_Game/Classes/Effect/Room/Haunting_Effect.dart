@@ -21,6 +21,8 @@ class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Gam
   double timeLeft = 0;
   double timer = 1;
 
+  double executionHelper = 0;
+
   late TextComponent timeLabel;
 
   @override

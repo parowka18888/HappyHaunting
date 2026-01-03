@@ -43,6 +43,24 @@
   "EP0_Spark_Hint":  "",
   "EP0_Spark_Free": "",
 
+  "EP0_Whisperer_Name": "Szeptuch",
+  "EP0_Whisperer_Description": " Lorem ipsum ",
+  "EP0_Whisperer_Recruit":  "",
+  "EP0_Whisperer_Reserve": "",
+  "EP0_Whisperer_Help":  "",
+  "EP0_Whisperer_Banish": "",
+  "EP0_Whisperer_Hint":  "",
+  "EP0_Whisperer_Free": "",
+
+  "EP0_Scarecrow_Name": "Straszywronek",
+  "EP0_Scarecrow_Description": " Lorem ipsum ",
+  "EP0_Scarecrow_Recruit":  "",
+  "EP0_Scarecrow_Reserve": "",
+  "EP0_Scarecrow_Help":  "",
+  "EP0_Scarecrow_Banish": "",
+  "EP0_Scarecrow_Hint":  "",
+  "EP0_Scarecrow_Free": "",
+
   "___POWERS___": "-----------------------------------------------------------------------------------",
   "EP0_Spider_02_Name":  "Kokon",
   "EP0_Spider_02_Description": "Duch unieruchamia śmiertelnika na określony czas, zadając natychmiastowe obrażenia.",
@@ -71,7 +89,7 @@
   "EP0_FireElemental_04_Name":  "Żywe zapałki",
   "EP0_FireElemental_04_Description": "Natychmiastowe obrażenia wszystkich w room.  Jesli w pomieszczeniu panują opary, dmg jest zwiększany",
 
-  "EP0_Spark_01_Name":  "Migoczące ekrany",
+  "EP0_Spark_01_Name":  "Wirujące iskry",
   "EP0_Spark_01_Description": "EFEKT DMG w pokoju",
   "EP0_Spark_02_Name":  "Pękające żarówki",
   "EP0_Spark_02_Description": "DMG MORTAL ROOM",
@@ -79,6 +97,26 @@
   "EP0_Spark_03_Description": "DMG 1. Jeśli ma efekt efektu łanczuchowego wybucha natychmiast jako dodatkowy efekt) ",
   "EP0_Spark_04_Name":  "Efekt łańcuchowy",
   "EP0_Spark_04_Description": "Efekt kilka sekund z dmg, po czasie zadaje obrazenia wszystkim w tym samym pokoju",
+
+  "EP0_Whisperer_01_Name":  "Szepty w głowie",
+  "EP0_Whisperer_01_Description": "DMG to 1 mortal",
+  "EP0_Whisperer_02_Name":  "Dziwne głosy",
+  "EP0_Whisperer_02_Description": "Efekt room",
+  "EP0_Whisperer_03_Name":  "Opętanie",
+  "EP0_Whisperer_03_Description": "opętanie ",
+  "EP0_Whisperer_04_Name":  "Intruz",
+  "EP0_Whisperer_04_Description": "efekt na mortal, buff do speed, co sekunde obrazenia pobliskim",
+
+  "EP0_Moth_01_Name":  "Jak do światła",
+  "EP0_Moth_01_Description": "Przyzywa z pietra",
+  "EP0_Moth_02_Name":  "Drenaż umysłu",
+  "EP0_Moth_02_Description": "Mortal room",
+  "EP0_Moth_03_Name":  "Dzikie wizje",
+  "EP0_Moth_03_Description": "room effect ",
+  "EP0_Moth_04_Name":  "całkowita ciemnośc",
+  "EP0_Moth_04_Description": "effect room do każdego pokoju z aurą inside",
+
+
 
   "___MORTALS___": "-----------------------------------------------------------------------------------",
 

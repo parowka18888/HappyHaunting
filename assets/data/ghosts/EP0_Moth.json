@@ -24,6 +24,6 @@
   "hintText" :    "EP0_Moth_Hint",
   "freeingText" : "EP0_Moth_Free",
 
-  "powers": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_Moth_03"],
+  "powers": ["EP0_Moth_01", "EP0_Moth_02", "EP0_Moth_03","EP0_Moth_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }
