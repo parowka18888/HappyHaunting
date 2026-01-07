@@ -6,7 +6,7 @@ class DatabaseObject_Getter{
   static getObjectById(String id, Box box) {
     print(box.length);
     for(int index = 0; index < box.length; index++){
-      print("${id} vs ${box.getAt(index).id}");
+      // print("${id} vs ${box.getAt(index).id}");
       if(box.getAt(index).id == id){
         return box.getAt(index);
       }

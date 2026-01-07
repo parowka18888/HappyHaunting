@@ -9,8 +9,8 @@
   "headCenterPoint": 19,
 
 
-  "mainStat": "emotions",
-  "secondaryStats": ["faith"],
+  "mainStat": "madness",
+  "secondaryStats": ["fear", "faith"],
   "health" : 55,
   "isUnlocked" : false,
 
@@ -25,9 +25,9 @@
 
 
   "powers": [
-    "EP0_AirElemental_01",
-    "EP0_AirElemental_02",
-    "EP0_AirElemental_03",
-    "EP0_AirElemental_04"],
+    "EP0_Mirror_01",
+    "EP0_Mirror_02",
+    "EP0_Mirror_03",
+    "EP0_Mirror_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }

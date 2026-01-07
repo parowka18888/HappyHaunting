@@ -24,6 +24,6 @@
   "hintText" :    "EP0_ClothesEater_Hint",
   "freeingText" : "EP0_ClothesEater_Free",
 
-  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
+  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }

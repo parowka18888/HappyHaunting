@@ -42,13 +42,26 @@
     "assets/data/powers/EP0_Moth_02.json",
     "assets/data/powers/EP0_Moth_03.json",
     "assets/data/powers/EP0_Moth_04.json",
-
+    "assets/data/powers/EP0_ClothesEater_01.json",
+    "assets/data/powers/EP0_ClothesEater_02.json",
+    "assets/data/powers/EP0_ClothesEater_03.json",
+    "assets/data/powers/EP0_ClothesEater_04.json",
+    "assets/data/powers/EP0_Policeman_01.json",
+    "assets/data/powers/EP0_Policeman_02.json",
+    "assets/data/powers/EP0_Policeman_03.json",
+    "assets/data/powers/EP0_Policeman_04.json",
+    "assets/data/powers/EP0_Prisoner_01.json",
+    "assets/data/powers/EP0_Prisoner_02.json",
+    "assets/data/powers/EP0_Prisoner_03.json",
+    "assets/data/powers/EP0_Prisoner_04.json",
+    "assets/data/powers/EP0_Mirror_01.json",
+    "assets/data/powers/EP0_Mirror_02.json",
+    "assets/data/powers/EP0_Mirror_03.json",
+    "assets/data/powers/EP0_Mirror_04.json",
     "assets/data/powers/EP0_Fly_01.json",
     "assets/data/powers/EP0_Fly_02.json",
     "assets/data/powers/EP0_Fly_03.json",
-    "assets/data/powers/EP0_ClothesEater_01.json",
-    "assets/data/powers/EP0_ClothesEater_02.json",
-    "assets/data/powers/EP0_ClothesEater_03.json"
+    "assets/data/powers/EP0_Fly_04.json"
   ],
 
   "mortals": [

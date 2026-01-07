@@ -21,7 +21,7 @@ class MortalPanel_GUI{
         alignment: Alignment(0, 0),
         children: [
           //BACKGROUND
-          GhostPanel_GUI.getBackground(context, height, width, defeatType: mortal.defeatType, isDefeated: MortalChecker.checkIfMortalIsExorcist(mortal)),
+          GhostPanel_GUI.getBackground(context, height, width, defeatType: mortal.defeatType, isDefeated: mortal.isDefeated, isExorcist: mortal.exorcismStrength > 0),
           //MOON
           Positioned(top: 0, left: 0, child: GhostPanel_GUI.getMoonImage(!mortal.isDefeated, height)),
           //MORTAL IMAGE

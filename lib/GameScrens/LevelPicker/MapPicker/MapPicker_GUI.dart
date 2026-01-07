@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -29,6 +30,9 @@ import '../../GlobalCode/Navigator/AppNavigator.dart';
 import '../../Haunting/Haunting_Screen/HauntingScreen.dart';
 
 class MapPicker_GUI{
+
+  static Box box_Ghosts = Hive.box<Ghost>('ghosts');
+
   static getMapPickerBox(BuildContext context, double height, double width,
       double titleHeight, double dividerHeight, double dividerWidthModifier, bool isActive
       ) {
@@ -132,6 +136,7 @@ class MapPicker_GUI{
                 viewModel.clearData();
                 level_ViewModel.setChosenLevel(DatabaseObject_Getter.getObjectById(level.id, box_Levels));
                 ghostSelector_ViewModel.setWindowMode(GhostSelector_WindowMode.play);
+                // AppNavigator.navigateToScreen_WithoutHistory(context, GhostsScreen());
                 AppNavigator.navigateToScreen(context,
                     GhostsScreen()
                 );
@@ -176,7 +181,9 @@ class MapPicker_GUI{
           padding: EdgeInsets.only(left: 0, bottom: 0),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index){
-            Ghost ghost = level.trappedGhosts[index];
+            Ghost trappedGhost = level.trappedGhosts[index];
+            Ghost ghost = DatabaseObject_Getter.getObjectById(trappedGhost.id, box_Ghosts);
+
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

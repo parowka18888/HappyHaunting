@@ -30,7 +30,8 @@ class Play_GUI{
         'ArrowRight',
       function: () {
         hauntingGame_ViewModel.clearData();
-        AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: levelSelector_ViewModel.chosenLevel!, levelSelector_ViewModel: levelSelector_ViewModel));
+        AppNavigator.navigateToScreen_WithoutHistory(context, HauntingScreen(chosenLevel: levelSelector_ViewModel.chosenLevel!, levelSelector_ViewModel: levelSelector_ViewModel));
+        // AppNavigator.navigateToScreen(context, HauntingScreen(chosenLevel: levelSelector_ViewModel.chosenLevel!, levelSelector_ViewModel: levelSelector_ViewModel));
         // ghostSelector_ViewModel.clear();
         // levelSelector_ViewModel.clear();
 

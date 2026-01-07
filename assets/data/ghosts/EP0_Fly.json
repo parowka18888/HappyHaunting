@@ -11,7 +11,7 @@
 
 
   "mainStat": "impurity",
-  "secondaryStats": ["faith", "fear"],
+  "secondaryStats": ["health", "emotions"],
   "health" : 55,
   "isUnlocked" : false,
 
@@ -24,6 +24,6 @@
   "hintText" :    "EP0_Fly_Hint",
   "freeingText" : "EP0_Fly_Free",
 
-  "powers": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_ClothesEater_01"],
+  "powers": ["EP0_Fly_01", "EP0_Fly_02", "EP0_Fly_03","EP0_Fly_04"],
   "auras": ["Aura_Outside", "Aura_Inside"]
 }

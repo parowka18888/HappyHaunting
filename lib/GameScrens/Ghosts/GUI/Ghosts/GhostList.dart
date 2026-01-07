@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,6 +14,8 @@ import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_CheckCondi
 import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:diacritic/diacritic.dart';
+
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
@@ -68,6 +71,7 @@ class GhostList{
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
     int itemsCount = box_Ghosts.length;
 
+
     List<Ghost> ghosts = box_Ghosts.values.cast<Ghost>().toList();
     if(ghostSelector_ViewModel.chosenGhostTypes.isNotEmpty){
       ghosts = ghosts.where((ghost) => ghostSelector_ViewModel.chosenGhostTypes.contains(ghost.mainStat)).toList();
@@ -77,7 +81,9 @@ class GhostList{
       if (a.isUnlocked != b.isUnlocked) {
         return a.isUnlocked ? -1 : 1;
       }
-      return a.name.compareTo(b.name);
+      final nameA = removeDiacritics(tr(a.name)).toLowerCase();
+      final nameB = removeDiacritics(tr(b.name)).toLowerCase();
+      return nameA.compareTo(nameB);
     });
 
     return Container(

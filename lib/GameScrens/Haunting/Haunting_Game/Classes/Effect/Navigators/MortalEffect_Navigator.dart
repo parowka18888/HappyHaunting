@@ -2,6 +2,8 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/P
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/MortalEffectMechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/PowerScriptMechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
@@ -48,11 +50,23 @@ class MortalEffect_Navigator{
               MortalEffectMechanics.reduceMortalSpeedByPercentageValue(mortal, effect, -power.powerChances);
 
             }
-
           }
+        case PowerScript.damage_ClothesEater_BonApetit: {
+          DealingDamage.dealInstantDamageToMortal(power, mortal, power.game);
+        }
+        case PowerScript.damage_Mirror_ExorcistsBuff: {
+          if(mortal.exorcismStrength > 0){
+            double value = mortal.exorcismStrength;
+            DealingDamage.dealInstantDamageToMortal(power, mortal, power.game, buffModifier: power.powerChances / 100,
+                health: value, fear: value, faith: value, madness: value, impurity: value, emotions: value);
+          }
+          break;
+        }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
         case PowerScript.damage_fireElementalBuff: break;
         case PowerScript.damage_Moth_Darkness: break;
+        case PowerScript.damage_Mirror_3Powers: break;
+        case PowerScript.damage_FlyBuff: break;
       }
     }
   }

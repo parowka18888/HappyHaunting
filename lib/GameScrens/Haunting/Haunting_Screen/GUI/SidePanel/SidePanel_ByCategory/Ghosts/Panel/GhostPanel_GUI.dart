@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Getter/Statistic_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Window/Haunting/GameWindow.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Buttons/Button_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
@@ -9,6 +9,7 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.da
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
+import '../../../../../../../../Data/Database/Enums/Stats/Statistic.dart';
 import '../../../../../../Haunting_Game/Classes/Power/Haunting_Power.dart';
 import '../../../../../../Haunting_Game/Classes/Power/Setter/PowerSetter.dart';
 
@@ -155,28 +156,16 @@ class GhostPanel_GUI{
 
   static getBackground(BuildContext context, double height, double width, {
     bool isDefeated = false,
-    Mortal_DefeatType? defeatType
+    Statistic? defeatType,
+    bool isExorcist = false
   }) {
+    // print("Mortal ${isDefeated} -> ${defeatType}");
     String background = "assets/images/UI/SidePanel/Panel_Background.png";
     //GHOST / EXORCIST BACKGROUND
-    if(isDefeated){ background = "assets/images/UI/SidePanel/Panel_Background_Purple.png";}
+    if(isDefeated) {background = "assets/images/UI/SidePanel/Panel_Background_${Statistic_Getter.getStatisticColor(Statistic.faith)}.png";}
+    if(isDefeated == true && defeatType != null){background = "assets/images/UI/SidePanel/Panel_Background_${Statistic_Getter.getStatisticColor(defeatType!)}.png";}
     //MORTAL BACKGROUND
-    if(defeatType != null){
-      switch (defeatType){
-        case Mortal_DefeatType.Fear:
-          background = "assets/images/UI/SidePanel/Panel_Background_Green.png";
-          break;
-        case Mortal_DefeatType.Faith:
-          background = "assets/images/UI/SidePanel/Panel_Background_Blue.png";
-          break;
-        case Mortal_DefeatType.Health:
-          background = "assets/images/UI/SidePanel/Panel_Background_Red.png";
-          break;
-        case Mortal_DefeatType.Madness:
-          background = "assets/images/UI/SidePanel/Panel_Background_Yellow.png";
-          break;
-      }
-    }
+
 
     return Container(
       height: height, width: width,

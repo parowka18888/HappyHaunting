@@ -3,7 +3,7 @@ enum PowerType{
 
   lureFloor, lureMap, //LURING MORTALS TO ROOM
 
-  effectRoom, effectMortal, //EFFECTS
+  effectRoom, effectMortal, effectMortalRoom, effectMortalGlobal, //EFFECTS
 
   posessionMortal //POSSESSION
 }

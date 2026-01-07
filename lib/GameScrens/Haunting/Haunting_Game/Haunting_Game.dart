@@ -21,6 +21,7 @@ class Haunting_Game extends FlameGame with HasCollisionDetection {
   List<Mortal> mortals = [];
   List<Ghost> ghosts = [];
   List<Ghost> trappedGhosts = [];
+  Level? level_Database;
   double width = 1920;
   double height = 1080;
   int tileWidth = 64;

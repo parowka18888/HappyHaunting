@@ -5,9 +5,9 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
-import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
@@ -72,7 +72,7 @@ class Haunting_Mortal extends SpriteComponent with HasGameReference<Haunting_Gam
   //SCARING MORTAL
   bool isDefeated = false;
   bool isEscaped = false;
-  Mortal_DefeatType? defeatType;
+  Statistic? defeatType;
   Mortal_State state = Mortal_State.calm;
   bool canMove = true;
   double timeOfThinking = 0;

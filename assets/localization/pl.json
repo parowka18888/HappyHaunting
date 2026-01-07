@@ -52,6 +52,24 @@
   "EP0_Whisperer_Hint":  "",
   "EP0_Whisperer_Free": "",
 
+  "EP0_Moth_Name": "Ćma",
+  "EP0_Moth_Description": " Lorem ipsum ",
+  "EP0_Moth_Recruit":  "",
+  "EP0_Moth_Reserve": "",
+  "EP0_Moth_Help":  "",
+  "EP0_Moth_Banish": "",
+  "EP0_Moth_Hint":  "",
+  "EP0_Moth_Free": "",
+
+  "EP0_ClothesEater_Name": "Mól",
+  "EP0_ClothesEater_Description": " Lorem ipsum ",
+  "EP0_ClothesEater_Recruit":  "",
+  "EP0_ClothesEater_Reserve": "",
+  "EP0_ClothesEater_Help":  "",
+  "EP0_ClothesEater_Banish": "",
+  "EP0_ClothesEater_Hint":  "Zniszcz słoik",
+  "EP0_ClothesEater_Free": "Znioszczyłeś słoik najs",
+
   "EP0_Scarecrow_Name": "Straszywronek",
   "EP0_Scarecrow_Description": " Lorem ipsum ",
   "EP0_Scarecrow_Recruit":  "",
@@ -116,10 +134,67 @@
   "EP0_Moth_04_Name":  "całkowita ciemnośc",
   "EP0_Moth_04_Description": "effect room do każdego pokoju z aurą inside",
 
+  "EP0_ClothesEater_01_Name":  "Gości",
+  "EP0_ClothesEater_01_Description": "mortal room",
+  "EP0_ClothesEater_02_Name":  "Przylepianie",
+  "EP0_ClothesEater_02_Description": "efect moeral dmg plus spowolnienie",
+  "EP0_ClothesEater_03_Name":  "W każdym z zakamarków",
+  "EP0_ClothesEater_03_Description": "room effect ",
+  "EP0_ClothesEater_04_Name":  "Bon Apetit",
+  "EP0_ClothesEater_04_Description": "Dmg co sekunde w pokoju. Śmiertelnik kiedy wchodzi do pokoju dostaje na siebie taki sam efekt jak ta moc, ale czas jest uzupełniony",
+
+  "EP0_Policeman_01_Name":  "Przyskrzynienie",
+  "EP0_Policeman_01_Description": "unieruchamia śmiertelników na sekundy (mortal effect)",
+  "EP0_Policeman_02_Name":  "Widmowe strzały",
+  "EP0_Policeman_02_Description": "mortal room",
+  "EP0_Policeman_03_Name":  "patrol",
+  "EP0_Policeman_03_Description": "room effect ",
+  "EP0_Policeman_04_Name":  "pościg",
+  "EP0_Policeman_04_Description": "efekt mortal - na koniec policjant się teleportuje do pokoju niezależnie od aury",
+
+  "EP0_Fly_01_Name":  "Rój much",
+  "EP0_Fly_01_Description": "single mortal",
+  "EP0_Fly_02_Name":  "Fetor",
+  "EP0_Fly_02_Description": "efekt romm",
+  "EP0_Fly_03_Name":  "larwy",
+  "EP0_Fly_03_Description": "efekt room",
+  "EP0_Fly_04_Name":  "wyklucie",
+  "EP0_Fly_04_Description": "efekt room. zwiększone obrażenia jeśli są larwy",
+
+  "EP0_Mirror_01_Name":  "Parszywe miraże",
+  "EP0_Mirror_01_Description": "mortal room",
+  "EP0_Mirror_02_Name":  "odbicie",
+  "EP0_Mirror_02_Description": "efect moeral na egzorcystów. co sekunde zadaje obrażenia w popstaci każdej ze statystyk równe sile egzorcysty uwzględniając skutecznośc",
+  "EP0_Mirror_03_Name":  "Zakrzywiona rzeczywistośc",
+  "EP0_Mirror_03_Description": "efekt room",
+  "EP0_Mirror_04_Name":  "klon",
+  "EP0_Mirror_04_Description": "klonuje i natychmiastowo używa 3 pierwszych umiejętności losowego ducha z drużyny",
+
+  "EP0_Prisoner_01_Name":  "Podejrzane widma",
+  "EP0_Prisoner_01_Description": "mortal room",
+  "EP0_Prisoner_02_Name":  "spętaniec",
+  "EP0_Prisoner_02_Description": "mortal room",
+  "EP0_Prisoner_03_Name":  "Aura niepokoju",
+  "EP0_Prisoner_03_Description": "room effect ",
+  "EP0_Prisoner_04_Name":  "zemsta",
+  "EP0_Prisoner_04_Description": "single mortal. jeśli mortal ma jakiś efekt policjanta zadaje obrażenia zwiększone",
 
 
   "___MORTALS___": "-----------------------------------------------------------------------------------",
 
 
-  "___LEVELS___": "-----------------------------------------------------------------------------------"
+  "___LEVELS___": "-----------------------------------------------------------------------------------",
+  "EP0_Level_1_Name": "Runda pierwsza skarbie",
+  "EP0_Level_1_StartingText": "W mieście upiorkowo siły nadprzyrodzone strraciły łączność ze swoim sprzymierzeńcem. Najleży zbadać sprawę i beda potrzebować cb. Wysłąnnicy coś tam się rozejrzą, a ty się zajmiesz wyjasnieniami. Ale do czasu, przećwicz tutaj",
+  "EP0_Level_1_EndingText": "Świetna robota. Drzemie w tobie potencjał",
+  "EP0_1_SummonedExorcist": "Śmiertelnicy zaniepokojeni twoją aktywnością wezwali egzorcystę. Ich aura będzie negatywnie oddziaływac na twoje duchy jeśli znajdują się w tym samym pomieszczeniu. Jeśli energia upiorów spadnie do zera, zostaną odesłane, a ty stracisz możliwość ich wykorzystania w tej misji.",
+
+  "EP0_Level_2_Name": "Posterunek policji",
+  "EP0_Level_2_StartingText": "Wysłannicy zbadali sprawę, okazuje się, że sprzymierzeniec zmał mimo immunitetu, a sprawę prowadzi miejski komisariat. Policjanci chcą to zapisać jako nieszczęsliwy wypadek. Wypłosz wszystkich z budynku, byśmy mogli przejrzeć akta.",
+  "EP0_Level_2_EndingText": "W domu nie ma duchogniotka, ale z pozostawionej energii wysłannicy wyczytali jego lokalizację. Okazuje się, że człowiek postradał resztki świadomości  i przebywa w szpitalu psychiatryczm. Jego głowa nie będzie w stanie mówić, ale wysłannicy znaja sposoby nawet na zmarłych. Musimy działać. Wysłannicy tu jeszcze zostaną, bo to miejsce emanuje tajemniczą energią.",
+
+
+
+
+  "": ""
 }

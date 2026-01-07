@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/RoomEffectMechanics.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
@@ -32,7 +33,7 @@ class RoomEffect_Navigator{
         }
         case PowerScript.damage_ReducingMovement:
           {
-          RoomEffectsMechanics.addEffectToMortal(effect, room);
+          RoomEffectsMechanics.addEffectToMortalsInRoom(effect, room);
           break;
           }
         case PowerScript.damage_fireElementalBuff:
@@ -48,11 +49,27 @@ class RoomEffect_Navigator{
             effect.executionHelper++;
             DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
           }
+        case PowerScript.damage_ClothesEater_BonApetit:
+          {
+            DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
+            RoomEffectsMechanics.addEffectToMortalsInRoom(effect, room, overwrittenTimeLeft: power.powerTime);
+          }
+        case PowerScript.damage_FlyBuff:
+          {
+            Haunting_Ghost? ghost = GhostGetter.getGhostByPower(power, power.game);
+            if(ghost != null){
+              PowerScriptMechanics.flyBuff(power, room.mortalsInRoom, ghost);
+            }
+            break;
+          }
         //UNAVAILABLE FOR ROOM (FOR NOW)
         case PowerScript.damage_blockingMovement: break;
         case PowerScript.damage_Spark_ChainEffect: break;
         case PowerScript.damage_Whisperer_Intruder: break;
 
+        case PowerScript.damage_Mirror_ExorcistsBuff: break;
+        case PowerScript.damage_Mirror_3Powers: break;
+        case PowerScript.damage_FlyBuff: break;
       }
     }
   }

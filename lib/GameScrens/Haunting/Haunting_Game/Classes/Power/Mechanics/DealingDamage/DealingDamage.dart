@@ -13,6 +13,12 @@ import '../../Particles/PowerParticle.dart';
 class DealingDamage{
   static List<double> dealInstantDamageToMortal(Haunting_Power power, Haunting_Mortal mortal, Haunting_Game game, {
     double buffModifier = 1,
+    double? health,
+    double? fear,
+    double? faith,
+    double? madness,
+    double? impurity,
+    double? emotions,
   }
       ) {
     if(MortalChecker.checkIfMortalIsTargetable(mortal)){
@@ -24,12 +30,20 @@ class DealingDamage{
         Mortal_Setter.setIsFearUnlocked(mortal, true);
         modifier = 1.25;
       }
-      double damageFear = double.parse((power.stat_Fear * mortal.stat_Multiplier_Fear * modifier * buffModifier).toStringAsFixed(2));
-      double damageHealth = double.parse((power.stat_Health * mortal.stat_Multiplier_Health * modifier * buffModifier).toStringAsFixed(2));
-      double damageMadness = double.parse((power.stat_Madness * mortal.stat_Multiplier_Madness * modifier * buffModifier).toStringAsFixed(2));
-      double damageFaith = double.parse((power.stat_Faith * mortal.stat_Multiplier_Faith * modifier * buffModifier).toStringAsFixed(2));
-      double damageEmotions = double.parse((power.stat_Emotions * mortal.stat_Multiplier_Emotions * modifier * buffModifier).toStringAsFixed(2));
-      double damageImpurity = double.parse((power.stat_Impurity * mortal.stat_Multiplier_Impurity * modifier * buffModifier).toStringAsFixed(2));
+
+      double valueHealth = health ?? power.stat_Health;
+      double valueFear = fear ?? power.stat_Fear;
+      double valueFaith = faith ?? power.stat_Faith;
+      double valueImpurity = impurity ?? power.stat_Impurity;
+      double valueEmotions = emotions ?? power.stat_Emotions;
+      double valueMadness = madness ?? power.stat_Madness;
+
+      double damageFear = double.parse((valueFear * mortal.stat_Multiplier_Fear * modifier * buffModifier).toStringAsFixed(2));
+      double damageHealth = double.parse((valueHealth * mortal.stat_Multiplier_Health * modifier * buffModifier).toStringAsFixed(2));
+      double damageMadness = double.parse((valueMadness * mortal.stat_Multiplier_Madness * modifier * buffModifier).toStringAsFixed(2));
+      double damageFaith = double.parse((valueFaith * mortal.stat_Multiplier_Faith * modifier * buffModifier).toStringAsFixed(2));
+      double damageEmotions = double.parse((valueEmotions * mortal.stat_Multiplier_Emotions * modifier * buffModifier).toStringAsFixed(2));
+      double damageImpurity = double.parse((valueImpurity * mortal.stat_Multiplier_Impurity * modifier * buffModifier).toStringAsFixed(2));
 
       if(damageFear != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.red);
       if(damageHealth != 0) PowerParticle.damagePower(Vector2(0, 0), mortal, Colors.green);
@@ -61,5 +75,6 @@ class DealingDamage{
       dealInstantDamageToMortal(power, mortal, game, buffModifier: buffModifier);
     }
   }
+
 
 }

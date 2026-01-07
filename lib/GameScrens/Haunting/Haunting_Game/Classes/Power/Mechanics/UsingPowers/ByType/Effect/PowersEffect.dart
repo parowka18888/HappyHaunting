@@ -48,9 +48,9 @@ class PowersEffect{
           game.add(effect);
           mortal.effects.add(effect);
           PowerParticle.travelParticles(Vector2(0, 0), PowerParticleGetter.getDestination(ghost.ghostSpot, mortal), ghost.ghostSpot);
-          PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
         }
       }
+      PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
     }
   }
 

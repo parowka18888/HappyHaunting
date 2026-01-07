@@ -144,6 +144,8 @@ const _$PowerTypeEnumMap = {
   PowerType.lureMap: 'lureMap',
   PowerType.effectRoom: 'effectRoom',
   PowerType.effectMortal: 'effectMortal',
+  PowerType.effectMortalRoom: 'effectMortalRoom',
+  PowerType.effectMortalGlobal: 'effectMortalGlobal',
   PowerType.posessionMortal: 'posessionMortal',
 };
 
@@ -177,4 +179,8 @@ const _$PowerScriptEnumMap = {
   PowerScript.damage_Spark_ChainEffect: 'damage_Spark_ChainEffect',
   PowerScript.damage_Whisperer_Intruder: 'damage_Whisperer_Intruder',
   PowerScript.damage_Moth_Darkness: 'damage_Moth_Darkness',
+  PowerScript.damage_ClothesEater_BonApetit: 'damage_ClothesEater_BonApetit',
+  PowerScript.damage_Mirror_ExorcistsBuff: 'damage_Mirror_ExorcistsBuff',
+  PowerScript.damage_Mirror_3Powers: 'damage_Mirror_3Powers',
+  PowerScript.damage_FlyBuff: 'damage_FlyBuff',
 };

@@ -18,16 +18,38 @@ import '../../Power/Mechanics/UsingPowers/ByType/Effect/PowersEffect.dart';
 
 class RoomEffectsMechanics{
 
-  static void addEffectToMortal(Haunting_Effect effect, Haunting_Room room) {
+  static void addEffectToMortal(Haunting_Effect effect, Haunting_Mortal mortal,  {
+    double? overwrittenTimeLeft,
+  }) {
+    if(!mortal.effects.any((element) => element.power == effect.power)){
+      Haunting_MortalEffect mortalEffect = Haunting_MortalEffect(
+          power: effect.power!,
+          mortal: mortal
+      )
+        ..room = mortal.room
+        ..timeLeft = overwrittenTimeLeft ?? effect.timeLeft - 1;
+      effect.game.add(mortalEffect);
+      mortal.effects.add(mortalEffect);
+      MortalEffect_Navigator.navigateMortalEffect(mortalEffect);
+    }
+  }
+
+  static void addEffectToMortalsInRoom(Haunting_Effect effect, Haunting_Room room,  {
+    double? overwrittenTimeLeft,
+  }) {
     for(Haunting_Mortal mortal in room.mortalsInRoom){
-      if(!mortal.effects.any((element) => element.power == effect.power)){
-        Haunting_MortalEffect mortalEffect = Haunting_MortalEffect(power: effect.power!, mortal: mortal)
-          ..room = room
-          ..timeLeft = effect.timeLeft - 1;
-        effect.game.add(mortalEffect);
-        mortal.effects.add(mortalEffect);
-        MortalEffect_Navigator.navigateMortalEffect(mortalEffect);
-      }
+      addEffectToMortal(effect, mortal, overwrittenTimeLeft: overwrittenTimeLeft);
+      // if(!mortal.effects.any((element) => element.power == effect.power)){
+      //   Haunting_MortalEffect mortalEffect = Haunting_MortalEffect(
+      //       power: effect.power!,
+      //       mortal: mortal
+      //   )
+      //     ..room = room
+      //     ..timeLeft = overwrittenTimeLeft ?? effect.timeLeft - 1;
+      //   effect.game.add(mortalEffect);
+      //   mortal.effects.add(mortalEffect);
+      //   MortalEffect_Navigator.navigateMortalEffect(mortalEffect);
+      // }
     }
   }
 

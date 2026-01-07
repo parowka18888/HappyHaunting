@@ -8,6 +8,8 @@ import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/L
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/00_LoadingGameElements/LoadingGameElements.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Astar/AStar_Grid.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/CheckConditions/HauntingLevel_CheckConditions.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Mechanics/Endgame/EndGame_Mechanics.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Subclasses/Haunting_Floor.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
@@ -39,6 +41,14 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
   List<int> conditionsMet = []; //LIST FOR CHECKING WHICH CONDITION IS MET
   bool isScriptExecuted = false;
   List<int> listOfIgnoredCollisions_ID = [];
+
+  //QUITTING GAME
+  bool isReadyToQuit = false;
+  bool isQuited = false;
+
+  //GAME TEXTS
+  String startingText = "";
+  String endingText = "";
 
 
   List<UsedPower> usedPowers = [];
@@ -99,7 +109,12 @@ class Haunting_Level extends World with HasGameReference<Haunting_Game> {
     if (timeSinceLastReload >= refreshTime) {
       //SCRIPT CHECKER
       Scripts_LevelBased.getScript_Navigator(game);
-
+      //ENDING GAME
+      bool allMortalsEscaped = HauntingLevel_CheckConditions.checkIfAllMortalsAreEscaped(game);
+      if(allMortalsEscaped) {
+        EndGameMechanics.endGameProcess(game);
+        print("KONIEC");
+      }
       timeSinceLastReload = 0.0;
     }
 

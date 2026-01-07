@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/Getter/FramedWindow_Getter.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/GUI/Text/TextAndFont.dart';
+import 'package:happyhaunting/GameScrens/GlobalCode/Navigator/AppNavigator.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Mechanics/Endgame/EndGame_Mechanics.dart';
+import 'package:happyhaunting/GameScrens/MainMenu/MainMenu.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
 
 import '../../../../GlobalCode/GUI/AnimatedContainer/AnimatedContainer_Getter.dart';
@@ -22,7 +26,7 @@ class DialogWindow_GUI{
           child: Stack(
             alignment: Alignment(0, 0),
             children: [
-              FramedWindow_GUI.getFramedWindow(context, width, textBox_Height, function: () => getDialogWindow(viewModel, FramedWindow_Getter.getNewSize(width), FramedWindow_Getter.getNewSize(textBox_Height))),
+              FramedWindow_GUI.getFramedWindow(context, width, textBox_Height, function: () => getDialogWindow(viewModel, FramedWindow_Getter.getNewSize(width), FramedWindow_Getter.getNewSize(textBox_Height), context)),
             ],
           ),
         ),
@@ -31,15 +35,17 @@ class DialogWindow_GUI{
     );
   }
 
-  static getDialogWindow(HauntingGame_ViewModel viewModel, double width, double height){
+  static getDialogWindow(HauntingGame_ViewModel viewModel, double width, double height, BuildContext context){
     return Container(
       width: width, height: height, color: Colors.deepPurple,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
           if(viewModel.dialogWindow_Text != null)
-            Text(viewModel.dialogWindow_Text!),
-          ElevatedButton(onPressed: (){viewModel.setIsDialogWindowVisible(false);}, child: Text("Zamknij"))
+            TextAndFont.getText(width, height, viewModel.dialogWindow_Text!),
+          ElevatedButton(onPressed: (){
+            viewModel.setIsDialogWindowVisible(false);
+            EndGameMechanics.endGame(context);
+            }, child: Text("Zamknij"))
         ],
       ),
     );

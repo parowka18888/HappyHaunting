@@ -64,16 +64,18 @@ class LoadingGhost{
     if(ghostSpot != null){
       final ghostID = spawnPoint.properties.getValue('ghostID');
       final roomName = spawnPoint.properties.getValue('roomName');
-
-      final hintText = spawnPoint.properties.getValue('hintText');
-      final freeingGhostText = spawnPoint.properties.getValue('freeingGhostText');
       final scriptID = spawnPoint.properties.getValue('scriptID');
       final GhostScript script = GhostScript.values.byName(scriptID);
 
       final room = RoomGetter.getRoomByName(roomName, game);
-      final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+      Ghost? trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+      print("MAMY: ");
       if(room!=null && trappedGhost != null){
-        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script, isFree: false);
+        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts,
+            isPlaced: true, room: room, ghostSpot: ghostSpot,
+            hintText: trappedGhost.hintText,
+            freeingText: trappedGhost.freeingText,
+            script: script, isFree: false);
         ghostSpot.type = GhostSpot_Type.trap;
         ghostSpot.ghost = ghost;
         ghostSpot.ghost!.isDefeatable = false;

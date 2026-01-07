@@ -14,6 +14,7 @@ class TextAndFont{
     Alignment alignment = Alignment.center,
     int maxLines = 50,
     double minFontSize = 5,
+    double maxFontSize = 100000,
     bool isFramed = true
   }) {
     if(fontSize == null) fontSize = height;
@@ -41,6 +42,7 @@ class TextAndFont{
               AutoSizeText(
                 tr(string),
                 minFontSize: minFontSize,
+                maxFontSize: maxFontSize,
                 maxLines: maxLines,
                 textAlign: TextAlign.justify,
                 style: outlineStyle,
@@ -48,6 +50,7 @@ class TextAndFont{
               AutoSizeText(
                 tr(string),
                 minFontSize: minFontSize,
+                maxFontSize: maxFontSize,
                 maxLines: maxLines,
                 textAlign: TextAlign.justify,
                 style: fontStyle,

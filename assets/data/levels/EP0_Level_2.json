@@ -24,7 +24,7 @@
 
   "ghostsNumber": 10,
   "mortals": ["EP0_GrimFamily_Mother", "EP0_GrimFamily_Father", "EP0_GrimFamily_Grandfather", "EP0_GrimFamily_Grandmother", "EP0_GrimFamily_Daughter", "EP0_GrimFamily_Son", "EP0_GrimFamily_Uncle", "EP0_GrimFamily_Friend", "EP0_Priest_Snake"],
-  "trappedGhosts": ["EP0_Bee", "EP0_Flea", "EP0_Shade"]
+  "trappedGhosts": ["EP0_Policeman", "EP0_Fly", "EP0_Mirror", "EP0_Prisoner"]
 
 
 }

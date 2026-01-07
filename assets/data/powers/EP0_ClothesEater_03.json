@@ -1,24 +1,23 @@
 {
-  "id": "EP0_ClothesEater_03",
-  "name": "1",
-  "description": "Desc",
+  "id":           "EP0_ClothesEater_03",
+  "name":         "EP0_ClothesEater_03_Name",
+  "description":  "EP0_ClothesEater_03_Description",
 
   "cost" : 20,
-  "cooldown" : 3,
+  "cooldown" : 10,
 
-  "stat_Fear": 125,
+  "stat_Fear": 10,
   "stat_Health": 0,
   "stat_Madness": 0,
   "stat_Faith": 0,
   "stat_Impurity": 0,
   "stat_Emotions": 0,
 
-  "powerType" : "mortalSingle",
+  "powerType" : "effectRoom",
+  "effectScript" : "damage",
   "powerChances" : 100,
-  "powerTime" : 0,
+  "powerTime" : 6,
 
-  "icon": "TestPower_12",
-
-
-  "powerTags": []
+  "icon": "EP0_ClothesEater_3",
+  "powerTags": ["calm", "melody", "sound"]
 }

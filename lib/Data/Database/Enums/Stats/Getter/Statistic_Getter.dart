@@ -85,6 +85,7 @@ class Statistic_Getter{
       case Statistic.emotions:
         return 'Pink';
     }
+
   }
 
 }
