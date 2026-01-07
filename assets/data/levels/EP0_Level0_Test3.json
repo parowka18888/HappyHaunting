@@ -12,13 +12,14 @@
   "numberOfFloorsBasement": 2,
 
   "startingText": "This is testing text for dialog window",
-
+  "endingText": "EP0_Level_0_EndingText",
   "script": "testScript_Level",
 
   "mortals": ["EP0_Level0_Test_Mortal1", "EP0_Level0_Test_Mortal2", "EP0_Level0_Test_Mortal3", "EP0_Level0_Test_Mortal4", "EP0_Level0_Test_Mortal5", "EP0_Level0_Test_Mortal6", "EP0_Level0_Test_Mortal7", "EP0_Level0_Test_Mortal8"],
   "icon": "EP0_0",
   "background": "EP0_0",
 
+  "ghostsNumber": 10,
   "trappedGhosts": ["EP0_ClothesEater"],
   "rate": 5,
   "seconds": 0,

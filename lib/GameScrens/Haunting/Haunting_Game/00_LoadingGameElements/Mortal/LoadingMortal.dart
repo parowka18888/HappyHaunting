@@ -31,7 +31,7 @@ class LoadingMortal{
     }
 
     if(mortal != null && floor != null){
-
+      print("Mortal ${mortal.id} jest na floorze ${floor.id}, który ma action points ${floor.mortalActionPoints}");
       final haunting_Mortal = Haunting_Mortal(
           position: spawnPoint.position,
           size: spawnPoint.size,

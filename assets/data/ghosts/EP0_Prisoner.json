@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_Prisoner",
+  "name":         "EP0_Prisoner_Name",
+  "description":  "EP0_Prisoner_Description",
+
+  "icon" :       "Prisoner_Icon",
+  "ghostImage" : "Prisoner",
+  "ghostPanel" : "Prisoner_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "fear",
+  "secondaryStats": ["impurity", "madness"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Prisoner_Recruit",
+  "reserveText":  "EP0_Prisoner_Reserve",
+  "helpText":     "EP0_Prisoner_Help",
+  "banishText" :  "EP0_Prisoner_Banish",
+  "hintText" :    "EP0_Prisoner_Hint",
+  "freeingText" : "EP0_Prisoner_Free",
+
+
+  "powers": [
+    "EP0_Prisoner_01",
+    "EP0_Prisoner_02",
+    "EP0_Prisoner_03",
+    "EP0_Prisoner_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

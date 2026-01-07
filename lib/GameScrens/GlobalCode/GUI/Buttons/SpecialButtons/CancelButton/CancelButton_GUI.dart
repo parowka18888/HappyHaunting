@@ -21,4 +21,22 @@ class CancelButton_GUI{
     );
   }
 
+  static getCheatButton(double screenHeight,{
+    VoidCallback? function,
+    double? margin,
+  }) {
+    //CANCEL BUTTON
+    double cancelButtonHeight = screenHeight * 0.1;
+    if(margin == null) margin =  cancelButtonHeight * 0.2;
+
+    return Positioned(
+      top: margin * 2 + cancelButtonHeight, right: margin,
+      child: Button_GUI.getButton(
+          cancelButtonHeight, 'Cancel',
+          imageSize: 0.6,
+          function: function
+      ),
+    );
+  }
+
 }

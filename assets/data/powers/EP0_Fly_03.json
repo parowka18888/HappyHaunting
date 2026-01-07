@@ -1,12 +1,12 @@
 {
-  "id": "EP0_Fly_03",
-  "name": "1",
-  "description": "Desc",
+  "id":           "EP0_Fly_03",
+  "name":         "EP0_Fly_03_Name",
+  "description":  "EP0_Fly_03_Description",
 
   "cost" : 20,
-  "cooldown" : 15,
+  "cooldown" : 10,
 
-  "stat_Fear": 0,
+  "stat_Fear": 10,
   "stat_Health": 0,
   "stat_Madness": 0,
   "stat_Faith": 0,
@@ -14,10 +14,10 @@
   "stat_Emotions": 0,
 
   "powerType" : "effectRoom",
-  "powerChances" : 100,
-  "powerTime" : 10,
-  "icon": "TestPower_9",
+  "effectScript" : "damage",
+  "powerChances" : 20,
+  "powerTime" : 6,
 
-
-  "powerTags": []
+  "icon": "EP0_Fly_3",
+  "powerTags": ["calm", "melody", "sound"]
 }

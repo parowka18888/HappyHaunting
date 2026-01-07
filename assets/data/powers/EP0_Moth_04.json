@@ -1,0 +1,23 @@
+{
+  "id":           "EP0_Moth_04",
+  "name":         "EP0_Moth_04_Name",
+  "description":  "EP0_Moth_04_Description",
+
+  "cost" : 20,
+  "cooldown" : 10,
+
+  "stat_Fear": 10,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
+
+  "powerType" : "effectRoom",
+  "effectScript" : "damage_Moth_Darkness",
+  "powerChances" : 100,
+  "powerTime" : 6,
+
+  "icon": "EP0_Moth_4",
+  "powerTags": ["calm", "melody", "sound"]
+}

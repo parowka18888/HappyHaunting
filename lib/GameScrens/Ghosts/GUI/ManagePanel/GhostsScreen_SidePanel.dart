@@ -55,7 +55,10 @@ class GhostsScreen_SidePanel{
     double segment2Height = availableHeight - segment1Height - segment3Height - dividerHeight * 2;
     double dynamicHeightChangeValue = segment3Height * 0.5;
 
-    if(ghostSelector_ViewModel.chosenGhost == null){
+    if(ghostSelector_ViewModel.chosenGhost == null
+        && ghostSelector_ViewModel.windowMode != GhostSelector_WindowMode.play
+        && ghostSelector_ViewModel.windowMode != GhostSelector_WindowMode.level
+    ){
       return Container();
     }
 
@@ -64,15 +67,22 @@ class GhostsScreen_SidePanel{
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SidePanelTemplate.getFirstSegment(context, availableWidth, segment1Height),
-          Divider_GUI.getDivider(width, dividerHeight),
+
+          SidePanelTemplate.getFirstSegment(context, availableWidth,
+              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.play ? segment1Height - dynamicHeightChangeValue : segment1Height
+          ),
+            Divider_GUI.getDivider(width, dividerHeight),
+
           SidePanelTemplate.getSecondSegment(context, width,
               ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers || ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade ? segment2Height + dynamicHeightChangeValue : segment2Height,
               availableWidth
           ),
-          Divider_GUI.getDivider(width, dividerHeight),
+            Divider_GUI.getDivider(width, dividerHeight),
+
           SidePanelTemplate.getThirdSegment(context, availableWidth,
-              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers || ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade ? segment3Height - dynamicHeightChangeValue : segment3Height),
+              ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.powers || ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.upgrade ? segment3Height - dynamicHeightChangeValue
+                  : ghostSelector_ViewModel.windowMode == GhostSelector_WindowMode.play ? segment3Height + dynamicHeightChangeValue : segment3Height
+          ),
         ],
       )
     );

@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
-import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Mechanics/RoomEffect_Navigator.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Navigators/RoomEffect_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 
 import '../../../Haunting_Game.dart';
@@ -20,6 +20,8 @@ class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Gam
   Haunting_Power? power;
   double timeLeft = 0;
   double timer = 1;
+
+  double executionHelper = 0;
 
   late TextComponent timeLabel;
 
@@ -63,7 +65,7 @@ class Haunting_Effect extends SpriteComponent with HasGameReference<Haunting_Gam
         timer = 1;
 
         //EXECUTE EFFECT
-        RoomEffect_Navigator.navigateMortalEffect(this);
+        RoomEffect_Navigator.navigateRoomEffect(this);
 
         //DECREASE EFFECT TIME
         timeLeft -= 1;

@@ -1,5 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:happyhaunting/Data/Database/Enums/Power_Targets.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/PowerScriptMechanics.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Navigators/MortalEffect_Navigator.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Navigators/PowerScript_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Behavior/Mortal_Behavior.dart';
@@ -27,6 +30,9 @@ class PowersDamaging{
             MortalBehavior_Scare.scareMortalBehavior(mortal, power, game);
             // Mortal_Behavior.scareMortalBehavior(mortal, power, game);
           }
+        }
+        if(power.script != null){
+          PowerScript_Navigator.navigatePowerScript(power, listOfTargets, ghost);
         }
         PowerMechanics.usePower_EndingProcess(game, power, ghost, room, listOfTargets: listOfTargets);
       }

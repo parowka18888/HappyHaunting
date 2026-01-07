@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_Policeman",
+  "name":         "EP0_Policeman_Name",
+  "description":  "EP0_Policeman_Description",
+
+  "icon" :       "Policeman_Icon",
+  "ghostImage" : "Policeman",
+  "ghostPanel" : "Policeman_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "health",
+  "secondaryStats": ["fear", "faith"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Policeman_Recruit",
+  "reserveText":  "EP0_Policeman_Reserve",
+  "helpText":     "EP0_Policeman_Help",
+  "banishText" :  "EP0_Policeman_Banish",
+  "hintText" :    "EP0_Policeman_Hint",
+  "freeingText" : "EP0_Policeman_Free",
+
+
+  "powers": [
+    "EP0_Policeman_01",
+    "EP0_Policeman_02",
+    "EP0_Policeman_03",
+    "EP0_Policeman_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

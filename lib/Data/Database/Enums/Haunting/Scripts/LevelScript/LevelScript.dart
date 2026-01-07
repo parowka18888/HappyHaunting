@@ -1,3 +1,3 @@
 enum LevelScript{
-  empty, testScript_Level
+  empty, testScript_Level,
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Moon/Moon_GUI.dart';
 import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_CheckConditions.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
@@ -12,6 +14,8 @@ class GhostView_GUI{
   static getGhostViewLayer(BuildContext context, double width, double height) {
 
     GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
+    LevelSelector_ViewModel levelSelector_ViewModel = context.watch<LevelSelector_ViewModel>();
+
     Ghost? ghost = ghostSelector_ViewModel.chosenGhost;
     int headCenterPoint = 12;
     if(ghost != null){
@@ -37,7 +41,9 @@ class GhostView_GUI{
         alignment: Alignment(0, 0),
         children: [
           //MOON
-          Positioned(top: moonPadding, child: Moon_GUI.getMoonLayers(context, moonBoxSize)),
+          Positioned(top: moonPadding, child: Moon_GUI.getMoonLayers(context, moonBoxSize,
+              opacity: levelSelector_ViewModel.chosenLevel == null ? 1.0 : LevelSelector_CheckConditions.checkIfGhostIsInTeam(ghost, levelSelector_ViewModel) ? 0.0 : 1.0)
+          ),
           //GHOST IMAGE
           Positioned(top: finalGhostPadding, child: Ghost_GUI.getGhostImage(context, height, ghostWidth)),
         ],

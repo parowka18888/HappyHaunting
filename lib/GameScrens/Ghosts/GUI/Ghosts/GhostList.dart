@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,8 +10,12 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/FramedWindow/FramedWindo
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/Ghosts/FilterButtons/GhostFilterButtons.dart';
 import 'package:happyhaunting/GameScrens/Ghosts/GUI/ManagePanel/Buttons/Managing_Buttons.dart';
 import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_CheckConditions.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:diacritic/diacritic.dart';
+
 
 import '../../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 
@@ -49,6 +54,7 @@ class GhostList{
   static getList(BuildContext context, double height, double width) {
 
     GhostSelector_ViewModel ghostSelector_ViewModel = context.watch<GhostSelector_ViewModel>();
+    LevelSelector_ViewModel levelSelector_ViewModel = context.watch<LevelSelector_ViewModel>();
 
     double framePadding = width * 0.1;
 
@@ -65,17 +71,19 @@ class GhostList{
     Box box_Ghosts = Hive.box<Ghost>('ghosts');
     int itemsCount = box_Ghosts.length;
 
+
     List<Ghost> ghosts = box_Ghosts.values.cast<Ghost>().toList();
     if(ghostSelector_ViewModel.chosenGhostTypes.isNotEmpty){
       ghosts = ghosts.where((ghost) => ghostSelector_ViewModel.chosenGhostTypes.contains(ghost.mainStat)).toList();
     }
     ghosts.sort((a, b) => a.isUnlocked ? -1 : 1);
-
     ghosts.sort((a, b) {
       if (a.isUnlocked != b.isUnlocked) {
         return a.isUnlocked ? -1 : 1;
       }
-      return a.name.compareTo(b.name);
+      final nameA = removeDiacritics(tr(a.name)).toLowerCase();
+      final nameB = removeDiacritics(tr(b.name)).toLowerCase();
+      return nameA.compareTo(nameB);
     });
 
     return Container(
@@ -104,9 +112,13 @@ class GhostList{
                           child: Button_GUI.getButton(
                               itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square,
                               imageSize: 1.0,
-                              function: () => ghostSelector_ViewModel.setChosenGhost(ghost)
+                              function: () => ghostSelector_ViewModel.setChosenGhost(ghost),
+                              isActive: ghost.isUnlocked,
+                              isImageHiddenWithDarkLayer: !ghost.isUnlocked,
+                              opacity: ghost.isUnlocked ? LevelSelector_CheckConditions.checkIfGhostIsInTeam(ghost, levelSelector_ViewModel) ? 1.0 : 0.3 : 0.3
                           ),
                         ),
+                        if(ghost.isUnlocked)
                         Positioned(
                             bottom: 0, left: 0,
                             child: Button_GUI.getTierButton(ghost, ghostTierSize))
@@ -116,21 +128,6 @@ class GhostList{
                   }),
                 )
             ),
-            // child: GridView.count(
-            //     crossAxisCount: itemsInLine,
-            //     crossAxisSpacing: itemPadding,
-            //     mainAxisSpacing: itemPadding,
-            //     children: List.generate(ghosts.length, (index) {
-            //       Ghost ghost = ghosts[index];
-            //       return Container(
-            //         height: itemSize, width: itemSize,
-            //         child: Button_GUI.getButton(
-            //             itemSize, ghost.icon, catalog: 'Ghosts', buttonType: ButtonType.Square,
-            //             function: () => ghostSelector_ViewModel.setChosenGhost(ghost)
-            //         ),
-            //       );
-            //     }),
-            // )
           )
         ],
       ),

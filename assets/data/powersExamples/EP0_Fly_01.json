@@ -1,0 +1,23 @@
+{
+  "id": "EP0_Fly_01",
+  "name": "1",
+  "description": "Desc",
+
+  "cost" : 20,
+  "cooldown" : 15,
+
+  "stat_Fear": 5,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
+
+  "powerType" : "effectRoom",
+  "powerChances" : 100,
+  "powerTime" : 10,
+  "icon": "TestPower_7",
+
+
+  "powerTags": []
+}

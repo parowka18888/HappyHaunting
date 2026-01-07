@@ -8,7 +8,7 @@ import 'package:tiled/src/objects/tiled_object.dart';
 
 import '../../../../../Data/Database/Enums/Getter/EnumGetter.dart';
 import '../../../../../Data/Database/Enums/Haunting/GhostSpot/GhostSpot_Type.dart';
-import '../../../../../Data/Database/Enums/PowerType.dart';
+import '../../../../../Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import '../../Classes/Ghost/Haunting_Ghost.dart';
 import '../../Classes/Ghost/Subclasses/TrappedGhost/Getter/TrappedGhost_Getter.dart';
 import '../../Classes/GhostSpot/Haunting_GhostSpot.dart';
@@ -33,14 +33,12 @@ class LoadingGhost{
     var hauntingGhost = Haunting_Ghost(
         name: ghost.name, icon: ghost.icon,powers: powers, auras: ghost.auras,
         id: ghost.id, health_Current: ghost.health, health_Maximum: ghost.health,
-        image: ghost.ghostImage, panelImage: "${ghost.ghostImage}_Panel",
-        banishText: ghost.banishingText
+        image: ghost.ghostImage, panelImage: ghost.ghostPanel,
+        banishText: ghost.banishText, reserveText: ghost.reserveText, recruitText: ghost.recruitText, hintText: ghost.hintText, helpText: ghost.helpText, freeingText: ghost.freeingText
     )
       ..isPlaced = isPlaced
       ..room = room
     ..ghostSpot = ghostSpot
-    ..hintText = hintText
-    ..freeingText = freeingText
     ..script = script
     ..isFree = isFree
     ;
@@ -50,12 +48,12 @@ class LoadingGhost{
   }
 
   static void loadPower(Power ghostPower, Haunting_Game game, List<Haunting_Power> powers) {
-    PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
+    // PowerType type = EnumGetter.getPowerTypeByString(ghostPower.powerType);
     Haunting_Power power = Haunting_Power(id: ghostPower.id, name: ghostPower.name, description: ghostPower.description,
         icon: ghostPower.icon, cost: ghostPower.cost, cooldown: ghostPower.cooldown, powerTags: ghostPower.powerTags,
         stat_Fear: ghostPower.stat_Fear, stat_Health: ghostPower.stat_Health, stat_Madness: ghostPower.stat_Madness, stat_Faith: ghostPower.stat_Faith, stat_Emotions: ghostPower.stat_Emotions, stat_Impurity: ghostPower.stat_Impurity,
-        isActivated: false, isDeactivatingForbidden: false, powerType:  type, powerTime : ghostPower.powerTime,
-        powerScript: ghostPower.effectScript
+        isActivated: false, isDeactivatingForbidden: false, powerType:  ghostPower.powerType, powerTime : ghostPower.powerTime,
+        script: ghostPower.effectScript, powerChances: ghostPower.powerChances
     );
     game.level.level.add(power);
     powers.add(power);
@@ -66,16 +64,18 @@ class LoadingGhost{
     if(ghostSpot != null){
       final ghostID = spawnPoint.properties.getValue('ghostID');
       final roomName = spawnPoint.properties.getValue('roomName');
-
-      final hintText = spawnPoint.properties.getValue('hintText');
-      final freeingGhostText = spawnPoint.properties.getValue('freeingGhostText');
       final scriptID = spawnPoint.properties.getValue('scriptID');
       final GhostScript script = GhostScript.values.byName(scriptID);
 
       final room = RoomGetter.getRoomByName(roomName, game);
-      final trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+      Ghost? trappedGhost = TrappedGhost_Getter.getTrappedGhost_ByID(ghostID, game);
+      print("MAMY: ");
       if(room!=null && trappedGhost != null){
-        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts, isPlaced: true, room: room, ghostSpot: ghostSpot, hintText: hintText, freeingText: freeingGhostText, script: script, isFree: false);
+        Haunting_Ghost ghost = LoadingGhost.loadGhost(trappedGhost, game, game.level.trappedGhosts,
+            isPlaced: true, room: room, ghostSpot: ghostSpot,
+            hintText: trappedGhost.hintText,
+            freeingText: trappedGhost.freeingText,
+            script: script, isFree: false);
         ghostSpot.type = GhostSpot_Type.trap;
         ghostSpot.ghost = ghost;
         ghostSpot.ghost!.isDefeatable = false;

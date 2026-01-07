@@ -1,3 +1,3 @@
 enum MortalScript{
-  testScript_SpawnWhenOneMortalIsDefeated, testScript_SpawnBM_TestLevel
+  testScript_SpawnWhenOneMortalIsDefeated, testScript_SpawnBM_TestLevel, EP0_1_SummonExorcist
 }

@@ -26,13 +26,24 @@ class Ghost extends HiveObject {
 
   @HiveField(5)  final double health;
   @HiveField(6)  final String ghostImage;
-  @HiveField(7)  final String banishingText;
 
-  @HiveField(8)  final bool isUnlocked;
+  @HiveField(8)  late bool isUnlocked;
   @HiveField(9)  final int headCenterPoint;
 
   @HiveField(10)  late GhostTier tier;
   @HiveField(11)  final Statistic mainStat;
+  @HiveField(12)  final List<Statistic> secondaryStats;
+
+  @HiveField(13)  final String description;
+  @HiveField(14)  final String ghostPanel;
+
+
+  @HiveField(7)  final String recruitText;
+  @HiveField(15)  final String reserveText;
+  @HiveField(16)  final String helpText;
+  @HiveField(17)  final String banishText;
+  @HiveField(18)  final String hintText;
+  @HiveField(19)  final String freeingText;
 
   Ghost({
     required this.id,
@@ -42,11 +53,19 @@ class Ghost extends HiveObject {
     required this.auras,
     required this.health,
     required this.ghostImage,
-    required this.banishingText,
     required this.isUnlocked,
     required this.headCenterPoint,
     required this.tier,
     required this.mainStat,
+    required this.secondaryStats,
+    required this.description,
+    required this.ghostPanel,
+    required this.banishText,
+    required this.freeingText,
+    required this.helpText,
+    required this.hintText,
+    required this.recruitText,
+    required this.reserveText,
   });
 
   factory Ghost.fromJson(Map<String, dynamic> json) => _$GhostFromJson(json);

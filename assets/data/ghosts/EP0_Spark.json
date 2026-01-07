@@ -1,0 +1,29 @@
+{
+  "id": "EP0_Spark",
+
+  "name": "EP0_Spark_Name",
+  "description": "EP0_Spark_Description",
+
+  "icon" : "Spark_Icon",
+  "ghostImage" : "Spark",
+  "ghostPanel" : "Spark_Panel",
+  "headCenterPoint": 22,
+
+
+  "mainStat": "health",
+  "secondaryStats": ["faith", "fear"],
+  "health" : 55,
+  "isUnlocked" : true,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Spark_Recruit",
+  "reserveText":  "EP0_Spark_Reserve",
+  "helpText":     "EP0_Spark_Help",
+  "banishText" :  "EP0_Spark_Banish",
+  "hintText" :    "EP0_Spark_Hint",
+  "freeingText" : "EP0_Spark_Free",
+
+  "powers": ["EP0_Spark_01", "EP0_Spark_02", "EP0_Spark_03","EP0_Spark_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

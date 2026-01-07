@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_EP0_Pilot.tmx",
+    "activeFile": "Level_Test3.tmx",
     "expandedProjectPaths": [
         "Levels",
         "."
@@ -34,6 +34,20 @@
                 "y": 2184
             }
         },
+        "EP0_Level_1.tmx": {
+            "expandedObjectLayers": [
+                2,
+                6,
+                3,
+                5
+            ],
+            "scale": 0.33,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 2645.4545454545455,
+                "y": 1527.2727272727275
+            }
+        },
         "FurnitureCastle (64x64).tsx": {
             "scaleInDock": 0.5,
             "scaleInEditor": 1
@@ -51,109 +65,103 @@
             "scaleInEditor": 1
         },
         "Isometric_Castle (192x192).tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 0.75,
             "scaleInEditor": 1
         },
         "Level_EP0_0_Tutorial.tmx": {
             "expandedObjectLayers": [
-                6,
                 10,
+                7,
+                6,
                 9,
-                8,
-                7
+                8
             ],
-            "scale": 0.33,
-            "selectedLayer": 4,
+            "scale": 1.5,
+            "selectedLayer": 9,
             "viewCenter": {
-                "x": 1922.7272727272725,
-                "y": 1090.9090909090908
+                "x": 1867.6666666666665,
+                "y": 1064.6666666666665
             }
         },
         "Level_EP0_0_Tutorial_64.tmx": {
-            "expandedGroupLayers": [
-                18
-            ],
             "expandedObjectLayers": [
-                6,
-                2,
-                5,
-                3,
-                4
+                48
             ],
-            "scale": 0.125,
-            "selectedLayer": 6,
+            "scale": 0.0625,
+            "selectedLayer": 16,
             "viewCenter": {
-                "x": 2340,
-                "y": 2168
+                "x": 8960,
+                "y": 10888
             }
         },
         "Level_EP0_Pilot.tmx": {
             "scale": 0.33,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 6307.575757575758,
-                "y": 1715.151515151515
+                "x": 4368.181818181818,
+                "y": 2181.818181818182
             }
         },
         "Level_Test.tmx": {
             "expandedObjectLayers": [
-                10
+                12
             ],
-            "scale": 1,
-            "selectedLayer": 3,
+            "scale": 0.125,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 7065.5,
-                "y": 2249
+                "x": 3076,
+                "y": 1752
             }
         },
         "Level_Test2.tmx": {
             "expandedObjectLayers": [
-                3,
-                4
+                4,
+                3
             ],
             "scale": 0.33,
             "selectedLayer": 3,
             "viewCenter": {
                 "x": 766.6666666666666,
-                "y": 440.9090909090909
+                "y": 439.3939393939394
             }
         },
         "Level_Test3 — kopia.tmx": {
             "scale": 0.22022727272727272,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1534.778121775026,
-                "y": 1319.0918472652218
+                "x": 1534.7781217750257,
+                "y": 1321.3622291021672
             }
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                6,
-                5,
-                3,
                 4,
-                7
+                6,
+                7,
+                3,
+                5
             ],
             "scale": 1,
-            "selectedLayer": 3,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 1108.5,
-                "y": 638
+                "x": 1306,
+                "y": 469
             }
         },
         "Level_Test_Isometric.tmx": {
             "expandedObjectLayers": [
-                6,
+                7,
                 5,
+                6,
                 9,
-                8,
-                7
+                8
             ],
             "scale": 0.125,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 4604,
-                "y": 1488
+                "x": 3328,
+                "y": 1664
             }
         },
         "Level_Test_Isometric2.tmx": {
@@ -214,36 +222,31 @@
     "map.fixedSize": true,
     "map.height": 200,
     "map.lastUsedFormat": "tmx",
-    "map.orientation": "3",
+    "map.orientation": "1",
     "map.tileHeight": 64,
-    "map.tileWidth": 128,
+    "map.tileWidth": 64,
     "map.width": 140,
     "openFiles": [
-        "Level_Test3 — kopia.tmx",
-        "Level_EP0_0_Tutorial_64.tmx",
-        "Level_EP0_Pilot.tmx",
+        "EP0_Level_1.tmx",
+        "Level_Test3.tmx",
         "EP0_Level_0_Castle.tmx",
-        "Level_EP0_0_Tutorial.tmx",
-        "Level_Test.tmx",
-        "Level_Test_Isometric.tmx",
-        "Level_Test2.tmx",
-        "Level_Test3.tmx"
+        "Level_EP0_0_Tutorial_64.tmx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "int",
     "recentFiles": [
-        "Level_EP0_0_Tutorial.tmx",
+        "EP0_Level_1.tmx",
         "Level_EP0_0_Tutorial_64.tmx",
-        "Level_Test3.tmx",
-        "Level_Test2.tmx",
-        "Level_Test_Isometric.tmx",
         "EP0_Level_0_Castle.tmx",
-        "Level_Test3 — kopia.tmx",
-        "Level_EP0_Pilot.tmx",
+        "Level_Test3.tmx",
+        "Level_EP0_0_Tutorial.tmx",
         "Level_Test.tmx",
-        "Isometric_Castle (192x192).tsx",
+        "Walls (64x64).tsx",
         "Castletest (64x64).tsx",
-        "BgTest.tsx"
+        "CastleFog (64x64).tsx",
+        "Castleest (64x64).tsx",
+        "Level_EP0_Pilot.tmx",
+        "Level_Test_Isometric.tmx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",

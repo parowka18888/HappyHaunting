@@ -1,4 +1,4 @@
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Getter/GhostGetter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Ghost/Haunting_Ghost.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';

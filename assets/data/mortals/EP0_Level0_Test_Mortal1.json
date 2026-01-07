@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal1",
   "name": "Kulawianka",
+  "description": "",
   "icon" : "TestMortal1",
 
   "stat_Fear": 200,

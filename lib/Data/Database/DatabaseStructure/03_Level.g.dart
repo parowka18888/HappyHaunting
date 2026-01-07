@@ -26,7 +26,7 @@ class LevelAdapter extends TypeAdapter<Level> {
       trappedGhosts: (fields[6] as List).cast<Ghost>(),
       startingText: fields[7] as String,
       script: fields[8] as LevelScript,
-      icon: fields[9] as String,
+      endingText: fields[9] as String,
       background: fields[10] as String,
       rate: fields[11] as int,
       seconds: fields[12] as int,
@@ -36,13 +36,14 @@ class LevelAdapter extends TypeAdapter<Level> {
       tileHeight: fields[18] as int,
       numberOfFloors: fields[16] as int,
       numberOfFloorsBasement: fields[17] as int,
+      ghostsNumber: fields[19] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(19)
+      ..writeByte(20)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,10 +60,10 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..write(obj.trappedGhosts)
       ..writeByte(7)
       ..write(obj.startingText)
+      ..writeByte(9)
+      ..write(obj.endingText)
       ..writeByte(8)
       ..write(obj.script)
-      ..writeByte(9)
-      ..write(obj.icon)
       ..writeByte(10)
       ..write(obj.background)
       ..writeByte(11)
@@ -80,7 +81,9 @@ class LevelAdapter extends TypeAdapter<Level> {
       ..writeByte(15)
       ..write(obj.tileWidth)
       ..writeByte(18)
-      ..write(obj.tileHeight);
+      ..write(obj.tileHeight)
+      ..writeByte(19)
+      ..write(obj.ghostsNumber);
   }
 
   @override
@@ -109,7 +112,7 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
           const GhostListConverter().fromJson(json['trappedGhosts'] as List),
       startingText: json['startingText'] as String,
       script: $enumDecode(_$LevelScriptEnumMap, json['script']),
-      icon: json['icon'] as String,
+      endingText: json['endingText'] as String,
       background: json['background'] as String,
       rate: (json['rate'] as num).toInt(),
       seconds: (json['seconds'] as num).toInt(),
@@ -119,6 +122,7 @@ Level _$LevelFromJson(Map<String, dynamic> json) => Level(
       tileHeight: (json['tileHeight'] as num).toInt(),
       numberOfFloors: (json['numberOfFloors'] as num).toInt(),
       numberOfFloorsBasement: (json['numberOfFloorsBasement'] as num).toInt(),
+      ghostsNumber: (json['ghostsNumber'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
@@ -131,8 +135,8 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'trappedGhosts':
           const GhostListConverter().toJson(instance.trappedGhosts),
       'startingText': instance.startingText,
+      'endingText': instance.endingText,
       'script': _$LevelScriptEnumMap[instance.script]!,
-      'icon': instance.icon,
       'background': instance.background,
       'rate': instance.rate,
       'seconds': instance.seconds,
@@ -142,6 +146,7 @@ Map<String, dynamic> _$LevelToJson(Level instance) => <String, dynamic>{
       'numberOfFloorsBasement': instance.numberOfFloorsBasement,
       'tileWidth': instance.tileWidth,
       'tileHeight': instance.tileHeight,
+      'ghostsNumber': instance.ghostsNumber,
     };
 
 const _$LevelScriptEnumMap = {

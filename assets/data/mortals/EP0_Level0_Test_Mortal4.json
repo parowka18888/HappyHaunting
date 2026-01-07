@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal4",
   "name": "Szlafrok",
+  "description": "",
   "icon" : "TestMortal4",
 
   "stat_Fear": 200,

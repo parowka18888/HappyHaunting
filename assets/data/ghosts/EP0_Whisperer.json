@@ -1,0 +1,29 @@
+{
+  "id": "EP0_Whisperer",
+
+  "name": "EP0_Whisperer_Name",
+  "description": "EP0_Whisperer_Description",
+
+  "icon" : "Whisperer_Icon",
+  "ghostImage" : "Whisperer",
+  "ghostPanel" : "Whisperer_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "madness",
+  "secondaryStats": ["fear", "emotions"],
+  "health" : 55,
+  "isUnlocked" : true,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Whisperer_Recruit",
+  "reserveText":  "EP0_Whisperer_Reserve",
+  "helpText":     "EP0_Whisperer_Help",
+  "banishText" :  "EP0_Whisperer_Banish",
+  "hintText" :    "EP0_Whisperer_Hint",
+  "freeingText" : "EP0_Whisperer_Free",
+
+  "powers": ["EP0_Whisperer_01", "EP0_Whisperer_02", "EP0_Whisperer_03","EP0_Whisperer_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

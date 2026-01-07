@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flame/text.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,7 @@ class TextAndFont{
     Alignment alignment = Alignment.center,
     int maxLines = 50,
     double minFontSize = 5,
+    double maxFontSize = 100000,
     bool isFramed = true
   }) {
     if(fontSize == null) fontSize = height;
@@ -38,15 +40,17 @@ class TextAndFont{
             children: [
               if(isFramed == true)
               AutoSizeText(
-                string,
+                tr(string),
                 minFontSize: minFontSize,
+                maxFontSize: maxFontSize,
                 maxLines: maxLines,
                 textAlign: TextAlign.justify,
                 style: outlineStyle,
               ),
               AutoSizeText(
-                string,
+                tr(string),
                 minFontSize: minFontSize,
+                maxFontSize: maxFontSize,
                 maxLines: maxLines,
                 textAlign: TextAlign.justify,
                 style: fontStyle,

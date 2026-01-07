@@ -1,12 +1,11 @@
-import 'package:happyhaunting/Data/Database/Enums/Mortal_DefeatType.dart';
+
 import 'package:happyhaunting/Data/Database/Enums/Mortal_State.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Level/Subclasses/Exit/Haunting_Exit.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Movement/Destination/SetDestination/Mortal_Destination_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Mechanics/Setter/Mortal_Setter.dart';
-import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Mechanics/MixedClasses/RoomMortal.dart';
-import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Setter/RoomSetter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 
 class MortalChecker{
@@ -16,13 +15,17 @@ class MortalChecker{
     checkForMortalState(mortal, game);
 
     if(mortal.stat_Current_Fear > mortal.stat_Fear){
-      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Fear;
+      mortal.isDefeated = true; mortal.defeatType = Statistic.fear;
     } else if (mortal.stat_Current_Madness > mortal.stat_Madness){
-      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Madness;
+      mortal.isDefeated = true; mortal.defeatType = Statistic.madness;
     } else if (mortal.stat_Current_Faith > mortal.stat_Faith){
-      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Faith;
+      mortal.isDefeated = true; mortal.defeatType = Statistic.faith;
     } else if (mortal.stat_Current_Health > mortal.stat_Health){
-      mortal.isDefeated = true; mortal.defeatType = Mortal_DefeatType.Health;
+      mortal.isDefeated = true; mortal.defeatType = Statistic.health;
+    } else if (mortal.stat_Current_Impurity > mortal.stat_Impurity){
+      mortal.isDefeated = true; mortal.defeatType = Statistic.impurity;
+    } else if (mortal.stat_Current_Emotions > mortal.stat_Emotions){
+      mortal.isDefeated = true; mortal.defeatType = Statistic.emotions;
     }
 
     if(mortal.isDefeated == true){

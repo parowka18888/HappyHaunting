@@ -1,6 +1,7 @@
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/LevelScript.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Scripts/LevelScripts/ScriptsByLevel/EP0_1_Scripts/EP0_1_Scripts.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Scripts/LevelScripts/ScriptsByLevel/TestLevel/Scripts_TestLevel_Mortal.dart';
 
 import '../../../../../../Data/Database/Enums/Haunting/Scripts/MortalScript/MortalScript.dart';
@@ -18,6 +19,12 @@ class Scripts_MortalBased{
       case MortalScript.testScript_SpawnBM_TestLevel:
         Scripts_TestLevel_Mortal.executeScript_testScript_SpawnBM_TestLevel(mortal, game);
         break;
+
+      case MortalScript.EP0_1_SummonExorcist:
+        {
+          EP0_1_Scripts.executeScript_SummonExorcis(mortal, game);
+          break;
+        }
     }
   }
 

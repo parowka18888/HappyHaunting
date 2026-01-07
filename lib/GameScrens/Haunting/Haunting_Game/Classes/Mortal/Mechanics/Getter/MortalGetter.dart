@@ -20,12 +20,14 @@ class MortalGetter{
   }
 
   static int getThinkingTime(Haunting_Mortal mortal, Haunting_Game game) {
-    for(final interactiveObject in mortal.floor!.listInteractiveObjects){
-      Vector2 interactiveObject_Position = interactiveObject.position;
-      bool isMortalAtObjectPosition = Destination_Checker.checkIfMortalReachedDestination_ByVector(mortal, interactiveObject_Position);
-      if(isMortalAtObjectPosition){
-        Mortal_Setter.setTimeOfThinking(mortal, interactiveObject.time);
-        return interactiveObject.time.toInt();
+    if(mortal.floor != null){
+      for(final interactiveObject in mortal.floor!.listInteractiveObjects){
+        Vector2 interactiveObject_Position = interactiveObject.position;
+        bool isMortalAtObjectPosition = Destination_Checker.checkIfMortalReachedDestination_ByVector(mortal, interactiveObject_Position);
+        if(isMortalAtObjectPosition){
+          Mortal_Setter.setTimeOfThinking(mortal, interactiveObject.time);
+          return interactiveObject.time.toInt();
+        }
       }
     }
     int bottomNumberOfSeconds = 2;

@@ -1,0 +1,22 @@
+{
+  "id": "EP0_AirElemental_01",
+  "name": "EP0_AirElemental_01_Name",
+  "description": "EP0_AirElemental_01_Description",
+
+  "cost" : 20,
+  "cooldown" : 25,
+
+  "stat_Fear": -20,
+  "stat_Health": -20,
+  "stat_Madness": -20,
+  "stat_Faith": -20,
+  "stat_Impurity": -20,
+  "stat_Emotions": -20,
+
+  "powerType" : "mortalRoom",
+  "powerChances" : 100,
+  "powerTime" : 0,
+
+  "icon": "EP0_AirElemental_1",
+  "powerTags": ["calm", "melody", "sound"]
+}

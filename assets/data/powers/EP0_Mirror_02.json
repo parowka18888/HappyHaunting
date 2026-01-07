@@ -1,0 +1,23 @@
+{
+  "id":           "EP0_Mirror_02",
+  "name":         "EP0_Mirror_02_Name",
+  "description":  "EP0_Mirror_02_Description",
+
+  "cost" : 20,
+  "cooldown" : 10,
+
+  "stat_Fear": 0,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
+
+  "powerType" : "effectMortalGlobal",
+  "effectScript" : "damage_Mirror_ExorcistsBuff",
+  "powerChances" : 40,
+  "powerTime" : 6,
+
+  "icon": "EP0_Mirror_2",
+  "powerTags": ["calm", "melody", "sound"]
+}

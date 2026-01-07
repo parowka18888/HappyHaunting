@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal3",
   "name": "Ogórki",
+  "description": "",
   "icon" : "TestMortal3",
 
   "stat_Fear": 200,

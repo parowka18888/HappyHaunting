@@ -1,15 +1,29 @@
 {
   "id": "EP0_ClothesEater",
-  "name": "ClothesEater",
+
+  "name": "EP0_ClothesEater_Name",
+  "description": "EP0_ClothesEater_Description",
+
   "icon" : "ClothesEater_Icon",
   "ghostImage" : "ClothesEater",
+  "ghostPanel" : "ClothesEater_Panel",
   "headCenterPoint": 18,
-  "mainStat": "fear",
-  "tier": "tier1",
-  "banishingText" : "clothes iter",
-  "health" : 65,
+
+
+  "mainStat": "impurity",
+  "secondaryStats": ["emotions", "madness"],
+  "health" : 55,
   "isUnlocked" : false,
 
-  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_01"],
-  "auras": ["Aura_Inside"]
+  "tier": "tier1",
+
+  "recruitText":  "EP0_ClothesEater_Recruit",
+  "reserveText":  "EP0_ClothesEater_Reserve",
+  "helpText":     "EP0_ClothesEater_Help",
+  "banishText" :  "EP0_ClothesEater_Banish",
+  "hintText" :    "EP0_ClothesEater_Hint",
+  "freeingText" : "EP0_ClothesEater_Free",
+
+  "powers": ["EP0_ClothesEater_01", "EP0_ClothesEater_02", "EP0_ClothesEater_03","EP0_ClothesEater_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
 }

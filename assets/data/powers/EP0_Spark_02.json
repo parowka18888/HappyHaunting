@@ -1,0 +1,22 @@
+{
+  "id":          "EP0_Spark_02",
+  "name":        "EP0_Spark_02_Name",
+  "description": "EP0_Spark_02_Description",
+
+  "cost" : 20,
+  "cooldown" : 10,
+
+  "stat_Fear": 10,
+  "stat_Health": 0,
+  "stat_Madness": 0,
+  "stat_Faith": 0,
+  "stat_Impurity": 0,
+  "stat_Emotions": 0,
+
+  "powerType" : "mortalRoom",
+  "powerChances" : 100,
+  "powerTime" : 0,
+
+  "icon": "EP0_Spark_2",
+  "powerTags": ["calm", "melody", "sound"]
+}

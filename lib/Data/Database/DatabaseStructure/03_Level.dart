@@ -24,8 +24,8 @@ class Level extends HiveObject {
   @HiveField(6) @GhostListConverter()  List<Ghost> trappedGhosts;
 
   @HiveField(7)  final String startingText;
+  @HiveField(9)  final String endingText;
   @HiveField(8)  final LevelScript script;
-  @HiveField(9)  final String icon;
   @HiveField(10)  final String background;
 
   @HiveField(11)  late int rate;
@@ -39,6 +39,7 @@ class Level extends HiveObject {
 
   @HiveField(15)  late int tileWidth;
   @HiveField(18)  late int tileHeight;
+  @HiveField(19)  late int ghostsNumber;
 
   Level({
     required this.id,
@@ -50,7 +51,7 @@ class Level extends HiveObject {
     required this.trappedGhosts,
     required this.startingText,
     required this.script,
-    required this.icon,
+    required this.endingText,
     required this.background,
     required this.rate,
     required this.seconds,
@@ -60,6 +61,7 @@ class Level extends HiveObject {
     required this.tileHeight,
     required this.numberOfFloors,
     required this.numberOfFloorsBasement,
+    required this.ghostsNumber,
   });
 
   factory Level.fromJson(Map<String, dynamic> json) => _$LevelFromJson(json);

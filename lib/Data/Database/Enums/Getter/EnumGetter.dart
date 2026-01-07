@@ -1,4 +1,4 @@
-import 'package:happyhaunting/Data/Database/Enums/PowerType.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType.dart';
 
 class EnumGetter {
   static PowerType getPowerTypeByString(String powerType) {

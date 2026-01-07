@@ -60,6 +60,7 @@ class Mortal_Destination_Setter{
       } else {
         print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} - ${DateTime.timestamp()}");
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
+        // print("Disabling mortal action");
         Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
       }
 
@@ -99,7 +100,7 @@ class Mortal_Destination_Setter{
   static void setFinalDestination(Haunting_Mortal mortal, Haunting_Game game){
     //IF THERE IS A NEED TO CHANGE FLOOR
     if(mortal.floor != mortal.finalFloor){
-      print("FLOOR MORTALA JEST INNE NIŻ FINAL FLOOR!");
+      print("FLOOR MORTALA ${mortal.name} JEST INNE NIŻ FINAL FLOOR!");
 
        var mortalFloorID = mortal.floor!.id; print("mortalFloorID ${mortalFloorID}");
        var mortalFinalFloorID = mortal.finalFloor!.id; print("mortalFinalFloorID ${mortalFinalFloorID}");

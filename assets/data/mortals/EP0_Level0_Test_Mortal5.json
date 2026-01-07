@@ -1,6 +1,7 @@
 {
   "id": "EP0_Level0_Test_Mortal5",
   "name": "Nerwina",
+  "description": "",
   "icon" : "TestMortal5",
 
   "stat_Fear": 200,

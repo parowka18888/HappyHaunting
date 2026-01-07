@@ -1,5 +1,6 @@
 import 'package:happyhaunting/Data/Database/DatabaseStructure/00_Ghost.dart';
 import 'package:happyhaunting/Data/Database/Enums/Resource/Resource.dart';
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/Getter/GhostTier_Getter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier.dart';
 
@@ -13,34 +14,48 @@ class UpgradePrice_Getter{
 
     int priceMultiplier = UpgradePrice_Getter.getPriceMultiplier(nextTier);
 
-    bool Function(Power) statCondition;
-    switch (resource) {
-      case Resource.fear:
-        statCondition = (power) => power.stat_Fear > 0;
-        break;
-      case Resource.health:
-        statCondition = (power) => power.stat_Health > 0;
-        break;
-      case Resource.faith:
-        statCondition = (power) => power.stat_Health > 0;
-        break;
-      case Resource.madness:
-        statCondition = (power) => power.stat_Madness > 0;
-        break;
-      case Resource.emotions:
-        statCondition = (power) => power.stat_Emotions > 0;
-        break;
-      case Resource.impurity:
-        statCondition = (power) => power.stat_Impurity > 0;
-        break;
+
+    switch(resource){
       case Resource.gold:
         return (100 * priceMultiplier).toInt();
-        statCondition = (power) => power.stat_Impurity > 0;
-        break;
+      default: {
+        if(resource.name == ghost.mainStat.name) return 4 * priceMultiplier;
+        for(Statistic stat in ghost.secondaryStats){
+          if(stat.name == resource.name) return 2 * priceMultiplier;
+        }
+      }
     }
+    return 0;
 
-    final count = (ghost.powers.where(statCondition).length * priceMultiplier).toInt();
-    return count;
+    ///OLD VERSION -> Checking Powers stats
+    // bool Function(Power) statCondition;
+    // switch (resource) {
+    //   case Resource.fear:
+    //     statCondition = (power) => power.stat_Fear > 0;
+    //     break;
+    //   case Resource.health:
+    //     statCondition = (power) => power.stat_Health > 0;
+    //     break;
+    //   case Resource.faith:
+    //     statCondition = (power) => power.stat_Health > 0;
+    //     break;
+    //   case Resource.madness:
+    //     statCondition = (power) => power.stat_Madness > 0;
+    //     break;
+    //   case Resource.emotions:
+    //     statCondition = (power) => power.stat_Emotions > 0;
+    //     break;
+    //   case Resource.impurity:
+    //     statCondition = (power) => power.stat_Impurity > 0;
+    //     break;
+    //   case Resource.gold:
+    //     return (100 * priceMultiplier).toInt();
+    //     statCondition = (power) => power.stat_Impurity > 0;
+    //     break;
+    // }
+    //
+    // final count = (ghost.powers.where(statCondition).length * priceMultiplier).toInt();
+    // return count;
   }
 
   static int getPriceMultiplier(GhostTier nextTier) {

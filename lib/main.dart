@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,8 +7,10 @@ import 'package:happyhaunting/Data/Database/DatabaseStructure/04_Aura.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/11_Expansion.dart';
 import 'package:happyhaunting/Data/Database/DatabaseStructure/12_Chapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/LevelScript/07_LevelScript_Adapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerScript_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Mortal/06_MortalTag_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tags/Power/05_PowerTag_Adapter.dart';
+import 'package:happyhaunting/Data/Database/Enums/Haunting/Scripts/PowerScript/PowerType_Adapter.dart';
 import 'package:happyhaunting/Data/Database/Enums/Tier/GhostTier_Adapter.dart';
 import 'package:happyhaunting/GameScrens/InitScreen/InitScreen.dart';
 import 'package:happyhaunting/ViewModels/Selector/Ghost/GhostSelector_ViewModel.dart';
@@ -37,6 +40,8 @@ Future<void> main() async {
   Hive.registerAdapter(LevelScript_Adapter());
   Hive.registerAdapter(Statistic_Adapter());
   Hive.registerAdapter(GhostTier_Adapter());
+  Hive.registerAdapter(PowerType_Adapter());
+  Hive.registerAdapter(PowerScript_Adapter());
 
   Hive.registerAdapter(PlayerAdapter());
   Hive.registerAdapter(GhostAdapter());
@@ -56,19 +61,34 @@ Future<void> main() async {
   await Hive.openBox<Chapter>('chapters');
   await Hive.openBox<Expansion>('expansions');
 
+  await EasyLocalization.ensureInitialized();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
 
+  EasyLocalization.logger.enableBuildModes = [];
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => HauntingGame_ViewModel()),
-        ChangeNotifierProvider(create: (_) => GhostSelector_ViewModel()),
-        ChangeNotifierProvider(create: (_) => LevelSelector_ViewModel()),
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('pl'),
+        Locale('de'),
       ],
-      child: const MyApp(),
+      path: 'assets/localization',
+      fallbackLocale: const Locale('en'),
+
+      saveLocale: true,
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => HauntingGame_ViewModel()),
+          ChangeNotifierProvider(create: (_) => GhostSelector_ViewModel()),
+          ChangeNotifierProvider(create: (_) => LevelSelector_ViewModel()),
+        ],
+        child: const MyApp(),
+
+      ),
     ),
   );
   // runApp(
@@ -89,24 +109,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       home: const InitScreen(),
     );
   }

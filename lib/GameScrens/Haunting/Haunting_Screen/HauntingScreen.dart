@@ -12,11 +12,14 @@ import 'package:happyhaunting/GameScrens/GlobalCode/GUI/ShadowSceen/ShadowScreen
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/DialogWindow/DialogWindow_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/GhostData/GUI/GhostData_GUI.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/LoadingScreen/LoadingScreen_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/GUI/MortalData/GUI/MortalData_GUI.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Screen/Log_Entry/Log_Entry.dart';
 import 'package:happyhaunting/ViewModels/Haunting/HauntingGame_ViewModel.dart';
+import 'package:happyhaunting/ViewModels/Selector/Level/LevelSelector_ViewModel.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:vector_math/vector_math_64.dart' as vm;
 
 import '../../../Data/Database/DatabaseStructure/00_Ghost.dart';
 import '../Haunting_Game/00_LoadingGameElements/Haunting_Camera.dart';
@@ -27,8 +30,9 @@ import 'GUI/SidePanel/SidePanel_GUI.dart';
 class HauntingScreen extends StatefulWidget {
 
   final Level chosenLevel;
+  final LevelSelector_ViewModel levelSelector_ViewModel;
 
-  const HauntingScreen({super.key, required this.chosenLevel});
+  const HauntingScreen({super.key, required this.chosenLevel, required this.levelSelector_ViewModel});
 
   @override
   State<HauntingScreen> createState() => _HauntingScreenState();
@@ -37,6 +41,8 @@ class HauntingScreen extends StatefulWidget {
 class _HauntingScreenState extends State<HauntingScreen> {
 
   late Haunting_Game haunting_game;
+
+  TransformationController _controller = TransformationController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +71,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
     double sidePanel_Padding_Top = (screenHeight - sidePanel_Height - sidePanel_Buttons_Height) / 2;
     double sidePanel_Padding_Left = sidePanel_Width * 0.1;
 
+
     return Scaffold(
       body: Center(
         child: Stack(
@@ -72,7 +79,8 @@ class _HauntingScreenState extends State<HauntingScreen> {
           children: [
             //GAME
             InteractiveViewer(
-              minScale: 1,
+              transformationController: _controller,
+              minScale: 1.5,
               maxScale: 5.0,
               // boundaryMargin: EdgeInsets.all(double.infinity), // brak ograniczeń krawędzi
               child: Container(
@@ -116,7 +124,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
 
 
             //DIALOG WINDOW
-            if(viewModel.isDialogWindowVisible == true)
+            // if(viewModel.isDialogWindowVisible == true)
             DialogWindow_GUI.getDialogScreen(context, viewModel, dialogWindow_Width, dialogWindow_Height, screenWidth, screenHeight),
 
             if(viewModel.gameWindow == GameWindow.ghostData && viewModel.chosenGhost != null)
@@ -125,7 +133,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
             if(viewModel.gameWindow == GameWindow.mortalData && viewModel.chosenMortal != null)
               MortalData_GUI.getMortalDataWindow(context, viewModel, screenWidth, screenHeight, ghostData_Width, ghostData_Height),
 
-
+            LoadingScreen_GUI.getLoadingScreen(context, screenHeight, screenWidth)
 
           ],
         )
@@ -159,11 +167,20 @@ class _HauntingScreenState extends State<HauntingScreen> {
       ..numberOfFloors = widget.chosenLevel.numberOfFloors
       ..numberOfFloorsBasement = widget.chosenLevel.numberOfFloorsBasement
       ..viewModel = viewModel
-      ..ghosts = [box_Ghosts.getAt(1), box_Ghosts.getAt(2), box_Ghosts.getAt(3), box_Ghosts.getAt(0), box_Ghosts.getAt(4), box_Ghosts.getAt(5)]
+      ..ghosts = widget.levelSelector_ViewModel.chosenTeam
       ..trappedGhosts = widget.chosenLevel.trappedGhosts
       ..script = widget.chosenLevel.script
+      ..level_Database = widget.chosenLevel
     ;
     viewModel.game = haunting_game;
+
+  double scale = 1.5;
+
+  double height = (widget.chosenLevel.levelHeight / scale) * 0.03;
+  double width = (widget.chosenLevel.levelWidth / scale) * 0.03;
+
+    _controller.value =  vm.Matrix4.translationValues(-width, -height, 0.0) * vm.Matrix4.diagonal3Values(scale, scale, 1.0);
+
 
     Future.delayed(Duration(seconds: 3), (){
       setState(() {});
@@ -175,6 +192,7 @@ class _HauntingScreenState extends State<HauntingScreen> {
   void dispose() {
     super.dispose();
     final viewModel = context.read<HauntingGame_ViewModel>();
+    _controller.dispose();
     viewModel.clearData();
   }
 
