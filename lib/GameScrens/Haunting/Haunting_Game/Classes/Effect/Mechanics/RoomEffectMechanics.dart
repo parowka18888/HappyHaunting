@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:happyhaunting/Data/Database/Enums/Stats/Statistic.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mortal/Haunting_MortalEffect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Navigators/MortalEffect_Navigator.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Room/Haunting_Effect.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/Haunting_Mortal.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Mortal/StaticData/Mortal_StaticData.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Haunting_Power.dart';
+import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Power/Mechanics/DealingDamage/DealingDamage.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Room/Haunting_Room.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.dart';
 import 'package:hive/hive.dart';
@@ -66,6 +68,15 @@ class RoomEffectsMechanics{
           }
         }
       }
+  }
+
+  static void flyBuff(Haunting_Power power, List<Haunting_Mortal> mortalsInRoom, Haunting_Game game) {
+    List<Haunting_Ghost> impurityGhosts = game.level.ghosts.where((element) => element.mainStat == Statistic.impurity).toList();
+    int count = impurityGhosts.length;
+    for(var mortal in mortalsInRoom){
+      DealingDamage.dealInstantDamageToMortal(power, mortal, game, buffModifier: (power.powerChances / 100) * 2);
+    }
+
   }
 
 }

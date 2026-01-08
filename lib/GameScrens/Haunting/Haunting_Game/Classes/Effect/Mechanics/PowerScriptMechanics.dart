@@ -64,9 +64,4 @@ class PowerScriptMechanics{
 
   }
 
-  static void flyBuff(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Ghost ghost) {
-    Haunting_Room? room = ghost.room;
-    PowerScriptHelperMechanics.dealDamageAsBuff(room, 'EP0_Fly_03', power, mortals);
-  }
-
 }

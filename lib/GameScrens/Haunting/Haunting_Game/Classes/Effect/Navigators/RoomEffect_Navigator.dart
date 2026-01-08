@@ -56,10 +56,8 @@ class RoomEffect_Navigator{
           }
         case PowerScript.damage_FlyBuff:
           {
-            Haunting_Ghost? ghost = GhostGetter.getGhostByPower(power, power.game);
-            if(ghost != null){
-              PowerScriptMechanics.flyBuff(power, room.mortalsInRoom, ghost);
-            }
+            DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
+            RoomEffectsMechanics.flyBuff(power, room.mortalsInRoom, effect.game);
             break;
           }
         //UNAVAILABLE FOR ROOM (FOR NOW)

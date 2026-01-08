@@ -6,6 +6,7 @@ import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Haunting_Game.da
 
 import '../../../../../Data/Database/DatabaseStructure/01_Power.dart';
 import '../../../../../Data/Database/DatabaseStructure/04_Aura.dart';
+import '../../../../../Data/Database/Enums/Stats/Statistic.dart';
 import '../GhostSpot/Haunting_GhostSpot.dart';
 import '../Power/Haunting_Power.dart';
 
@@ -15,7 +16,7 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
     required this.name, required this.icon, required this.id,
     required this.powers, required this.auras,
     required this.health_Current, required this.health_Maximum,
-    required this.image, required this.panelImage,
+    required this.image, required this.panelImage, required this.mainStat, required this.secondaryStats,
     required this.banishText, required this.reserveText, required this.recruitText, required this.hintText, required this.helpText, required this.freeingText,
   });
   String icon = "";
@@ -30,6 +31,9 @@ class Haunting_Ghost extends Component with HasGameReference<Haunting_Game>{
   String hintText = "";
   String recruitText = "";
   String reserveText = "";
+
+  final Statistic mainStat;
+  final List<Statistic> secondaryStats;
 
   List<Haunting_Power> powers = [];
   List<Aura> auras = [];
