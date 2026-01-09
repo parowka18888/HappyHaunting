@@ -36,16 +36,16 @@
         },
         "EP0_Level_1.tmx": {
             "expandedObjectLayers": [
-                2,
-                6,
+                5,
                 3,
-                5
+                6,
+                2
             ],
             "scale": 0.33,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 2645.4545454545455,
-                "y": 1527.2727272727275
+                "x": 5818.181818181818,
+                "y": 3198.4848484848485
             }
         },
         "FurnitureCastle (64x64).tsx": {
@@ -136,17 +136,17 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
+                5,
+                3,
                 4,
                 6,
-                7,
-                3,
-                5
+                7
             ],
-            "scale": 1,
+            "scale": 0.33,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 1306,
-                "y": 469
+                "x": 748.4848484848484,
+                "y": 727.2727272727273
             }
         },
         "Level_Test_Isometric.tmx": {

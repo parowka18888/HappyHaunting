@@ -14,8 +14,8 @@
   "stat_Emotions": 0,
 
   "powerType" : "mortalSingle",
-  "effectScript" : "damage_fireElementalBuff",
-  "powerChances" : 100,
+  "effectScript" : "damage_Critical",
+  "powerChances" : 30,
   "powerTime" : 0,
 
   "icon": "EP0_Prisoner_4",

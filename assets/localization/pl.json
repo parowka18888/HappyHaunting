@@ -172,12 +172,12 @@
 
   "EP0_Prisoner_01_Name":  "Podejrzane widma",
   "EP0_Prisoner_01_Description": "mortal room",
-  "EP0_Prisoner_02_Name":  "spętaniec",
-  "EP0_Prisoner_02_Description": "mortal room",
+  "EP0_Prisoner_02_Name":  "Kroki",
+  "EP0_Prisoner_02_Description": "mortals effect",
   "EP0_Prisoner_03_Name":  "Aura niepokoju",
   "EP0_Prisoner_03_Description": "room effect ",
   "EP0_Prisoner_04_Name":  "zemsta",
-  "EP0_Prisoner_04_Description": "single mortal. jeśli mortal ma jakiś efekt policjanta zadaje obrażenia zwiększone",
+  "EP0_Prisoner_04_Description": "single mortal. Ma szanse na crit dmg",
 
 
   "___MORTALS___": "-----------------------------------------------------------------------------------",

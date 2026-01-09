@@ -43,8 +43,8 @@ class EndGameMechanics{
   }
 
   static void endGame(BuildContext context) {
-    HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
-
+    // HauntingGame_ViewModel viewModel = context.watch<HauntingGame_ViewModel>();
+    HauntingGame_ViewModel viewModel = Provider.of<HauntingGame_ViewModel>(context, listen: false);
     if(viewModel.game != null && viewModel.game!.level.isReadyToQuit){
       AppNavigator.navigateToMainMenu(context, MainMenu());
     }

@@ -68,10 +68,12 @@ class PowerScriptMechanics{
   }
 
   static void criticalDamage(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Ghost ghost) {
+
     for(var mortal in mortals){
       int chance = random.nextInt(100);
       double powerChance = power.powerChances;
       if(powerChance >= chance){
+        print("mortal ${mortal.id} dostał crita");
         DealingDamage.dealInstantDamageToMortal(power, mortal, power.game, buffModifier: (powerChance / 100));
       }
     }
