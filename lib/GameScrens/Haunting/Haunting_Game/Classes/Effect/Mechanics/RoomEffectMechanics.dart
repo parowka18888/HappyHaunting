@@ -74,7 +74,8 @@ class RoomEffectsMechanics{
     List<Haunting_Ghost> impurityGhosts = game.level.ghosts.where((element) => element.mainStat == Statistic.impurity).toList();
     int count = impurityGhosts.length;
     for(var mortal in mortalsInRoom){
-      DealingDamage.dealInstantDamageToMortal(power, mortal, game, buffModifier: (power.powerChances / 100) * 2);
+      double newModifier = (power.powerChances / 100) * count;
+      DealingDamage.dealInstantDamageToMortal(power, mortal, game, buffModifier: newModifier);
     }
 
   }

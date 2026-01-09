@@ -146,7 +146,7 @@
   "EP0_Policeman_01_Name":  "Przyskrzynienie",
   "EP0_Policeman_01_Description": "unieruchamia śmiertelników na sekundy (mortal effect)",
   "EP0_Policeman_02_Name":  "Widmowe strzały",
-  "EP0_Policeman_02_Description": "mortal room",
+  "EP0_Policeman_02_Description": "mortal room. Każdy strzał mas zcznsę na zadanie zwiększonych obrażeń.",
   "EP0_Policeman_03_Name":  "patrol",
   "EP0_Policeman_03_Description": "room effect ",
   "EP0_Policeman_04_Name":  "pościg",
