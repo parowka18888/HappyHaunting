@@ -44,7 +44,8 @@ class Mortal_Destination_Setter{
       int tileWidth = game.tileWidth;
       int tileHeight = game.tileHeight;
 
-      double mortalSize = tileWidth * 2;
+      // double mortalSize = tileWidth * 2;
+      double mortalSize = tileWidth.toDouble();
       int mortalSizeInTilesX = (mortalSize / tileWidth).toInt();
       int mortalSizeInTilesY = (mortalSize / tileHeight).toInt();
 
@@ -58,7 +59,7 @@ class Mortal_Destination_Setter{
       if (path.isNotEmpty) {
         mortal.path = path.map((p) => gridToWorld(p, tileWidth, tileHeight)).toList();
       } else {
-        print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} - ${DateTime.timestamp()}");
+        print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} dla lokalizacji ${mortal.currentDestination} - ${DateTime.timestamp()}");
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
         // print("Disabling mortal action");
         Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);

@@ -203,6 +203,7 @@ class LoadingGameElements{
                 level.rooms.add(haunting_room);
                 level.level.add(haunting_room);
                 floor.listRooms.add(haunting_room);
+                print("ADDED ROOM ${id}");
               } else {
                 print("Room is not polygon");
               }

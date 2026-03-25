@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_PartyGirl",
+  "name":         "EP0_PartyGirl_Name",
+  "description":  "EP0_PartyGirl_Description",
+
+  "icon" :       "PartyGirl_Icon",
+  "ghostImage" : "PartyGirl",
+  "ghostPanel" : "PartyGirl_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "health",
+  "secondaryStats": ["fear", "faith"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_PartyGirl_Recruit",
+  "reserveText":  "EP0_PartyGirl_Reserve",
+  "helpText":     "EP0_PartyGirl_Help",
+  "banishText" :  "EP0_PartyGirl_Banish",
+  "hintText" :    "EP0_PartyGirl_Hint",
+  "freeingText" : "EP0_PartyGirl_Free",
+
+
+  "powers": [
+    "EP0_PartyGirl_01",
+    "EP0_PartyGirl_02",
+    "EP0_PartyGirl_03",
+    "EP0_PartyGirl_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

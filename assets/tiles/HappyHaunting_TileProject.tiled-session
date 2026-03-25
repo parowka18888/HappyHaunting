@@ -31,21 +31,36 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 4368,
-                "y": 2184
+                "y": 2176
             }
         },
         "EP0_Level_1.tmx": {
             "expandedObjectLayers": [
-                5,
+                2,
                 3,
                 6,
-                2
+                5
             ],
-            "scale": 0.33,
+            "scale": 0.25,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 5818.181818181818,
-                "y": 3198.4848484848485
+                "x": 3324,
+                "y": 1664
+            }
+        },
+        "EP0_Level_2.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3,
+                6,
+                4,
+                5
+            ],
+            "scale": 0.5,
+            "selectedLayer": 21,
+            "viewCenter": {
+                "x": 3996,
+                "y": 2436
             }
         },
         "FurnitureCastle (64x64).tsx": {
@@ -60,6 +75,14 @@
             "scaleInDock": 0.25,
             "scaleInEditor": 1
         },
+        "FurnitureOutdoor (64x64).tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.125
+        },
+        "FurniturePolice (64x64).tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.12
+        },
         "FurnitureShadow (64x64).tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -71,28 +94,28 @@
         },
         "Level_EP0_0_Tutorial.tmx": {
             "expandedObjectLayers": [
-                10,
-                7,
+                8,
                 6,
                 9,
-                8
+                10,
+                7
             ],
-            "scale": 1.5,
+            "scale": 0.33,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 1867.6666666666665,
-                "y": 1064.6666666666665
+                "x": 1922.7272727272727,
+                "y": 1090.9090909090908
             }
         },
         "Level_EP0_0_Tutorial_64.tmx": {
             "expandedObjectLayers": [
                 48
             ],
-            "scale": 0.0625,
+            "scale": 0.5,
             "selectedLayer": 16,
             "viewCenter": {
-                "x": 8960,
-                "y": 10888
+                "x": 5300,
+                "y": 3160
             }
         },
         "Level_EP0_Pilot.tmx": {
@@ -136,32 +159,32 @@
         },
         "Level_Test3.tmx": {
             "expandedObjectLayers": [
-                5,
+                7,
                 3,
-                4,
                 6,
-                7
+                4,
+                5
             ],
-            "scale": 0.33,
-            "selectedLayer": 6,
+            "scale": 2,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 748.4848484848484,
-                "y": 727.2727272727273
+                "x": 522.5,
+                "y": 337
             }
         },
         "Level_Test_Isometric.tmx": {
             "expandedObjectLayers": [
-                7,
-                5,
                 6,
+                7,
                 9,
+                5,
                 8
             ],
-            "scale": 0.125,
-            "selectedLayer": 8,
+            "scale": 2,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 3328,
-                "y": 1664
+                "x": 4778.5,
+                "y": 2049.5
             }
         },
         "Level_Test_Isometric2.tmx": {
@@ -228,31 +251,38 @@
     "map.width": 140,
     "openFiles": [
         "EP0_Level_1.tmx",
+        "EP0_Level_2.tmx",
         "Level_Test3.tmx",
-        "EP0_Level_0_Castle.tmx",
-        "Level_EP0_0_Tutorial_64.tmx"
+        "FurniturePolice (64x64).tsx",
+        "FurnitureOutdoor (64x64).tsx",
+        "FurnitureShadow (64x64).tsx",
+        "furnitureTest.tsx",
+        "FurnitureCastle (64x64).tsx",
+        "FurnitureGothicMansion (32x32).tsx",
+        "FurnitureGothicMansion (64x64).tsx",
+        "Isometric_Castle (192x192).tsx"
     ],
     "project": "HappyHaunting_TileProject.tiled-project",
     "property.type": "int",
     "recentFiles": [
         "EP0_Level_1.tmx",
-        "Level_EP0_0_Tutorial_64.tmx",
-        "EP0_Level_0_Castle.tmx",
+        "EP0_Level_2.tmx",
+        "Isometric_Castle (192x192).tsx",
+        "FurnitureGothicMansion (64x64).tsx",
+        "FurnitureGothicMansion (32x32).tsx",
+        "FurnitureCastle (64x64).tsx",
+        "furnitureTest.tsx",
+        "FurnitureShadow (64x64).tsx",
+        "FurnitureOutdoor (64x64).tsx",
+        "FurniturePolice (64x64).tsx",
         "Level_Test3.tmx",
-        "Level_EP0_0_Tutorial.tmx",
-        "Level_Test.tmx",
-        "Walls (64x64).tsx",
-        "Castletest (64x64).tsx",
-        "CastleFog (64x64).tsx",
-        "Castleest (64x64).tsx",
-        "Level_EP0_Pilot.tmx",
-        "Level_Test_Isometric.tmx"
+        "Walls (64x64).tsx"
     ],
     "resizeMap.removeObjects": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 192,
-        "width": 192
+        "height": 64,
+        "width": 64
     },
-    "tileset.useTransparentColor": true
+    "tileset.useTransparentColor": false
 }

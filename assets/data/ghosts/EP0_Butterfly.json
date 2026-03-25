@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_Butterfly",
+  "name":         "EP0_Butterfly_Name",
+  "description":  "EP0_Butterfly_Description",
+
+  "icon" :       "Butterfly_Icon",
+  "ghostImage" : "Butterfly",
+  "ghostPanel" : "Butterfly_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "health",
+  "secondaryStats": ["fear", "faith"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_Butterfly_Recruit",
+  "reserveText":  "EP0_Butterfly_Reserve",
+  "helpText":     "EP0_Butterfly_Help",
+  "banishText" :  "EP0_Butterfly_Banish",
+  "hintText" :    "EP0_Butterfly_Hint",
+  "freeingText" : "EP0_Butterfly_Free",
+
+
+  "powers": [
+    "EP0_Butterfly_01",
+    "EP0_Butterfly_02",
+    "EP0_Butterfly_03",
+    "EP0_Butterfly_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

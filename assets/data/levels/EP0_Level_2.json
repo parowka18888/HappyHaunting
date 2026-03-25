@@ -10,7 +10,7 @@
   "isUnlocked": true,
   "isBeaten": false,
 
-  "fileName": "EP0_Level_1",
+  "fileName": "EP0_Level_2",
   "levelWidth": 5760,
   "levelHeight": 3200,
   "tileWidth": 64,
@@ -23,7 +23,15 @@
   "script": "testScript_Level",
 
   "ghostsNumber": 10,
-  "mortals": ["EP0_GrimFamily_Mother", "EP0_GrimFamily_Father", "EP0_GrimFamily_Grandfather", "EP0_GrimFamily_Grandmother", "EP0_GrimFamily_Daughter", "EP0_GrimFamily_Son", "EP0_GrimFamily_Uncle", "EP0_GrimFamily_Friend", "EP0_Priest_Snake"],
+  "mortals": [
+    "EP0_Priest_Snake", "EP0_FortuneTeller",
+    "EP0_Police_Chief", "EP0_Police_1", "EP0_Police_2", "EP0_Police_3", "EP0_Police_4", "EP0_Police_5", "EP0_Police_6", "EP0_Police_7", "EP0_Police_8", "EP0_Police_9",
+    "EP0_PoliceDoctor_1", "EP0_PoliceDoctor_2", "EP0_PoliceDoctor_3",
+    "EP0_PoliceJanitor_1", "EP0_PoliceJanitor_2",
+    "EP0_PolicePrisoner_1", "EP0_PolicePrisoner_2", "EP0_PolicePrisoner_3",
+    "EP0_Student_1", "EP0_Student_2",
+    "EP0_GrimFamily_Mother", "EP0_GrimFamily_Father", "EP0_GrimFamily_Grandfather", "EP0_GrimFamily_Grandmother", "EP0_GrimFamily_Daughter", "EP0_GrimFamily_Son", "EP0_GrimFamily_Uncle", "EP0_GrimFamily_Friend"
+  ],
   "trappedGhosts": ["EP0_Policeman", "EP0_Fly", "EP0_Mirror", "EP0_Prisoner"]
 
 
