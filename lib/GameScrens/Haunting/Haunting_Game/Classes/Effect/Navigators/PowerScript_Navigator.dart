@@ -29,6 +29,11 @@ class PowerScript_Navigator{
             PowerScriptMechanics.mirror_3Powers(power, mortals[0], ghost);
             break;
           }
+
+        case PowerScript.damage_Critical:
+          {
+            PowerScriptMechanics.criticalDamage(power, mortals, ghost);
+          }
       //UNAVAILABLE FOR MORTAL (FOR NOW)
         case PowerScript.damage: break;
         case PowerScript.damage_blockingMovement: break;
@@ -38,6 +43,7 @@ class PowerScript_Navigator{
         case PowerScript.damage_ClothesEater_BonApetit: break;
         case PowerScript.damage_Mirror_ExorcistsBuff: break;
         case PowerScript.damage_FlyBuff: break;
+        case PowerScript.damage_policeman_Chase: break;
       }
     }
   }

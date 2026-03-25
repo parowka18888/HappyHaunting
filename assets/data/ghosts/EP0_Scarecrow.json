@@ -9,8 +9,8 @@
   "headCenterPoint": 19,
 
 
-  "mainStat": "emotions",
-  "secondaryStats": ["faith"],
+  "mainStat": "fear",
+  "secondaryStats": ["emotions", "madness"],
   "health" : 55,
   "isUnlocked" : false,
 

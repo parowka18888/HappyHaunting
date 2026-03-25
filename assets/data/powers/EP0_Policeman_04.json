@@ -13,10 +13,10 @@
   "stat_Impurity": 0,
   "stat_Emotions": 0,
 
-  "powerType" : "mortalSingle",
-  "effectScript" : "damage_fireElementalBuff",
+  "powerType" : "effectMortal",
+  "effectScript" : "damage_policeman_Chase",
   "powerChances" : 100,
-  "powerTime" : 0,
+  "powerTime" : 6,
 
   "icon": "EP0_Policeman_4",
   "powerTags": ["calm", "melody", "sound"]

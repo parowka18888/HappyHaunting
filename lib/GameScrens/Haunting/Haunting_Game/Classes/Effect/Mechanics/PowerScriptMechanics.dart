@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:happyhaunting/Data/Database/DatabaseStructure/01_Power.dart';
 import 'package:happyhaunting/Data/Database/Getters/DatabaseObject_Getter.dart';
 import 'package:happyhaunting/GameScrens/Haunting/Haunting_Game/Classes/Effect/Mechanics/Helper/PowerScriptHelperMechanics.dart';
@@ -14,6 +16,7 @@ import 'package:hive/hive.dart';
 class PowerScriptMechanics{
 
   static Box<Power> box_Powers = Hive.box<Power>('powers');
+  static Random random = Random();
 
   static void fireElementalBuff(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Ghost ghost) {
     Haunting_Room? room = ghost.room;
@@ -64,9 +67,16 @@ class PowerScriptMechanics{
 
   }
 
-  static void flyBuff(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Ghost ghost) {
-    Haunting_Room? room = ghost.room;
-    PowerScriptHelperMechanics.dealDamageAsBuff(room, 'EP0_Fly_03', power, mortals);
+  static void criticalDamage(Haunting_Power power, List<Haunting_Mortal> mortals, Haunting_Ghost ghost) {
+
+    for(var mortal in mortals){
+      int chance = random.nextInt(100);
+      double powerChance = power.powerChances;
+      if(powerChance >= chance){
+        print("mortal ${mortal.id} dostał crita");
+        DealingDamage.dealInstantDamageToMortal(power, mortal, power.game, buffModifier: (powerChance / 100));
+      }
+    }
   }
 
 }

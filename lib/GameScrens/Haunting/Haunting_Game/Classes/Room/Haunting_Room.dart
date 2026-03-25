@@ -20,7 +20,7 @@ import '../Mortal/Haunting_Mortal.dart';
 import 'SubClasses/InteractiveObjects/Haunting_InteractiveObject.dart';
 
 class Haunting_Room extends PolygonComponent
-    with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks {
+    with HasGameReference<Haunting_Game>, TapCallbacks, CollisionCallbacks  {
 
   Haunting_Room({
     required this.polygon,
@@ -65,13 +65,38 @@ class Haunting_Room extends PolygonComponent
 
   }
 
+  double? tapStartTime;
 
   @override
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
-    RoomGhost.placeGhost(game, this);
-    print("Kliknięto pokój o id=$id");
+    tapStartTime = game.currentTime();
   }
+
+  @override
+  void onTapUp(TapUpEvent event) {
+    super.onTapUp(event);
+
+    if (tapStartTime != null) {
+      final heldTime = game.currentTime() - tapStartTime!;
+      if (heldTime > 0.5) {
+        print("LONG PRESS pokój id=$id");
+      } else {
+        print("KLIK pokój id=$id");
+        RoomGhost.placeGhost(game, this);
+      }
+    }
+  }
+  // @override
+  // void onTapDown(TapDownEvent event) {
+  //   super.onTapDown(event);
+  //   RoomGhost.placeGhost(game, this);
+  //   print("Kliknięto pokój o id=$id");
+  // }
+
+
+
+
 
 
 

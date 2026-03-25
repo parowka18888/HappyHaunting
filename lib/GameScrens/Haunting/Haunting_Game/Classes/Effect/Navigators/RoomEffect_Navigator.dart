@@ -56,20 +56,18 @@ class RoomEffect_Navigator{
           }
         case PowerScript.damage_FlyBuff:
           {
-            Haunting_Ghost? ghost = GhostGetter.getGhostByPower(power, power.game);
-            if(ghost != null){
-              PowerScriptMechanics.flyBuff(power, room.mortalsInRoom, ghost);
-            }
+            DealingDamage.dealDamageToAllMortals(power, room.mortalsInRoom, effect.game);
+            RoomEffectsMechanics.flyBuff(power, room.mortalsInRoom, effect.game);
             break;
           }
         //UNAVAILABLE FOR ROOM (FOR NOW)
         case PowerScript.damage_blockingMovement: break;
         case PowerScript.damage_Spark_ChainEffect: break;
         case PowerScript.damage_Whisperer_Intruder: break;
-
         case PowerScript.damage_Mirror_ExorcistsBuff: break;
         case PowerScript.damage_Mirror_3Powers: break;
-        case PowerScript.damage_FlyBuff: break;
+        case PowerScript.damage_Critical: break;
+        case PowerScript.damage_policeman_Chase: break;
       }
     }
   }

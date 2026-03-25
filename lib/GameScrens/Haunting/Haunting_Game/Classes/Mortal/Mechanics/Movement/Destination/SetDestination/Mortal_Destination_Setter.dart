@@ -44,7 +44,8 @@ class Mortal_Destination_Setter{
       int tileWidth = game.tileWidth;
       int tileHeight = game.tileHeight;
 
-      double mortalSize = tileWidth * 2;
+      // double mortalSize = tileWidth * 2;
+      double mortalSize = tileWidth.toDouble();
       int mortalSizeInTilesX = (mortalSize / tileWidth).toInt();
       int mortalSizeInTilesY = (mortalSize / tileHeight).toInt();
 
@@ -58,7 +59,7 @@ class Mortal_Destination_Setter{
       if (path.isNotEmpty) {
         mortal.path = path.map((p) => gridToWorld(p, tileWidth, tileHeight)).toList();
       } else {
-        print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} - ${DateTime.timestamp()}");
+        print("NIE ZNALEZIONO ŚCIEŻKI dla ${mortal.name} dla lokalizacji ${mortal.currentDestination} - ${DateTime.timestamp()}");
         Mortal_Destination_Setter.clearDestinationPoints(mortal, game);
         // print("Disabling mortal action");
         Mortal_Destination_Setter.setRandomDestination_ByFloor(mortal, game);
@@ -93,13 +94,15 @@ class Mortal_Destination_Setter{
   }
 
   static void setRandomDestination_ByFloor(Haunting_Mortal mortal, Haunting_Game game){
-    Vector2 destination = Mortal_Destination_Getter.getNextDestination(mortal.floor!.mortalActionPoints);
-    forceNextDestination(mortal, game, destination);
+    if(mortal.floor != null) {
+      Vector2 destination = Mortal_Destination_Getter.getNextDestination(mortal.floor!.mortalActionPoints);
+      forceNextDestination(mortal, game, destination);
+    }
   }
 
   static void setFinalDestination(Haunting_Mortal mortal, Haunting_Game game){
     //IF THERE IS A NEED TO CHANGE FLOOR
-    if(mortal.floor != mortal.finalFloor){
+    if(mortal.floor != mortal.finalFloor && mortal.floor != null){
       print("FLOOR MORTALA ${mortal.name} JEST INNE NIŻ FINAL FLOOR!");
 
        var mortalFloorID = mortal.floor!.id; print("mortalFloorID ${mortalFloorID}");

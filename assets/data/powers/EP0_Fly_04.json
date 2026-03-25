@@ -15,7 +15,7 @@
 
   "powerType" : "effectRoom",
   "effectScript" : "damage_FlyBuff",
-  "powerChances" : 100,
+  "powerChances" : 20,
   "powerTime" : 6,
 
   "icon": "EP0_Fly_4",

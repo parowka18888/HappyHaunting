@@ -1,0 +1,33 @@
+{
+  "id":           "EP0_EarthElemental",
+  "name":         "EP0_EarthElemental_Name",
+  "description":  "EP0_EarthElemental_Description",
+
+  "icon" :       "EarthElemental_Icon",
+  "ghostImage" : "EarthElemental",
+  "ghostPanel" : "EarthElemental_Panel",
+  "headCenterPoint": 19,
+
+
+  "mainStat": "faith",
+  "secondaryStats": ["health", "emotions"],
+  "health" : 55,
+  "isUnlocked" : false,
+
+  "tier": "tier1",
+
+  "recruitText":  "EP0_EarthElemental_Recruit",
+  "reserveText":  "EP0_EarthElemental_Reserve",
+  "helpText":     "EP0_EarthElemental_Help",
+  "banishText" :  "EP0_EarthElemental_Banish",
+  "hintText" :    "EP0_EarthElemental_Hint",
+  "freeingText" : "EP0_EarthElemental_Free",
+
+
+  "powers": [
+    "EP0_EarthElemental_01",
+    "EP0_EarthElemental_02",
+    "EP0_EarthElemental_03",
+    "EP0_EarthElemental_04"],
+  "auras": ["Aura_Outside", "Aura_Inside"]
+}

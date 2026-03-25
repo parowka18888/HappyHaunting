@@ -183,4 +183,6 @@ const _$PowerScriptEnumMap = {
   PowerScript.damage_Mirror_ExorcistsBuff: 'damage_Mirror_ExorcistsBuff',
   PowerScript.damage_Mirror_3Powers: 'damage_Mirror_3Powers',
   PowerScript.damage_FlyBuff: 'damage_FlyBuff',
+  PowerScript.damage_Critical: 'damage_Critical',
+  PowerScript.damage_policeman_Chase: 'damage_policeman_Chase',
 };

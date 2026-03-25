@@ -33,7 +33,7 @@ class LoadingGhost{
     var hauntingGhost = Haunting_Ghost(
         name: ghost.name, icon: ghost.icon,powers: powers, auras: ghost.auras,
         id: ghost.id, health_Current: ghost.health, health_Maximum: ghost.health,
-        image: ghost.ghostImage, panelImage: ghost.ghostPanel,
+        image: ghost.ghostImage, panelImage: ghost.ghostPanel, mainStat: ghost.mainStat, secondaryStats: ghost.secondaryStats,
         banishText: ghost.banishText, reserveText: ghost.reserveText, recruitText: ghost.recruitText, hintText: ghost.hintText, helpText: ghost.helpText, freeingText: ghost.freeingText
     )
       ..isPlaced = isPlaced

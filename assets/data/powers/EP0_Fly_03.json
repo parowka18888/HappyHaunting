@@ -13,9 +13,9 @@
   "stat_Impurity": 0,
   "stat_Emotions": 0,
 
-  "powerType" : "effectRoom",
+  "powerType" : "effectMortalRoom",
   "effectScript" : "damage",
-  "powerChances" : 20,
+  "powerChances" : 100,
   "powerTime" : 6,
 
   "icon": "EP0_Fly_3",

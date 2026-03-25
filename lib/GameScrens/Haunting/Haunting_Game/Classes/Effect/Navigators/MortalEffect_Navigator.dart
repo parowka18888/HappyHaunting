@@ -62,11 +62,18 @@ class MortalEffect_Navigator{
           }
           break;
         }
+
+        case PowerScript.damage_policeman_Chase:
+          {
+            DealingDamage.dealInstantDamageToMortal(power, mortal, power.game);
+            MortalEffectMechanics.policeman_Chase(power, mortal, effect);
+          }
         //UNAVAILABLE FOR MORTAL (FOR NOW)
         case PowerScript.damage_fireElementalBuff: break;
         case PowerScript.damage_Moth_Darkness: break;
         case PowerScript.damage_Mirror_3Powers: break;
         case PowerScript.damage_FlyBuff: break;
+        case PowerScript.damage_Critical: break;
       }
     }
   }
